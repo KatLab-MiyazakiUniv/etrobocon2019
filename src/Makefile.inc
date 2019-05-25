@@ -1,8 +1,7 @@
 mkfile_path := $(dir $(lastword $(MAKEFILE_LIST)))
 
-APPL_COBJS +=
-
-APPL_CXXOBJS += 
+APPL_CXXOBJS += \
+    Controller.o
 
 SRCLANG := c++
 
@@ -13,6 +12,7 @@ include $(EV3RT_SDK_LIB_DIR)/libcpp-ev3/Makefile
 
 endif
 
-APPL_DIR += $(mkfile_path)app $(mkfile_path)unit
+APPL_DIR += $(mkfile_path)api
+INCLUDES += -I$(mkfile_path)api
 
 # COPTS += -fno-use-cxa-atexit
