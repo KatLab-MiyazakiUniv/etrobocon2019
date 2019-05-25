@@ -7,7 +7,6 @@
 #include "ColorSensor.h"
 #include "Motor.h"
 #include "TouchSensor.h"
-#include <stdarg.h>
 
 /*
  * touch_sensor = EV3_PORT_1;
@@ -34,8 +33,8 @@ class Controller {
       tailMotor(PORT_D)
   {
   }
-  uint16_t noteFs6 = NOTE_FS6;
-  uint16_t noteFs4 = NOTE_FS4;
+  int noteFs6 = NOTE_FS6;
+  int noteFs4 = NOTE_FS4;
   TouchSensor touchSensor;
   ColorSensor colorSensor;
   Motor liftMotor;
@@ -43,11 +42,11 @@ class Controller {
   Motor leftWheel;
   Motor tailMotor;
   Clock clock;
-  void speakerSetVolume(uint8_t volume);
+  void speakerSetVolume(int volume);
   void ledSetColorOrange();
   void ledSetColorGreen();
-  int16_t getBrightness();
-  static void speakerPlayTone(uint16_t frequency, int32_t duration);
+  int getBrightness();
+  static void speakerPlayTone(int frequency, int duration);
   bool buttonIsPressedBack();
   bool buttonIsPressedUp();
   bool buttonIsPressedDown();
@@ -55,9 +54,11 @@ class Controller {
   bool buttonIsPressedLeft();
   bool buttonIsPressedEnter();
   static float measureBatteryVoltage();
-  static void tslpTsk(int16_t time);  // 4msec周期起動
-  static void printDisplay(int8_t row, const char* format, ...);
-  void getRawColor(uint16_t& r, uint16_t& g, uint16_t& b);
+  static void tslpTsk(int time);  // 4msec周期起動
+  void getRawColor(int& r, int& g, int& b);
+  static void lcdFillRect(int x, int y, int h);
+  static void lcdDrawString(const char* str, int x, int y);
+  static void lcdSetFont();
 
  private:
   rgb_raw_t rgb;

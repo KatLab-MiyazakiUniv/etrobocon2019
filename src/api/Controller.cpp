@@ -1,12 +1,12 @@
 
 #include "Controller.h"
 
-void Controller::speakerSetVolume(uint8_t volume)
+void Controller::speakerSetVolume(int volume)
 {
   ev3_speaker_set_volume(volume);
 }
 
-void Controller::speakerPlayTone(uint16_t frequency, int32_t duration)
+void Controller::speakerPlayTone(int frequency, int duration)
 {
   ev3_speaker_play_tone(frequency, duration);
 }
@@ -56,14 +56,14 @@ float Controller::measureBatteryVoltage()
   return ev3_battery_voltage_mV();
 }
 
-int16_t Controller::getBrightness()
+int Controller::getBrightness()
 {
   colorSensor.getRawColor(rgb);
-  int16_t luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;
+  int luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;
   return luminance;
 }
 
-void Controller::getRawColor(uint16_t& r, uint16_t& g, uint16_t& b)
+void Controller::getRawColor(int& r, int& g, int& b)
 {
   colorSensor.getRawColor(rgb);
   r = rgb.r;
@@ -71,21 +71,19 @@ void Controller::getRawColor(uint16_t& r, uint16_t& g, uint16_t& b)
   b = rgb.b;
 }
 
-void Controller::tslpTsk(int16_t time)
+void Controller::tslpTsk(int time)
 {
   tslp_tsk(time);
 }
 
-void Controller::printDisplay(int8_t row, const char* format, ...)
-{
-  va_list arg;
-char msg[32];
+void Controller::lcdFillRect(int x, int y, int h){
+      ev3_lcd_fill_rect(x, y, EV3_LCD_WIDTH, h, EV3_LCD_WHITE);
+}
 
-  va_start(arg, format);
-  vsprintf(msg, format, arg);
-  va_end(arg);
+void Controller::lcdDrawString(const char *str, int x, int y){
+      ev3_lcd_draw_string(str, x, y);
+}
 
-  const int8_t line_height = 10;
-  ev3_lcd_fill_rect(0, row * line_height, EV3_LCD_WIDTH, line_height, EV3_LCD_WHITE);
-  ev3_lcd_draw_string(msg, 0, row * line_height);
+void Controller::lcdSetFont(){
+    ev3_lcd_set_font(EV3_FONT_MEDIUM);
 }

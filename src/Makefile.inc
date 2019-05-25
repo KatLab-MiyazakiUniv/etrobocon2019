@@ -1,7 +1,8 @@
 mkfile_path := $(dir $(lastword $(MAKEFILE_LIST)))
 
 APPL_CXXOBJS += \
-    Controller.o
+    Controller.o \
+    Display.o
 
 SRCLANG := c++
 
