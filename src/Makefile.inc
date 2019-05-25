@@ -15,11 +15,9 @@ include $(EV3RT_SDK_LIB_DIR)/libcpp-ev3/Makefile
 endif
 
 APPL_DIR += \
-    $(mkfile_path)api \
-    $(mkfile_path)procedure
+    $(mkfile_path)api 
 
 INCLUDES += \
-    -I$(mkfile_path)api \
-    -I$(mkfile_path)procedure
+    -I$(mkfile_path)api 
 
 # COPTS += -fno-use-cxa-atexit
