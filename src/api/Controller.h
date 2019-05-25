@@ -40,6 +40,7 @@ class Controller {
   Motor leftWheel;
   Motor tailMotor;
   Clock clock;
+  static constexpr int MOTOR_PWM_MAX = 100;
   void speakerSetVolume(int volume);
   void ledSetColorOrange();
   void ledSetColorGreen();
