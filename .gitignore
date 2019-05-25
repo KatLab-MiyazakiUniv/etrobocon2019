@@ -3,3 +3,6 @@ et2019
 
 #vscode関係
 .vscode/
+
+#C++
+*.o
