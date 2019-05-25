@@ -1,89 +1,65 @@
 
 #include "Controller.h"
 
-void Controller::speakerSetVolume(int volume)
-{
+void Controller::speakerSetVolume(int volume) {
   ev3_speaker_set_volume(volume);
 }
 
-void Controller::speakerPlayTone(int frequency, int duration)
-{
+void Controller::speakerPlayTone(int frequency, int duration) {
   ev3_speaker_play_tone(frequency, duration);
 }
 
-void Controller::ledSetColorOrange()
-{
-  ev3_led_set_color(LED_ORANGE);
-}
+void Controller::ledSetColorOrange() { ev3_led_set_color(LED_ORANGE); }
 
-void Controller::ledSetColorGreen()
-{
-  ev3_led_set_color(LED_GREEN);
-}
+void Controller::ledSetColorGreen() { ev3_led_set_color(LED_GREEN); }
 
-bool Controller::buttonIsPressedBack()
-{
+bool Controller::buttonIsPressedBack() {
   return ev3_button_is_pressed(BACK_BUTTON);
 }
 
-bool Controller::buttonIsPressedEnter()
-{
+bool Controller::buttonIsPressedEnter() {
   return ev3_button_is_pressed(ENTER_BUTTON);
 }
 
-bool Controller::buttonIsPressedUp()
-{
+bool Controller::buttonIsPressedUp() {
   return ev3_button_is_pressed(UP_BUTTON);
 }
 
-bool Controller::buttonIsPressedDown()
-{
+bool Controller::buttonIsPressedDown() {
   return ev3_button_is_pressed(DOWN_BUTTON);
 }
 
-bool Controller::buttonIsPressedRight()
-{
+bool Controller::buttonIsPressedRight() {
   return ev3_button_is_pressed(RIGHT_BUTTON);
 }
 
-bool Controller::buttonIsPressedLeft()
-{
+bool Controller::buttonIsPressedLeft() {
   return ev3_button_is_pressed(LEFT_BUTTON);
 }
 
-float Controller::measureBatteryVoltage()
-{
-  return ev3_battery_voltage_mV();
-}
+float Controller::measureBatteryVoltage() { return ev3_battery_voltage_mV(); }
 
-int Controller::getBrightness()
-{
+int Controller::getBrightness() {
   colorSensor.getRawColor(rgb);
   int luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;
   return luminance;
 }
 
-void Controller::getRawColor(int& r, int& g, int& b)
-{
+void Controller::getRawColor(int& r, int& g, int& b) {
   colorSensor.getRawColor(rgb);
   r = rgb.r;
   g = rgb.g;
   b = rgb.b;
 }
 
-void Controller::tslpTsk(int time)
-{
-  tslp_tsk(time);
+void Controller::tslpTsk(int time) { tslp_tsk(time); }
+
+void Controller::lcdFillRect(int x, int y, int h) {
+  ev3_lcd_fill_rect(x, y, EV3_LCD_WIDTH, h, EV3_LCD_WHITE);
 }
 
-void Controller::lcdFillRect(int x, int y, int h){
-      ev3_lcd_fill_rect(x, y, EV3_LCD_WIDTH, h, EV3_LCD_WHITE);
+void Controller::lcdDrawString(const char* str, int x, int y) {
+  ev3_lcd_draw_string(str, x, y);
 }
 
-void Controller::lcdDrawString(const char *str, int x, int y){
-      ev3_lcd_draw_string(str, x, y);
-}
-
-void Controller::lcdSetFont(){
-    ev3_lcd_set_font(EV3_FONT_MEDIUM);
-}
+void Controller::lcdSetFont() { ev3_lcd_set_font(EV3_FONT_MEDIUM); }

@@ -25,14 +25,12 @@ using namespace ev3api;
 class Controller {
  public:
   Controller()
-    : touchSensor(PORT_1),
-      colorSensor(PORT_3),
-      liftMotor(PORT_A),
-      rightWheel(PORT_B),
-      leftWheel(PORT_C),
-      tailMotor(PORT_D)
-  {
-  }
+      : touchSensor(PORT_1),
+        colorSensor(PORT_3),
+        liftMotor(PORT_A),
+        rightWheel(PORT_B),
+        leftWheel(PORT_C),
+        tailMotor(PORT_D) {}
   int noteFs6 = NOTE_FS6;
   int noteFs4 = NOTE_FS4;
   TouchSensor touchSensor;
