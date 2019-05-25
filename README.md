@@ -15,13 +15,13 @@ et2019
 
 ## DEVELOP
 
-### Where the source directory.
+### Where is the source directory.
 
 It is `src`.
 
 ### How to add module.
 
-If add `Example class`, append object name to `Makefile.inc`.
+If add `Example class`, append object name to `src/Makefile.inc`.
 
 #### before
 
