@@ -25,8 +25,6 @@ using namespace ev3api;
 class Controller {
  public:
   Controller();
-  int noteFs6 = NOTE_FS6;
-  int noteFs4 = NOTE_FS4;
   TouchSensor touchSensor;
   ColorSensor colorSensor;
   Motor liftMotor;
@@ -39,7 +37,7 @@ class Controller {
   void ledSetColorOrange();
   void ledSetColorGreen();
   int getBrightness();
-  static void speakerPlayTone(int frequency, int duration);
+  static void speakerPlayToneFS6(int duration);
   bool buttonIsPressedBack();
   bool buttonIsPressedUp();
   bool buttonIsPressedDown();

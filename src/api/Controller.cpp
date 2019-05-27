@@ -13,8 +13,8 @@ void Controller::speakerSetVolume(int volume) {
   ev3_speaker_set_volume(volume);
 }
 
-void Controller::speakerPlayTone(int frequency, int duration) {
-  ev3_speaker_play_tone(frequency, duration);
+void Controller::speakerPlayToneFS6(int duration) {
+  ev3_speaker_play_tone(NOTE_FS6, duration);
 }
 
 void Controller::ledSetColorOrange() { ev3_led_set_color(LED_ORANGE); }
