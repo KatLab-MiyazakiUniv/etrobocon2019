@@ -46,7 +46,7 @@ class Controller {
   bool buttonIsPressedRight();
   bool buttonIsPressedLeft();
   bool buttonIsPressedEnter();
-  static float measureBatteryVoltage();
+  static float getBatteryVoltage();
   static void tslpTsk(int time);  // 4msec周期起動
   void getRawColor(int& r, int& g, int& b);
   static void lcdFillRect(int x, int y, int h);

@@ -45,7 +45,7 @@ bool Controller::buttonIsPressedLeft() {
   return ev3_button_is_pressed(LEFT_BUTTON);
 }
 
-float Controller::measureBatteryVoltage() { return ev3_battery_voltage_mV(); }
+float Controller::getBatteryVoltage() { return ev3_battery_voltage_mV(); }
 
 int Controller::getBrightness() {
   colorSensor.getRawColor(rgb);
