@@ -33,6 +33,8 @@ class Controller {
   Motor tailMotor;
   Clock clock;
   static constexpr int MOTOR_PWM_MAX = 100;
+  static constexpr int MOTOR_PWM_MIN = -100;
+
   void speakerSetVolume(int volume);
   void ledSetColorOrange();
   void ledSetColorGreen();
