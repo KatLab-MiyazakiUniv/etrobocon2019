@@ -1,5 +1,5 @@
-#ifndef __DISPLAY__
-#define __DISPLAY__
+#ifndef DISPLAY_H
+#define DISPLAY_H
 
 #include "Controller.h"
 

@@ -1,5 +1,5 @@
-#ifndef __CONTROLLER__
-#define __CONTROLLER__
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 
 #include "ev3api.h"
 

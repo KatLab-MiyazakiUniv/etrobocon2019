@@ -1,5 +1,5 @@
-#ifndef __ETROBOCON2019__
-#define __ETROBOCON2019__
+#ifndef ETROBOCON2019_H
+#define ETROBOCON2019_H
 
 class EtRobocon2019 {
  public:
