@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "defines": [],
+            "macFrameworkPath": [],
+            "compilerPath": "/usr/local/bin/gcc",
+            "cStandard": "c11",
+            "intelliSenseMode": "clang-x64",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/ev3-api/src/**",
+                "${workspaceFolder}/ev3-api/library/libcpp-ev3/**"
+            ]
+        }
+    ],
+    "version": 4
+}
