@@ -8,9 +8,9 @@ void Display::print(int row, const char* format, ...) {
   vsprintf(msg, format, arg);
   va_end(arg);
 
-  const int line_height = 10;
-  Controller::lcdFillRect(0, row * line_height, line_height);
-  Controller::lcdDrawString(msg, 0, row * line_height);
+  const int lineHeight = 10;
+  Controller::lcdFillRect(0, row * lineHeight, lineHeight);
+  Controller::lcdDrawString(msg, 0, row * lineHeight);
 }
 
 // 初期処理用
