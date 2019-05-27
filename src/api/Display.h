@@ -1,6 +1,7 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
+#include <stdarg.h>
 #include "Controller.h"
 
 class Display {

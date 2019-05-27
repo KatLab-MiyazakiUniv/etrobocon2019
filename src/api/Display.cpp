@@ -1,5 +1,4 @@
 #include "Display.h"
-#include <stdarg.h>
 
 void Display::print(int row, const char* format, ...) {
   va_list arg;
