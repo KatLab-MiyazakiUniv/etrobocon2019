@@ -9,12 +9,9 @@ void Display::print(int row, const char* format, ...) {
   va_end(arg);
 
   const int lineHeight = 10;
+  // フォントの設定
+  Controller::lcdSetFont();
+
   Controller::lcdFillRect(0, row * lineHeight, lineHeight);
   Controller::lcdDrawString(msg, 0, row * lineHeight);
-}
-
-// 初期処理用
-void Display::init() {
-  // フォントの設定と0行目の表示
-  Controller::lcdSetFont();
 }

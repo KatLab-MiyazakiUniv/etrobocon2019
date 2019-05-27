@@ -7,7 +7,6 @@
 class Display {
  public:
   static void print(int row, const char* format, ...);
-  static void init();
 
  private:
 };

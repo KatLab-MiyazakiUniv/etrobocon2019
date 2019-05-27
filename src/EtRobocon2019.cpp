@@ -7,7 +7,6 @@ void EtRobocon2019::start() {
   const int pwm = (Controller::MOTOR_PWM_MAX) / 6;
   const int duration = 2000;
 
-  Display::init();
   while (1) {
     Display::print(1, "Forwarding...");
     controller.leftWheel.setPWM(pwm);
