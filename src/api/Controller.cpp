@@ -7,7 +7,9 @@ Controller::Controller()
       liftMotor(PORT_A),
       rightWheel(PORT_B),
       leftWheel(PORT_C),
-      tailMotor(PORT_D) {}
+      tailMotor(PORT_D) {
+  colorSensor.getRawColor(rgb);
+}
 
 void Controller::speakerSetVolume(int volume) {
   ev3_speaker_set_volume(volume);
