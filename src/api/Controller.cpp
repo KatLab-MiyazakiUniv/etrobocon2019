@@ -1,6 +1,14 @@
 
 #include "Controller.h"
 
+Controller::Controller()
+    : touchSensor(PORT_1),
+      colorSensor(PORT_3),
+      liftMotor(PORT_A),
+      rightWheel(PORT_B),
+      leftWheel(PORT_C),
+      tailMotor(PORT_D) {}
+
 void Controller::speakerSetVolume(int volume) {
   ev3_speaker_set_volume(volume);
 }
