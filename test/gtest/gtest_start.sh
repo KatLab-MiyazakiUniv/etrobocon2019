@@ -13,3 +13,4 @@ cmake --build .
 
 export GTEST_COLOR=1
 ctest -VV
+#make test_coverage
