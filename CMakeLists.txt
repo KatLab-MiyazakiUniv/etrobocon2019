@@ -21,18 +21,21 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     add_definitions(-Wall -ansi -Wno-deprecated -pthread -std=c++11)
 endif()
 
+
 #-------------------
 # Module source
 #-------------------
 set(PROJECT_LIB_NAME ${PROJECT_NAME_STR}_impl)
-set(SOURCE_DIR ${PROJECT_SOURCE_DIR}/src/)
-set(API_DIR ${PROJECT_SOURCE_DIR}/src/api/)
+set(SOURCE_DIR ${PROJECT_SOURCE_DIR}/src/module/)
+set(API_DIR ${PROJECT_SOURCE_DIR}/src/module/api/)
+include_directories(${SOURCE_DIR})
+include_directories(${API_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/test/dummy/)
 
 file(GLOB SRC_FILES 
     ${SOURCE_DIR}/*.cpp
-    ${SOURCE_DIR}/*.h
-    ${API_DIR}/*.cpp
-    ${API_DIR}/*.h
+    ${API_DIR}/Display.cpp
+    ${PROJECT_SOURCE_DIR}/str/apps/test/dummy/Contoroller.cpp
     )
 add_library(${PROJECT_LIB_NAME} ${SRC_FILES})
 
@@ -46,9 +49,10 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/test/gtest)
 #-------------------
 enable_testing()
 set(PROJECT_TEST_NAME ${PROJECT_NAME_STR}_test)
-include_directories(${GTEST_INCLUDE_DIRS} ${COMMON_INCLUDES})
+include_directories(${GTEST_INCLUDE_DIRS} ${SOURCE_DIR})
+include_directories(${GTEST_INCLUDE_DIRS} ${API_DIR})
 
-file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/str/apps/test/*.cpp)
+file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES} ${SRC_FILES})
 add_dependencies(${PROJECT_TEST_NAME} googletest)
 
@@ -62,7 +66,7 @@ target_link_libraries(${PROJECT_TEST_NAME} ${CMAKE_THREAD_LIBS_INIT})
 
 add_test(test1 ${PROJECT_TEST_NAME})
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
     include(CodeCoverage)
