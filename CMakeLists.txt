@@ -42,27 +42,22 @@ add_library(${PROJECT_LIB_NAME} ${SRC_FILES})
 #-------------------
 # set common include folder for module
 #-------------------
-add_subdirectory(${PROJECT_SOURCE_DIR}/test/gtest)
 
 #-------------------
 # Test
 #-------------------
 enable_testing()
+find_package(GTest REQUIRED)
+
 set(PROJECT_TEST_NAME ${PROJECT_NAME_STR}_test)
 include_directories(${GTEST_INCLUDE_DIRS} ${SOURCE_DIR})
 include_directories(${GTEST_INCLUDE_DIRS} ${API_DIR})
 
 file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES} ${SRC_FILES})
-add_dependencies(${PROJECT_TEST_NAME} googletest)
+#add_dependencies(${PROJECT_TEST_NAME} googletest)
 
-
-target_link_libraries(${PROJECT_TEST_NAME}
-    ${GTEST_LIBS_DIR}/libgtest.a
-    ${GTEST_LIBS_DIR}/libgtest_main.a
-    )
-
-target_link_libraries(${PROJECT_TEST_NAME} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(${PROJECT_TEST_NAME} GTest::GTest GTest::Main ${CMAKE_THREAD_LIBS_INIT})
 
 add_test(test1 ${PROJECT_TEST_NAME})
 
