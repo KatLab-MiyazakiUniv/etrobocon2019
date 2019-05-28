@@ -43,7 +43,10 @@ class Controller {
   Motor liftMotor;
   TouchSensor touchSensor;
   ColorSensor colorSensor;
+
+  // モータ入力電圧の最大値
   static constexpr int MOTOR_PWM_MAX = 100;
+  // モータ入力電圧の最小値
   static constexpr int MOTOR_PWM_MIN = -100;
 
   int noteFs6 = 0;
