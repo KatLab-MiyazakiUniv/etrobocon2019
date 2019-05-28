@@ -30,5 +30,4 @@ coverage:
         if_ci_failed: error
         
   ignore:
-    - "str/apps/test/*"
-    - "str/apps/include/*"
+    - "/test/*"
