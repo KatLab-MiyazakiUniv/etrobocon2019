@@ -22,6 +22,5 @@ namespace etrobocon2018_test {
 
   TEST_F(EtRobocon2019Test, startTest)
   {
-    et.start();
   }
 }  // namespace etrobocon2018_test

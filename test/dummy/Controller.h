@@ -45,7 +45,7 @@ class Controller {
   ColorSensor colorSensor;
   static constexpr int MOTOR_PWM_MAX = 100;
   static constexpr int MOTOR_PWM_MIN = -100;
-  
+
   int noteFs6 = 0;
   int noteFs4 = 0;
   Controller() { mock_r = mock_g = mock_b = 0; }
@@ -101,5 +101,8 @@ class Controller {
     mock_g = g;
     mock_b = b;
   }
+  static void lcdSetFont(){}
+  static void lcdFillRect(int, int, int){}
+  static void lcdDrawString(char*, int, int){}
 };
 #endif
