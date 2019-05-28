@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: korosuke613/etrobo-docker
+    working_directory: /home/hrp2/sdk/workspace/product
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: build
+          command: |
+            make_src
+      - run:
+          name: gtest
+          command: |
+            ./test/gtest/gtest_coverage.sh
+            pip install --user codecov
+            codecov -t $CODECOV_TOKEN
