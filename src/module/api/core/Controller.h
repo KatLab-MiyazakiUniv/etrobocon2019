@@ -32,7 +32,9 @@ class Controller {
   Motor leftWheel;
   Motor tailMotor;
   Clock clock;
+  // モータ入力電圧の最大値
   static constexpr int MOTOR_PWM_MAX = 100;
+  // モータ入力電圧の最小値
   static constexpr int MOTOR_PWM_MIN = -100;
 
   void speakerSetVolume(int volume);
