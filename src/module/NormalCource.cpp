@@ -1,5 +1,5 @@
 /**
- *  @file   NormalCource.h
+ *  @file   NormalCource.cpp
  *  @brief  NormalCourceを走る
  *  @author Tatsumi Nishida
  */
