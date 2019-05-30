@@ -17,7 +17,8 @@ et2019
 ```
 
 ## DEVELOP
-### Where is source code directory?
+### Where should you add your source files?
+
 ```
 /              // Working directory.
 |
@@ -56,23 +57,21 @@ APPL_CXXOBJS += \
     Example.o
 ```
 
-### What is add test cases?
+### How to add test cases.
 If you add/modify source code, you should add test cases.
 
-
-#### rule
-1. Add Test after the class name.
-2. Put test code to `/test`.
+1. Create a file named (class name) + "Test".
+2. Put the test file to '/test'.
 
 #### for example
-Added Example class.
+Create source codes that implement Example class.
 (`/src/Example.cpp`, `/src/Example.h`)
 
-Create test cases for Example class.
+Create a test file for Example class.
 (`ExampleTest.cpp`)
 
-Add `ExampleTest.cpp` to `/test`.
+Put `ExampleTest.cpp` to `/test`.
 
-#### testing
+#### Execute test cases.
 Do `./gtest_all.sh`.
 
