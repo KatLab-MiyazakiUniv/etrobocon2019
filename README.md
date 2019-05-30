@@ -30,7 +30,7 @@ et2019
 |-test         // Add test codes.
 ```
 
-Normaly, please put to `/src/module`.
+Normaly, please put source code to `/src/module`.
 
 
 ### Where is coding conventions?
