@@ -41,7 +41,7 @@ https://www.dropbox.com/sh/6u2tp0cw92aotq6/AADatBCUPQ87mDIAYwCnJrZKa/%E3%82%B3%E
 
 It is `src`.
 
-### What is how to add module?
+### How to add module.
 
 If add `Example class`, append object name to `src/Makefile.inc`.
 
