@@ -61,7 +61,7 @@ APPL_CXXOBJS += \
 If you add/modify source code, you should add test cases.
 
 1. Create a file named (class name) + "Test".
-2. Put the test file to '/test'.
+2. Put the test file to `/test`.
 
 #### for example
 Create source codes that implement Example class.
