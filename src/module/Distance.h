@@ -11,8 +11,8 @@
 class Distance{
  public:
   Distance();
-  int32_t getAngle(Motor& wheel);
-  double getDistance(Motor& wheel);
+  int32_t getAngle(Motor wheel);
+  double getDistance(Motor wheel);
 
  private:
   const int radius;  //タイヤの半径[cm]
