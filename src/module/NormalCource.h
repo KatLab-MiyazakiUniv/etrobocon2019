@@ -17,19 +17,19 @@ private:
   bool selected_edge;
 public:
   //! コンストラクタ
-  NormalCource(Edge selected_edge_) : current_moved_distance(0)
+  NormalCource(Edge& selected_edge_) : current_moved_distance(0)
   {
     NormalCource::selectedEdgeLR(selected_edge_);
   }
 
 /**
- * Lコース，Rコースのエッジを切り替える．
+ * 左エッジ，右エッジを切り替える．
  * @param Edge::LEFT or, Edge::RIGHT
  */
-void selectedEdgeLR(Edge selected_edge_ = Edge::LEFT); 
+void selectedEdgeLR(Edge& selected_edge_);
 
 /**
- * 引数として受け取った距離だけ進む．
+ * 引数として受け取った距離だけライントレースする．
  * @param 進みたい距離．単位はmm
  */
 void  lineTraceForSpecifiedDistance(int specified_distance);
