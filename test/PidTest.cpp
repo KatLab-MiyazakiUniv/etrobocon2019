@@ -40,15 +40,33 @@ namespace etrobocon2019_test {
   TEST(Pid, pidControl)
   {
     // PID制御を行なうオブジェクトの作成
-    Pid pid(80, 0.6, 0.05, 0.04);
+    Pid pid(80, 0.6, 0.05, 0.004);
     float sensor = 60;
     float error = 80 - 60;
 
     float p = error * 0.6;
     float i = error * 0.004 * 0.05;
-    float d = error / 0.004 * 0.04;
+    float d = error / 0.004 * 0.004;
     float expected = p + i + d;
 
     ASSERT_FLOAT_EQ(expected, pid.control(sensor));
+  }
+
+  TEST(Pid, limit_over)
+  {
+    Pid pid(80, 0.6);
+    ASSERT_FLOAT_EQ(100.0, pid.limit(120.3));
+  }
+
+  TEST(Pid, limit_below)
+  {
+    Pid pid(80, 0.6);
+    ASSERT_FLOAT_EQ(-100.0, pid.limit(-120.3));
+  }
+
+  TEST(Pid, limit_inner)
+  {
+    Pid pid(80, 0.6);
+    ASSERT_FLOAT_EQ(12.3, pid.limit(12.3));
   }
 }  // namespace etrobocon2019_test

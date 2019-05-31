@@ -25,6 +25,7 @@ class Pid {
  public:
   Pid(float target, float Kp, float Ki = 0.0f, float Kd = 0.0f);
   float control(float value, float delta = 0.004);
+  float limit(float value);
 };
 
 #endif
