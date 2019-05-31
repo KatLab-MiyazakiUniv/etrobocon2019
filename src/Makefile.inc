@@ -4,12 +4,8 @@ APPL_CXXOBJS += \
     Controller.o \
     Display.o \
     EtRobocon2019.o \
-<<<<<<< HEAD
     Filter.o \
     Distance.o
-=======
-    Filter.o
->>>>>>> upstream/master
 
 SRCLANG := c++
 
