@@ -19,11 +19,12 @@ class Pid {
  private:
   float target_;
   PidGain gain_;
-  float preError_;
   float integral_;
+  float preError_;
 
  public:
   Pid(float target, float Kp, float Ki = 0.0f, float Kd = 0.0f);
+  float control(float value, float delta = 0.004);
 };
 
 #endif
