@@ -11,7 +11,7 @@
 class Distance{
  public:
   Distance();
-  double getDistance(int angle);
+  double getDistance(Controller& controller);
 
  private:
   const int radius;  //タイヤの半径[mm]
