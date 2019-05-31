@@ -36,4 +36,19 @@ namespace etrobocon2019_test {
     float expected = (80 - sensor) * 0.6 + (80 - sensor) * 0.05 * 0.004;
     ASSERT_FLOAT_EQ(expected, pi.control(sensor));
   }
+
+  TEST(Pid, pidControl)
+  {
+    // PID制御を行なうオブジェクトの作成
+    Pid pid(80, 0.6, 0.05, 0.04);
+    float sensor = 60;
+    float error = 80 - 60;
+
+    float p = error * 0.6;
+    float i = error * 0.004 * 0.05;
+    float d = error / 0.004 * 0.04;
+    float expected = p + i + d;
+
+    ASSERT_FLOAT_EQ(expected, pid.control(sensor));
+  }
 }  // namespace etrobocon2019_test
