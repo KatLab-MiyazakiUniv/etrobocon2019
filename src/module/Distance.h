@@ -11,13 +11,10 @@
 class Distance{
  public:
   Distance();
-  int32_t getAngle(Motor wheel);
-  double getDistance(Motor wheel);
+  double getDistance(int angle);
 
  private:
-  const int radius;  //タイヤの半径[cm]
-  int32_t currentAngle;
-  int32_t preAngle;
+  const int radius;  //タイヤの半径[mm]
 };
 
 #endif
