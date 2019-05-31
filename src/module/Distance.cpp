@@ -13,7 +13,7 @@ Distance::Distance()
 /**
  * @brief タイヤの回転角度を取得する
  * @param wheel [タイヤのオブジェクト]
- * @return モータの角位置（単位は度），マイナスの値は逆方向に回転されたことを指す
+ * @return モータの前回と現在の角位置の差（単位は度）、マイナスの値は逆方向に回転されたことを指す
  */
 int32_t Distance::getAngle(Motor wheel){
   preAngle = currentAngle;
