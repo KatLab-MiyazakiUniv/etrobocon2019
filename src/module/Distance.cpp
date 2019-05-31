@@ -1,32 +1,33 @@
+/**
+ *  @file   Distance.cpp
+ *  @brief  走行距離を計算するクラス
+ *  @author Oiwane
+ **/
 #define _USE_MATH_DEFINES
-#include "EtRobocon2019.h"
-#include "Controller.h"
 #include "Distance.h"
 #include <cmath>
 
 Distance::Distance()
-    : radius(5), current_angle(0), pre_angle(0) {
-}
+    : radius(5), currentAngle(0), preAngle(0) {}
 
 /**
- * タイヤの回転角度を取得する
- * 
+ * @brief タイヤの回転角度を取得する
  * @param タイヤのポート番号
  * @return モータの角位置（単位は度），マイナスの値は逆方向に回転されたことを指す
  */
-int32_t Distance::getAngle(motor_port_t wheelPort){
-  pre_angle = current_angle;
-  current_angle = ev3_motor_get_counts(wheelPort);
+int32_t Distance::getAngle(Motor& wheel){
+  preAngle = currentAngle;
+  currentAngle = wheel.getCount();
 
-  return current_angle - pre_angle;
+  return currentAngle - preAngle;
 }
 
 /**
- * 走行距離を計算して戻り値として返す
- * 
+ * @brief 走行距離を計算して戻り値として返す
  * @param タイヤのポート番号
  * @return 走行距離
  */
-double Distance::getDistance(motor_port_t wheelPort){
-  return 2.0 * M_PI * radius * getAngle(wheelPort) / 360.0;
+double Distance::getDistance(Motor& wheel){
+  double angle = static_cast<double>(getAngle(wheel));
+  return 2.0 * M_PI * radius * angle / 360.0;
 }
