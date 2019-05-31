@@ -11,17 +11,20 @@ enum struct Edge {LEFT, RIGHT};
 class NormalCource
 {
 private:
-  //! 現在進んだ距離．単位はmm 
+  //! 現在進んだ距離．単位はmm
   int current_moved_distance;
-  //! エッジがどっちか．デフォルトでは，左エッジ（false） 
+  //! エッジがどっちか． falseが左エッジ，trueが右エッジ
   bool selected_edge;
 public:
   //! コンストラクタ
-  NormalCource() : current_moved_distance(0), selected_edge(false) {}
+  NormalCource(Edge selected_edge_) : current_moved_distance(0)
+  {
+    NormalCource::selectedEdgeLR(selected_edge_);
+  }
 
 /**
  * Lコース，Rコースのエッジを切り替える．
- * @param Edge
+ * @param Edge::LEFT or, Edge::RIGHT
  */
 void selectedEdgeLR(Edge selected_edge_ = Edge::LEFT); 
 
