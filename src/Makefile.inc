@@ -4,7 +4,8 @@ APPL_CXXOBJS += \
     Controller.o \
     Display.o \
     EtRobocon2019.o \
-    NormalCource.o
+    NormalCource.o \
+    Filter.o
 
 SRCLANG := c++
 
