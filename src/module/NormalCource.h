@@ -12,27 +12,27 @@ class NormalCource
 {
 private:
   //! 現在進んだ距離．単位はmm
-  int current_moved_distance;
+  int currentMovedDistance;
   //! エッジがどっちか． falseが左エッジ，trueが右エッジ
-  bool selected_edge;
+  bool selectedEdge;
 public:
   //! コンストラクタ
-  NormalCource(Edge& selected_edge_) : current_moved_distance(0)
+  NormalCource(Edge& selectedEdge_) : currentMovedDistance(0)
   {
-    NormalCource::selectedEdgeLR(selected_edge_);
+    NormalCource::selectedEdgeLR(selectedEdge_);
   }
 
 /**
  * 左エッジ，右エッジを切り替える．
  * @param Edge::LEFT or, Edge::RIGHT
  */
-void selectedEdgeLR(Edge& selected_edge_);
+void selectedEdgeLR(Edge& selectedEdge_);
 
 /**
  * 引数として受け取った距離だけライントレースする．
  * @param 進みたい距離．単位はmm
  */
-void  lineTraceForSpecifiedDistance(int specified_distance);
+void  lineTraceForSpecifiedDistance(int specifiedDistance);
 };
 
 #endif

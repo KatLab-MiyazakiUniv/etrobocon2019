@@ -5,14 +5,14 @@
  */
 #include "NormalCource.h"
 
-void NormalCource::selectedEdgeLR(Edge& selected_edge_) {
-  if (selected_edge_ == Edge::LEFT) {
-    selected_edge = false;
+void NormalCource::selectedEdgeLR(Edge& selectedEdge_) {
+  if (selectedEdge_ == Edge::LEFT) {
+    selectedEdge = false;
   } else {
-    selected_edge = true;
+    selectedEdge = true;
   }
 }
 
-void NormalCource::lineTraceForSpecifiedDistance(int specified_distance) {
+void NormalCource::lineTraceForSpecifiedDistance(int specifiedDistance) {
   
 }
