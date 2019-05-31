@@ -12,7 +12,7 @@ Distance::Distance()
 
 /**
  * @brief 走行距離を計算して戻り値として返す
- * @param controller[controllerオブジェクトの参照]
+ * @param controller[Controllerオブジェクトの参照]
  * @return 走行距離
  */
 double Distance::getDistance(Controller& controller){
