@@ -15,11 +15,9 @@ Distance::Distance()
  * @param controller[Controllerオブジェクトの参照]
  * @return 走行距離
  */
-double Distance::getDistance(Controller& controller){
+double Distance::getDistance(int leftAngle, int rightAngle){
   // 左タイヤと右タイヤの角位置の平均を求める
-  int left = controller.leftWheel.getCount();
-  int right = controller.rightWheel.getCount();
-  double angle = static_cast<double>(left + right) / 2.0;
+  double angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
 
   return 2.0 * M_PI * radius * angle / 360.0;
 }
