@@ -1,5 +1,5 @@
 # etrobocon2019
-Presented by [KatLab](earth.cs.miyazaki-u.ac.jp).
+Presented by [KatLab](http://earth.cs.miyazaki-u.ac.jp).
 
 [![CircleCI](https://circleci.com/gh/KatLab-MiyazakiUniv/etrobocon2019/tree/master.svg?style=svg)](https://circleci.com/gh/KatLab-MiyazakiUniv/etrobocon2019/tree/master) [![codecov](https://codecov.io/gh/KatLab-MiyazakiUniv/etrobocon2019/branch/master/graph/badge.svg)](https://codecov.io/gh/KatLab-MiyazakiUniv/etrobocon2019)
 
