@@ -8,7 +8,7 @@
             "cStandard": "c11",
             "intelliSenseMode": "clang-x64",
             "includePath": [
-                "${workspaceFolder}/src",
+                "${workspaceFolder}/src/**",
                 "${workspaceFolder}/ev3-api/src/**",
                 "${workspaceFolder}/ev3-api/library/libcpp-ev3/**"
             ]
