@@ -3,7 +3,8 @@ mkfile_path := $(dir $(lastword $(MAKEFILE_LIST)))
 APPL_CXXOBJS += \
     Controller.o \
     Display.o \
-    EtRobocon2019.o
+    EtRobocon2019.o \
+    Distance.o
 
 SRCLANG := c++
 
