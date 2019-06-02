@@ -7,6 +7,8 @@ et2019
 
 #C++
 *.o
+a.out
 
 #テスト
 build/
+*.dSYM/
