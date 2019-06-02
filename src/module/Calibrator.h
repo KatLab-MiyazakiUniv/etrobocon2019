@@ -34,7 +34,7 @@ class Calibrator {
    */
   int getBlackBrightness();
   bool setLRCource();
-  bool setBrightness(unsigned int color);
+  bool setBrightness(const char* name, unsigned int color);
 
  private:
   Controller& con;

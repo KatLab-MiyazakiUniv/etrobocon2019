@@ -13,8 +13,8 @@ bool Calibrator::calibration() {
   isFinish = false;
 
   isFinish = setLRCource();
-  isFinish = setBrightness(brightnessOfWhite);
-  isFinish = setBrightness(brightnessOfWhite);
+  isFinish = setBrightness("White", brightnessOfWhite);
+  isFinish = setBrightness("Black", brightnessOfBlack);
 
   return isFinish;
 }
@@ -39,7 +39,35 @@ bool Calibrator::setLRCource() {
   return true;
 }
 
-bool Calibrator::setBrightness(unsigned int color) { return true; }
+bool Calibrator::setBrightness(const char* name, unsigned int color) { 
+  int tmp_color = 0;
+
+  con.tslpTsk(500);
+
+  while (1) {
+    // ENTERボタンが押されたらループを抜ける
+    if(con.buttonIsPressedEnter()) {
+      con.speakerPlayToneFS6(100);
+      break;
+    }
+
+    tmp_color = con.getBrightness();
+    dis.print(3, "Set brightness of %s: %d ?", name, tmp_color);
+
+    con.tslpTsk(4);
+  }
+
+  int mean_brightness = 0;
+  int times = 10;
+  for(int i = 0; i < times; i++) {
+    mean_brightness += con.getBrightness();
+    con.tslpTsk(4);
+  }
+  con.speakerPlayToneFS6(200);
+  color = mean_brightness / times;
+
+  return true;
+}
 
 bool Calibrator::isLeftCource() { return isLeft; }
 int Calibrator::getWhiteBrightness() { return brightnessOfWhite; };
