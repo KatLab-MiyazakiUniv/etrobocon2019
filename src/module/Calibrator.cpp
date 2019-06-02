@@ -4,17 +4,17 @@
  *  @author korosuke613
  **/
 #include "Calibrator.h"
-
+#include <iostream>
 Calibrator::Calibrator(Controller& con_, Display& dis_)
-    : con(con_), dis(dis_) {}
+    : con(con_), dis(dis_){}
 
 bool Calibrator::calibration() {
   dis.print(2, "now calibration...");
   isFinish = false;
 
   isFinish = setLRCource();
-  isFinish = setBrightness("White", brightnessOfWhite);
-  isFinish = setBrightness("Black", brightnessOfBlack);
+  isFinish = setBrightness(Brightness::WHITE);
+  isFinish = setBrightness(Brightness::BLACK);
 
   return isFinish;
 }
@@ -39,8 +39,17 @@ bool Calibrator::setLRCource() {
   return true;
 }
 
-bool Calibrator::setBrightness(const char* name, unsigned int color) { 
+bool Calibrator::setBrightness(Brightness b) { 
   int tmp_color = 0;
+  char name[8] = "none";
+
+  if(b == Brightness::WHITE){
+    std::strcpy(name, "White");
+  }else if(b == Brightness::BLACK){
+    std::strcpy(name, "Black");
+  }else{
+    return false;
+  }
 
   con.tslpTsk(500);
 
@@ -64,7 +73,12 @@ bool Calibrator::setBrightness(const char* name, unsigned int color) {
     con.tslpTsk(4);
   }
   con.speakerPlayToneFS6(200);
-  color = mean_brightness / times;
+
+  if(b == Brightness::WHITE){
+    brightnessOfWhite = mean_brightness / times;
+  }else{
+    brightnessOfBlack = mean_brightness / times;
+  }
 
   return true;
 }

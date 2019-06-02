@@ -73,4 +73,47 @@ TEST(Calibrator, setLRCourceTest4) {
   ASSERT_EQ(calibrator.isLeftCource(), true);
 }
 
+TEST(Calibrator, setBrightnessTest1) {
+  Controller con;
+  Display dis;
+
+  Calibrator calibrator(con, dis);
+
+  con.brightness = 100;
+  calibrator.setBrightness(Brightness::WHITE);
+  ASSERT_EQ(calibrator.getWhiteBrightness(), 100);
+}
+
+TEST(Calibrator, setBrightnessTest2) {
+  Controller con;
+  Display dis;
+
+  Calibrator calibrator(con, dis);
+
+  con.brightness = 200;
+  calibrator.setBrightness(Brightness::BLACK);
+  ASSERT_EQ(calibrator.getBlackBrightness(), 200);
+}
+
+TEST(Calibrator, setBrightnessTest3) {
+  Controller con;
+  Display dis;
+
+  Calibrator calibrator(con, dis);
+  con.brightness = 120;
+  calibrator.setBrightness(Brightness::WHITE);
+  ASSERT_EQ(calibrator.getWhiteBrightness(), 120);
+  con.brightness = 30;
+  calibrator.setBrightness(Brightness::BLACK);
+  ASSERT_EQ(calibrator.getBlackBrightness(), 30);
+}
+
+TEST(Calibrator, calibrationTest) {
+  Controller con;
+  Display dis;
+
+  Calibrator calibrator(con, dis);
+  calibrator.calibration();
+}
+
 }  // namespace etrobocon2019_test

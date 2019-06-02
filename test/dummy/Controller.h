@@ -56,7 +56,7 @@ class Controller {
   void ledSetColorOrange(){};
   void ledSetColorGreen(){};
   int getBrightness() { return brightness; };
-  void speakerPlayTone(int frequency, int duration){};
+  void speakerPlayToneFS6(int duration){};
   bool buttonIsPressedBack() {
     counter++;
     if (counter >= countLimit) {

@@ -10,6 +10,8 @@
 #include "Display.h"
 #include <cstring>
 
+enum class Brightness{WHITE, BLACK};
+
 class Calibrator {
  public:
   explicit Calibrator(Controller& con_, Display& dis_);
@@ -34,7 +36,7 @@ class Calibrator {
    */
   int getBlackBrightness();
   bool setLRCource();
-  bool setBrightness(const char* name, unsigned int color);
+  bool setBrightness(Brightness b);
 
  private:
   Controller& con;
