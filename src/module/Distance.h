@@ -6,16 +6,15 @@
 #ifndef DISTANCE_H
 #define DISTANCE_H
 
+#include "Controller.h"
+
 class Distance{
  public:
   Distance();
-  int32_t getAngle();
-  double getDistance();
+  double getDistance(int leftAngle, int rightAngle);
 
  private:
-  const int radius;  //タイヤの半径[cm]
-  int32_t current_angle;
-  int32_t pre_angle;
+  const int radius;  //タイヤの半径[mm]
 };
 
 #endif
