@@ -8,13 +8,8 @@
 #include <gtest/gtest.h>
 #include <cmath>
 
-<<<<<<< HEAD
-namespace {
-  TEST(DistanceTest, testgetAngle1)
-=======
 namespace etrobocon2019_test{
   TEST(Distance, getDistanceTest1)
->>>>>>> master
   {
     Distance dist;
     Controller controller;
@@ -40,13 +35,4 @@ namespace etrobocon2019_test{
   
     ASSERT_EQ(expected, dist.getDistance(leftAngle, rightAngle));
   }
-<<<<<<< HEAD
-  TEST(DistanceTest, testgetAngle2)
-  {
-    current_angle = -10;
-    pre_angle = 5;
-  }
 }
-=======
-}
->>>>>>> master
