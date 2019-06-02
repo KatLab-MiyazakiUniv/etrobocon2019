@@ -20,24 +20,23 @@ bool Calibrator::calibration() {
 }
 
 bool Calibrator::setLRCource() {
-  std::string cource = "Left";
+  char cource[8] = "Left";
 
   while (!con.buttonIsPressedEnter()) {
     if (isLeft) {
-      cource = "Left";
+      std::strcpy(cource,"Left");
     } else {
-      cource = "Right";
+      std::strcpy(cource,"Right");
     }
-
-    dis.print(3, "Set LRCource: %s ?", cource.c_str());
+    dis.print(3, "Set LRCource: %s ?", cource);
 
     if (con.buttonIsPressedLeft() || con.buttonIsPressedRight()) {
       isLeft = !isLeft;
-
     }
-
     con.tslpTsk(4);
   }
+
+  return true;
 }
 
 bool Calibrator::setBrightness(unsigned int color) { return true; }

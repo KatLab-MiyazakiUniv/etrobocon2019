@@ -8,7 +8,7 @@
 
 #include "Controller.h"
 #include "Display.h"
-#include <string>
+#include <cstring>
 
 class Calibrator {
  public:
