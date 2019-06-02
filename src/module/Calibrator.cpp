@@ -4,7 +4,7 @@
  *  @author korosuke613
  **/
 #include "Calibrator.h"
-#include <iostream>
+
 Calibrator::Calibrator(Controller& con_, Display& dis_)
     : con(con_), dis(dis_){}
 
