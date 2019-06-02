@@ -4,13 +4,13 @@
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
+#include <string>
 
 class Motor {
  public:
   double count = 0.0;
   int getCount() { return static_cast<int>(count); };
-  void setPWM(int pwm)
-  {
+  void setPWM(int pwm) {
     count += pwm * 0.05;
     // std::cout << count << std::endl;
   };
@@ -57,16 +57,14 @@ class Controller {
   void ledSetColorGreen(){};
   int getBrightness() { return brightness; };
   void speakerPlayTone(int frequency, int duration){};
-  bool buttonIsPressedBack()
-  {
+  bool buttonIsPressedBack() {
     counter++;
-    if(counter >= countLimit) {
+    if (counter >= countLimit) {
       return true;
     }
     return false;
   };
-  void getRawColor(std::uint16_t& r, std::uint16_t& g, std::uint16_t& b)
-  {
+  void getRawColor(std::uint16_t& r, std::uint16_t& g, std::uint16_t& b) {
     r = mock_r;
     g = mock_g;
     b = mock_b;
@@ -75,21 +73,37 @@ class Controller {
   };
   bool buttonIsPressedUp() { return false; };
   bool buttonIsPressedDown() { return false; };
-  bool buttonIsPressedRight() { return false; };
-  bool buttonIsPressedLeft() { return false; };
-  bool buttonIsPressedEnter()
-  {
-    static int counter = 0;
-    counter++;
-    if(counter >= 10) {
+
+  bool pushRight = false;
+  bool buttonIsPressedRight() {
+    if (pushRight) {
+      pushRight = false;
       return true;
     }
     return false;
   };
-  void tslpTsk(int time)
-  {
+
+  bool pushLeft = false;
+  bool buttonIsPressedLeft() {
+    if (pushLeft) {
+      pushLeft = false;
+      return true;
+    }
+    return false;
+  };
+
+  bool buttonIsPressedEnter() {
+    static int counter = 0;
+    counter++;
+    if (counter >= 10) {
+      counter = 0;
+      return true;
+    }
+    return false;
+  };
+  void tslpTsk(int time) {
     exitCounter++;
-    if(exitCounter > exitCountLimit) std::exit(1);
+    if (exitCounter > exitCountLimit) std::exit(1);
   };  // 4msec周期起動
   void printDisplay(int row, const char* format, ...){};
   int countLimit = 100;
@@ -98,14 +112,15 @@ class Controller {
   int exitCountLimit = 1000;
   int brightness = 0;
   std::uint16_t mock_r, mock_g, mock_b;
-  void setMockRgb(std::uint16_t r, std::uint16_t g, std::uint16_t b)
-  {
+  void setMockRgb(std::uint16_t r, std::uint16_t g, std::uint16_t b) {
     mock_r = r;
     mock_g = g;
     mock_b = b;
   }
-  static void lcdSetFont(){}
-  static void lcdFillRect(int, int, int){}
-  static void lcdDrawString(char*, int, int){}
+  static void lcdSetFont() {}
+  static void lcdFillRect(int, int, int) {}
+  static void lcdDrawString(char* msg, int, int) {
+    //std::cout << "[          ] " << msg << std::endl;
+  }
 };
 #endif
