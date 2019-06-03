@@ -5,8 +5,8 @@
  **/
 #include "Calibrator.h"
 
-Calibrator::Calibrator(Controller& con_)
-    : con(con_){}
+Calibrator::Calibrator(Controller& controller_)
+    : controller(controller_){}
 
 bool Calibrator::calibration() {
   Display::print(2, "now calibration...");
@@ -24,8 +24,8 @@ bool Calibrator::calibration() {
 bool Calibrator::setLRCource() {
   char cource[8] = "Left";
 
-  con.tslpTsk(500);
-  while (!con.buttonIsPressedEnter()) {
+  controller.tslpTsk(500);
+  while (!controller.buttonIsPressedEnter()) {
     if (isLeft) {
       std::strcpy(cource,"Left");
     } else {
@@ -33,16 +33,16 @@ bool Calibrator::setLRCource() {
     }
     Display::print(3, "Set LRCource: %s ?", cource);
 
-    if (con.buttonIsPressedLeft() || con.buttonIsPressedRight()) {
+    if (controller.buttonIsPressedLeft() || controller.buttonIsPressedRight()) {
       isLeft = !isLeft;
-      con.speakerPlayToneFS6(50);
-      con.tslpTsk(500);
+      controller.speakerPlayToneFS6(50);
+      controller.tslpTsk(500);
     }
-    con.tslpTsk(4);
+    controller.tslpTsk(4);
   }
   Display::print(3, "cource: %s", cource);
 
-  con.speakerPlayToneFS6(100);
+  controller.speakerPlayToneFS6(100);
   return true;
 }
 
@@ -58,28 +58,28 @@ bool Calibrator::setBrightness(Brightness b) {
     return false;
   }
 
-  con.tslpTsk(500);
+  controller.tslpTsk(500);
 
   while (1) {
     // ENTERボタンが押されたらループを抜ける
-    if(con.buttonIsPressedEnter()) {
-      con.speakerPlayToneFS6(100);
+    if(controller.buttonIsPressedEnter()) {
+      controller.speakerPlayToneFS6(100);
       break;
     }
 
-    tmpColor = con.getBrightness();
+    tmpColor = controller.getBrightness();
     Display::print(4, "Set brightness of %s: %3d ?", name, tmpColor);
 
-    con.tslpTsk(4);
+    controller.tslpTsk(4);
   }
 
   int meanBrightness = 0;
   int times = 10;
   for(int i = 0; i < times; i++) {
-    meanBrightness += con.getBrightness();
-    con.tslpTsk(4);
+    meanBrightness += controller.getBrightness();
+    controller.tslpTsk(4);
   }
-  con.speakerPlayToneFS6(200);
+  controller.speakerPlayToneFS6(200);
 
   if(b == Brightness::WHITE){
     brightnessOfWhite = meanBrightness / times;

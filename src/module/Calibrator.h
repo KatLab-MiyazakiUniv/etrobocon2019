@@ -6,15 +6,15 @@
 #ifndef CALIBRATOR_H
 #define CALIBRATOR_H
 
+#include <cstring>
 #include "Controller.h"
 #include "Display.h"
-#include <cstring>
 
-enum class Brightness{WHITE, BLACK};
+enum class Brightness { WHITE, BLACK };
 
 class Calibrator {
  public:
-  explicit Calibrator(Controller& con_);
+  explicit Calibrator(Controller& controller_);
 
   /** キャリブレーションを行う。
    * @return キャリブレーションが成功したかどうかの真理値(Trueなら正常終了)
@@ -39,7 +39,7 @@ class Calibrator {
   bool setBrightness(Brightness b);
 
  private:
-  Controller& con;
+  Controller& controller;
   bool isFinish =
       false;  // キャリブレーションが終了したかどうかの真偽値（Trueなら正常終了）
   bool isLeft = true;  // Leftコースであるかどうかの真偽値（TrueならLeftコース）
