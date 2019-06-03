@@ -14,7 +14,7 @@ enum class Brightness{WHITE, BLACK};
 
 class Calibrator {
  public:
-  explicit Calibrator(Controller& con_, Display& dis_);
+  explicit Calibrator(Controller& con_);
 
   /** キャリブレーションを行う。
    * @return キャリブレーションが成功したかどうかの真理値(Trueなら正常終了)
@@ -40,7 +40,6 @@ class Calibrator {
 
  private:
   Controller& con;
-  Display& dis;
   bool isFinish =
       false;  // キャリブレーションが終了したかどうかの真偽値（Trueなら正常終了）
   bool isLeft = true;  // Leftコースであるかどうかの真偽値（TrueならLeftコース）
