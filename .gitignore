@@ -9,6 +9,9 @@ et2019
 *.o
 a.out
 
+#実行ファイル
+app
+
 #テスト
 build/
 *.dSYM/
