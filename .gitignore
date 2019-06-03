@@ -7,10 +7,10 @@ et2019
 
 #C++
 *.o
-a.out
 
 #実行ファイル
 app
+a.out
 
 #テスト
 build/
