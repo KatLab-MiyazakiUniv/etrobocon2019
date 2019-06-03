@@ -5,10 +5,10 @@
  */
 #include "Pid.h"
 
-PidGain::PidGain(float Kp, float Ki, float Kd) : Kp_(Kp), Ki_(Ki), Kd_(Kd) {}
+PidGain::PidGain(double Kp_, double Ki_, double Kd_) : Kp(Kp_), Ki(Ki_), Kd(Kd_) {}
 
-Pid::Pid(float target, float Kp, float Ki, float Kd)
-  : target_(target), gain_(Kp, Ki, Kd), integral_(0.0f), preError_(0.0f)
+Pid::Pid(double target_, double Kp_, double Ki_, double Kd_)
+  : target(target_), gain(Kp_, Ki_, Kd_), integral(0.0f), preError(0.0f)
 {
 }
 
@@ -18,24 +18,24 @@ Pid::Pid(float target, float Kp, float Ki, float Kd)
  *  @param  delta [タスク周期]
  *  @return       [PID制御後の操作量]
  */
-float Pid::control(float value, float delta)
+double Pid::control(double value, double delta)
 {
   // 目標値と現在値との偏差を求める
-  float error = target_ - value;
+  double error = target - value;
   // 偏差の積分処理
-  integral_ += error * delta;
+  integral += error * delta;
   // 偏差の微分処理
-  float diff = (error - preError_) / delta;
+  double diff = (error - preError) / delta;
 
   // 前回偏差の更新
-  preError_ = error;
+  preError = error;
 
   // P制御の計算(Pゲイン * 偏差)
-  float p = gain_.Kp_ * error;
+  double p = gain.Kp * error;
   // I制御の計算(Iゲイン * 偏差の積分値)
-  float i = gain_.Ki_ * integral_;
+  double i = gain.Ki * integral;
   // D制御の計算(Dゲイン * 偏差の微分値)
-  float d = gain_.Kd_ * diff;
+  double d = gain.Kd * diff;
 
   return limit(p + i + d);
 }
@@ -45,7 +45,7 @@ float Pid::control(float value, float delta)
  *  @param  value [操作量]
  *  @return       [制限をかけた後の操作量]
  */
-float Pid::limit(float value)
+double Pid::limit(double value)
 {
   if(value > 100.0) return 100.0;
   if(value < -100.0) return -100.0;

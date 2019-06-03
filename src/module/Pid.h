@@ -8,24 +8,24 @@
 
 // PID制御のみで用いる定数をまとめた構造体
 struct PidGain {
-  float Kp_;  // Pゲイン
-  float Ki_;  // Iゲイン
-  float Kd_;  // Dゲイン
-  PidGain(float Kp, float Ki, float Kd);
-  void setPidGain(float Kp, float Ki, float Kd);
+  double Kp;  // Pゲイン
+  double Ki;  // Iゲイン
+  double Kd;  // Dゲイン
+  PidGain(double Kp_, double Ki_, double Kd_);
+  void setPidGain(double Kp_, double Ki_, double Kd_);
 };
 
 class Pid {
  private:
-  float target_;
-  PidGain gain_;
-  float integral_;
-  float preError_;
+  double target;
+  PidGain gain;
+  double integral;
+  double preError;
 
  public:
-  Pid(float target, float Kp, float Ki = 0.0f, float Kd = 0.0f);
-  float control(float value, float delta = 0.004);
-  float limit(float value);
+  Pid(double target_, double Kp_, double Ki_ = 0.0f, double Kd_ = 0.0f);
+  double control(double value, double delta = 0.004);
+  double limit(double value);
 };
 
 #endif
