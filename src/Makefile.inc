@@ -6,7 +6,8 @@ APPL_CXXOBJS += \
     EtRobocon2019.o \
     NormalCource.o \
     Filter.o \
-    Distance.o
+    Distance.o \
+    Pid.o
 
 SRCLANG := c++
 
