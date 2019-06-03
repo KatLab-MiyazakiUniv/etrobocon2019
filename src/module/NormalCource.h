@@ -19,9 +19,9 @@ private:
   double currentMovedDistance;
   //! エッジがどっちか． falseが左エッジ，trueが右エッジ
   bool selectedEdge;
-  //! 
+  //! 左のモータ角度
   int leftWheel;
-  //!
+  //! 右のモータ角度
   int rightWheel;
   //! 距離を測るインスタンス
   Distance distance;
