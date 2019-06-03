@@ -40,7 +40,7 @@ bool Calibrator::setLRCource() {
 }
 
 bool Calibrator::setBrightness(Brightness b) { 
-  int tmp_color = 0;
+  int tmpColor = 0;
   char name[8] = "none";
 
   if(b == Brightness::WHITE){
@@ -60,24 +60,24 @@ bool Calibrator::setBrightness(Brightness b) {
       break;
     }
 
-    tmp_color = con.getBrightness();
-    dis.print(3, "Set brightness of %s: %d ?", name, tmp_color);
+    tmpColor = con.getBrightness();
+    dis.print(3, "Set brightness of %s: %d ?", name, tmpColor);
 
     con.tslpTsk(4);
   }
 
-  int mean_brightness = 0;
+  int meanBrightness = 0;
   int times = 10;
   for(int i = 0; i < times; i++) {
-    mean_brightness += con.getBrightness();
+    meanBrightness += con.getBrightness();
     con.tslpTsk(4);
   }
   con.speakerPlayToneFS6(200);
 
   if(b == Brightness::WHITE){
-    brightnessOfWhite = mean_brightness / times;
+    brightnessOfWhite = meanBrightness / times;
   }else{
-    brightnessOfBlack = mean_brightness / times;
+    brightnessOfBlack = meanBrightness / times;
   }
 
   return true;
