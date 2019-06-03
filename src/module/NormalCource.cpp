@@ -13,6 +13,20 @@ void NormalCource::selectedEdgeLR(Edge& selectedEdge_) {
   }
 }
 
-void NormalCource::lineTraceForSpecifiedDistance(int specifiedDistance) {
+void NormalCource::lineTraceForSpecifiedDistance(double specifiedDistance, int target, int pwm) {
   
+  /**
+   * ここでPID関連（ライントレース）の準備をする
+   */
+
+  while (specifiedDistance >= currentMovedDistance) {
+    leftWheel = controller.leftWheel - leftWheel;
+    rightWheel = controller.rightWheel - rightWheel;
+    
+    currentMovedDistance += distance.getDistance(leftWheel, rightWheel);
+    // 4msecのdelay
+    controller.tslpTsk(4);
+  }
+  leftWheel = 0;
+  rightWheel = 0;
 }
