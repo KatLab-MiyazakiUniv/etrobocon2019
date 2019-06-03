@@ -5,8 +5,9 @@
  **/
 #include "Calibrator.h"
 
-Calibrator::Calibrator(Controller& controller_)
-    : controller(controller_){}
+Calibrator::Calibrator(Controller &controller_)
+    : controller(controller_), isFinish(false), isLeft(true),
+      brightnessOfWhite(0), brightnessOfBlack(0) {}
 
 bool Calibrator::calibration() {
   Display::print(2, "now calibration...");
@@ -27,9 +28,9 @@ bool Calibrator::setLRCource() {
   controller.tslpTsk(500);
   while (!controller.buttonIsPressedEnter()) {
     if (isLeft) {
-      std::strcpy(cource,"Left");
+      std::strcpy(cource, "Left");
     } else {
-      std::strcpy(cource,"Right");
+      std::strcpy(cource, "Right");
     }
     Display::print(3, "Set LRCource: %s ?", cource);
 
@@ -46,15 +47,15 @@ bool Calibrator::setLRCource() {
   return true;
 }
 
-bool Calibrator::setBrightness(Brightness b) { 
+bool Calibrator::setBrightness(Brightness b) {
   int tmpColor = 0;
   char name[8] = "none";
 
-  if(b == Brightness::WHITE){
+  if (b == Brightness::WHITE) {
     std::strcpy(name, "White");
-  }else if(b == Brightness::BLACK){
+  } else if (b == Brightness::BLACK) {
     std::strcpy(name, "Black");
-  }else{
+  } else {
     return false;
   }
 
@@ -62,7 +63,7 @@ bool Calibrator::setBrightness(Brightness b) {
 
   while (1) {
     // ENTERボタンが押されたらループを抜ける
-    if(controller.buttonIsPressedEnter()) {
+    if (controller.buttonIsPressedEnter()) {
       controller.speakerPlayToneFS6(100);
       break;
     }
@@ -75,15 +76,15 @@ bool Calibrator::setBrightness(Brightness b) {
 
   int meanBrightness = 0;
   int times = 10;
-  for(int i = 0; i < times; i++) {
+  for (int i = 0; i < times; i++) {
     meanBrightness += controller.getBrightness();
     controller.tslpTsk(4);
   }
   controller.speakerPlayToneFS6(200);
 
-  if(b == Brightness::WHITE){
+  if (b == Brightness::WHITE) {
     brightnessOfWhite = meanBrightness / times;
-  }else{
+  } else {
     brightnessOfBlack = meanBrightness / times;
   }
 
