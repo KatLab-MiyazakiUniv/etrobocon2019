@@ -6,7 +6,9 @@
 #include "Filter.h"
 
 template <typename T>
-Filter<T>::Filter() : preValue_(0) {}
+Filter<T>::Filter() : preValue_(0)
+{
+}
 
 /**
  *  [Filter::lowPassFilter]
@@ -16,12 +18,12 @@ Filter<T>::Filter() : preValue_(0) {}
  *  @return       [フィルター後の値]
  */
 template <typename T>
-float Filter<T>::lowPassFilter(T value, float rate)
+double Filter<T>::lowPassFilter(T value, double rate)
 {
   // 前回値の初期化
   if(preValue_ == 0) {
     preValue_ = value;
-    return static_cast<float>(value);
+    return static_cast<double>(value);
   }
 
   return preValue_ * rate + value * (1 - rate);
