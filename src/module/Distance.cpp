@@ -12,8 +12,8 @@ Distance::Distance()
 
 /**
  * @brief 走行距離を計算して戻り値として返す
- * @param leftAngle[左側のタイヤの回転角度]
- * @param rightAngle[右側のタイヤの回転角度]
+ * @param leftAngle 左側のタイヤの回転角度[deg]
+ * @param rightAngle 右側のタイヤの回転角度[deg]
  * @return 走行距離[mm]
  */
 double Distance::getDistance(int leftAngle, int rightAngle){
