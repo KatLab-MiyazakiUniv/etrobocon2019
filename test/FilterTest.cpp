@@ -14,7 +14,7 @@ namespace etrobocon2019_test {
     int sensor = 24;
 
     // 前回のセンサー値がない場合は、入力値をそのまま返す
-    ASSERT_EQ(static_cast<float>(sensor), filter.lowPassFilter(sensor));
+    ASSERT_EQ(static_cast<double>(sensor), filter.lowPassFilter(sensor));
   }
 
   TEST(Filter, lowPassFilterTest_filter)
@@ -27,7 +27,7 @@ namespace etrobocon2019_test {
 
     // 期待出力の計算
     int sensor = 77;
-    float expected = preSensor * 0.9 + sensor * 0.1;
+    double expected = preSensor * 0.9 + sensor * 0.1;
     // フィルターをかける
     ASSERT_EQ(expected, filter.lowPassFilter(sensor));
   }
@@ -38,13 +38,13 @@ namespace etrobocon2019_test {
     float preSensor = 2.3;
 
     // フィルターの初期化
-    ASSERT_FLOAT_EQ(preSensor, filter.lowPassFilter(preSensor));
+    ASSERT_DOUBLE_EQ(preSensor, filter.lowPassFilter(preSensor));
 
     // 期待出力の計算
     float sensor = 4.4;
-    float expected = preSensor * 0.9 + sensor * 0.1;
+    double expected = preSensor * 0.9 + sensor * 0.1;
     // フィルターをかける
-    ASSERT_FLOAT_EQ(expected, filter.lowPassFilter(sensor));
+    ASSERT_DOUBLE_EQ(expected, filter.lowPassFilter(sensor));
   }
 
   TEST(Filter, lowPassFilterTest_double)
@@ -53,12 +53,12 @@ namespace etrobocon2019_test {
     double preSensor = 2.3;
 
     // フィルターの初期化
-    ASSERT_DOUBLE_EQ(static_cast<float>(preSensor), filter.lowPassFilter(preSensor));
+    ASSERT_DOUBLE_EQ(preSensor, filter.lowPassFilter(preSensor));
 
     // 期待出力の計算
     double sensor = 4.4;
-    float expected = preSensor * 0.9 + sensor * 0.1;
+    double expected = preSensor * 0.9 + sensor * 0.1;
     // フィルターをかける
     ASSERT_DOUBLE_EQ(expected, filter.lowPassFilter(sensor));
   }
-}
+}  // namespace etrobocon2019_test
