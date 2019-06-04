@@ -54,6 +54,8 @@ class Calibrator {
   bool isLeft;  // Leftコースであるかどうかの真偽値（TrueならLeftコース）
   unsigned int brightnessOfWhite;  // 白色の明るさ
   unsigned int brightnessOfBlack;  // 黒色の明るさ
+
+  int meaningBrightness();
 };
 
 #endif

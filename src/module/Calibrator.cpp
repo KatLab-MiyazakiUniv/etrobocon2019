@@ -85,22 +85,27 @@ bool Calibrator::setBrightness(Brightness brightness) {
     controller.tslpTsk(4);
   }
 
-  // 4ms毎に10回明るさを取得して、その平均値をメンバ変数に代入する処理
+  controller.speakerPlayToneFS6(200);
+
+  if (brightness == Brightness::WHITE) {
+    brightnessOfWhite = meaningBrightness();
+  } else {
+    brightnessOfBlack = meaningBrightness();
+  }
+
+  return true;
+}
+
+int Calibrator::meaningBrightness(){
+    // 4ms毎に10回明るさを取得して、その平均値をメンバ変数に代入する処理
   int meanBrightness = 0;
   int times = 10;
   for (int i = 0; i < times; i++) {
     meanBrightness += controller.getBrightness();
     controller.tslpTsk(4);
   }
-  controller.speakerPlayToneFS6(200);
 
-  if (brightness == Brightness::WHITE) {
-    brightnessOfWhite = meanBrightness / times;
-  } else {
-    brightnessOfBlack = meanBrightness / times;
-  }
-
-  return true;
+  return meanBrightness / times;
 }
 
 bool Calibrator::isLeftCource() { return isLeft; }
