@@ -26,7 +26,11 @@ double Filter<T>::lowPassFilter(T value, double rate)
     return static_cast<double>(value);
   }
 
-  return preValue * rate + value * (1 - rate);
+  double filtered = preValue * rate + value * (1 - rate);
+  // 前回値の更新
+  preValue = value;
+
+  return filtered;
 }
 
 // 明示的なインスタンス化
