@@ -59,13 +59,13 @@ bool Calibrator::setLRCource() {
   return true;
 }
 
-bool Calibrator::setBrightness(Brightness b) {
+bool Calibrator::setBrightness(Brightness brightness) {
   int tmpColor = 0;
   char name[8] = "none";
 
-  if (b == Brightness::WHITE) {
+  if (brightness == Brightness::WHITE) {
     std::strcpy(name, "White");
-  } else if (b == Brightness::BLACK) {
+  } else if (brightness == Brightness::BLACK) {
     std::strcpy(name, "Black");
   } else {
     return false;
@@ -94,7 +94,7 @@ bool Calibrator::setBrightness(Brightness b) {
   }
   controller.speakerPlayToneFS6(200);
 
-  if (b == Brightness::WHITE) {
+  if (brightness == Brightness::WHITE) {
     brightnessOfWhite = meanBrightness / times;
   } else {
     brightnessOfBlack = meanBrightness / times;
