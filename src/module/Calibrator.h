@@ -17,6 +17,7 @@ public:
   explicit Calibrator(Controller &controller_);
 
   /** キャリブレーションを行う。
+   * @brief falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。
    * @return キャリブレーションが成功したかどうかの真理値(Trueなら正常終了)
    */
   bool calibration();
@@ -35,8 +36,17 @@ public:
    * @return 明るさ
    */
   int getBlackBrightness();
+
+  /** LコースかRコースかを設定する。
+   * @return 正常終了したかどうかの真偽値（Trueなら正常終了）
+   */
   bool setLRCource();
-  bool setBrightness(Brightness b);
+
+  /** 明るさを設定する。
+   * @param brightness 白か黒かの明るさ
+   * @return 正常終了したかどうかの真偽値（Trueなら正常終了）
+   */
+  bool setBrightness(Brightness brightness);
 
 private:
   Controller &controller;
