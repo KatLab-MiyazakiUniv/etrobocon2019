@@ -13,6 +13,7 @@ class Filter {
 
  public:
   Filter();
+  void reset();
   double lowPassFilter(T value, double rate = 0.9);
 };
 

@@ -10,6 +10,13 @@ Filter<T>::Filter() : preValue(0)
 {
 }
 
+template <typename T>
+void Filter<T>::reset()
+{
+  preValue = 0;
+}
+
+
 /**
  *  [Filter::lowPassFilter]
  *  @brief  ローパスフィルター(現在値と前回値を参考にして値を決定する)
