@@ -61,4 +61,25 @@ namespace etrobocon2019_test {
     // フィルターをかける
     ASSERT_DOUBLE_EQ(expected, filter.lowPassFilter(sensor));
   }
+
+  TEST(Filter, lowPassFilter_update)
+  {
+    Filter<> filter;
+    int init = 10;
+
+    // フィルターの初期化
+    ASSERT_DOUBLE_EQ(init, filter.lowPassFilter(init));
+
+    // 期待出力の計算
+    int preSensor = 20;
+    double expected = init * 0.9 + preSensor * 0.1;
+    // フィルターをかける
+    ASSERT_DOUBLE_EQ(expected, filter.lowPassFilter(preSensor));
+
+    // 期待出力の計算
+    int sensor = 30;
+    double expected2 = preSensor * 0.9 + sensor * 0.1;
+    // フィルターをかける(前回値の更新あり)
+    ASSERT_DOUBLE_EQ(expected2, filter.lowPassFilter(sensor));
+  }
 }  // namespace etrobocon2019_test
