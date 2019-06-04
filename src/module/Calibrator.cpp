@@ -60,7 +60,6 @@ bool Calibrator::setLRCource() {
 }
 
 bool Calibrator::setBrightness(Brightness brightness) {
-  int tmpColor = 0;
   char name[8] = "none";
 
   if (brightness == Brightness::WHITE) {
@@ -80,7 +79,7 @@ bool Calibrator::setBrightness(Brightness brightness) {
       break;
     }
 
-    tmpColor = controller.getBrightness();
+    int tmpColor = controller.getBrightness();
     Display::print(4, "Set brightness of %s: %3d ?", name, tmpColor);
 
     controller.tslpTsk(4);
