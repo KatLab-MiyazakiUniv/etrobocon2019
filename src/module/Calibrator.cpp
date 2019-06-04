@@ -6,20 +6,32 @@
 #include "Calibrator.h"
 
 Calibrator::Calibrator(Controller &controller_)
-    : controller(controller_), isFinish(false), isLeft(true),
-      brightnessOfWhite(0), brightnessOfBlack(0) {}
+    : controller(controller_),
+      isLeft(true),
+      brightnessOfWhite(0),
+      brightnessOfBlack(0) {}
 
 bool Calibrator::calibration() {
   Display::print(2, "now calibration...");
-  isFinish = false;
+  if (!setLRCource()) {
+    Display::print(2, "Error setLRCource!");
+    return false;
+  }
 
-  isFinish = setLRCource();
-  isFinish = setBrightness(Brightness::WHITE);
-  isFinish = setBrightness(Brightness::BLACK);
+  if (!setBrightness(Brightness::WHITE)) {
+    Display::print(2, "Error setBrightness White!");
+    return false;
+  }
+
+  if (!setBrightness(Brightness::BLACK)) {
+    Display::print(2, "Error setBrightness Black!");
+    return false;
+  }
+
   Display::print(4, "White: %3d", brightnessOfWhite);
   Display::print(5, "Black: %3d", brightnessOfBlack);
 
-  return isFinish;
+  return true;
 }
 
 bool Calibrator::setLRCource() {

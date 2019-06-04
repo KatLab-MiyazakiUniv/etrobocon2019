@@ -40,8 +40,6 @@ public:
 
 private:
   Controller &controller;
-  bool
-      isFinish; // キャリブレーションが終了したかどうかの真偽値（Trueなら正常終了）
   bool isLeft; // Leftコースであるかどうかの真偽値（TrueならLeftコース）
   unsigned int brightnessOfWhite; // 白色の明るさ
   unsigned int brightnessOfBlack; // 黒色の明るさ
