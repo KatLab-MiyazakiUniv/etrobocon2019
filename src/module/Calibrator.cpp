@@ -85,6 +85,7 @@ bool Calibrator::setBrightness(Brightness brightness) {
     controller.tslpTsk(4);
   }
 
+  // 4ms毎に10回明るさを取得して、その平均値をメンバ変数に代入する処理
   int meanBrightness = 0;
   int times = 10;
   for (int i = 0; i < times; i++) {
