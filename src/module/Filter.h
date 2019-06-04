@@ -13,7 +13,7 @@ class Filter {
 
  public:
   Filter();
-  float lowPassFilter(T value, float rate = 0.9f);
+  double lowPassFilter(T value, double rate = 0.9);
 };
 
 #endif
