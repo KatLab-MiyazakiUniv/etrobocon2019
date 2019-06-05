@@ -10,7 +10,7 @@ namespace etrobocon2019_test
 {
 TEST(TurnControl, TurnControl_init)
 {
-    TurnControl turnCtrl();
+    TurnControl turnCtrl;
 }
 
 TEST(TurnControl, calculateTurn)
