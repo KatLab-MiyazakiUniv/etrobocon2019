@@ -23,6 +23,7 @@ double TurnControl::calculateTurn(int targetBrightness, double Kp, double Ki, do
   Controller ctrl;
 
   int currentBrightness = ctrl.getBrightness();
+  // タスク周期を4msとする
   const double delta = 0.004;
   double turnValue = pid.control(static_cast<double>(currentBrightness), delta);
 

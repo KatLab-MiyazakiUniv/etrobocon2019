@@ -21,6 +21,7 @@ TEST(TurnControl, calculateTurn)
     Controller ctrl;
 
     int currentBrightness = ctrl.getBrightness();
+    // タスク周期を4msとする
     const double delta = 0.004;
     double expectedTurnValue = pid.control(static_cast<double>(currentBrightness), delta);
 
