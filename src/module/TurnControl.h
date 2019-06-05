@@ -6,7 +6,6 @@
 #ifndef TURN_CONTROL_H
 #define TURN_CONTROL_H
 
-#include "Controller.h"
 #include "Pid.h"
 
 class TurnControl
@@ -14,7 +13,7 @@ class TurnControl
 private:
 public:
   TurnControl();
-  double calculateTurn(int targetBrightness, double Kp, double Ki, double Kd);
+  double calculateTurn(int currentBrightness, int targetBrightness, double Kp, double Ki, double Kd);
 };
 
 #endif

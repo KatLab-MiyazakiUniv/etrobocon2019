@@ -11,18 +11,17 @@ TurnControl::TurnControl()
 
 /**
  *  [TurnControl::calculateTurn]
- *  @param  tragetBrightness [目標の光センサー値]
- *  @param  Kp               [Pゲイン]
- *  @param  Ki               [Iゲイン]
- *  @param  Kd               [Dゲイン]
- *  @return                  [旋回値]
+ *  @param  currentBrightness [現在の光センサー値]  
+ *  @param  tragetBrightness  [目標の光センサー値]
+ *  @param  Kp                [Pゲイン]
+ *  @param  Ki                [Iゲイン]
+ *  @param  Kd                [Dゲイン]
+ *  @return                   [旋回値]
  */
-double TurnControl::calculateTurn(int targetBrightness, double Kp, double Ki, double Kd)
+double TurnControl::calculateTurn(int currentBrightness, int targetBrightness, double Kp, double Ki, double Kd)
 {
   Pid pid(static_cast<double>(targetBrightness), Kp, Ki, Kd);
-  Controller ctrl;
 
-  int currentBrightness = ctrl.getBrightness();
   double turnValue = pid.control(static_cast<double>(currentBrightness));
 
   return turnValue;

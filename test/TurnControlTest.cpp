@@ -18,11 +18,9 @@ TEST(TurnControl, calculateTurn)
     TurnControl turnCtrl;
 
     Pid pid(50.0, 0.6, 0.05, 0.04);
-    Controller ctrl;
 
-    int currentBrightness = ctrl.getBrightness();
-    double expectedTurnValue = pid.control(static_cast<double>(currentBrightness));
+    double expectedTurnValue = pid.control(70.0);
 
-    ASSERT_DOUBLE_EQ(expectedTurnValue, turnCtrl.calculateTurn(50, 0.6, 0.05, 0.04));
+    ASSERT_DOUBLE_EQ(expectedTurnValue, turnCtrl.calculateTurn(70, 50, 0.6, 0.05, 0.04));
 }
 } // namespace etrobocon2019_test
