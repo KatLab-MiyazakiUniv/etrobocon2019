@@ -21,9 +21,7 @@ TEST(TurnControl, calculateTurn)
     Controller ctrl;
 
     int currentBrightness = ctrl.getBrightness();
-    // タスク周期を4msとする
-    const double delta = 0.004;
-    double expectedTurnValue = pid.control(static_cast<double>(currentBrightness), delta);
+    double expectedTurnValue = pid.control(static_cast<double>(currentBrightness));
 
     ASSERT_FLOAT_EQ(expectedTurnValue, turnCtrl.calculateTurn(50, 0.6, 0.05, 0.04));
 }
