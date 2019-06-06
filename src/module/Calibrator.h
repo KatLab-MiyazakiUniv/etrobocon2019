@@ -26,17 +26,17 @@ class Calibrator {
   /** Leftコースであるかどうかを判断する。
    * @return Leftコースであるかどうかの真偽値（TrueならLeftコース）
    */
-  bool isLeftCource();
+  bool isLeftCource() const;
 
   /** 白色の値を取得する。
    * @return 明るさ
    */
-  int getWhiteBrightness();
+  int getWhiteBrightness() const;
 
   /** 黒色の値を取得する。
    * @return 明るさ
    */
-  int getBlackBrightness();
+  int getBlackBrightness() const;
 
   /** LコースかRコースかを設定する。
    * @return 正常終了したかどうかの真偽値（Trueなら正常終了）

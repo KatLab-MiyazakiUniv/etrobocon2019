@@ -108,6 +108,6 @@ int Calibrator::averageBrightness(){
   return meanBrightness / times;
 }
 
-bool Calibrator::isLeftCource() { return isLeft; }
-int Calibrator::getWhiteBrightness() { return brightnessOfWhite; };
-int Calibrator::getBlackBrightness() { return brightnessOfBlack; };
+bool Calibrator::isLeftCource() const { return isLeft; }
+int Calibrator::getWhiteBrightness() const { return brightnessOfWhite; };
+int Calibrator::getBlackBrightness() const { return brightnessOfBlack; };
