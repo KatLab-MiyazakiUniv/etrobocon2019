@@ -36,7 +36,7 @@ include_directories(${PROJECT_SOURCE_DIR}/test/dummy/)
 file(GLOB SRC_FILES 
     ${SOURCE_DIR}/*.cpp
     ${API_DIR}/Display.cpp
-    ${PROJECT_SOURCE_DIR}/str/apps/test/dummy/Contoroller.cpp
+    ${PROJECT_SOURCE_DIR}/test/dummy/Controller.cpp
     )
 add_library(${PROJECT_LIB_NAME} ${SRC_FILES})
 

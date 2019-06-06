@@ -6,6 +6,7 @@ APPL_CXXOBJS += \
     EtRobocon2019.o \
     Filter.o \
     Distance.o \
+    Calibrator.o \
     Pid.o \
     TurnControl.o
 
