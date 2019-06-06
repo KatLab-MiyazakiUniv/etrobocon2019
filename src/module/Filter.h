@@ -9,10 +9,11 @@
 template <typename T = int>
 class Filter {
  private:
-  T preValue_;
+  T preValue;
 
  public:
   Filter();
+  void reset();
   double lowPassFilter(T value, double rate = 0.9);
 };
 
