@@ -88,15 +88,15 @@ bool Calibrator::setBrightness(Brightness brightness) {
   controller.speakerPlayToneFS6(200);
 
   if (brightness == Brightness::WHITE) {
-    brightnessOfWhite = meaningBrightness();
+    brightnessOfWhite = averageBrightness();
   } else {
-    brightnessOfBlack = meaningBrightness();
+    brightnessOfBlack = averageBrightness();
   }
 
   return true;
 }
 
-int Calibrator::meaningBrightness(){
+int Calibrator::averageBrightness(){
     // 4ms毎に10回明るさを取得して、その平均値をメンバ変数に代入する処理
   int meanBrightness = 0;
   int times = 10;
