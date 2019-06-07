@@ -11,17 +11,8 @@
 #include "SpeedControl.h"
 #include "TurnControl.h"
 
-/*
-NOTE
-    Distance は保留
-    PID値の設定と取得をできるようにする
-    目標走行距離とPIDの値を取得し、指定距離走行したら処理を戻す(return)
-    目標の明るさはコンストラクタで渡す。
-    目標の明るさのセッターを作成
-    左エッジか右エッジかはboolでコンストラクタに渡す
-*/
 
-struct PidNum
+struct PidParameter
 {
     // p値
     double kp;
@@ -38,9 +29,9 @@ struct NormalCourceProperty
     // 目標スピード
     int targetSpeed;
     // speedPid
-    PidNum speedPid;
+    PidParameter speedPid;
     // turnPid
-    PidNum turnPid;
+    PidParameter turnPid;
 };
 
 class LineTracer
