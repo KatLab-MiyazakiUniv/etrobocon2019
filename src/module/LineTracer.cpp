@@ -7,16 +7,16 @@
 #include "LineTracer.h"
 
 /** コンストラクタ
- *  @param target  [カラーセンサーの目標値]
- *  @param isRight [Rightコースであるか否か]
+ *  @param targetBrightness_  [カラーセンサーの目標値]
+ *  @param isRightCourse_ [Rightコースである場合True]
  */
-LineTracer::LineTracer(int target, bool isRight)
-    : targetBrightness(target), isRightCourse(isRight) {}
+LineTracer::LineTracer(int targetBrightness_, bool isRightCourse_)
+    : targetBrightness(targetBrightness_),
+      isRightCourse(isRightCourse_) {}
 
 /** 指定された距離だけ走行する。
- *  @bfief
- *  走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourceProperty 構造体を使用し渡す。
- *  @param settings [各種が入っている NormalCourceProperty 構造体]
+ *  @bfief 走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourceProperty 構造体を使用し渡す。
+ *  @param settings [各種パラメータが入っている NormalCourceProperty 構造体]
  */
 void LineTracer::run(NormalCourceProperty &settings)
 {
@@ -29,6 +29,7 @@ void LineTracer::run(NormalCourceProperty &settings)
     int speedValue;                        // 直進値
     int leftPWM = 0;                       // 左モータの出力
     int rightPWM = 0;                      // 右モータの出力
+
 
     // 目標距離を走り終えるまでループ
     while (currentDistance - initialDistance < settings.targetDistance)
@@ -47,14 +48,14 @@ void LineTracer::run(NormalCourceProperty &settings)
         if (isRightCourse)
         {
             // Rightコースの場合
-            leftPWM = speedValue + turnValue;
-            rightPWM = speedValue - turnValue;
+            leftPWM = speedValue - turnValue;
+            rightPWM = speedValue + turnValue;
         }
         else
         {
             // Leftコースの場合
-            leftPWM = speedValue - turnValue;
-            rightPWM = speedValue + turnValue;
+            leftPWM = speedValue + turnValue;
+            rightPWM = speedValue - turnValue;
         }
 
         // PWM値の設定
@@ -67,8 +68,11 @@ void LineTracer::run(NormalCourceProperty &settings)
     }
 }
 
-// カラーセンサー目標値のセッター
-void LineTracer::setTargetBrightness(int brightness)
+/** セッター
+ *  @bfief カラーセンサーの目標値を再設定する
+ *  @param targetBrightness_ [カラーセンサーの目標値]
+ */
+void LineTracer::setTargetBrightness(int targetBrightness_)
 {
-    targetBrightness = brightness;
+    targetBrightness = targetBrightness_;
 }
