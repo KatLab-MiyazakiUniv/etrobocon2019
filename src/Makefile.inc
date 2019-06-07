@@ -8,6 +8,7 @@ APPL_CXXOBJS += \
     Distance.o \
     Calibrator.o \
     Pid.o \
+    SpeedControl.o \
     TurnControl.o
 
 SRCLANG := c++
