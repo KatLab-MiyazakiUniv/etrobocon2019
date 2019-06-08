@@ -48,14 +48,14 @@ void LineTracer::run(NormalCourceProperty &settings)
         if (isRightCourse)
         {
             // Rightコースの場合
-            leftPWM = speedValue - turnValue;
-            rightPWM = speedValue + turnValue;
+            leftPWM = speedValue + turnValue;
+            rightPWM = speedValue - turnValue;
         }
         else
         {
             // Leftコースの場合
-            leftPWM = speedValue + turnValue;
-            rightPWM = speedValue - turnValue;
+            leftPWM = speedValue - turnValue;
+            rightPWM = speedValue + turnValue;
         }
 
         // PWM値の設定
