@@ -7,7 +7,7 @@
 #include "SpeedControl.h"
 
 SpeedControl::SpeedControl()
-    : currentSpeed(0.0), delta(0.004)
+    : delta(0.004), currentSpeed(0.0)
 {
 }
 
@@ -20,7 +20,7 @@ SpeedControl::SpeedControl()
  *  @return             [現在の速度]
  */
 
-int SpeedControl::calculateSpeed(int targetSpeed,double Kp,double Ki,double Kd)
+int SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, double Kd)
 {
     Pid pid(static_cast<double>(targetSpeed), Kp, Ki, Kd);
     Distance dist;
@@ -44,7 +44,7 @@ int SpeedControl::calculateSpeed(int targetSpeed,double Kp,double Ki,double Kd)
     distance += dist.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
     //走行体の速度を求める
     currentSpeed = currentSpeed + 2 * distance / delta + currentSpeed;
-    
-    //返り値が現在の速度を返すのが正しいか分からない
+
+    //現在の速度を返す
     return currentSpeed;
 }
