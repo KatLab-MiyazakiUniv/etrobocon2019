@@ -12,11 +12,12 @@
 class SpeedControl
 {
 private:
- double delta;
- double currentSpeed;
+    double delta;
+    double currentSpeed;
+
 public:
     SpeedControl();
-    int calculateSpeed(int targetSpeed,double Kp,double Ki,double Kd);
+    double calculateSpeed(int targetSpeed, double Kp, double Ki, double Kd);
 };
 
 #endif

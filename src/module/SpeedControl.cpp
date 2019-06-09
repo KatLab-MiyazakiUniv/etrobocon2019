@@ -20,7 +20,7 @@ SpeedControl::SpeedControl()
  *  @return             [現在の速度]
  */
 
-int SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, double Kd)
+double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, double Kd)
 {
     Pid pid(static_cast<double>(targetSpeed), Kp, Ki, Kd);
     Distance dist;
