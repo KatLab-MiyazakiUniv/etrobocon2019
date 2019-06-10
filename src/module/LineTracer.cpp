@@ -25,8 +25,8 @@ void LineTracer::run(NormalCourseProperty &settings)
         controller.leftWheel.getCount(), controller.rightWheel.getCount());
 
     int currentDistance = initialDistance; // 現在の走行距離
-    int turnValue;                         // 旋回値
-    int speedValue;                        // 直進値
+    int turnValue = 0;                     // 旋回値
+    int speedValue = 0;                    // 直進値
     int leftPWM = 0;                       // 左モータの出力
     int rightPWM = 0;                      // 右モータの出力
 
