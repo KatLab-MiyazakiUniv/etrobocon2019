@@ -8,12 +8,13 @@
 
 #include "Distance.h"
 #include "Pid.h"
+#include <cmath>
 
 class SpeedControl
 {
 private:
-    double delta;
-    double currentSpeed;
+    const double C;   //定数C(実験で求める予定)
+    const int radius; //タイヤの半径[mm]
 
 public:
     SpeedControl();
