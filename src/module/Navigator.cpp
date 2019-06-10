@@ -22,5 +22,8 @@ void Navigator::move(int specifiedValue, int pwm){
   }
   controller.rightWheel.setPWM(pwm);
   controller.leftWheel.setPWM(pwm);
-  while(std::abs(distance.getDistance()) > std::abs(specifiedValue) )
+  int leftAngle = controller.leftWheel.getCount();
+  int rightAngle = controller.rightWheel.getCount();
+
+  while(std::abs(distance.getDistance(leftAngle, rightAngle)) > std::abs(specifiedValue) )
 }
