@@ -12,7 +12,6 @@
 //#include "SpeedControl.h"
 #include "TurnControl.h"
 
-
 struct PidParameter
 {
     // p値
@@ -40,7 +39,7 @@ class LineTracer
 public:
     /** コンストラクタ
      *  @param targetBrightness_  [カラーセンサーの目標値]
-     *  @param isLeftCourse_ [Rightコースである場合True]
+     *  @param isLeftCourse_ [Leftコースである場合True]
      */
     LineTracer(int targetBrightness_, bool isLeftCourse_);
 
@@ -60,7 +59,7 @@ private:
     int targetBrightness;
     bool isLeftCourse;
     Distance distance;
-    
+
     // NOTE: 後日実装予定
     //SpeedControl speedControl;
     TurnControl turnControl;

@@ -8,7 +8,7 @@
 
 /** コンストラクタ
  *  @param targetBrightness_  [カラーセンサーの目標値]
- *  @param isLeftCourse_ [Rightコースである場合True]
+ *  @param isLeftCourse_ [Leftコースである場合True]
  */
 LineTracer::LineTracer(int targetBrightness_, bool isLeftCourse_)
     : targetBrightness(targetBrightness_),
@@ -29,7 +29,6 @@ void LineTracer::run(NormalCourseProperty &settings)
     int speedValue = 0;                    // 直進値
     int leftPWM = 0;                       // 左モータの出力
     int rightPWM = 0;                      // 右モータの出力
-
 
     // 目標距離を走り終えるまでループ
     while (currentDistance - initialDistance < settings.targetDistance)
