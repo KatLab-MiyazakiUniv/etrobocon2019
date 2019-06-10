@@ -8,11 +8,11 @@
 
 /** コンストラクタ
  *  @param targetBrightness_  [カラーセンサーの目標値]
- *  @param isRightCourse_ [Rightコースである場合True]
+ *  @param isLeftCourse_ [Rightコースである場合True]
  */
-LineTracer::LineTracer(int targetBrightness_, bool isRightCourse_)
+LineTracer::LineTracer(int targetBrightness_, bool isLeftCourse_)
     : targetBrightness(targetBrightness_),
-      isRightCourse(isRightCourse_) {}
+      isLeftCourse(isLeftCourse_) {}
 
 /** 指定された距離だけ走行する。
  *  @bfief 走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。
@@ -48,17 +48,17 @@ void LineTracer::run(NormalCourseProperty &settings)
         */
 
         // モータ出力の計算
-        if (isRightCourse)
-        {
-            // Rightコースの場合
-            leftPWM = speedValue + turnValue;
-            rightPWM = speedValue - turnValue;
-        }
-        else
+        if (isLeftCourse)
         {
             // Leftコースの場合
             leftPWM = speedValue - turnValue;
             rightPWM = speedValue + turnValue;
+        }
+        else
+        {
+            // Rightコースの場合
+            leftPWM = speedValue + turnValue;
+            rightPWM = speedValue - turnValue;
         }
 
         // PWM値の設定

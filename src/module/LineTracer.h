@@ -40,9 +40,9 @@ class LineTracer
 public:
     /** コンストラクタ
      *  @param targetBrightness_  [カラーセンサーの目標値]
-     *  @param isRightCourse_ [Rightコースである場合True]
+     *  @param isLeftCourse_ [Rightコースである場合True]
      */
-    LineTracer(int targetBrightness_, bool isRightCourse_);
+    LineTracer(int targetBrightness_, bool isLeftCourse_);
 
     /** 指定された距離だけ走行する。
      *  @bfief 走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。
@@ -58,7 +58,7 @@ public:
 
 private:
     int targetBrightness;
-    bool isRightCourse;
+    bool isLeftCourse;
     Distance distance;
     
     // NOTE: 後日実装予定
