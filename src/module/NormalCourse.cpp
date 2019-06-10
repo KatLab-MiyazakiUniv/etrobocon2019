@@ -5,11 +5,14 @@
  */
 #include "NormalCourse.h"
 
-void NormalCourse::selectedEdgeLR(Edge& selectedEdge_)
+void NormalCourse::selectedEdgeLR(Edge &selectedEdge_)
 {
-  if(selectedEdge_ == Edge::LEFT) {
+  if (selectedEdge_ == Edge::LEFT)
+  {
     selectedEdge = false;
-  } else {
+  }
+  else
+  {
     selectedEdge = true;
   }
 }
@@ -17,7 +20,8 @@ void NormalCourse::selectedEdgeLR(Edge& selectedEdge_)
 void NormalCourse::lineTraceForSpecifiedDistance(
     std::array<NormalCourseProperty, N> NormalCourseProperty)
 {
-  for(auto& ncp : NormalCourseProperty) {
+  for (auto &ncp : NormalCourseProperty)
+  {
     lineTrace(ncp);
   }
 }

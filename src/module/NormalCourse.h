@@ -6,15 +6,19 @@
 #ifndef NORMALCOURSE_H
 #define NORMALCOURSE_H
 
-#include "LineTracer.h"  // 仮のヘッダファイル
-#include "NormalCourseProperty.h"
+#include "LineTracer.h" // 仮のヘッダファイル
 #include <array>
 
 // #include "Controller.h"
-enum struct Edge { LEFT, RIGHT };
+enum struct Edge
+{
+  LEFT,
+  RIGHT
+};
 
-class NormalCourse {
- private:
+class NormalCourse
+{
+private:
   //! エッジがどっちか． falseが左エッジ，trueが右エッジ
   bool selectedEdge;
   //! ライントレースのインスタンス
@@ -26,8 +30,8 @@ class NormalCourse {
 
   public :
       //! コンストラクタ
-      NormalCourse(Edge& selectedEdge_, int targetBrightness_)
-    : targetBrightness(targetBrightness_)
+      NormalCourse(Edge &selectedEdge_, int targetBrightness_)
+      : targetBrightness(targetBrightness_)
   {
     NormalCourse::selectedEdgeLR(selectedEdge_);
     lineTrace(selectedEdge, targetBrightness);
@@ -37,7 +41,7 @@ class NormalCourse {
    * 左エッジ，右エッジを切り替える．
    * @param Edge::LEFT or, Edge::RIGHT
    */
-  void selectedEdgeLR(Edge& selectedEdge_);
+  void selectedEdgeLR(Edge &selectedEdge_);
 
   /**
    * 引数として受け取った距離だけライントレースする．
