@@ -15,10 +15,10 @@ LineTracer::LineTracer(int targetBrightness_, bool isRightCourse_)
       isRightCourse(isRightCourse_) {}
 
 /** 指定された距離だけ走行する。
- *  @bfief 走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourceProperty 構造体を使用し渡す。
- *  @param settings [各種パラメータが入っている NormalCourceProperty 構造体]
+ *  @bfief 走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。
+ *  @param settings [各種パラメータが入っている NormalCourseProperty 構造体]
  */
-void LineTracer::run(NormalCourceProperty &settings)
+void LineTracer::run(NormalCourseProperty &settings)
 {
     // 関数呼び出し時の走行距離を取得・設定
     int initialDistance = distance.getDistance(
