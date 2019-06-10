@@ -52,8 +52,8 @@ double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, doubl
     double pidValue = pid.control(currentSpeed);
 
     //PWM値 = pid値 * 360度 / (円周率 * タイヤの半径[mm] * 定数C)
-    double PWMValue = pidValue * 360 / (M_PI * radius * C);
+    double pwmValue = pidValue * 360 / (M_PI * radius * C);
 
     //PWM値を返す
-    return PWMValue;
+    return pwmValue;
 }
