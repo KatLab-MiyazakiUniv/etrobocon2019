@@ -3,8 +3,8 @@
  *  @brief  NormalCourseを走る
  *  @author Tatsumi Nishida
  */
-#ifndef NormalCourse_H
-#define NormalCourse_H
+#ifndef NORMALCOURSE_H
+#define NORMALCOURSE_H
 
 #include "LineTracer.h"  // 仮のヘッダファイル
 #include "NormalCourseProperty.h"
