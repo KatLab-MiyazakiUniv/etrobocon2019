@@ -40,9 +40,12 @@ void LineTracer::run(NormalCourseProperty &settings)
             settings.turnPid.kp, settings.turnPid.ki, settings.turnPid.kd);
 
         // 前進値の計算
+        speedValue = 30;
+        /* NOTE: 後日実装予定
         speedValue = speedControl.calculateSpeed(
             settings.speedPid.kp, settings.speedPid.ki, settings.speedPid.kd,
             settings.targetSpeed);
+        */
 
         // モータ出力の計算
         if (isRightCourse)

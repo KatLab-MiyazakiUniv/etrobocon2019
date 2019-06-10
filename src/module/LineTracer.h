@@ -8,7 +8,8 @@
 
 #include "Controller.h"
 #include "Distance.h"
-#include "SpeedControl.h"
+// NOTE: 後日実装予定
+//#include "SpeedControl.h"
 #include "TurnControl.h"
 
 
@@ -59,7 +60,9 @@ private:
     int targetBrightness;
     bool isRightCourse;
     Distance distance;
-    SpeedControl speedControl;
+    
+    // NOTE: 後日実装予定
+    //SpeedControl speedControl;
     TurnControl turnControl;
     Controller controller;
 };
