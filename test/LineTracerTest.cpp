@@ -24,7 +24,7 @@ TEST(LineTracer, run)
     LineTracer lineTracer(targetBrightness, isRight);
 
     // 走行用の設定
-    NormalCourceProperty settings =
+    NormalCourseProperty settings =
         {100, 100, {1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}};
 
     // 走行する
