@@ -24,7 +24,7 @@ TEST(LineTracer, run)
     LineTracer lineTracer(targetBrightness, isRight);
 
     // 走行用の設定
-    struct NormalCourceProperty settings =
+    NormalCourceProperty settings =
         {100, 100, {1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}};
 
     // 走行する
