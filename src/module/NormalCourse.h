@@ -1,19 +1,19 @@
 /**
- *  @file   NormalCource.h
- *  @brief  NormalCourceを走る
+ *  @file   NormalCourse.h
+ *  @brief  NormalCourseを走る
  *  @author Tatsumi Nishida
  */
-#ifndef NORMALCOURCE_H
-#define NORMALCOURCE_H
+#ifndef NormalCourse_H
+#define NormalCourse_H
 
 #include "LineTracer.h"  // 仮のヘッダファイル
-#include "NormalCourceProperty.h"
+#include "NormalCourseProperty.h"
 #include <array>
 
 // #include "Controller.h"
 enum struct Edge { LEFT, RIGHT };
 
-class NormalCource {
+class NormalCourse {
  private:
   //! エッジがどっちか． falseが左エッジ，trueが右エッジ
   bool selectedEdge;
@@ -26,10 +26,10 @@ class NormalCource {
 
   public :
       //! コンストラクタ
-      NormalCource(Edge& selectedEdge_, int targetBrightness_)
+      NormalCourse(Edge& selectedEdge_, int targetBrightness_)
     : targetBrightness(targetBrightness_)
   {
-    NormalCource::selectedEdgeLR(selectedEdge_);
+    NormalCourse::selectedEdgeLR(selectedEdge_);
     lineTrace(selectedEdge, targetBrightness);
   }
 
@@ -45,7 +45,7 @@ class NormalCource {
    * @param target 黒色と白色の境界の輝度値
    * @param pwm モータパワー
    */
-  void lineTraceForSpecifiedDistance(std::array<NormalCourceProperty, N> normalCourceProperty);
+  void lineTraceForSpecifiedDistance(std::array<NormalCourseProperty, N> NormalCourseProperty);
 };
 
 #endif

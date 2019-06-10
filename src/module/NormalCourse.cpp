@@ -1,11 +1,11 @@
 /**
- *  @file   NormalCource.h
- *  @brief  NormalCourceを走る
+ *  @file   NormalCourse.h
+ *  @brief  NormalCourseを走る
  *  @author Tatsumi Nishida
  */
-#include "NormalCource.h"
+#include "NormalCourse.h"
 
-void NormalCource::selectedEdgeLR(Edge& selectedEdge_)
+void NormalCourse::selectedEdgeLR(Edge& selectedEdge_)
 {
   if(selectedEdge_ == Edge::LEFT) {
     selectedEdge = false;
@@ -14,9 +14,10 @@ void NormalCource::selectedEdgeLR(Edge& selectedEdge_)
   }
 }
 
-void NormalCource::lineTraceForSpecifiedDistance(std::array<NormalCourceProperty, N> normalCourceProperty)
+void NormalCourse::lineTraceForSpecifiedDistance(
+    std::array<NormalCourseProperty, N> NormalCourseProperty)
 {
-  for(auto& ncp : normalCourceProperty) {
+  for(auto& ncp : NormalCourseProperty) {
     lineTrace(ncp);
   }
 }
