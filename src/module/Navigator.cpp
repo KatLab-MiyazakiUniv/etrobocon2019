@@ -20,10 +20,10 @@ void Navigator::move(int specifiedValue, int pwm)
 {
   if (specifiedValue < 0)
   {
-    pwm *= -1;
-    back(specifiedValue, pwm);
+    back(specifiedValue, -pwm);
+  }else{
+    forward(specifiedValue, pwm);
   }
-  forward(specifiedValue, pwm);
 }
 
 void Navigator::forward(int specifiedValue, int pwm)
