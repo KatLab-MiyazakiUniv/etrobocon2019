@@ -9,17 +9,19 @@
 
 #include "Controller.h"
 #include "Distance.h"
-#include <cmath>
 
-class Navigator{
- public:
-    Navigator();
-    Navigator(Controller& _controller);
-    void move(int specifiedValue, int pwm = 30);
+class Navigator
+{
+public:
+   Navigator();
+   Navigator(Controller &_controller);
+   void move(int specifiedValue, int pwm = 30);
 
- private:
-    Distance distance;
-    Controller controller;
+private:
+   Distance distance;
+   Controller controller;
+   void forward(int specifiedValue, int pwm);
+   void back(int specifiedValue, int pwm);
 };
 
 #endif
