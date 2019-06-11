@@ -6,10 +6,7 @@
 
 #include "SpeedControl.h"
 
-SpeedControl::SpeedControl() : C(7.2), radius(50) {
-  Distance dist;
-
-  Controller controller;
+SpeedControl::SpeedControl() : dist(), controller(), C(7.2), radius(50) {
 
   // 左右のモータの角位置を取得
   int leftAngle = controller.leftWheel.getCount();
