@@ -6,20 +6,17 @@
 
 #include "SpeedControl.h"
 
-SpeedControl::SpeedControl()
-    : C(7.2),
-      radius(50)
-{
-    Distance dist;
+SpeedControl::SpeedControl() : C(7.2), radius(50) {
+  Distance dist;
 
-    Controller controller;
+  Controller controller;
 
-    // 左右のモータの角位置を取得
-    int leftAngle = controller.leftWheel.getCount();
-    int rightAngle = controller.rightWheel.getCount();
+  // 左右のモータの角位置を取得
+  int leftAngle = controller.leftWheel.getCount();
+  int rightAngle = controller.rightWheel.getCount();
 
-    // 走行距離の取得[mm]
-    prevDistance = dist.getDistance(leftAngle, rightAngle);
+  // 走行距離の取得[mm]
+  prevDistance = dist.getDistance(leftAngle, rightAngle);
 }
 
 /**
@@ -31,30 +28,30 @@ SpeedControl::SpeedControl()
  *  @return             [PWM値]
  */
 
-double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, double Kd)
-{
-    Pid pid(static_cast<double>(targetSpeed), Kp, Ki, Kd);
+double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki,
+                                    double Kd) {
+  Pid pid(static_cast<double>(targetSpeed), Kp, Ki, Kd);
 
-    Distance dist;
+  Distance dist;
 
-    Controller controller;
+  Controller controller;
 
-    //4ms後の左右のモータの角位置を取得
-    int leftAngle = controller.leftWheel.getCount();
-    int rightAngle = controller.rightWheel.getCount();
+  // 4ms後の左右のモータの角位置を取得
+  int leftAngle = controller.leftWheel.getCount();
+  int rightAngle = controller.rightWheel.getCount();
 
-    //4ms後の走行距離の取得[mm]
-    double nextDistance = dist.getDistance(leftAngle, rightAngle);
+  // 4ms後の走行距離の取得[mm]
+  double nextDistance = dist.getDistance(leftAngle, rightAngle);
 
-    //現在の速度を求める
-    double currentSpeed = (nextDistance - prevDistance) / 0.004;
+  //現在の速度を求める
+  double currentSpeed = (nextDistance - prevDistance) / 0.004;
 
-    //pid値を求める
-    double pidValue = pid.control(currentSpeed);
+  // pid値を求める
+  double pidValue = pid.control(currentSpeed);
 
-    //PWM値 = pid値 * 360度 / (円周率 * タイヤの半径[mm] * 定数C)
-    double pwmValue = pidValue * 360 / (M_PI * radius * C);
+  // PWM値 = pid値 * 360度 / (円周率 * タイヤの半径[mm] * 定数C)
+  double pwmValue = pidValue * 360 / (M_PI * radius * C);
 
-    //PWM値を返す
-    return pwmValue;
+  // PWM値を返す
+  return pwmValue;
 }
