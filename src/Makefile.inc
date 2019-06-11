@@ -8,6 +8,7 @@ APPL_CXXOBJS += \
     Distance.o \
     Calibrator.o \
     Pid.o \
+    LineTracer.o \
     SpeedControl.o \
     TurnControl.o
 
