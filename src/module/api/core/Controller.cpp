@@ -72,4 +72,4 @@ void Controller::lcdDrawString(const char* str, int x, int y) {
   ev3_lcd_draw_string(str, x, y);
 }
 
-void Controller::lcdSetFont() { ev3_lcd_set_font(EV3_FONT_MEDIUM); }
+void Controller::lcdSetFont() { ev3_lcd_set_font(EV3_FONT_SMALL); }

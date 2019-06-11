@@ -6,7 +6,16 @@
 #include "Filter.h"
 
 template <typename T>
-Filter<T>::Filter() : preValue_(0) {}
+Filter<T>::Filter() : preValue(0)
+{
+}
+
+template <typename T>
+void Filter<T>::reset()
+{
+  preValue = 0;
+}
+
 
 /**
  *  [Filter::lowPassFilter]
@@ -16,15 +25,19 @@ Filter<T>::Filter() : preValue_(0) {}
  *  @return       [フィルター後の値]
  */
 template <typename T>
-float Filter<T>::lowPassFilter(T value, float rate)
+double Filter<T>::lowPassFilter(T value, double rate)
 {
   // 前回値の初期化
-  if(preValue_ == 0) {
-    preValue_ = value;
-    return static_cast<float>(value);
+  if(preValue == 0) {
+    preValue = value;
+    return static_cast<double>(value);
   }
 
-  return preValue_ * rate + value * (1 - rate);
+  double filtered = preValue * rate + value * (1 - rate);
+  // 前回値の更新
+  preValue = value;
+
+  return filtered;
 }
 
 // 明示的なインスタンス化
