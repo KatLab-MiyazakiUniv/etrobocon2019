@@ -6,50 +6,47 @@
 #ifndef NORMALCOURSE_H
 #define NORMALCOURSE_H
 
-#include "LineTracer.h" // 仮のヘッダファイル
+#include "LineTracer.h"  // 仮のヘッダファイル
 #include <array>
 
-// #include "Controller.h"
-enum struct Edge
-{
-  LEFT,
-  RIGHT
-};
-
-class NormalCourse
-{
-private:
-  //! エッジがどっちか． falseが左エッジ，trueが右エッジ
+class NormalCourse {
+ private:
+  //! 配列の要素数（コンパイル時に解決）
+  template <std::size_t SIZE>
+  //! エッジがどっちか． trueが左エッジ，falseが右エッジ
   bool selectedEdge;
-  //! ライントレースのインスタンス
-  LineTracer lineTrace;
   //! 明るさ
   int targetBrightness;
 
-  template <size_t N>
-
-  public :
-      //! コンストラクタ
-      NormalCourse(Edge &selectedEdge_, int targetBrightness_)
-      : targetBrightness(targetBrightness_)
+ public:
+  //! コンストラクタ
+  NormalCourse(bool selectedEdge_, int targetBrightness_)
+    : targetBrightness(targetBrightness_), selectedEdge(false)
   {
-    NormalCourse::selectedEdgeLR(selectedEdge_);
-    lineTrace(selectedEdge, targetBrightness);
   }
 
   /**
    * 左エッジ，右エッジを切り替える．
    * @param Edge::LEFT or, Edge::RIGHT
    */
-  void selectedEdgeLR(Edge &selectedEdge_);
+  void selectedEdgeLR(bool selectedEdge_);
 
   /**
-   * 引数として受け取った距離だけライントレースする．
-   * @param specifiedDistance 進みたい距離．単位はmm
-   * @param target 黒色と白色の境界の輝度値
-   * @param pwm モータパワー
+   * 引数として受け取った距離だけライントレースする．（配列バージョン）
+   * @param normalCourseProperty NormalCourseProperty構造体の配列
    */
-  void lineTraceForSpecifiedDistance(std::array<NormalCourseProperty, N> NormalCourseProperty);
+  void lineTraceForSpecifiedDistance(std::array<NormalCourseProperty, SIZE>& normalCourseProperty);
+
+  /**
+   * 引数として受け取った距離だけライントレースする．（配列じゃないバージョン）
+   * @param normalCourseProperty NormalCourseProperty構造体
+   */
+  void lineTraceForSpecifiedDistance(NormalCourseProperty& normalCourseProperty);
+
+  /**
+   * 実際にNormalコースを走る．
+   */
+  void runNormalCourse();
 };
 
 #endif

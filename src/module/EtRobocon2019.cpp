@@ -4,8 +4,8 @@
 #include "Display.h"
 
 void EtRobocon2019::start() {
-  Controller controller;
-  Calibrator calibrator(controller);
+	Controller controller;
+	Calibrator calibrator(controller);
 
-  calibrator.calibration();
+	calibrator.calibration();
 }
