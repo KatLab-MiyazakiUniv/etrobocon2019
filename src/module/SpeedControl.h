@@ -13,8 +13,11 @@
 class SpeedControl
 {
 private:
+    Controller controller;
+    Distance dist;
     const double C;   //定数C(実験で求める予定)
     const int radius; //タイヤの半径[mm]
+    double prevDistance;
 
 public:
     SpeedControl();
