@@ -20,7 +20,7 @@ Navigator::Navigator(Controller &controller_)
  * 前進と後進をする
  * @brief specifiedValueの値でbackwardかforwardを呼び出す。
  * @param specifiedValue [移動したい距離(mm)。正なら前進、負なら後進。]
- * @param pwm [モーターの強さ]
+ * @param pwm [モータの強さ]
  * @return なし
  */
 void Navigator::move(int specifiedValue, int pwm)
@@ -42,9 +42,12 @@ void Navigator::move(int specifiedValue, int pwm)
 }
 
 /**
- * @brief
- * @param
- * @return
+ * 前進する
+ * @brief モータを動かし、isMovedを満たす間動く
+ * @param specifiedValue [移動したい距離(mm)]
+ * @param pwm[モータの強さ]
+ * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
+ * @return なし
  */
 void Navigator::forward(int specifiedValue, int pwm, int goalDistance) 
 {
@@ -58,9 +61,12 @@ void Navigator::forward(int specifiedValue, int pwm, int goalDistance)
 }
 
 /**
- * @brief
- * @param
- * @return
+ * 後進する
+ * @brief モータを動かし、isMovedを満たす間動く
+ * @param specifiedValue [移動したい距離(mm)]
+ * @param pwm[モータの強さ]
+ * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
+ * @return なし
  */
 void Navigator::backward(int specifiedValue, int pwm, int goalDistance)
 {
@@ -73,6 +79,13 @@ void Navigator::backward(int specifiedValue, int pwm, int goalDistance)
   }
 }
 
+/**
+ * 指定した距離動いたか判定する
+ * @brief 現在値とgoalDistanceを比較し、resultに"true"か"false"を格納する
+ * @param goalDistance [現在地から移動したい距離動いた後の値(mm)]
+ * @param isForward [前進なら"true"、後進なら"false"]
+ * @return result [移動したい距離動いたら"true"、動いていないなら"false"]
+ */
 bool Navigator::isMoved(int goalDistance, bool isForward)
 {
   int leftAngle = controller.leftWheel.getCount();
