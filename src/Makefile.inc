@@ -5,7 +5,12 @@ APPL_CXXOBJS += \
     Display.o \
     EtRobocon2019.o \
     Filter.o \
-    Distance.o
+    Distance.o \
+    Calibrator.o \
+    Pid.o \
+    LineTracer.o \
+    SpeedControl.o \
+    TurnControl.o
 
 SRCLANG := c++
 

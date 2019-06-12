@@ -8,5 +8,10 @@ et2019
 #C++
 *.o
 
+#実行ファイル
+app
+a.out
+
 #テスト
 build/
+*.dSYM/
