@@ -4,14 +4,14 @@ APPL_CXXOBJS += \
     Controller.o \
     Display.o \
     EtRobocon2019.o \
-    NormalCource.o \
     Filter.o \
     Distance.o \
     Calibrator.o \
     Pid.o \
     LineTracer.o \
     SpeedControl.o \
-    TurnControl.o
+    TurnControl.o \
+    NormalCourse.o
 
 SRCLANG := c++
 
