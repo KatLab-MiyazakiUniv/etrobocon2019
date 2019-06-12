@@ -10,11 +10,6 @@ namespace etrobocon2019_test
 {
 TEST(Navigator, NavigatorTest_init)
 {
-  Navigator navigator;
-}
-
-TEST(Navigator, NavigatorTest_init_existArgs)
-{
   Controller controller;
   Navigator navigator(controller);
 }
@@ -33,14 +28,14 @@ TEST(Navigator, moveForwardTestExistPwm)
   navigator.move(1000, 50);
 }
 
-TEST(Navigator, moveBackTest)
+TEST(Navigator, moveBackwardTest)
 {
   Navigator navigator;
 
   navigator.move(-1000);
 }
 
-TEST(Navigator, moveBackTestExistPwm)
+TEST(Navigator, moveBackwardTestExistPwm)
 {
   Navigator navigator;
 

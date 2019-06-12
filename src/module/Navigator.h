@@ -4,24 +4,25 @@
  *  @author Harada,Oiwane
  */
 
-#ifndef Navigator_H
-#define Navigator_H
+#ifndef NAVIGATOR_H
+#define NAVIGATOR_H
 
 #include "Controller.h"
 #include "Distance.h"
+#include <cmath>
 
 class Navigator
 {
 public:
-   Navigator();
-   Navigator(Controller &_controller);
+   explicit Navigator(Controller &controller_);
    void move(int specifiedValue, int pwm = 30);
 
 private:
    Distance distance;
-   Controller controller;
+   Controller &controller;
    void forward(int specifiedValue, int pwm);
-   void back(int specifiedValue, int pwm);
+   void backward(int specifiedValue, int pwm);
+   void isMoved(int goalDistance, bool isForward);
 };
 
 #endif

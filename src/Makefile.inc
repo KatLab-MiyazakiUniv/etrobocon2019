@@ -9,7 +9,7 @@ APPL_CXXOBJS += \
     Calibrator.o \
     Pid.o \
     TurnControl.o \
-    Navigator.o
+    Navigator.o \
 
 SRCLANG := c++
 
