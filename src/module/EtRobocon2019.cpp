@@ -9,7 +9,7 @@ void EtRobocon2019::start()
   Controller controller;
   Calibrator calibrator(controller);
   // キャリブレーションする．
-	calibrator.calibration();
+  calibrator.calibration();
 
   // コースと、カラーセンサー目標値の設定
   bool isRightCourse = calibrator.isLeftCource();
@@ -19,7 +19,7 @@ void EtRobocon2019::start()
   while(!controller.buttonIsPressedRight()) {
   }
 
-  NormalCourse normalCourse(controller, targetBrightness);
-  // エッジを指定する．（すると走り出す！！）
-  normalCourse.selectedEdgeLR(isRightCourse);
+  NormalCourse normalCourse(controller, isRightCourse, targetBrightness);
+  // NormalCourseを走り出す．
+  normalCourse.runNormalCourse();
 }

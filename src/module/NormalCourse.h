@@ -15,13 +15,13 @@ class NormalCourse {
    *  @param controller [コントローラのインスタンス]
    *  @param targetBrightness_ [カラーセンサーの目標値]
    */
-  NormalCourse(Controller& controller_, int targetBrightness_);
+  NormalCourse(Controller& controller_, bool isLeftCourse_, int targetBrightness_);
 
   /**
    * 左エッジ，右エッジを切り替える．
    * @param selectedEdge_ [Leftコースである場合True]
    */
-  void selectedEdgeLR(bool selectedEdge_);
+  void setIsLeftCourse(bool isLeftCourse_);
 
   /**
    * 実際にNormalコースを走る．
@@ -29,9 +29,9 @@ class NormalCourse {
   void runNormalCourse();
 
   /**
-   * 現在のselectedEdge（エッジ）を返すゲッター
+   * 現在のisLeftCourse（エッジ）を返すゲッター
    */
-  bool getSelectedEdge();
+  bool getIsLeftCourse();
 
   /**
    * targetBrightness（カラーセンサの目標値）を返すゲッター
@@ -42,7 +42,7 @@ class NormalCourse {
   //! コントローラー
   Controller& controller;
   //! エッジがどっちか． trueが左コース，falseが右コース
-  bool selectedEdge;
+  bool isLeftCourse;
   //! カラーセンサーの目標値
   int targetBrightness;
 };

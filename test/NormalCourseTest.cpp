@@ -14,34 +14,38 @@ namespace etrobocon2019_test {
     Controller controller;
     // カラーセンサーの目標値
     int targetBrightness = 90;
-    bool selectedEdgeExpected = false;
+    // Leftコースである場合True
+    bool isLeftCourse = true;
     // カラーセンサーの目標値
     int targetBrightnessExpected = 90;
-    NormalCourse normalCourse(controller, targetBrightness);
-    ASSERT_EQ(selectedEdgeExpected, normalCourse.getSelectedEdge());
+    NormalCourse normalCourse(controller, isLeftCourse, targetBrightness);
+    ASSERT_TRUE(normalCourse.getIsLeftCourse());
     ASSERT_EQ(targetBrightnessExpected, normalCourse.getTargetBrightness());
   }
 
   //エッジの切替メソッドのテスト
-  TEST(NormalCourse, selectedEdgeLR)
+  TEST(NormalCourse, setIsLeftCourse)
   {
     Controller controller;
     // カラーセンサーの目標値
     int targetBrightness = 100;
-    NormalCourse normalCourse(controller, targetBrightness);
-    normalCourse.selectedEdgeLR(true);
-    ASSERT_TRUE(normalCourse.getSelectedEdge());
+    // Leftコースである場合True
+    bool isLeftCourse = false;
+    NormalCourse normalCourse(controller, isLeftCourse, targetBrightness);
+    normalCourse.setIsLeftCourse(true);
+    ASSERT_TRUE(normalCourse.getIsLeftCourse());
   }
 
   // セットしたエッジを返すゲッター
-  TEST(NormalCourse, getSelectedEdge)
+  TEST(NormalCourse, getIsLeftCourse)
   {
     Controller controller;
     // カラーセンサーの目標値
     int targetBrightness = 100;
-    NormalCourse normalCourse(controller, targetBrightness);
-    // 初期化する際に，falseで初期化するため
-    ASSERT_FALSE(normalCourse.getSelectedEdge());
+    // Leftコースである場合True
+    bool isLeftCourse = false;
+    NormalCourse normalCourse(controller, isLeftCourse, targetBrightness);
+    ASSERT_FALSE(normalCourse.getIsLeftCourse());
   }
 
   // セットした目標のカラーセンサ値を返すゲッター
@@ -50,9 +54,11 @@ namespace etrobocon2019_test {
     Controller controller;
     // カラーセンサーの目標値
     int targetBrightness = 600;
+    // Leftコースである場合True
+    bool isLeftCourse = true;
     // 期待される出力
     int expected = 600;
-    NormalCourse normalCourse(controller, targetBrightness);
+    NormalCourse normalCourse(controller, isLeftCourse, targetBrightness);
     ASSERT_EQ(expected, normalCourse.getTargetBrightness());
   }
 }  // namespace etrobocon2019_test
