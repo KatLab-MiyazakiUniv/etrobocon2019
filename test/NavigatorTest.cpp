@@ -1,44 +1,46 @@
 /**
  *  @file   NavigatorTest.cpp
  *  @brief  Navigatorクラスのテストファイル
- *  @author Oiwane
+ *  @author Oiwane,Harada
  */
 #include <gtest/gtest.h>
 #include "Navigator.h"
 
-namespace etrobocon2019_test
-{
-TEST(Navigator, NavigatorTest_init)
-{
-  Controller controller;
-  Navigator navigator(controller);
-}
+namespace etrobocon2019_test {
+  TEST(Navigator, NavigatorTest_init)
+  {
+    Controller controller;
+    Navigator navigator(controller);
+  }
 
-TEST(Navigator, moveForwardTest)
-{
-  Navigator navigator;
+  TEST(Navigator, moveForwardTest)
+  {
+    Controller controller;
+    Navigator navigator(controller);
 
-  navigator.move(1000);
-}
+    navigator.move(1000);
+  }
 
-TEST(Navigator, moveForwardTestExistPwm)
-{
-  Navigator navigator;
+  TEST(Navigator, moveForwardTestExistPwm)
+  {
+    Navigator navigator;
 
-  navigator.move(1000, 50);
-}
+    navigator.move(1000, 50);
+  }
 
-TEST(Navigator, moveBackwardTest)
-{
-  Navigator navigator;
+  TEST(Navigator, moveBackwardTest)
+  {
+    Controller controller;
+    Navigator navigator(controller);
 
-  navigator.move(-1000);
-}
+    navigator.move(-1000);
+  }
 
-TEST(Navigator, moveBackwardTestExistPwm)
-{
-  Navigator navigator;
+  TEST(Navigator, moveBackwardTestExistPwm)
+  {
+    Controller controller;
+    Navigator navigator(controller);
 
-  navigator.move(-1000, 50);
-}
-} // namespace etrobocon2019_test
+    navigator.move(-1000, 50);
+  }
+}  // namespace etrobocon2019_test
