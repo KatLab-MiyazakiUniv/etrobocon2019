@@ -13,14 +13,14 @@ namespace etrobocon2019_test {
     Navigator navigator(controller);
   }
 
-  TEST(Navigator, moveForwardTest)
-  {
-    Controller controller;
-    Navigator navigator(controller);
+  /* TEST(Navigator, moveForwardTest)
+   {
+     Controller controller;
+     Navigator navigator(controller);
 
-    navigator.move(1000);
-  }
-
+     navigator.move(1000);
+   }
+ */
   TEST(Navigator, moveForwardTestExistPwm)
   {
     Controller controller;
