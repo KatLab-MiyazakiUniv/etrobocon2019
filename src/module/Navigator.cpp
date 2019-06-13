@@ -11,10 +11,7 @@
  * @brief Navigatorクラスのコンストラクタ
  * @param &controller_ [Controllerインスタンスの参照]
  */
-Navigator::Navigator(Controller &controller_)
-    : distance(), controller(controller_)
-{
-}
+Navigator::Navigator(Controller& controller_) : distance(), controller(controller_) {}
 
 /**
  * 前進と後進をする
@@ -29,11 +26,9 @@ void Navigator::move(int specifiedValue, int pwm)
   int rightAngle = controller.rightWheel.getCount();
   int goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
 
-  if (specifiedValue < 0)
-  {
+  if(specifiedValue < 0) {
     backward(specifiedValue, -std::abs(pwm), goalDistance);
-  }
-  else{
+  } else {
     forward(specifiedValue, std::abs(pwm), goalDistance);
   }
 
@@ -49,13 +44,12 @@ void Navigator::move(int specifiedValue, int pwm)
  * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
  * @return なし
  */
-void Navigator::forward(int specifiedValue, int pwm, int goalDistance) 
+void Navigator::forward(int specifiedValue, int pwm, int goalDistance)
 {
   controller.rightWheel.setPWM(pwm);
   controller.leftWheel.setPWM(pwm);
 
-  while (isMoved(goalDistance,true))
-  {
+  while(isMoved(goalDistance, true)) {
     controller.tslpTsk(4);
   }
 }
@@ -73,8 +67,7 @@ void Navigator::backward(int specifiedValue, int pwm, int goalDistance)
   controller.rightWheel.setPWM(pwm);
   controller.leftWheel.setPWM(pwm);
 
-  while (isMoved(goalDistance,false))
-  {
+  while(isMoved(goalDistance, false)) {
     controller.tslpTsk(4);
   }
 }
@@ -92,13 +85,10 @@ bool Navigator::isMoved(int goalDistance, bool isForward)
   int rightAngle = controller.rightWheel.getCount();
 
   bool result;
-  if(isForward)
-  {
-    result = distance.getDistance(leftAngle, rightAngle) <= goalDistance
-  }
-  else
-  {
-    result = distance.getDistance(leftAngle, rightAngle) >= goalDistance
+  if(isForward) {
+    result = distance.getDistance(leftAngle, rightAngle) <= goalDistance;
+  } else {
+    result = distance.getDistance(leftAngle, rightAngle) >= goalDistance;
   }
 
   return result;
