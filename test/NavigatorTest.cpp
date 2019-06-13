@@ -23,7 +23,8 @@ namespace etrobocon2019_test {
 
   TEST(Navigator, moveForwardTestExistPwm)
   {
-    Navigator navigator;
+    Controller controller;
+    Navigator navigator(controller);
 
     navigator.move(1000, 50);
   }
