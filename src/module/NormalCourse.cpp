@@ -31,11 +31,9 @@ void NormalCourse::runNormalCourse()
 {
   // 配列の個数
   constexpr int arraySize = 2;
-  // std::array<PidParameter, arraySize> speedPid = { { { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } } };
-  // std::array<PidParameter, arraySize> turnPid = { { { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } } };
   std::array<NormalCourseProperty, arraySize> normalCourseProperty
-      = { { { 1000, 10, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } },
-            { 500, 80, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } } } };
+      = { { { 1000, 10, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } },     // 第1区間
+            { 500, 80, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } } } };  // 第2区間
 
   LineTracer lineTracer(targetBrightness, isLeftCourse);
   for(auto& ncp : normalCourseProperty) {
