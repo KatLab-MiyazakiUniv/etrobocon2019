@@ -75,3 +75,6 @@ Put `ExampleTest.cpp` to `/test`.
 #### Execute test cases.
 Do `./gtest_all.sh`.
 
+### Use Remote Development of Visual Studio Code.
+
+You can use Remote Development of Visual Studio Code.
