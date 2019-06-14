@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: korosuke613/etrobo-docker:7.2-2
+        user: root
     working_directory: /home/build
     steps:
       - checkout
@@ -24,6 +25,7 @@ jobs:
   test:
     docker:
       - image: korosuke613/etrobo-docker:7.2-2
+        user: root
     working_directory: /home/hrp2/sdk/workspace/product
     steps:
       - checkout
