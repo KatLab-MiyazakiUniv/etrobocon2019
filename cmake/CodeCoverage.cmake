@@ -152,9 +152,9 @@ FUNCTION(SETUP_TARGET_FOR_COVERAGE _targetname _testrunner _outputname)
 		COMMAND ${LCOV_PATH} --directory . --base-directory . --capture --output-file coverage.info
         COMMAND ${LCOV_PATH} --remove coverage.info '/usr*' '*/test/*' '*/ext/*' -o coverage.info
 
-		#COMMAND ${LCOV_PATH} --directory . --capture --output-file ${coverage_info}
-		#COMMAND ${LCOV_PATH} --remove ${coverage_info} 'tests/*' '/usr/*' --output-file ${coverage_cleaned}
-		#COMMAND ${GENHTML_PATH} -o ${_outputname} ${coverage_cleaned}
+		COMMAND ${LCOV_PATH} --directory . --capture --output-file ${coverage_info}
+		COMMAND ${LCOV_PATH} --remove ${coverage_info} 'tests/*' '/usr/*' --output-file ${coverage_cleaned}
+		COMMAND ${GENHTML_PATH} -o ${_outputname} ${coverage_cleaned}
 		#COMMAND ${CMAKE_COMMAND} -E remove ${coverage_info} ${coverage_cleaned}
 
 		WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
