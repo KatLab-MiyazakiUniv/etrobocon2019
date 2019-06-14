@@ -21,7 +21,7 @@ class Navigator {
   Controller& controller;
   void forward(int specifiedValue, int pwm, int goalDistance);
   void backward(int specifiedValue, int pwm, int goalDistance);
-  bool isMoved(int goalDistance, bool isForward);
+  bool hasArrived(int goalDistance, bool isForward);
 };
 
 #endif
