@@ -15,3 +15,6 @@ a.out
 #テスト
 build/
 *.dSYM/
+
+#その他
+.DS_Store
