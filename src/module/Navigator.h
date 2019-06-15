@@ -14,14 +14,14 @@
 class Navigator {
  public:
   explicit Navigator(Controller& controller_);
-  void move(int specifiedValue, int pwm = 30);
+  void move(double specifiedValue, int pwm = 30);
 
  private:
   Distance distance;
   Controller& controller;
-  void forward(int specifiedValue, int pwm, int goalDistance);
-  void backward(int specifiedValue, int pwm, int goalDistance);
-  bool hasArrived(int goalDistance, bool isForward);
+  void forward(double specifiedValue, int pwm, double goalDistance);
+  void backward(double specifiedValue, int pwm, double goalDistance);
+  bool hasArrived(double goalDistance, bool isForward);
 };
 
 #endif

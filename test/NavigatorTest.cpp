@@ -6,8 +6,7 @@
 #include <gtest/gtest.h>
 #include "Navigator.h"
 
-namespace etrobocon2019_test
-{
+namespace etrobocon2019_test {
   TEST(Navigator, NavigatorTest_init)
   {
     Controller controller;
@@ -20,13 +19,15 @@ namespace etrobocon2019_test
     Distance distance;
     Navigator navigator(controller);
 
-    int expected = 1000;
-    double start = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    
+    double expected = 1000.0;
+    double start
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+
     navigator.move(expected);
 
-    double end = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    ASSERT_DOUBLE_EQ(static_cast<double>(expected), end - start);
+    double end
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+    ASSERT_GE(end - start, expected);
   }
 
   TEST(Navigator, moveForwardTestExistPwm)
@@ -35,13 +36,15 @@ namespace etrobocon2019_test
     Distance distance;
     Navigator navigator(controller);
 
-    int expected = 1000;
-    double start = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+    double expected = 1000.0;
+    double start
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
 
-    navigator.move(1000, 50);
-  
-    double end = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    ASSERT_DOUBLE_EQ(static_cast<double>(expected), end - start);
+    navigator.move(expected, 50);
+
+    double end
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+    ASSERT_GE(end - start, expected);
   }
 
   TEST(Navigator, moveBackwardTest)
@@ -50,13 +53,15 @@ namespace etrobocon2019_test
     Distance distance;
     Navigator navigator(controller);
 
-    int expected = 1000;
-    double start = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+    double expected = -1000.0;
+    double start
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
 
-    navigator.move(-1000);
+    navigator.move(expected);
 
-    double end = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    ASSERT_DOUBLE_EQ(static_cast<double>(expected), end - start);
+    double end
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+    ASSERT_LE(end - start, expected);
   }
 
   TEST(Navigator, moveBackwardTestExistPwm)
@@ -65,12 +70,14 @@ namespace etrobocon2019_test
     Distance distance;
     Navigator navigator(controller);
 
-    int expected = 1000;
-    double start = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    
-    navigator.move(-1000, 50);
+    double expected = -1000.0;
+    double start
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
 
-    double end = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    ASSERT_DOUBLE_EQ(static_cast<double>(expected), end - start);
+    navigator.move(expected, 50);
+
+    double end
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+    ASSERT_LE(end - start, expected);
   }
 }  // namespace etrobocon2019_test
