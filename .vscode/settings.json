@@ -1,0 +1,52 @@
+{
+    "C_Cpp.clang_format_style": "file",
+    "editor.formatOnSave": true,
+    "cSpell.ignorePaths": [
+        "**/package-lock.json",
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/objects/**",
+        ".vscode",
+        "*.md"
+    ],
+    "cSpell.words": [
+        "Miyazaki",
+        "PORTID",
+        "Toyohashi",
+        "ertl",
+        "exinf",
+        "hackev",
+        "hiro",
+        "tslp"
+    ],
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "git-commit",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "jsonc",
+        "latex",
+        "less",
+        "php",
+        "plaintext",
+        "pug",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yaml"
+    ]
+}

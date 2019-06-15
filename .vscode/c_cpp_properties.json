@@ -1,18 +1,14 @@
 {
     "configurations": [
         {
-            "name": "Mac",
+            "name": "Linux",
             "defines": [],
-            "macFrameworkPath": [],
-            "compilerPath": "/usr/local/bin/gcc",
+            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
+            "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64",
             "includePath": [
-                "${workspaceFolder}/src",
-                "${workspaceFolder}/ev3-api/src/**",
-                "${workspaceFolder}/ev3-api/library/libcpp-ev3/**",
-                "${workspaceFolder}/src/module/api/core/**",
-                "${workspaceFolder}/src/module/api/**"
+                "/home/hrp2/**"
             ]
         }
     ],

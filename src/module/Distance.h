@@ -8,12 +8,12 @@
 
 #include "Controller.h"
 
-class Distance{
+class Distance {
  public:
   Distance();
   double getDistance(int leftAngle, int rightAngle);
 
- private:
+private:
   const int radius;  //タイヤの半径[mm]
 };
 
