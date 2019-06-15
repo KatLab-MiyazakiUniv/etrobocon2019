@@ -27,7 +27,10 @@ namespace etrobocon2019_test {
 
     double end
         = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    ASSERT_GE(end - start, expected);
+    double mileage = end - start;
+
+    ASSERT_LE(expected, mileage);
+    ASSERT_LE(mileage, expected + 5.0);
   }
 
   TEST(Navigator, moveForwardTestExistPwm)
@@ -44,7 +47,10 @@ namespace etrobocon2019_test {
 
     double end
         = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    ASSERT_GE(end - start, expected);
+    double mileage = end - start;
+
+    ASSERT_LE(expected, mileage);
+    ASSERT_LE(mileage, expected + 5.0);
   }
 
   TEST(Navigator, moveBackwardTest)
@@ -61,7 +67,10 @@ namespace etrobocon2019_test {
 
     double end
         = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    ASSERT_LE(end - start, expected);
+    double mileage = end - start;
+
+    ASSERT_LE(expected - 5.0, mileage);
+    ASSERT_LE(mileage, expected);
   }
 
   TEST(Navigator, moveBackwardTestExistPwm)
@@ -78,6 +87,9 @@ namespace etrobocon2019_test {
 
     double end
         = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
-    ASSERT_LE(end - start, expected);
+    double mileage = end - start;
+
+    ASSERT_LE(expected - 5.0, mileage);
+    ASSERT_LE(mileage, expected);
   }
 }  // namespace etrobocon2019_test
