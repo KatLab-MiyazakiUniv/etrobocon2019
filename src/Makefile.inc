@@ -10,7 +10,8 @@ APPL_CXXOBJS += \
     Pid.o \
     LineTracer.o \
     SpeedControl.o \
-    TurnControl.o
+    TurnControl.o \
+    NormalCourse.o
 
 SRCLANG := c++
 
