@@ -1,0 +1,16 @@
+---
+enabled: true
+auto: false
+remote_files: []
+comments: true
+statuses: true
+request_review: null
+labels: [Refactoring]
+restylers:
+  - astyle:
+      arguments:
+        - "--options=./astylerc"
+      include:
+        - "**/*.cpp"
+        - "**/*.h"
+        - "!test/**/*"
