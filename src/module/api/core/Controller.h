@@ -27,10 +27,6 @@ class Controller {
   Controller();
   TouchSensor touchSensor;
   ColorSensor colorSensor;
-  Motor liftMotor;
-  Motor rightWheel;
-  Motor leftWheel;
-  Motor tailMotor;
   Clock clock;
   // モータ入力電圧の最大値
   static constexpr int MOTOR_PWM_MAX = 100;
@@ -54,8 +50,18 @@ class Controller {
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
+  int getLeftMotorCount();
+  int getRightMotorCount();
+  void setLeftMotorPwm(const int pwm);
+  void setRightMotorPwm(const int pwm);
 
  private:
   rgb_raw_t rgb;
+  Motor liftMotor;
+  Motor rightWheel;
+  Motor leftWheel;
+  Motor tailMotor;
+
+  static int suppressPwmValue(const int value);
 };
 #endif
