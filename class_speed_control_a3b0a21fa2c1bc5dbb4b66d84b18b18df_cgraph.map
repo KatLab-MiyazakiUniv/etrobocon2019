@@ -1,0 +1,5 @@
+<map id="SpeedControl::SpeedControl" name="SpeedControl::SpeedControl">
+<area shape="rect" id="node2" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="262,5,439,47"/>
+<area shape="rect" id="node3" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="257,71,444,112"/>
+<area shape="rect" id="node4" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="268,137,433,163"/>
+</map>

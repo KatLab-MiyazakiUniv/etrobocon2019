@@ -1,0 +1,949 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>etrobocon2019 feat.KatLab: Controller クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">etrobocon2019 feat.KatLab
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="#pub-static-attribs">静的公開変数類</a> &#124;
+<a href="class_controller-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">Controller クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_controller_8h_source.html">Controller.h</a>&gt;</code></p>
+<div class="dynheader">
+Controller 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller__coll__graph.png" border="0" usemap="#_controller_coll__map" alt="Collaboration graph"/></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a95c56822d667e94b031451729ce069a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a95c56822d667e94b031451729ce069a9">Controller</a> ()</td></tr>
+<tr class="separator:a95c56822d667e94b031451729ce069a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6cc64001e722afdcc130b9fbf5efae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a1e6cc64001e722afdcc130b9fbf5efae">speakerSetVolume</a> (int volume)</td></tr>
+<tr class="separator:a1e6cc64001e722afdcc130b9fbf5efae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3843d004fc1e44c63cd746b8822c2990"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a3843d004fc1e44c63cd746b8822c2990">ledSetColorOrange</a> ()</td></tr>
+<tr class="separator:a3843d004fc1e44c63cd746b8822c2990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d690be9e14008230edb6ee8530485bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a1d690be9e14008230edb6ee8530485bf">ledSetColorGreen</a> ()</td></tr>
+<tr class="separator:a1d690be9e14008230edb6ee8530485bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592fca2802b9cea70ef24eba17db7ec8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a592fca2802b9cea70ef24eba17db7ec8">getBrightness</a> ()</td></tr>
+<tr class="separator:a592fca2802b9cea70ef24eba17db7ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5674a4689bb73d50483bf19c617ac213"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a5674a4689bb73d50483bf19c617ac213">buttonIsPressedBack</a> ()</td></tr>
+<tr class="separator:a5674a4689bb73d50483bf19c617ac213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6c05b9804b91a9bd5fd50a17b4fb729"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ab6c05b9804b91a9bd5fd50a17b4fb729">buttonIsPressedUp</a> ()</td></tr>
+<tr class="separator:ab6c05b9804b91a9bd5fd50a17b4fb729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5fbb86e851a1d6602e68f4327870c5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#aa5fbb86e851a1d6602e68f4327870c5d">buttonIsPressedDown</a> ()</td></tr>
+<tr class="separator:aa5fbb86e851a1d6602e68f4327870c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a22a0a31fb55dba1feac199cc9656ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a6a22a0a31fb55dba1feac199cc9656ee">buttonIsPressedRight</a> ()</td></tr>
+<tr class="separator:a6a22a0a31fb55dba1feac199cc9656ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c541c01b9a02403c43fac24b8c882ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a3c541c01b9a02403c43fac24b8c882ac">buttonIsPressedLeft</a> ()</td></tr>
+<tr class="separator:a3c541c01b9a02403c43fac24b8c882ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e858bf584915b7283a7726daf87de7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ad1e858bf584915b7283a7726daf87de7">buttonIsPressedEnter</a> ()</td></tr>
+<tr class="separator:ad1e858bf584915b7283a7726daf87de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96f63da6f3ceaa71bc7d95ae73d7e6c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a96f63da6f3ceaa71bc7d95ae73d7e6c4">getRawColor</a> (int &amp;r, int &amp;g, int &amp;b)</td></tr>
+<tr class="separator:a96f63da6f3ceaa71bc7d95ae73d7e6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1e791420cc83acd20b4dfc185befc2b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">getLeftMotorCount</a> ()</td></tr>
+<tr class="separator:ae1e791420cc83acd20b4dfc185befc2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b49c1fe116fbbd7069bce0100868f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">getRightMotorCount</a> ()</td></tr>
+<tr class="separator:ac5b49c1fe116fbbd7069bce0100868f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0806bb9e6dad708398bfcf188d98024a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a">setLeftMotorPwm</a> (const int pwm)</td></tr>
+<tr class="separator:a0806bb9e6dad708398bfcf188d98024a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78965353ac6b8a5815a5e4b5148267ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac">setRightMotorPwm</a> (const int pwm)</td></tr>
+<tr class="separator:a78965353ac6b8a5815a5e4b5148267ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:ac7c06058c2d04caff95fb680abe68519"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ac7c06058c2d04caff95fb680abe68519">speakerPlayToneFS6</a> (int duration)</td></tr>
+<tr class="separator:ac7c06058c2d04caff95fb680abe68519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac867b29759f58fad7ccdc865b7252562"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ac867b29759f58fad7ccdc865b7252562">getBatteryVoltage</a> ()</td></tr>
+<tr class="separator:ac867b29759f58fad7ccdc865b7252562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c68b1076bc4d456d69e92075a141cb3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a2c68b1076bc4d456d69e92075a141cb3">tslpTsk</a> (int time)</td></tr>
+<tr class="separator:a2c68b1076bc4d456d69e92075a141cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c27614551c9f1471421b3f89bb2d5c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a28c27614551c9f1471421b3f89bb2d5c">lcdFillRect</a> (int x, int y, int h)</td></tr>
+<tr class="separator:a28c27614551c9f1471421b3f89bb2d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d15533ed8372b08b12b5684eb4284e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ab1d15533ed8372b08b12b5684eb4284e">lcdDrawString</a> (const char *str, int x, int y)</td></tr>
+<tr class="separator:ab1d15533ed8372b08b12b5684eb4284e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f4473814c4a669fd388916fdf1c38ce"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a5f4473814c4a669fd388916fdf1c38ce">lcdSetFont</a> ()</td></tr>
+<tr class="separator:a5f4473814c4a669fd388916fdf1c38ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:a5e19c12fa264d296fafb2996459ddae2"><td class="memItemLeft" align="right" valign="top">TouchSensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a5e19c12fa264d296fafb2996459ddae2">touchSensor</a></td></tr>
+<tr class="separator:a5e19c12fa264d296fafb2996459ddae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac252a70d6b3b606bd5ce313767b74b96"><td class="memItemLeft" align="right" valign="top">ColorSensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a></td></tr>
+<tr class="separator:ac252a70d6b3b606bd5ce313767b74b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55147b5c14f76de55eb646d25ccb746f"><td class="memItemLeft" align="right" valign="top">Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a55147b5c14f76de55eb646d25ccb746f">clock</a></td></tr>
+<tr class="separator:a55147b5c14f76de55eb646d25ccb746f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+静的公開変数類</h2></td></tr>
+<tr class="memitem:a41bfe4231d282b5e15516d35ad327150"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a41bfe4231d282b5e15516d35ad327150">MOTOR_PWM_MAX</a> = 100</td></tr>
+<tr class="separator:a41bfe4231d282b5e15516d35ad327150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d287382c61600efd21be5be50d9aaba"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a1d287382c61600efd21be5be50d9aaba">MOTOR_PWM_MIN</a> = -100</td></tr>
+<tr class="separator:a1d287382c61600efd21be5be50d9aaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock">
+<p class="definition"> <a class="el" href="_controller_8h_source.html">Controller.h</a> の <a class="el" href="_controller_8h_source.html#l00025">25</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a95c56822d667e94b031451729ce069a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95c56822d667e94b031451729ce069a9">&#9670;&nbsp;</a></span>Controller()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Controller::Controller </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00004">4</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    : <a class="code" href="class_controller.html#a5e19c12fa264d296fafb2996459ddae2">touchSensor</a>(PORT_1),</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;      <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>(PORT_3),</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;      liftMotor(PORT_A),</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;      rightWheel(PORT_B),</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;      leftWheel(PORT_C),</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;      tailMotor(PORT_D) {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div><div class="ttc" id="class_controller_html_a5e19c12fa264d296fafb2996459ddae2"><div class="ttname"><a href="class_controller.html#a5e19c12fa264d296fafb2996459ddae2">Controller::touchSensor</a></div><div class="ttdeci">TouchSensor touchSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00028">Controller.h:28</a></div></div>
+<div class="ttc" id="class_controller_html_ac252a70d6b3b606bd5ce313767b74b96"><div class="ttname"><a href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">Controller::colorSensor</a></div><div class="ttdeci">ColorSensor colorSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00029">Controller.h:29</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a5674a4689bb73d50483bf19c617ac213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5674a4689bb73d50483bf19c617ac213">&#9670;&nbsp;</a></span>buttonIsPressedBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Controller::buttonIsPressedBack </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00026">26</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                     {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(BACK_BUTTON);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aa5fbb86e851a1d6602e68f4327870c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5fbb86e851a1d6602e68f4327870c5d">&#9670;&nbsp;</a></span>buttonIsPressedDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Controller::buttonIsPressedDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00038">38</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                     {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(DOWN_BUTTON);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="ad1e858bf584915b7283a7726daf87de7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e858bf584915b7283a7726daf87de7">&#9670;&nbsp;</a></span>buttonIsPressedEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Controller::buttonIsPressedEnter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00030">30</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                      {</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(ENTER_BUTTON);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_ad1e858bf584915b7283a7726daf87de7_icgraph.png" border="0" usemap="#class_controller_ad1e858bf584915b7283a7726daf87de7_icgraph" alt=""/></div>
+<map name="class_controller_ad1e858bf584915b7283a7726daf87de7_icgraph" id="class_controller_ad1e858bf584915b7283a7726daf87de7_icgraph">
+<area shape="rect" id="node2" href="class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="256,5,431,32"/>
+<area shape="rect" id="node6" href="class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="252,56,435,83"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="483,31,645,57"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="693,31,853,57"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="901,31,992,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3c541c01b9a02403c43fac24b8c882ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c541c01b9a02403c43fac24b8c882ac">&#9670;&nbsp;</a></span>buttonIsPressedLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Controller::buttonIsPressedLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00046">46</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                     {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(LEFT_BUTTON);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a3c541c01b9a02403c43fac24b8c882ac_icgraph.png" border="0" usemap="#class_controller_a3c541c01b9a02403c43fac24b8c882ac_icgraph" alt=""/></div>
+<map name="class_controller_a3c541c01b9a02403c43fac24b8c882ac_icgraph" id="class_controller_a3c541c01b9a02403c43fac24b8c882ac_icgraph">
+<area shape="rect" id="node2" href="class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="276,5,451,32"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="499,5,661,32"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="709,5,869,32"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="917,5,1008,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6a22a0a31fb55dba1feac199cc9656ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a22a0a31fb55dba1feac199cc9656ee">&#9670;&nbsp;</a></span>buttonIsPressedRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Controller::buttonIsPressedRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00042">42</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                      {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(RIGHT_BUTTON);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a6a22a0a31fb55dba1feac199cc9656ee_icgraph.png" border="0" usemap="#class_controller_a6a22a0a31fb55dba1feac199cc9656ee_icgraph" alt=""/></div>
+<map name="class_controller_a6a22a0a31fb55dba1feac199cc9656ee_icgraph" id="class_controller_a6a22a0a31fb55dba1feac199cc9656ee_icgraph">
+<area shape="rect" id="node2" href="class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="252,5,427,32"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="685,31,845,57"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="475,5,637,32"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="893,31,984,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab6c05b9804b91a9bd5fd50a17b4fb729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6c05b9804b91a9bd5fd50a17b4fb729">&#9670;&nbsp;</a></span>buttonIsPressedUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Controller::buttonIsPressedUp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00034">34</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                   {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(UP_BUTTON);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="ac867b29759f58fad7ccdc865b7252562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac867b29759f58fad7ccdc865b7252562">&#9670;&nbsp;</a></span>getBatteryVoltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Controller::getBatteryVoltage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00050">50</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{ <span class="keywordflow">return</span> ev3_battery_voltage_mV(); }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a592fca2802b9cea70ef24eba17db7ec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592fca2802b9cea70ef24eba17db7ec8">&#9670;&nbsp;</a></span>getBrightness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Controller::getBrightness </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00052">52</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                              {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">int</span> luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">return</span> luminance;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div><div class="ttc" id="class_controller_html_ac252a70d6b3b606bd5ce313767b74b96"><div class="ttname"><a href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">Controller::colorSensor</a></div><div class="ttdeci">ColorSensor colorSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00029">Controller.h:29</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a592fca2802b9cea70ef24eba17db7ec8_icgraph.png" border="0" usemap="#class_controller_a592fca2802b9cea70ef24eba17db7ec8_icgraph" alt=""/></div>
+<map name="class_controller_a592fca2802b9cea70ef24eba17db7ec8_icgraph" id="class_controller_a592fca2802b9cea70ef24eba17db7ec8_icgraph">
+<area shape="rect" id="node2" href="class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="237,5,420,32"/>
+<area shape="rect" id="node6" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="LineTracer::run" alt="" coords="270,56,387,83"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="505,5,668,32"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="753,31,913,57"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="961,31,1052,57"/>
+<area shape="rect" id="node7" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="468,56,705,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae1e791420cc83acd20b4dfc185befc2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1e791420cc83acd20b4dfc185befc2b">&#9670;&nbsp;</a></span>getLeftMotorCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Controller::getLeftMotorCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00077">77</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                 {</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordflow">return</span> leftWheel.getCount();</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph.png" border="0" usemap="#class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph" alt=""/></div>
+<map name="class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph" id="class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph">
+<area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="LineTracer::run" alt="" coords="280,5,397,32"/>
+<area shape="rect" id="node6" href="class_navigator.html#abbf56b48c4f42f4d006dd2637927421a" title="specifiedValueの値でbackwardかforwardを呼び出す。 " alt="" coords="273,56,404,83"/>
+<area shape="rect" id="node7" href="class_speed_control.html#a3b0a21fa2c1bc5dbb4b66d84b18b18df" title="SpeedControl::SpeedControl" alt="" coords="237,107,441,133"/>
+<area shape="rect" id="node8" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="231,157,447,184"/>
+<area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="495,5,732,32"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="780,5,940,32"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="988,5,1079,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a96f63da6f3ceaa71bc7d95ae73d7e6c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96f63da6f3ceaa71bc7d95ae73d7e6c4">&#9670;&nbsp;</a></span>getRawColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::getRawColor </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00058">58</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                                   {</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  r = rgb.r;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  g = rgb.g;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  b = rgb.b;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div><div class="ttc" id="class_controller_html_ac252a70d6b3b606bd5ce313767b74b96"><div class="ttname"><a href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">Controller::colorSensor</a></div><div class="ttdeci">ColorSensor colorSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00029">Controller.h:29</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac5b49c1fe116fbbd7069bce0100868f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b49c1fe116fbbd7069bce0100868f0">&#9670;&nbsp;</a></span>getRightMotorCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Controller::getRightMotorCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00081">81</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                  {</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordflow">return</span> rightWheel.getCount();</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph.png" border="0" usemap="#class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph" alt=""/></div>
+<map name="class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph" id="class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph">
+<area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="LineTracer::run" alt="" coords="289,5,407,32"/>
+<area shape="rect" id="node6" href="class_navigator.html#abbf56b48c4f42f4d006dd2637927421a" title="specifiedValueの値でbackwardかforwardを呼び出す。 " alt="" coords="283,56,413,83"/>
+<area shape="rect" id="node7" href="class_speed_control.html#a3b0a21fa2c1bc5dbb4b66d84b18b18df" title="SpeedControl::SpeedControl" alt="" coords="246,107,450,133"/>
+<area shape="rect" id="node8" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="240,157,456,184"/>
+<area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="504,5,741,32"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="789,5,949,32"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="997,5,1088,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab1d15533ed8372b08b12b5684eb4284e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d15533ed8372b08b12b5684eb4284e">&#9670;&nbsp;</a></span>lcdDrawString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::lcdDrawString </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00071">71</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                                            {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  ev3_lcd_draw_string(str, x, y);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_ab1d15533ed8372b08b12b5684eb4284e_icgraph.png" border="0" usemap="#class_controller_ab1d15533ed8372b08b12b5684eb4284e_icgraph" alt=""/></div>
+<map name="class_controller_ab1d15533ed8372b08b12b5684eb4284e_icgraph" id="class_controller_ab1d15533ed8372b08b12b5684eb4284e_icgraph">
+<area shape="rect" id="node2" href="class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="239,24,347,51"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="625,24,788,51"/>
+<area shape="rect" id="node6" href="class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="399,24,573,51"/>
+<area shape="rect" id="node7" href="class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="395,75,577,102"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="836,24,996,51"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1044,24,1135,51"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a28c27614551c9f1471421b3f89bb2d5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c27614551c9f1471421b3f89bb2d5c">&#9670;&nbsp;</a></span>lcdFillRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::lcdFillRect </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00067">67</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                                {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  ev3_lcd_fill_rect(x, y, EV3_LCD_WIDTH, h, EV3_LCD_WHITE);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a28c27614551c9f1471421b3f89bb2d5c_icgraph.png" border="0" usemap="#class_controller_a28c27614551c9f1471421b3f89bb2d5c_icgraph" alt=""/></div>
+<map name="class_controller_a28c27614551c9f1471421b3f89bb2d5c_icgraph" id="class_controller_a28c27614551c9f1471421b3f89bb2d5c_icgraph">
+<area shape="rect" id="node2" href="class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="212,24,320,51"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="599,24,761,51"/>
+<area shape="rect" id="node6" href="class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="372,24,547,51"/>
+<area shape="rect" id="node7" href="class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="368,75,551,102"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="809,24,969,51"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1017,24,1108,51"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5f4473814c4a669fd388916fdf1c38ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f4473814c4a669fd388916fdf1c38ce">&#9670;&nbsp;</a></span>lcdSetFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::lcdSetFont </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00075">75</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{ ev3_lcd_set_font(EV3_FONT_SMALL); }</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a5f4473814c4a669fd388916fdf1c38ce_icgraph.png" border="0" usemap="#class_controller_a5f4473814c4a669fd388916fdf1c38ce_icgraph" alt=""/></div>
+<map name="class_controller_a5f4473814c4a669fd388916fdf1c38ce_icgraph" id="class_controller_a5f4473814c4a669fd388916fdf1c38ce_icgraph">
+<area shape="rect" id="node2" href="class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="216,24,324,51"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="603,24,765,51"/>
+<area shape="rect" id="node6" href="class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="376,24,551,51"/>
+<area shape="rect" id="node7" href="class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="372,75,555,102"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="813,24,973,51"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1021,24,1112,51"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1d690be9e14008230edb6ee8530485bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d690be9e14008230edb6ee8530485bf">&#9670;&nbsp;</a></span>ledSetColorGreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::ledSetColorGreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00024">24</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{ ev3_led_set_color(LED_GREEN); }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a3843d004fc1e44c63cd746b8822c2990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3843d004fc1e44c63cd746b8822c2990">&#9670;&nbsp;</a></span>ledSetColorOrange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::ledSetColorOrange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00022">22</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{ ev3_led_set_color(LED_ORANGE); }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a0806bb9e6dad708398bfcf188d98024a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0806bb9e6dad708398bfcf188d98024a">&#9670;&nbsp;</a></span>setLeftMotorPwm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::setLeftMotorPwm </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>pwm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00094">94</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                             {</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  leftWheel.setPWM(suppressPwmValue(pwm));</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a0806bb9e6dad708398bfcf188d98024a_icgraph.png" border="0" usemap="#class_controller_a0806bb9e6dad708398bfcf188d98024a_icgraph" alt=""/></div>
+<map name="class_controller_a0806bb9e6dad708398bfcf188d98024a_icgraph" id="class_controller_a0806bb9e6dad708398bfcf188d98024a_icgraph">
+<area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="LineTracer::run" alt="" coords="268,5,385,32"/>
+<area shape="rect" id="node6" href="class_navigator.html#abbf56b48c4f42f4d006dd2637927421a" title="specifiedValueの値でbackwardかforwardを呼び出す。 " alt="" coords="261,56,392,83"/>
+<area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="440,5,677,32"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="725,5,885,32"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="933,5,1024,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a78965353ac6b8a5815a5e4b5148267ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78965353ac6b8a5815a5e4b5148267ac">&#9670;&nbsp;</a></span>setRightMotorPwm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::setRightMotorPwm </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>pwm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00098">98</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                              {</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  rightWheel.setPWM(suppressPwmValue(pwm));</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a78965353ac6b8a5815a5e4b5148267ac_icgraph.png" border="0" usemap="#class_controller_a78965353ac6b8a5815a5e4b5148267ac_icgraph" alt=""/></div>
+<map name="class_controller_a78965353ac6b8a5815a5e4b5148267ac_icgraph" id="class_controller_a78965353ac6b8a5815a5e4b5148267ac_icgraph">
+<area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="LineTracer::run" alt="" coords="277,5,395,32"/>
+<area shape="rect" id="node6" href="class_navigator.html#abbf56b48c4f42f4d006dd2637927421a" title="specifiedValueの値でbackwardかforwardを呼び出す。 " alt="" coords="271,56,401,83"/>
+<area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="449,5,687,32"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="735,5,895,32"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="943,5,1033,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac7c06058c2d04caff95fb680abe68519"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c06058c2d04caff95fb680abe68519">&#9670;&nbsp;</a></span>speakerPlayToneFS6()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::speakerPlayToneFS6 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>duration</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00018">18</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                                                {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  ev3_speaker_play_tone(NOTE_FS6, duration);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_ac7c06058c2d04caff95fb680abe68519_icgraph.png" border="0" usemap="#class_controller_ac7c06058c2d04caff95fb680abe68519_icgraph" alt=""/></div>
+<map name="class_controller_ac7c06058c2d04caff95fb680abe68519_icgraph" id="class_controller_ac7c06058c2d04caff95fb680abe68519_icgraph">
+<area shape="rect" id="node2" href="class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="284,5,459,32"/>
+<area shape="rect" id="node6" href="class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="280,56,463,83"/>
+<area shape="rect" id="node7" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="511,107,748,133"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="548,56,711,83"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="796,81,956,108"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1004,81,1095,108"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1e6cc64001e722afdcc130b9fbf5efae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e6cc64001e722afdcc130b9fbf5efae">&#9670;&nbsp;</a></span>speakerSetVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::speakerSetVolume </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>volume</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00014">14</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                            {</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  ev3_speaker_set_volume(volume);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a2c68b1076bc4d456d69e92075a141cb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c68b1076bc4d456d69e92075a141cb3">&#9670;&nbsp;</a></span>tslpTsk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::tslpTsk </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00065">65</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{ tslp_tsk(time); }</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a2c68b1076bc4d456d69e92075a141cb3_icgraph.png" border="0" usemap="#class_controller_a2c68b1076bc4d456d69e92075a141cb3_icgraph" alt=""/></div>
+<map name="class_controller_a2c68b1076bc4d456d69e92075a141cb3_icgraph" id="class_controller_a2c68b1076bc4d456d69e92075a141cb3_icgraph">
+<area shape="rect" id="node2" href="class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="196,5,371,32"/>
+<area shape="rect" id="node6" href="class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="192,56,375,83"/>
+<area shape="rect" id="node7" href="class_navigator.html#abbf56b48c4f42f4d006dd2637927421a" title="specifiedValueの値でbackwardかforwardを呼び出す。 " alt="" coords="218,107,349,133"/>
+<area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="423,31,585,57"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="633,31,793,57"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="841,31,932,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a55147b5c14f76de55eb646d25ccb746f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55147b5c14f76de55eb646d25ccb746f">&#9670;&nbsp;</a></span>clock</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Clock Controller::clock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8h_source.html">Controller.h</a> の <a class="el" href="_controller_8h_source.html#l00030">30</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ac252a70d6b3b606bd5ce313767b74b96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac252a70d6b3b606bd5ce313767b74b96">&#9670;&nbsp;</a></span>colorSensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ColorSensor Controller::colorSensor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8h_source.html">Controller.h</a> の <a class="el" href="_controller_8h_source.html#l00029">29</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a41bfe4231d282b5e15516d35ad327150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41bfe4231d282b5e15516d35ad327150">&#9670;&nbsp;</a></span>MOTOR_PWM_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int Controller::MOTOR_PWM_MAX = 100</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8h_source.html">Controller.h</a> の <a class="el" href="_controller_8h_source.html#l00032">32</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1d287382c61600efd21be5be50d9aaba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d287382c61600efd21be5be50d9aaba">&#9670;&nbsp;</a></span>MOTOR_PWM_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int Controller::MOTOR_PWM_MIN = -100</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8h_source.html">Controller.h</a> の <a class="el" href="_controller_8h_source.html#l00034">34</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5e19c12fa264d296fafb2996459ddae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e19c12fa264d296fafb2996459ddae2">&#9670;&nbsp;</a></span>touchSensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TouchSensor Controller::touchSensor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8h_source.html">Controller.h</a> の <a class="el" href="_controller_8h_source.html#l00028">28</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>src/module/api/core/<a class="el" href="_controller_8h_source.html">Controller.h</a></li>
+<li>src/module/api/core/<a class="el" href="_controller_8cpp_source.html">Controller.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

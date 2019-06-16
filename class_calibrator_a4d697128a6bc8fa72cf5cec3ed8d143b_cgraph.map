@@ -1,0 +1,11 @@
+<map id="Calibrator::setLRCource" name="Calibrator::setLRCource">
+<area shape="rect" id="node2" href="$class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="272,5,411,32"/>
+<area shape="rect" id="node3" href="$class_controller.html#ad1e858bf584915b7283a7726daf87de7" title="Controller::buttonIsPressed\lEnter" alt="" coords="242,57,441,98"/>
+<area shape="rect" id="node4" href="$class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="287,123,395,149"/>
+<area shape="rect" id="node8" href="$class_controller.html#a3c541c01b9a02403c43fac24b8c882ac" title="Controller::buttonIsPressedLeft" alt="" coords="230,173,453,200"/>
+<area shape="rect" id="node9" href="$class_controller.html#a6a22a0a31fb55dba1feac199cc9656ee" title="Controller::buttonIsPressed\lRight" alt="" coords="242,225,441,266"/>
+<area shape="rect" id="node10" href="$class_controller.html#ac7c06058c2d04caff95fb680abe68519" title="Controller::speakerPlayToneFS6" alt="" coords="228,291,455,317"/>
+<area shape="rect" id="node5" href="$class_controller.html#a5f4473814c4a669fd388916fdf1c38ce" title="Controller::lcdSetFont" alt="" coords="514,72,677,99"/>
+<area shape="rect" id="node6" href="$class_controller.html#a28c27614551c9f1471421b3f89bb2d5c" title="Controller::lcdFillRect" alt="" coords="516,123,675,149"/>
+<area shape="rect" id="node7" href="$class_controller.html#ab1d15533ed8372b08b12b5684eb4284e" title="Controller::lcdDrawString" alt="" coords="503,173,688,200"/>
+</map>

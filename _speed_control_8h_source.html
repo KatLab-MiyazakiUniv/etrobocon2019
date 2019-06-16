@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>etrobocon2019 feat.KatLab: src/module/SpeedControl.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">etrobocon2019 feat.KatLab
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_922ff8bb4e557a886cc34b5df365a8cd.html">module</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SpeedControl.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_speed_control_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef SPEEDCONTROL_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define SPEEDCONTROL_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_distance_8h.html">Distance.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_pid_8h.html">Pid.h</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_speed_control.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_speed_control.html">SpeedControl</a> {</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="class_distance.html">Distance</a> dist;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="class_controller.html">Controller</a> controller;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> C;   <span class="comment">//定数C</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> radius; <span class="comment">//タイヤの半径[mm]</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">double</span> prevDistance;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="class_speed_control.html#a3b0a21fa2c1bc5dbb4b66d84b18b18df">SpeedControl</a>();</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938">calculateSpeed</a>(<span class="keywordtype">int</span> targetSpeed, <span class="keywordtype">double</span> Kp, <span class="keywordtype">double</span> Ki, <span class="keywordtype">double</span> Kd);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_speed_control_html_a3b0a21fa2c1bc5dbb4b66d84b18b18df"><div class="ttname"><a href="class_speed_control.html#a3b0a21fa2c1bc5dbb4b66d84b18b18df">SpeedControl::SpeedControl</a></div><div class="ttdeci">SpeedControl()</div><div class="ttdef"><b>Definition:</b> <a href="_speed_control_8cpp_source.html#l00009">SpeedControl.cpp:9</a></div></div>
+<div class="ttc" id="class_speed_control_html_abc31324b3a9170de05856ab5418b7938"><div class="ttname"><a href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938">SpeedControl::calculateSpeed</a></div><div class="ttdeci">double calculateSpeed(int targetSpeed, double Kp, double Ki, double Kd)</div><div class="ttdef"><b>Definition:</b> <a href="_speed_control_8cpp_source.html#l00028">SpeedControl.cpp:28</a></div></div>
+<div class="ttc" id="_distance_8h_html"><div class="ttname"><a href="_distance_8h.html">Distance.h</a></div><div class="ttdoc">走行距離を計算するクラス </div></div>
+<div class="ttc" id="_pid_8h_html"><div class="ttname"><a href="_pid_8h.html">Pid.h</a></div><div class="ttdoc">PID制御クラス </div></div>
+<div class="ttc" id="class_speed_control_html"><div class="ttname"><a href="class_speed_control.html">SpeedControl</a></div><div class="ttdef"><b>Definition:</b> <a href="_speed_control_8h_source.html#l00013">SpeedControl.h:13</a></div></div>
+<div class="ttc" id="class_controller_html"><div class="ttname"><a href="class_controller.html">Controller</a></div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00025">Controller.h:25</a></div></div>
+<div class="ttc" id="class_distance_html"><div class="ttname"><a href="class_distance.html">Distance</a></div><div class="ttdef"><b>Definition:</b> <a href="_distance_8h_source.html#l00011">Distance.h:11</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>etrobocon2019 feat.KatLab: src/module/Pid.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">etrobocon2019 feat.KatLab
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_922ff8bb4e557a886cc34b5df365a8cd.html">module</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Pid.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_pid_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef PID_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define PID_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// PID制御のみで用いる定数をまとめた構造体</span></div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="struct_pid_gain.html">   10</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_pid_gain.html">PidGain</a> {</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">   11</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a>;  <span class="comment">// Pゲイン</span></div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">   12</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a>;  <span class="comment">// Iゲイン</span></div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">   13</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a>;  <span class="comment">// Dゲイン</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <a class="code" href="struct_pid_gain.html#a44295989eeb1ed8064b3da226dd29e8e">PidGain</a>(<span class="keywordtype">double</span> Kp_, <span class="keywordtype">double</span> Ki_, <span class="keywordtype">double</span> Kd_);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e">setPidGain</a>(<span class="keywordtype">double</span> Kp_, <span class="keywordtype">double</span> Ki_, <span class="keywordtype">double</span> Kd_);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_pid.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_pid.html">Pid</a> {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; <span class="keyword">private</span>:</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">double</span> target;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="struct_pid_gain.html">PidGain</a> gain;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">double</span> integral;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">double</span> preError;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; <span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="class_pid.html">Pid</a>(<span class="keywordtype">double</span> target_, <span class="keywordtype">double</span> Kp_, <span class="keywordtype">double</span> Ki_ = 0.0f, <span class="keywordtype">double</span> Kd_ = 0.0f);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">double</span> control(<span class="keywordtype">double</span> value, <span class="keywordtype">double</span> delta = 0.004);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">double</span> limit(<span class="keywordtype">double</span> value);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="struct_pid_gain_html_a2650d82677c378794a7f0a0e1b58f2ad"><div class="ttname"><a href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">PidGain::Kp</a></div><div class="ttdeci">double Kp</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00011">Pid.h:11</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_ab587119dd4edf489f7765b590252c536"><div class="ttname"><a href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">PidGain::Kd</a></div><div class="ttdeci">double Kd</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00013">Pid.h:13</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_a1de2cd775c0c61114683b197c50d4221"><div class="ttname"><a href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">PidGain::Ki</a></div><div class="ttdeci">double Ki</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00012">Pid.h:12</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_acd7b4dd0a8be8f7472f5831ba8d46a4e"><div class="ttname"><a href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e">PidGain::setPidGain</a></div><div class="ttdeci">void setPidGain(double Kp_, double Ki_, double Kd_)</div></div>
+<div class="ttc" id="struct_pid_gain_html_a44295989eeb1ed8064b3da226dd29e8e"><div class="ttname"><a href="struct_pid_gain.html#a44295989eeb1ed8064b3da226dd29e8e">PidGain::PidGain</a></div><div class="ttdeci">PidGain(double Kp_, double Ki_, double Kd_)</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8cpp_source.html#l00008">Pid.cpp:8</a></div></div>
+<div class="ttc" id="class_pid_html"><div class="ttname"><a href="class_pid.html">Pid</a></div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00018">Pid.h:18</a></div></div>
+<div class="ttc" id="struct_pid_gain_html"><div class="ttname"><a href="struct_pid_gain.html">PidGain</a></div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00010">Pid.h:10</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

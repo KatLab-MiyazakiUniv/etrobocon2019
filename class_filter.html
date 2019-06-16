@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>etrobocon2019 feat.KatLab: Filter&lt; T &gt; クラステンプレート</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">etrobocon2019 feat.KatLab
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="class_filter-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">Filter&lt; T &gt; クラステンプレート</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_filter_8h_source.html">Filter.h</a>&gt;</code></p>
+<div class="dynheader">
+Filter&lt; T &gt; 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_filter__coll__graph.png" border="0" usemap="#_filter_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a46a62eaa8a4877deff565f588265cd0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filter.html#a46a62eaa8a4877deff565f588265cd0c">Filter</a> ()</td></tr>
+<tr class="separator:a46a62eaa8a4877deff565f588265cd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288108037db5d2c874f8b94093dc87e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filter.html#a288108037db5d2c874f8b94093dc87e8">reset</a> ()</td></tr>
+<tr class="separator:a288108037db5d2c874f8b94093dc87e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe12d5752852afc7a7179c2112d92e5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filter.html#a8fe12d5752852afc7a7179c2112d92e5">lowPassFilter</a> (T value, double rate=0.9)</td></tr>
+<tr class="memdesc:a8fe12d5752852afc7a7179c2112d92e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ローパスフィルター(現在値と前回値を参考にして値を決定する)  <a href="#a8fe12d5752852afc7a7179c2112d92e5">[詳解]</a><br /></td></tr>
+<tr class="separator:a8fe12d5752852afc7a7179c2112d92e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><h3>template&lt;typename T = int&gt;<br />
+class Filter&lt; T &gt;</h3>
+
+
+<p class="definition"> <a class="el" href="_filter_8h_source.html">Filter.h</a> の <a class="el" href="_filter_8h_source.html#l00010">10</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a46a62eaa8a4877deff565f588265cd0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46a62eaa8a4877deff565f588265cd0c">&#9670;&nbsp;</a></span>Filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_filter.html">Filter</a>&lt; T &gt;::<a class="el" href="class_filter.html">Filter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_filter_8cpp_source.html">Filter.cpp</a> の <a class="el" href="_filter_8cpp_source.html#l00009">9</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                  : preValue(0)</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a8fe12d5752852afc7a7179c2112d92e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe12d5752852afc7a7179c2112d92e5">&#9670;&nbsp;</a></span>lowPassFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_filter.html">Filter</a>&lt; T &gt;::lowPassFilter </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>rate</em> = <code>0.9</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ローパスフィルター(現在値と前回値を参考にして値を決定する) </p>
+<p>[<a class="el" href="class_filter.html#a8fe12d5752852afc7a7179c2112d92e5" title="ローパスフィルター(現在値と前回値を参考にして値を決定する) ">Filter::lowPassFilter</a>] </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>[現在の値] </td></tr>
+    <tr><td class="paramname">rate</td><td>[前回値を参考にする割合] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[フィルター後の値] </dd></dl>
+
+<p class="definition"> <a class="el" href="_filter_8cpp_source.html">Filter.cpp</a> の <a class="el" href="_filter_8cpp_source.html#l00028">28</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// 前回値の初期化</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordflow">if</span>(preValue == 0) {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    preValue = value;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(value);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  }</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">double</span> filtered = preValue * rate + value * (1 - rate);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// 前回値の更新</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  preValue = value;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">return</span> filtered;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a288108037db5d2c874f8b94093dc87e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a288108037db5d2c874f8b94093dc87e8">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_filter.html">Filter</a>&lt; T &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_filter_8cpp_source.html">Filter.cpp</a> の <a class="el" href="_filter_8cpp_source.html#l00014">14</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  preValue = 0;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>src/module/<a class="el" href="_filter_8h_source.html">Filter.h</a></li>
+<li>src/module/<a class="el" href="_filter_8cpp_source.html">Filter.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

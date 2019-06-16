@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>etrobocon2019 feat.KatLab: etrobocon2019</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">etrobocon2019 feat.KatLab
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">etrobocon2019 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Presented by <a href="http://earth.cs.miyazaki-u.ac.jp">KatLab</a>.</p>
+<p><a href="https://circleci.com/gh/KatLab-MiyazakiUniv/etrobocon2019/tree/master"></a> <a href="https://codecov.io/gh/KatLab-MiyazakiUniv/etrobocon2019"></a></p>
+<h2>BUILD</h2>
+<p>Execution command. </p><div class="fragment"><div class="line">$ ./make.sh</div></div><!-- fragment --><p>Built the executable file. </p><div class="fragment"><div class="line">$ ls</div><div class="line">et2019</div></div><!-- fragment --><h2>DEVELOP</h2>
+<h3>Where should you add your source files?</h3>
+<div class="fragment"><div class="line">/              // Working directory.</div><div class="line">|</div><div class="line">|-src          // Don&#39;t add here.</div><div class="line">| |-module     // Add source codes.</div><div class="line">|   |-api      // Add source codes(api).</div><div class="line">|     |-core   // Don&#39;t add here.</div><div class="line">|</div><div class="line">|-test         // Add test codes.</div></div><!-- fragment --><p>Normaly, please put source codes to <code>/src/module</code>.</p>
+<h3>Where is coding conventions?</h3>
+<p><a href="https://www.dropbox.com/sh/6u2tp0cw92aotq6/AADatBCUPQ87mDIAYwCnJrZKa/%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB?dl=0&amp;preview=%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88.pdf&amp;subfolder_nav_tracking=1">Here.</a></p>
+<h3>Where is the source directory?</h3>
+<p>It is <code>src</code>.</p>
+<h3>How to add module.</h3>
+<p>If add <code>Example class</code>, append object name to <code><a class="el" href="_makefile_8inc.html">src/Makefile.inc</a></code>.</p>
+<h4>before</h4>
+<div class="fragment"><div class="line">APPL_CXXOBJS += </div></div><!-- fragment --><p>#### after </p><div class="fragment"><div class="line">APPL_CXXOBJS += \</div><div class="line">    Example.o</div></div><!-- fragment --><h3>How to add test cases.</h3>
+<p>If you add/modify source code, you should add test cases.</p>
+<ol type="1">
+<li>Create a file named (class name) + "Test".</li>
+<li>Put the test file to <code>/test</code>.</li>
+</ol>
+<h4>for example</h4>
+<p>Create source codes that implement Example class. (<code>/src/Example.cpp</code>, <code>/src/Example.h</code>)</p>
+<p>Create a test file for Example class. (<code>ExampleTest.cpp</code>)</p>
+<p>Put <code>ExampleTest.cpp</code> to <code>/test</code>.</p>
+<h4>Execute test cases.</h4>
+<p>Do <code>./gtest_all.sh</code>.</p>
+<h3>Use Remote Development of Visual Studio Code.</h3>
+<p>You can use Remote Development of Visual Studio Code. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

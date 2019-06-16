@@ -1,0 +1,4 @@
+<map id="TurnControl::calculateTurn" name="TurnControl::calculateTurn">
+<area shape="rect" id="node2" href="$class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="244,5,339,32"/>
+<area shape="rect" id="node3" href="$class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="387,5,467,32"/>
+</map>
