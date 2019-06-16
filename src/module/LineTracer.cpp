@@ -22,7 +22,7 @@ void LineTracer::run(NormalCourseProperty &settings)
 {
     // 関数呼び出し時の走行距離を取得・設定
     int initialDistance = distance.getDistance(
-        controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        controller.getLeftMotorCount(), controller.getRightMotorCount());
 
     int currentDistance = initialDistance; // 現在の走行距離
     int turnValue = 0;                     // 旋回値
@@ -61,12 +61,12 @@ void LineTracer::run(NormalCourseProperty &settings)
         }
 
         // PWM値の設定
-        controller.leftWheel.setPWM(leftPWM);
-        controller.rightWheel.setPWM(rightPWM);
+        controller.setLeftMotorPwm(leftPWM);
+        controller.setRightMotorPwm(rightPWM);
 
         // 現在の走行距離の取得
         currentDistance = distance.getDistance(
-            controller.leftWheel.getCount(), controller.rightWheel.getCount());
+            controller.getLeftMotorCount(), controller.getRightMotorCount());
     }
 }
 

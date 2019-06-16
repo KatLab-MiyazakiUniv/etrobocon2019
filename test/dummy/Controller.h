@@ -122,5 +122,27 @@ class Controller {
   static void lcdDrawString(char* msg, int, int) {
     //std::cout << "[          ] " << msg << std::endl;
   }
+
+  int getLeftMotorCount(){
+    return leftWheel.getCount();
+  };
+  int getRightMotorCount(){
+    return rightWheel.getCount();
+  };
+  void setLeftMotorPwm(const int pwm){
+    leftWheel.setPWM(suppressPwmValue(pwm));
+  };
+  void setRightMotorPwm(const int pwm){
+    rightWheel.setPWM(suppressPwmValue(pwm));
+  };
+  static int suppressPwmValue(const int value){
+    if(value > MOTOR_PWM_MAX){
+      return MOTOR_PWM_MAX;
+    }else if(value < MOTOR_PWM_MIN){
+      return MOTOR_PWM_MIN;
+    }
+    return value;
+  };
+
 };
 #endif
