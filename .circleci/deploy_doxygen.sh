@@ -11,6 +11,7 @@ if [ -z "${GIT_USER_EMAIL}" ]; then
 fi
 
 GIT_REPO="git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
+export PROJECT_NUMBER="$(git rev-parse HEAD ; git diff-index --quiet HEAD || echo '(with uncommitted changes)')"
 
 git submodule init
 git submodule update
@@ -30,6 +31,7 @@ fi
 
 doxygen
 cd public
+touch .nojekyll
 git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_USER_EMAIL}"
 git add --all
