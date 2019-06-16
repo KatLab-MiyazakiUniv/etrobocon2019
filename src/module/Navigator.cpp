@@ -22,8 +22,8 @@ Navigator::Navigator(Controller& controller_) : distance(), controller(controlle
  */
 void Navigator::move(double specifiedValue, int pwm)
 {
-  int leftAngle = controller.leftWheel.getCount();
-  int rightAngle = controller.rightWheel.getCount();
+  int leftAngle = controller.getLeftMotorCount();
+  int rightAngle = controller.getRightMotorCount();
   double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
 
   if(specifiedValue < 0) {
@@ -32,8 +32,8 @@ void Navigator::move(double specifiedValue, int pwm)
     forward(specifiedValue, std::abs(pwm), goalDistance);
   }
 
-  controller.rightWheel.setPWM(0);
-  controller.leftWheel.setPWM(0);
+  controller.setRightMotorPwm(0);
+  controller.setLeftMotorPwm(0);
 }
 
 /**
@@ -47,8 +47,8 @@ void Navigator::move(double specifiedValue, int pwm)
 void Navigator::forward(double specifiedValue, int pwm, double goalDistance)
 {
   while(hasArrived(goalDistance, true)) {
-    controller.rightWheel.setPWM(pwm);
-    controller.leftWheel.setPWM(pwm);
+    controller.setRightMotorPwm(pwm);
+    controller.setLeftMotorPwm(pwm);
     controller.tslpTsk(4);
   }
 }
@@ -64,8 +64,8 @@ void Navigator::forward(double specifiedValue, int pwm, double goalDistance)
 void Navigator::backward(double specifiedValue, int pwm, double goalDistance)
 {
   while(hasArrived(goalDistance, false)) {
-    controller.rightWheel.setPWM(pwm);
-    controller.leftWheel.setPWM(pwm);
+    controller.setRightMotorPwm(pwm);
+    controller.setLeftMotorPwm(pwm);
     controller.tslpTsk(4);
   }
 }
@@ -79,8 +79,8 @@ void Navigator::backward(double specifiedValue, int pwm, double goalDistance)
  */
 bool Navigator::hasArrived(double goalDistance, bool isForward)
 {
-  int leftAngle = controller.leftWheel.getCount();
-  int rightAngle = controller.rightWheel.getCount();
+  int leftAngle = controller.getLeftMotorCount();
+  int rightAngle = controller.getRightMotorCount();
 
   // スタート地点からみた現在の距離
   int currentDistance = distance.getDistance(leftAngle, rightAngle);
