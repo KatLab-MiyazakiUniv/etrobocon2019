@@ -1,0 +1,27 @@
+# AStyle: http://astyle.sourceforge.net/
+#
+# C/C++ Standard code formatting - Brett Hagman
+#
+# Allman, 2 space indent, indent classes,
+# space padding around operators, space padding,
+# remove extra space padding around parentheses,
+# convert all tabs to spaces, indent switches,
+# indent cases
+
+--style=kr
+
+--indent=spaces=2
+
+--indent-modifiers
+
+--attach-classes
+
+--unpad-paren
+
+--pad-oper
+
+--convert-tabs
+
+--indent-switches
+
+--indent-cases
