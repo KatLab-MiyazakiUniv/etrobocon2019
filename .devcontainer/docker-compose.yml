@@ -1,7 +1,7 @@
 version: "3"
 services:
   etrobo-docker:
-    image: korosuke613/etrobo-docker:7.2-2
+    build: .
     command: sleep infinity
     volumes:
       - ../:/home/hrp2/sdk/workspace/product
