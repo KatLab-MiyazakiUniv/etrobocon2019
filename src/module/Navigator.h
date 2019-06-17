@@ -2,6 +2,7 @@
  *  @file   Navigator.h
  *  @brief 直進と後進できるクラス
  *  @author Harada,Oiwane
+ *  updated by
  */
 
 #ifndef NAVIGATOR_H
@@ -19,8 +20,8 @@ class Navigator {
  private:
   Distance distance;
   Controller& controller;
-  void forward(double specifiedValue, double goalDistance, int pwm);
-  void backward(double specifiedValue, double goalDistance, int pwm);
+  void forward(double specifiedValue, double goalDistance, int pwm, double alpha = 0.0);
+  void backward(double specifiedValue, double goalDistance, int pwm, double alpha = 0.0);
   bool hasArrived(double goalDistance, bool isForward);
 };
 

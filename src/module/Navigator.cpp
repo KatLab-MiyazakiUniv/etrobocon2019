@@ -2,6 +2,7 @@
  *  @file   Navigator.cpp
  *  @brief 直進と後進できるクラス
  *  @author Harada,Oiwane
+ *  updated by T.Miyaji ()
  */
 
 #include "Navigator.h"
@@ -39,16 +40,18 @@ void Navigator::move(double specifiedValue, int pwm)
 /**
  * 前進する
  * @brief モータを動かし、hasArrivedメソッドの戻り値がtrueの間前進する
+ * @note デフォルトでは両輪のPWM値に差はない。左右車輪で異なるPWM値をかけるときはalphaを指定する
  * @param specifiedValue [移動したい距離(mm)]
- * @param pwm[モータの強さ]
  * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
+ * @param pwm[モータの強さ]
+ * @param alpha [左右のPWM値の差]
  * @return なし
  */
-void Navigator::forward(double specifiedValue, double goalDistance, int pwm)
+void Navigator::forward(double specifiedValue, double goalDistance, int pwm, double alpha)
 {
   while(hasArrived(goalDistance, true)) {
-    controller.setRightMotorPwm(pwm);
-    controller.setLeftMotorPwm(pwm);
+    controller.setRightMotorPwm(pwm - alpha);
+    controller.setLeftMotorPwm(pwm + alpha);
     controller.tslpTsk(4);
   }
 }
@@ -56,16 +59,18 @@ void Navigator::forward(double specifiedValue, double goalDistance, int pwm)
 /**
  * 後進する
  * @brief モータを動かし、hasArrivedメソッドの戻り値がtrueの間後進する
+ * @note デフォルトでは両輪のPWM値に差はない。左右車輪で異なるPWM値をかけるときはalphaを指定する
  * @param specifiedValue [移動したい距離(mm)]
- * @param pwm[モータの強さ]
  * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
+ * @param pwm[モータの強さ]
+ * @param alpha [左右のPWM値の差]
  * @return なし
  */
-void Navigator::backward(double specifiedValue, double goalDistance, int pwm)
+void Navigator::backward(double specifiedValue, double goalDistance, int pwm, double alpha)
 {
   while(hasArrived(goalDistance, false)) {
-    controller.setRightMotorPwm(pwm);
-    controller.setLeftMotorPwm(pwm);
+    controller.setRightMotorPwm(pwm - alpha);
+    controller.setLeftMotorPwm(pwm + alpha);
     controller.tslpTsk(4);
   }
 }
