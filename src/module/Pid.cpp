@@ -12,6 +12,13 @@ Pid::Pid(double target_, double Kp_, double Ki_, double Kd_)
 {
 }
 
+void PidGain::setPidGain(double Kp_, double Ki_, double Kd_)
+{
+  Kp = Kp_;
+  Ki = Ki_;
+  Kd = Kd_;
+}
+
 /**
  *  [Pid::control]
  *  @param  value [現在値]
@@ -38,6 +45,35 @@ double Pid::control(double value, double delta)
   double d = gain.Kd * diff;
 
   return limit(p + i + d);
+}
+
+/**
+ * @brief 目標値とPIDゲインの設定をする関数
+ * @param target_ [設定する目標値]
+ * @param Kp_ [Pゲイン]
+ * @param Ki_ [Iゲイン]
+ * @param Kd_ [Dゲイン]
+ * @param 設定した目標値
+ */
+const double Pid::setParameter(double target_, double Kp_, double Ki_, double Kd_)
+{
+  target = target_;
+  setPidGain(Kp_, Ki_, Kd_);
+
+  return target;
+}
+
+/**
+ * @brief PIDゲインの設定をする関数
+ * @param Kp_ [Pゲイン]
+ * @param Ki_ [Iゲイン]
+ * @param Kd_ [Dゲイン]
+ * @param PidGain構造体の参照
+ */
+const PidGain& Pid::setPidGain(double Kp_, double Ki_, double Kd_)
+{
+  gain.setPidGain(Kp_, Ki_, Kd_);
+  return gain;
 }
 
 /**
