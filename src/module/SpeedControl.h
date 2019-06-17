@@ -12,7 +12,7 @@
 
 class SpeedControl {
  private:
-  Controller controller;
+  Controller& controller;
   Distance dist;
   Pid pid;
   const double C;    //定数C
