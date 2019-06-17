@@ -17,6 +17,11 @@ et2019
 ```
 
 ## DEVELOP
+### Where is reference?
+
+[Here](https://katlab-miyazakiuniv.github.io/etrobocon2019/annotated.html).
+
+
 ### Where should you add your source files?
 
 ```
@@ -75,3 +80,6 @@ Put `ExampleTest.cpp` to `/test`.
 #### Execute test cases.
 Do `./gtest_all.sh`.
 
+### Use Remote Development of Visual Studio Code.
+
+You can use Remote Development of Visual Studio Code.

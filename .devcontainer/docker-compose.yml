@@ -1,0 +1,11 @@
+version: "3"
+services:
+  etrobo-docker:
+    build: .
+    command: sleep infinity
+    volumes:
+      - ../:/home/hrp2/sdk/workspace/product
+      - ~/.gitconfig:/home/etrobo/.gitconfig
+    environment:
+      SHELL: "/bin/bash"
+      HOME: "/home/etrobo"

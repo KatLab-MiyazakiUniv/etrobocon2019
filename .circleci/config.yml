@@ -2,7 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: korosuke613/etrobo-docker
+      - image: korosuke613/etrobo-docker:7.2-2
+        user: root
     working_directory: /home/build
     steps:
       - checkout
@@ -23,7 +24,8 @@ jobs:
 
   test:
     docker:
-      - image: korosuke613/etrobo-docker
+      - image: korosuke613/etrobo-docker:7.2-2
+        user: root
     working_directory: /home/hrp2/sdk/workspace/product
     steps:
       - checkout
@@ -39,9 +41,29 @@ jobs:
             pip3 install codecov
             codecov -t $CODECOV_TOKEN
 
+  deployment:
+    docker:
+      - image: korosuke613/etrobo-docker:7.2-2
+        user: root
+    working_directory: /home/hrp2/sdk/workspace/product
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: |
+            apt-get update
+            apt-get install -y doxygen graphviz
+      - run:
+          name: deploy
+          command: ./.circleci/deploy_doxygen.sh
+
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
       - test
+      - deployment:
+          filters:
+            branches:
+              only: master
