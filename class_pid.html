@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">5a28985407821b512a384278d64e9d5407590367</span>
+   &#160;<span id="projectnumber">82b00d9578304157002cd145f19247f20c1375c3</span>
    </div>
   </td>
  </tr>
@@ -78,10 +78,16 @@ Pid 連携図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ae8a1fc7f395ec8c82a97ee3ecbc47d0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pid.html#ae8a1fc7f395ec8c82a97ee3ecbc47d0b">Pid</a> (double target_, double Kp_, double Ki_=0.0f, double Kd_=0.0f)</td></tr>
-<tr class="separator:ae8a1fc7f395ec8c82a97ee3ecbc47d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740dea0f1384f425b7f804f4ec0d3a6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pid.html#a740dea0f1384f425b7f804f4ec0d3a6d">Pid</a> (double target_, double Kp_, double Ki_=0.0, double Kd_=0.0)</td></tr>
+<tr class="separator:a740dea0f1384f425b7f804f4ec0d3a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e50b0cc4372d927904e50f0d177ee3b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b">control</a> (double value, double delta=0.004)</td></tr>
 <tr class="separator:a7e50b0cc4372d927904e50f0d177ee3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afed28045449cfb8f565ffb11b443dc88"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88">setParameter</a> (double target_, double Kp_, double Ki_=0.0, double Kd_=0.0)</td></tr>
+<tr class="memdesc:afed28045449cfb8f565ffb11b443dc88"><td class="mdescLeft">&#160;</td><td class="mdescRight">目標値とPIDゲインの設定をする関数  <a href="#afed28045449cfb8f565ffb11b443dc88">[詳解]</a><br /></td></tr>
+<tr class="separator:afed28045449cfb8f565ffb11b443dc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a546b13dc17f46a16524d69bcf4d9f09f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_pid_gain.html">PidGain</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f">setPidGain</a> (double Kp_, double Ki_=0.0, double Kd_=0.0)</td></tr>
+<tr class="memdesc:a546b13dc17f46a16524d69bcf4d9f09f"><td class="mdescLeft">&#160;</td><td class="mdescRight">PIDゲインの設定をする関数  <a href="#a546b13dc17f46a16524d69bcf4d9f09f">[詳解]</a><br /></td></tr>
+<tr class="separator:a546b13dc17f46a16524d69bcf4d9f09f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2718b26235c522f5ae7f313453bb55a6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6">limit</a> (double value)</td></tr>
 <tr class="separator:a2718b26235c522f5ae7f313453bb55a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -89,8 +95,8 @@ Pid 連携図</div>
 <div class="textblock">
 <p class="definition"> <a class="el" href="_pid_8h_source.html">Pid.h</a> の <a class="el" href="_pid_8h_source.html#l00018">18</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
-<a id="ae8a1fc7f395ec8c82a97ee3ecbc47d0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8a1fc7f395ec8c82a97ee3ecbc47d0b">&#9670;&nbsp;</a></span>Pid()</h2>
+<a id="a740dea0f1384f425b7f804f4ec0d3a6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740dea0f1384f425b7f804f4ec0d3a6d">&#9670;&nbsp;</a></span>Pid()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,13 +117,13 @@ Pid 連携図</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>Ki_</em> = <code>0.0f</code>, </td>
+          <td class="paramname"><em>Ki_</em> = <code>0.0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>Kd_</em> = <code>0.0f</code>&#160;</td>
+          <td class="paramname"><em>Kd_</em> = <code>0.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -166,11 +172,11 @@ Pid 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>[PID制御後の操作量] </dd></dl>
 
-<p class="definition"> <a class="el" href="_pid_8cpp_source.html">Pid.cpp</a> の <a class="el" href="_pid_8cpp_source.html#l00021">21</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">// 目標値と現在値との偏差を求める</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">double</span> error = target - value;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="comment">// 偏差の積分処理</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  integral += error * delta;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="comment">// 偏差の微分処理</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">double</span> diff = (error - preError) / delta;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// 前回偏差の更新</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  preError = error;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">// P制御の計算(Pゲイン * 偏差)</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">double</span> p = gain.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a> * error;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">// I制御の計算(Iゲイン * 偏差の積分値)</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">double</span> i = gain.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a> * integral;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// D制御の計算(Dゲイン * 偏差の微分値)</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">double</span> d = gain.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a> * diff;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6">limit</a>(p + i + d);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div><div class="ttc" id="struct_pid_gain_html_a2650d82677c378794a7f0a0e1b58f2ad"><div class="ttname"><a href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">PidGain::Kp</a></div><div class="ttdeci">double Kp</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00011">Pid.h:11</a></div></div>
+<p class="definition"> <a class="el" href="_pid_8cpp_source.html">Pid.cpp</a> の <a class="el" href="_pid_8cpp_source.html#l00028">28</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// 目標値と現在値との偏差を求める</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">double</span> error = target - value;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">// 偏差の積分処理</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  integral += error * delta;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">// 偏差の微分処理</span></div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">double</span> diff = (error - preError) / delta;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// 前回偏差の更新</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  preError = error;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">// P制御の計算(Pゲイン * 偏差)</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">double</span> p = gain.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a> * error;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// I制御の計算(Iゲイン * 偏差の積分値)</span></div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">double</span> i = gain.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a> * integral;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="comment">// D制御の計算(Dゲイン * 偏差の微分値)</span></div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">double</span> d = gain.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a> * diff;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6">limit</a>(p + i + d);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div><div class="ttc" id="struct_pid_gain_html_a2650d82677c378794a7f0a0e1b58f2ad"><div class="ttname"><a href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">PidGain::Kp</a></div><div class="ttdeci">double Kp</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00011">Pid.h:11</a></div></div>
 <div class="ttc" id="struct_pid_gain_html_ab587119dd4edf489f7765b590252c536"><div class="ttname"><a href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">PidGain::Kd</a></div><div class="ttdeci">double Kd</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00013">Pid.h:13</a></div></div>
 <div class="ttc" id="struct_pid_gain_html_a1de2cd775c0c61114683b197c50d4221"><div class="ttname"><a href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">PidGain::Ki</a></div><div class="ttdeci">double Ki</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00012">Pid.h:12</a></div></div>
-<div class="ttc" id="class_pid_html_a2718b26235c522f5ae7f313453bb55a6"><div class="ttname"><a href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6">Pid::limit</a></div><div class="ttdeci">double limit(double value)</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8cpp_source.html#l00048">Pid.cpp:48</a></div></div>
+<div class="ttc" id="class_pid_html_a2718b26235c522f5ae7f313453bb55a6"><div class="ttname"><a href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6">Pid::limit</a></div><div class="ttdeci">double limit(double value)</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8cpp_source.html#l00084">Pid.cpp:84</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -219,8 +225,8 @@ Pid 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>[制限をかけた後の操作量] </dd></dl>
 
-<p class="definition"> <a class="el" href="_pid_8cpp_source.html">Pid.cpp</a> の <a class="el" href="_pid_8cpp_source.html#l00048">48</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordflow">if</span>(value &gt; 100.0) <span class="keywordflow">return</span> 100.0;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">if</span>(value &lt; -100.0) <span class="keywordflow">return</span> -100.0;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">return</span> value;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_pid_8cpp_source.html">Pid.cpp</a> の <a class="el" href="_pid_8cpp_source.html#l00084">84</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordflow">if</span>(value &gt; 100.0) <span class="keywordflow">return</span> 100.0;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">if</span>(value &lt; -100.0) <span class="keywordflow">return</span> -100.0;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordflow">return</span> value;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_pid_a2718b26235c522f5ae7f313453bb55a6_icgraph.png" border="0" usemap="#class_pid_a2718b26235c522f5ae7f313453bb55a6_icgraph" alt=""/></div>
@@ -233,6 +239,134 @@ Pid 連携図</div>
 <area shape="rect" id="node7" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="705,107,943,133"/>
 <area shape="rect" id="node8" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="991,107,1151,133"/>
 <area shape="rect" id="node9" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1199,107,1289,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afed28045449cfb8f565ffb11b443dc88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afed28045449cfb8f565ffb11b443dc88">&#9670;&nbsp;</a></span>setParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double Pid::setParameter </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>target_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Kp_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Ki_</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Kd_</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>目標値とPIDゲインの設定をする関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_</td><td>[設定する目標値] </td></tr>
+    <tr><td class="paramname">Kp_</td><td>[Pゲイン] </td></tr>
+    <tr><td class="paramname">Ki_</td><td>[Iゲイン] </td></tr>
+    <tr><td class="paramname">Kd_</td><td>[Dゲイン] </td></tr>
+    <tr><td class="paramname">設定した目標値</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="_pid_8cpp_source.html">Pid.cpp</a> の <a class="el" href="_pid_8cpp_source.html#l00058">58</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  target = target_;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f">setPidGain</a>(Kp_, Ki_, Kd_);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordflow">return</span> target;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div><div class="ttc" id="class_pid_html_a546b13dc17f46a16524d69bcf4d9f09f"><div class="ttname"><a href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f">Pid::setPidGain</a></div><div class="ttdeci">const PidGain &amp; setPidGain(double Kp_, double Ki_=0.0, double Kd_=0.0)</div><div class="ttdoc">PIDゲインの設定をする関数 </div><div class="ttdef"><b>Definition:</b> <a href="_pid_8cpp_source.html#l00073">Pid.cpp:73</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_pid_afed28045449cfb8f565ffb11b443dc88_cgraph.png" border="0" usemap="#class_pid_afed28045449cfb8f565ffb11b443dc88_cgraph" alt=""/></div>
+<map name="class_pid_afed28045449cfb8f565ffb11b443dc88_cgraph" id="class_pid_afed28045449cfb8f565ffb11b443dc88_cgraph">
+<area shape="rect" id="node2" href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="191,5,311,32"/>
+<area shape="rect" id="node3" href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="359,5,509,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a546b13dc17f46a16524d69bcf4d9f09f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a546b13dc17f46a16524d69bcf4d9f09f">&#9670;&nbsp;</a></span>setPidGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_pid_gain.html">PidGain</a> &amp; Pid::setPidGain </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Kp_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Ki_</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Kd_</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>PIDゲインの設定をする関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Kp_</td><td>[Pゲイン] </td></tr>
+    <tr><td class="paramname">Ki_</td><td>[Iゲイン] </td></tr>
+    <tr><td class="paramname">Kd_</td><td>[Dゲイン] </td></tr>
+    <tr><td class="paramname">PidGain構造体の参照</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="_pid_8cpp_source.html">Pid.cpp</a> の <a class="el" href="_pid_8cpp_source.html#l00073">73</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  gain.<a class="code" href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e">setPidGain</a>(Kp_, Ki_, Kd_);</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordflow">return</span> gain;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div><div class="ttc" id="struct_pid_gain_html_acd7b4dd0a8be8f7472f5831ba8d46a4e"><div class="ttname"><a href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e">PidGain::setPidGain</a></div><div class="ttdeci">void setPidGain(double Kp_, double Ki_, double Kd_)</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8cpp_source.html#l00015">Pid.cpp:15</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_pid_a546b13dc17f46a16524d69bcf4d9f09f_cgraph.png" border="0" usemap="#class_pid_a546b13dc17f46a16524d69bcf4d9f09f_cgraph" alt=""/></div>
+<map name="class_pid_a546b13dc17f46a16524d69bcf4d9f09f_cgraph" id="class_pid_a546b13dc17f46a16524d69bcf4d9f09f_cgraph">
+<area shape="rect" id="node2" href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="173,5,324,32"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_pid_a546b13dc17f46a16524d69bcf4d9f09f_icgraph.png" border="0" usemap="#class_pid_a546b13dc17f46a16524d69bcf4d9f09f_icgraph" alt=""/></div>
+<map name="class_pid_a546b13dc17f46a16524d69bcf4d9f09f_icgraph" id="class_pid_a546b13dc17f46a16524d69bcf4d9f09f_icgraph">
+<area shape="rect" id="node2" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="173,5,311,32"/>
 </map>
 </div>
 
