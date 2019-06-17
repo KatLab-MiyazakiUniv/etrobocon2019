@@ -6,7 +6,9 @@
 
 #include "SpeedControl.h"
 
-SpeedControl::SpeedControl() : dist(), controller(), C(7.2), radius(50)
+SpeedControl::SpeedControl(Controller& controller_, int targetSpeed, double Kp, double Ki,
+                           double Kd)
+  : controller(controller_), dist(), pid(targetSpeed, Kp, Ki, Kd), C(7.2), radius(50)
 {
   // 左右のモータの角位置を取得
   int leftAngle = controller.getLeftMotorCount();
@@ -27,7 +29,8 @@ SpeedControl::SpeedControl() : dist(), controller(), C(7.2), radius(50)
 
 double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, double Kd)
 {
-  Pid pid(static_cast<double>(targetSpeed), Kp, Ki, Kd);
+  // pidの値を更新(パラメータに変更がなくても更新する)
+  pid.setParameter(targetSpeed, Kp, Ki, Kd);
 
   // 4ms後の左右のモータの角位置を取得
   int leftAngle = controller.getLeftMotorCount();
