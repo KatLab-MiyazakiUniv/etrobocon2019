@@ -9,8 +9,8 @@
 SpeedControl::SpeedControl() : dist(), controller(), C(7.2), radius(50) {
 
   // 左右のモータの角位置を取得
-  int leftAngle = controller.leftWheel.getCount();
-  int rightAngle = controller.rightWheel.getCount();
+  int leftAngle = controller.getLeftMotorCount();
+  int rightAngle = controller.getRightMotorCount();
 
   // 走行距離の取得[mm]
   prevDistance = dist.getDistance(leftAngle, rightAngle);
@@ -34,8 +34,8 @@ double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki,
   Controller controller;
 
   // 4ms後の左右のモータの角位置を取得
-  int leftAngle = controller.leftWheel.getCount();
-  int rightAngle = controller.rightWheel.getCount();
+  int leftAngle = controller.getLeftMotorCount();
+  int rightAngle = controller.getRightMotorCount();
 
   // 4ms後の走行距離の取得[mm]
   double nextDistance = dist.getDistance(leftAngle, rightAngle);

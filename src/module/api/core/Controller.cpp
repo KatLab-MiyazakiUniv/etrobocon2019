@@ -73,3 +73,28 @@ void Controller::lcdDrawString(const char* str, int x, int y) {
 }
 
 void Controller::lcdSetFont() { ev3_lcd_set_font(EV3_FONT_SMALL); }
+
+int Controller::getLeftMotorCount(){
+  return leftWheel.getCount();
+}
+
+int Controller::getRightMotorCount(){
+  return rightWheel.getCount();
+}
+
+int Controller::suppressPwmValue(const int value){
+  if(value > MOTOR_PWM_MAX){
+    return MOTOR_PWM_MAX;
+  }else if(value < MOTOR_PWM_MIN){
+    return MOTOR_PWM_MIN;
+  }
+  return value;
+}
+
+void Controller::setLeftMotorPwm(const int pwm){
+  leftWheel.setPWM(suppressPwmValue(pwm));
+}
+
+void Controller::setRightMotorPwm(const int pwm){
+  rightWheel.setPWM(suppressPwmValue(pwm));
+}
