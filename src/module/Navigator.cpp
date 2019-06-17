@@ -42,7 +42,9 @@ void Navigator::move(double specifiedValue, int pwm)
  * @brief PID制御を用いて両輪の回転量が等しくなるように前進または後進する
  * @param specifiedValue [移動したい距離(mm)。正なら前進、負なら後進]
  * @param pwm [モータの強さ]
- * @param pGain [Pゲイン]
+ * @param pGain [PID制御のPゲイン]
+ * @param iGain [PID制御のIゲイン]
+ * @param dGain [PID制御のDゲイン]
  * @return なし
  */
 void Navigator::moveByPid(double specifiedValue, int pwm, const double pGain, const double iGain,
