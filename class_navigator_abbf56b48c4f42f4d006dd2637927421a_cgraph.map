@@ -4,5 +4,4 @@
 <area shape="rect" id="node4" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="210,137,375,163"/>
 <area shape="rect" id="node5" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="184,187,401,214"/>
 <area shape="rect" id="node6" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="189,238,397,265"/>
-<area shape="rect" id="node7" href="$class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="223,289,362,315"/>
 </map>

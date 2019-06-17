@@ -1,4 +1,5 @@
 <map id="src/module/Navigator.h" name="src/module/Navigator.h">
 <area shape="rect" id="node2" href="$_controller_8h.html" title="Controller.h" alt="" coords="209,155,307,181"/>
 <area shape="rect" id="node8" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="254,80,345,107"/>
+<area shape="rect" id="node9" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="369,80,424,107"/>
 </map>

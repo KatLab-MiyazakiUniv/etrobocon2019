@@ -1,5 +1,6 @@
 <map id="src/module/Navigator.cpp" name="src/module/Navigator.cpp">
-<area shape="rect" id="node2" href="$_navigator_8h.html" title="直進と後進できるクラス " alt="" coords="251,80,348,107"/>
+<area shape="rect" id="node2" href="$_navigator_8h.html" title="直進と後進できるクラス " alt="" coords="299,80,396,107"/>
 <area shape="rect" id="node3" href="$_controller_8h.html" title="Controller.h" alt="" coords="209,229,307,256"/>
 <area shape="rect" id="node9" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="254,155,345,181"/>
+<area shape="rect" id="node10" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="369,155,424,181"/>
 </map>
