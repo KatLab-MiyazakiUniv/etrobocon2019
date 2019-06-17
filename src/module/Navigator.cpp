@@ -27,9 +27,9 @@ void Navigator::move(double specifiedValue, int pwm)
   double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
 
   if(specifiedValue < 0) {
-    backward(specifiedValue, -std::abs(pwm), goalDistance);
+    backward(specifiedValue, goalDistance, -std::abs(pwm));
   } else {
-    forward(specifiedValue, std::abs(pwm), goalDistance);
+    forward(specifiedValue, goalDistance, std::abs(pwm));
   }
 
   controller.setRightMotorPwm(0);
@@ -44,7 +44,7 @@ void Navigator::move(double specifiedValue, int pwm)
  * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
  * @return なし
  */
-void Navigator::forward(double specifiedValue, int pwm, double goalDistance)
+void Navigator::forward(double specifiedValue, double goalDistance, int pwm)
 {
   while(hasArrived(goalDistance, true)) {
     controller.setRightMotorPwm(pwm);
@@ -61,7 +61,7 @@ void Navigator::forward(double specifiedValue, int pwm, double goalDistance)
  * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
  * @return なし
  */
-void Navigator::backward(double specifiedValue, int pwm, double goalDistance)
+void Navigator::backward(double specifiedValue, double goalDistance, int pwm)
 {
   while(hasArrived(goalDistance, false)) {
     controller.setRightMotorPwm(pwm);

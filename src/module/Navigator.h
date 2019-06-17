@@ -19,8 +19,8 @@ class Navigator {
  private:
   Distance distance;
   Controller& controller;
-  void forward(double specifiedValue, int pwm, double goalDistance);
-  void backward(double specifiedValue, int pwm, double goalDistance);
+  void forward(double specifiedValue, double goalDistance, int pwm);
+  void backward(double specifiedValue, double goalDistance, int pwm);
   bool hasArrived(double goalDistance, bool isForward);
 };
 
