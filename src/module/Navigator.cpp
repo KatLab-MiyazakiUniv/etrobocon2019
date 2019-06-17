@@ -2,24 +2,13 @@
  *  @file   Navigator.cpp
  *  @brief 直進と後進できるクラス
  *  @author Harada,Oiwane
+ *  updated by T.Miyaji
  */
 
 #include "Navigator.h"
 
-/**
- * コンストラクタ
- * @brief Navigatorクラスのコンストラクタ
- * @param &controller_ [Controllerインスタンスの参照]
- */
 Navigator::Navigator(Controller& controller_) : distance(), controller(controller_) {}
 
-/**
- * 前進と後進をする
- * @brief specifiedValueの値でbackwardかforwardを呼び出す。
- * @param specifiedValue [移動したい距離(mm)。正なら前進、負なら後進。]
- * @param pwm [モータの強さ]
- * @return なし
- */
 void Navigator::move(double specifiedValue, int pwm)
 {
   int leftAngle = controller.getLeftMotorCount();
@@ -27,56 +16,55 @@ void Navigator::move(double specifiedValue, int pwm)
   double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
 
   if(specifiedValue < 0) {
-    backward(specifiedValue, -std::abs(pwm), goalDistance);
+    backward(specifiedValue, goalDistance, -std::abs(pwm));
   } else {
-    forward(specifiedValue, std::abs(pwm), goalDistance);
+    forward(specifiedValue, goalDistance, std::abs(pwm));
   }
 
   controller.setRightMotorPwm(0);
   controller.setLeftMotorPwm(0);
 }
 
-/**
- * 前進する
- * @brief モータを動かし、hasArrivedメソッドの戻り値がtrueの間前進する
- * @param specifiedValue [移動したい距離(mm)]
- * @param pwm[モータの強さ]
- * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
- * @return なし
- */
-void Navigator::forward(double specifiedValue, int pwm, double goalDistance)
+void Navigator::moveByPid(double specifiedValue, int pwm, const double pGain, const double iGain,
+                          const double dGain)
+{
+  int leftAngle = controller.getLeftMotorCount();
+  int rightAngle = controller.getRightMotorCount();
+  double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
+
+  // 右車輪の回転量 - 左車輪の回転量
+  // 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる
+  Pid pid(pGain, iGain, dGain);
+  double alpha = pid.control(rightAngle - leftAngle);
+
+  if(specifiedValue < 0) {
+    backward(specifiedValue, goalDistance, -std::abs(pwm), alpha);
+  } else {
+    forward(specifiedValue, goalDistance, std::abs(pwm), alpha);
+  }
+
+  controller.setRightMotorPwm(0);
+  controller.setLeftMotorPwm(0);
+}
+
+void Navigator::forward(double specifiedValue, double goalDistance, int pwm, double alpha)
 {
   while(hasArrived(goalDistance, true)) {
-    controller.setRightMotorPwm(pwm);
-    controller.setLeftMotorPwm(pwm);
+    controller.setRightMotorPwm(pwm + alpha);
+    controller.setLeftMotorPwm(pwm - alpha);
     controller.tslpTsk(4);
   }
 }
 
-/**
- * 後進する
- * @brief モータを動かし、hasArrivedメソッドの戻り値がtrueの間後進する
- * @param specifiedValue [移動したい距離(mm)]
- * @param pwm[モータの強さ]
- * @param goalDistance[現在地から移動したい距離動いた後の値(mm)]
- * @return なし
- */
-void Navigator::backward(double specifiedValue, int pwm, double goalDistance)
+void Navigator::backward(double specifiedValue, double goalDistance, int pwm, double alpha)
 {
   while(hasArrived(goalDistance, false)) {
-    controller.setRightMotorPwm(pwm);
-    controller.setLeftMotorPwm(pwm);
+    controller.setRightMotorPwm(pwm + alpha);
+    controller.setLeftMotorPwm(pwm - alpha);
     controller.tslpTsk(4);
   }
 }
 
-/**
- * 指定した距離動いたか判定する
- * @brief 現在値とgoalDistanceを比較し、resultに"true"か"false"を格納する
- * @param goalDistance [現在地から移動したい距離動いた後の値(mm)]
- * @param isForward [前進なら"true"、後進なら"false"]
- * @return result [移動したい距離動いたら"true"、動いていないなら"false"]
- */
 bool Navigator::hasArrived(double goalDistance, bool isForward)
 {
   int leftAngle = controller.getLeftMotorCount();
