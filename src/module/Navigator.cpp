@@ -38,6 +38,34 @@ void Navigator::move(double specifiedValue, int pwm)
 }
 
 /**
+ * @TODO move関数に統合する？ また、IおよびDゲインも指定できるようにする？
+ * @brief PID制御を用いて両輪の回転量が等しくなるように前進または後進する
+ * @param specifiedValue [移動したい距離(mm)。正なら前進、負なら後進]
+ * @param pwm [モータの強さ]
+ * @param pGain [Pゲイン]
+ * @return なし
+ */
+void Navigator::moveByPID(double specifiedValue, int pwm, const double pGain)
+{
+  int leftAngle = controller.getLeftMotorCount();
+  int rightAngle = controller.getRightMotorCount();
+  double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
+
+  // 右車輪の回転量 - 左車輪の回転量
+  // 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる
+  double alpha = pGain * (rightAngle - leftAngle);
+
+  if(specifiedValue < 0) {
+    backward(specifiedValue, goalDistance, pwm, alpha);
+  } else {
+    forward(specifiedValue, goalDistance, pwm, alpha);
+  }
+
+  controller.setRightMotorPwm(0);
+  controller.setLeftMotorPwm(0);
+}
+
+/**
  * 前進する
  * @brief モータを動かし、hasArrivedメソッドの戻り値がtrueの間前進する
  * @note デフォルトでは両輪のPWM値に差はない。左右車輪で異なるPWM値をかけるときはalphaを指定する

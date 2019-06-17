@@ -16,6 +16,7 @@ class Navigator {
  public:
   explicit Navigator(Controller& controller_);
   void move(double specifiedValue, int pwm = 30);
+  void moveByPID(double specifiedValue, int pwm = 10, const double pGain = 0.6);
 
  private:
   Distance distance;
