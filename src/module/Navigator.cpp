@@ -58,9 +58,9 @@ void Navigator::moveByPid(double specifiedValue, int pwm, const double pGain, co
   double alpha = pid.control(rightAngle - leftAngle);
 
   if(specifiedValue < 0) {
-    backward(specifiedValue, goalDistance, pwm, alpha);
+    backward(specifiedValue, goalDistance, -std::abs(pwm), alpha);
   } else {
-    forward(specifiedValue, goalDistance, pwm, alpha);
+    forward(specifiedValue, goalDistance, std::abs(pwm), alpha);
   }
 
   controller.setRightMotorPwm(0);
