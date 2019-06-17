@@ -10,13 +10,15 @@
 
 #include "Controller.h"
 #include "Distance.h"
+#include "Pid.h"
 #include <cmath>
 
 class Navigator {
  public:
   explicit Navigator(Controller& controller_);
   void move(double specifiedValue, int pwm = 30);
-  void moveByPID(double specifiedValue, int pwm = 10, const double pGain = 0.6);
+  void moveByPid(double specifiedValue, int pwm = 10, const double pGain = 0.6,
+                 const double iGain = 0.0, const double dGain = 0.0);
 
  private:
   Distance distance;

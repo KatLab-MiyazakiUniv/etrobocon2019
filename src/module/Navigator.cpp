@@ -45,7 +45,8 @@ void Navigator::move(double specifiedValue, int pwm)
  * @param pGain [Pゲイン]
  * @return なし
  */
-void Navigator::moveByPID(double specifiedValue, int pwm, const double pGain)
+void Navigator::moveByPid(double specifiedValue, int pwm, const double pGain, const double iGain,
+                          const double dGain)
 {
   int leftAngle = controller.getLeftMotorCount();
   int rightAngle = controller.getRightMotorCount();
@@ -53,7 +54,8 @@ void Navigator::moveByPID(double specifiedValue, int pwm, const double pGain)
 
   // 右車輪の回転量 - 左車輪の回転量
   // 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる
-  double alpha = pGain * (rightAngle - leftAngle);
+  Pid pid(pGain, iGain, dGain);
+  double alpha = pid.control(rightAngle - leftAngle);
 
   if(specifiedValue < 0) {
     backward(specifiedValue, goalDistance, pwm, alpha);
@@ -78,8 +80,8 @@ void Navigator::moveByPID(double specifiedValue, int pwm, const double pGain)
 void Navigator::forward(double specifiedValue, double goalDistance, int pwm, double alpha)
 {
   while(hasArrived(goalDistance, true)) {
-    controller.setRightMotorPwm(pwm - alpha);
-    controller.setLeftMotorPwm(pwm + alpha);
+    controller.setRightMotorPwm(pwm + alpha);
+    controller.setLeftMotorPwm(pwm - alpha);
     controller.tslpTsk(4);
   }
 }
@@ -97,8 +99,8 @@ void Navigator::forward(double specifiedValue, double goalDistance, int pwm, dou
 void Navigator::backward(double specifiedValue, double goalDistance, int pwm, double alpha)
 {
   while(hasArrived(goalDistance, false)) {
-    controller.setRightMotorPwm(pwm - alpha);
-    controller.setLeftMotorPwm(pwm + alpha);
+    controller.setRightMotorPwm(pwm + alpha);
+    controller.setLeftMotorPwm(pwm - alpha);
     controller.tslpTsk(4);
   }
 }

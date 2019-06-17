@@ -10,10 +10,13 @@
         "*.md"
     ],
     "cSpell.words": [
+        "Miyaji",
         "Miyazaki",
+        "Oiwane",
         "PORTID",
         "Toyohashi",
         "ertl",
+        "etrobocon",
         "exinf",
         "hackev",
         "hiro",
@@ -48,5 +51,6 @@
         "typescript",
         "typescriptreact",
         "yaml"
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "Disabled"
 }
