@@ -1,4 +1,5 @@
 <map id="PidGain::setPidGain" name="PidGain::setPidGain">
 <area shape="rect" id="node2" href="$class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="204,5,324,32"/>
 <area shape="rect" id="node3" href="$class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="372,5,509,32"/>
+<area shape="rect" id="node4" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="557,5,773,32"/>
 </map>

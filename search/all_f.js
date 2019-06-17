@@ -10,7 +10,7 @@ var searchData=
   ['settargetbrightness',['setTargetBrightness',['../class_line_tracer.html#a4eadec9c95d488c53ae2afa206d2bd09',1,'LineTracer']]],
   ['speakerplaytonefs6',['speakerPlayToneFS6',['../class_controller.html#ac7c06058c2d04caff95fb680abe68519',1,'Controller']]],
   ['speakersetvolume',['speakerSetVolume',['../class_controller.html#a1e6cc64001e722afdcc130b9fbf5efae',1,'Controller']]],
-  ['speedcontrol',['SpeedControl',['../class_speed_control.html',1,'SpeedControl'],['../class_speed_control.html#a3b0a21fa2c1bc5dbb4b66d84b18b18df',1,'SpeedControl::SpeedControl()']]],
+  ['speedcontrol',['SpeedControl',['../class_speed_control.html',1,'SpeedControl'],['../class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0',1,'SpeedControl::SpeedControl()']]],
   ['speedcontrol_2ecpp',['SpeedControl.cpp',['../_speed_control_8cpp.html',1,'']]],
   ['speedcontrol_2eh',['SpeedControl.h',['../_speed_control_8h.html',1,'']]],
   ['speedpid',['speedPid',['../struct_normal_course_property.html#a2accd68e35de5c999f944e6266545ded',1,'NormalCourseProperty']]],
