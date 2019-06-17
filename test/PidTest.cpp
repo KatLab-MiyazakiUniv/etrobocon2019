@@ -7,6 +7,18 @@
 #include <gtest/gtest.h>
 
 namespace etrobocon2019_test {
+  TEST(PidGain, construct) { PidGain gain(0.6, 0.2, 0.3); }
+
+  TEST(PidGain, setPidGain)
+  {
+    PidGain gain(0.6, 0.2, 0.3);
+    gain.setPidGain(0.8, 0.01, 0.2);
+
+    ASSERT_DOUBLE_EQ(0.8, gain.Kp);
+    ASSERT_DOUBLE_EQ(0.01, gain.Ki);
+    ASSERT_DOUBLE_EQ(0.2, gain.Kd);
+  }
+
   TEST(Pid, Pid_init)
   {
     // P制御を行なうオブジェクトの作成
@@ -68,5 +80,21 @@ namespace etrobocon2019_test {
   {
     Pid pid(80, 0.6);
     ASSERT_FLOAT_EQ(12.3, pid.limit(12.3));
+  }
+
+  TEST(Pid, setParameter)
+  {
+    Pid pid(80, 0.2);
+    const double target = pid.setParameter(60, 0.3, 0.4, 0.6);
+    ASSERT_DOUBLE_EQ(60.0, target);
+  }
+
+  TEST(Pid, setPidGain)
+  {
+    Pid pid(80, 0.2);
+    const PidGain& gain = pid.setPidGain(0.6, 0.3, 0.5);
+    ASSERT_DOUBLE_EQ(0.6, gain.Kp);
+    ASSERT_DOUBLE_EQ(0.3, gain.Ki);
+    ASSERT_DOUBLE_EQ(0.5, gain.Kd);
   }
 }  // namespace etrobocon2019_test

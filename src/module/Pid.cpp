@@ -53,11 +53,14 @@ double Pid::control(double value, double delta)
  * @param Kp_ [Pゲイン]
  * @param Ki_ [Iゲイン]
  * @param Kd_ [Dゲイン]
+ * @param 設定した目標値
  */
-void Pid::setParameter(double target_, double Kp_, double Ki_, double Kd_)
+const double Pid::setParameter(double target_, double Kp_, double Ki_, double Kd_)
 {
   target = target_;
   setPidGain(Kp_, Ki_, Kd_);
+
+  return target;
 }
 
 /**
@@ -65,10 +68,12 @@ void Pid::setParameter(double target_, double Kp_, double Ki_, double Kd_)
  * @param Kp_ [Pゲイン]
  * @param Ki_ [Iゲイン]
  * @param Kd_ [Dゲイン]
+ * @param PidGain構造体の参照
  */
-void Pid::setPidGain(double Kp_, double Ki_, double Kd_)
+const PidGain& Pid::setPidGain(double Kp_, double Ki_, double Kd_)
 {
   gain.setPidGain(Kp_, Ki_, Kd_);
+  return gain;
 }
 
 /**

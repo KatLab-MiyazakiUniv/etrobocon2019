@@ -25,8 +25,8 @@ class Pid {
  public:
   Pid(double target_, double Kp_, double Ki_ = 0.0, double Kd_ = 0.0);
   double control(double value, double delta = 0.004);
-  void setParameter(double target_, double Kp_, double Ki_ = 0.0, double Kd_ = 0.0);
-  void setPidGain(double Kp_, double Ki_ = 0.0, double Kd_ = 0.0);
+  const double setParameter(double target_, double Kp_, double Ki_ = 0.0, double Kd_ = 0.0);
+  const PidGain& setPidGain(double Kp_, double Ki_ = 0.0, double Kd_ = 0.0);
   double limit(double value);
 };
 
