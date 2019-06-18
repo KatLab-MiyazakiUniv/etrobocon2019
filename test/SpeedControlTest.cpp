@@ -40,7 +40,7 @@ namespace etrobocon2019_test {
     double currentSpeed = (nextDistance - prevDistance) / 0.004;
 
     //prevDistanceの更新
-     prevDistance = dist.getDistance(leftAngle, rightAngle);
+    prevDistance = dist.getDistance(leftAngle, rightAngle);
 
     // pid値を求める
     double pidValue = pid.control(currentSpeed);
