@@ -6,6 +6,15 @@
 #include <iostream>
 #include <string>
 
+unsigned struct HsvStatus {
+  //色相 範囲(0~360)
+  double hue;
+  //彩度 範囲(0~100)
+  double saturation;
+  //明度 範囲(0~100)
+  double value;
+};
+
 class Motor {
  public:
   double count = 0.0;
@@ -38,6 +47,7 @@ class ColorSensor {
 class Controller {
  public:
   Clock clock;
+  HsvStatus hsv;
   Motor rightWheel;
   Motor leftWheel;
   Motor liftMotor;
@@ -71,6 +81,58 @@ class Controller {
 
     return;
   };
+
+void Controller::convertHsv(std::uint16_t& r, std::uint16_t& g, std::uint16_t& b)
+{
+
+  double max = r;
+  if(max < g) {
+    max = g;
+  }
+  if(max < b) {
+    max = b;
+  }
+  double min = r;
+  if(min > g) {
+    min = g;
+  }
+  if(min > b) {
+    min = b;
+  }
+
+  // 色相(hue)を求める
+if(r == g && r == b) {
+    hsv.hue = 0;
+  }
+
+  else if(max == r) {
+    hsv.hue = 60 * ((g - b) / (max - min));
+  }
+
+  else if(max == g) {
+    hsv.hue = 60 * ((b - r) / (max - min)) + 120;
+  }
+
+  else if(max == b) {
+    hsv.hue = 60 * ((r - g) / (max - min)) + 240;
+  }
+
+  if(hsv.hue < 0) {
+    hsv.hue += 360;
+  }
+
+  // 彩度(saturation)を求める
+  hsv.saturation = (max - min) / max * 100;
+
+  // 明度(value)を求める
+  hsv.value = max / 255 * 100;
+}
+
+HsvStatus Controller::getHsv()
+{
+  return hsv;
+}  // hsv値を返す
+  
   bool buttonIsPressedUp() { return false; };
   bool buttonIsPressedDown() { return false; };
 

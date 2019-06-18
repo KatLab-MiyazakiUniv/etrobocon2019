@@ -98,3 +98,63 @@ void Controller::setLeftMotorPwm(const int pwm){
 void Controller::setRightMotorPwm(const int pwm){
   rightWheel.setPWM(suppressPwmValue(pwm));
 }
+
+void Controller::convertHsv(int& r, int& g, int& b)
+{
+  // r,g,bの最大値を求める
+  double max = r;
+  if(max < g) {
+    max = g;
+  }
+  if(max < b) {
+    max = b;
+  }
+
+  // r,g,bの最小値を求める
+  double min = r;
+  if(min > g) {
+    min = g;
+  }
+  if(min > b) {
+    min = b;
+  }
+
+  // 色相(hue)を求める
+
+  // 3つが同値の時は色相(hue)は０
+  if(r == g && r == b) {
+    hsv.hue = 0;
+  }
+
+  // rが最大値の場合
+  else if(max == r) {
+    hsv.hue = 60 * ((g - b) / (max - min));
+  }
+
+  // gが最大値の場合
+  else if(max == g) {
+    hsv.hue = 60 * ((b - r) / (max - min)) + 120;
+  }
+
+  // bが最大値の場合
+  else if(max == b) {
+    hsv.hue = 60 * ((r - g) / (max - min)) + 240;
+  }
+
+  //求められた色彩(hue)がマイナス値だった場合は360を加算して0～360の範囲に収める
+  if(hsv.hue < 0) {
+    hsv.hue += 360;
+  }
+
+  // 彩度(saturation)を求める
+  hsv.saturation = (max - min) / max * 100;
+
+  // 明度(value)を求める
+  hsv.value = max / 255 * 100;
+}
+
+HsvStatus Controller::getHsv()
+{
+  return hsv;
+}  // hsv値を返す
+
