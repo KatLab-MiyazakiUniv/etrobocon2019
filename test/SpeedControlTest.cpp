@@ -21,8 +21,8 @@ namespace etrobocon2019_test {
     Pid pid(50, 0.6, 0.05, 0.04);
 
     // 左右のモータの角位置を取得
-    int leftAngle = controller.getLeftMotorCount();
-    int rightAngle = controller.getRightMotorCount();
+    int leftAngle = controller.leftWheel.getCount();
+    int rightAngle = controller.rightWheel.getCount();
     // 走行距離の取得[mm]
     double prevDistance = dist.getDistance(leftAngle, rightAngle);
 
@@ -30,8 +30,8 @@ namespace etrobocon2019_test {
     controller.tslpTsk(4);
 
     // 4ms後の左右のモータの角位置を取得
-    leftAngle = controller.getLeftMotorCount();
-    rightAngle = controller.getRightMotorCount();
+    leftAngle = controller.leftWheel.getCount();
+    rightAngle = controller.rightWheel.getCount();
 
     // 4ms後の走行距離の取得[mm]
     double nextDistance = dist.getDistance(leftAngle, rightAngle);
@@ -39,11 +39,14 @@ namespace etrobocon2019_test {
     //現在の速度を求める
     double currentSpeed = (nextDistance - prevDistance) / 0.004;
 
+    //prevDistanceの更新
+     prevDistance = dist.getDistance(leftAngle, rightAngle);
+
     // pid値を求める
     double pidValue = pid.control(currentSpeed);
 
-    // PWM値 = pid値 * 360度 / (円周率 * タイヤの半径[mm] * 定数C)
-    double expectedPWMValue = pidValue * 360 / (M_PI * 50 * 7.2);
+    // PWM値 = pid値
+    double expectedPWMValue = pidValue;
 
     ASSERT_DOUBLE_EQ(expectedPWMValue, SpeedCtrl.calculateSpeed(50, 0.6, 0.05, 0.04));
   }
