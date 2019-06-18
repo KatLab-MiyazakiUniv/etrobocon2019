@@ -82,7 +82,7 @@ class Controller {
     return;
   };
 
-void Controller::convertHsv(std::uint16_t& r, std::uint16_t& g, std::uint16_t& b)
+void convertHsv(std::uint16_t& r, std::uint16_t& g, std::uint16_t& b)
 {
 
   double max = r;
@@ -128,7 +128,7 @@ if(r == g && r == b) {
   hsv.value = max / 255 * 100;
 }
 
-HsvStatus Controller::getHsv()
+  HsvStatus getHsv()
 {
   return hsv;
 }  // hsv値を返す
