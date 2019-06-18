@@ -143,6 +143,11 @@ class Controller {
     leftWheel.reset();
     rightWheel.reset();
   }
+  void stopMotor()
+  {
+    leftWheel.stop();
+    rightWheel.stop();
+  }
   static int suppressPwmValue(const int value)
   {
     if(value > MOTOR_PWM_MAX) {

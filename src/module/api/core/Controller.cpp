@@ -137,3 +137,9 @@ void Controller::resetMotorCount()
   leftWheel.reset();
   rightWheel.reset();
 }
+
+void Controller::stopMotor()
+{
+  leftWheel.stop();
+  rightWheel.stop();
+}
