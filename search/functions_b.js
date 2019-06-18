@@ -11,5 +11,6 @@ var searchData=
   ['speakerplaytonefs6',['speakerPlayToneFS6',['../class_controller.html#ac7c06058c2d04caff95fb680abe68519',1,'Controller']]],
   ['speakersetvolume',['speakerSetVolume',['../class_controller.html#a1e6cc64001e722afdcc130b9fbf5efae',1,'Controller']]],
   ['speedcontrol',['SpeedControl',['../class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0',1,'SpeedControl']]],
-  ['start',['start',['../class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe',1,'EtRobocon2019']]]
+  ['start',['start',['../class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe',1,'EtRobocon2019']]],
+  ['stopmotor',['stopMotor',['../class_controller.html#aed3aaec78fca32625b908bf6b26dcf86',1,'Controller']]]
 ];

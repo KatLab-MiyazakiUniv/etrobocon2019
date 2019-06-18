@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">c43f7e08c90c14de8d25e79d871c975457a044f3</span>
+   &#160;<span id="projectnumber">1f6eeb2dc2b767a944612318d0a03063cef24d8a</span>
    </div>
   </td>
  </tr>
@@ -113,6 +113,10 @@ Controller 連携図</div>
 <tr class="separator:a0806bb9e6dad708398bfcf188d98024a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78965353ac6b8a5815a5e4b5148267ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac">setRightMotorPwm</a> (const int pwm)</td></tr>
 <tr class="separator:a78965353ac6b8a5815a5e4b5148267ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0db421426e48c56558848bba592616be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a0db421426e48c56558848bba592616be">resetMotorCount</a> ()</td></tr>
+<tr class="separator:a0db421426e48c56558848bba592616be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3aaec78fca32625b908bf6b26dcf86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">stopMotor</a> ()</td></tr>
+<tr class="separator:aed3aaec78fca32625b908bf6b26dcf86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -165,7 +169,7 @@ Controller 連携図</div>
 </div><div class="memdoc">
 
 <p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00004">4</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    : <a class="code" href="class_controller.html#a5e19c12fa264d296fafb2996459ddae2">touchSensor</a>(PORT_1),</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;      <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>(PORT_3),</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;      liftMotor(PORT_A),</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;      rightWheel(PORT_B),</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;      leftWheel(PORT_C),</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;      tailMotor(PORT_D) {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div><div class="ttc" id="class_controller_html_a5e19c12fa264d296fafb2996459ddae2"><div class="ttname"><a href="class_controller.html#a5e19c12fa264d296fafb2996459ddae2">Controller::touchSensor</a></div><div class="ttdeci">TouchSensor touchSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00028">Controller.h:28</a></div></div>
+<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  : <a class="code" href="class_controller.html#a5e19c12fa264d296fafb2996459ddae2">touchSensor</a>(PORT_1),</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>(PORT_3),</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    liftMotor(PORT_A),</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    rightWheel(PORT_B),</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    leftWheel(PORT_C),</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    tailMotor(PORT_D)</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div><div class="ttc" id="class_controller_html_a5e19c12fa264d296fafb2996459ddae2"><div class="ttname"><a href="class_controller.html#a5e19c12fa264d296fafb2996459ddae2">Controller::touchSensor</a></div><div class="ttdeci">TouchSensor touchSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00028">Controller.h:28</a></div></div>
 <div class="ttc" id="class_controller_html_ac252a70d6b3b606bd5ce313767b74b96"><div class="ttname"><a href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">Controller::colorSensor</a></div><div class="ttdeci">ColorSensor colorSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00029">Controller.h:29</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -186,8 +190,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00026">26</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                     {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(BACK_BUTTON);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00035">35</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(BACK_BUTTON);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="aa5fbb86e851a1d6602e68f4327870c5d"></a>
@@ -205,8 +209,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00038">38</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                     {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(DOWN_BUTTON);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00050">50</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(DOWN_BUTTON);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="ad1e858bf584915b7283a7726daf87de7"></a>
@@ -224,8 +228,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00030">30</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                      {</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(ENTER_BUTTON);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00040">40</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(ENTER_BUTTON);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_ad1e858bf584915b7283a7726daf87de7_icgraph.png" border="0" usemap="#class_controller_ad1e858bf584915b7283a7726daf87de7_icgraph" alt=""/></div>
@@ -255,8 +259,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00046">46</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                     {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(LEFT_BUTTON);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00060">60</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(LEFT_BUTTON);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_a3c541c01b9a02403c43fac24b8c882ac_icgraph.png" border="0" usemap="#class_controller_a3c541c01b9a02403c43fac24b8c882ac_icgraph" alt=""/></div>
@@ -285,8 +289,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00042">42</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                      {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(RIGHT_BUTTON);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00055">55</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(RIGHT_BUTTON);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_a6a22a0a31fb55dba1feac199cc9656ee_icgraph.png" border="0" usemap="#class_controller_a6a22a0a31fb55dba1feac199cc9656ee_icgraph" alt=""/></div>
@@ -315,8 +319,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00034">34</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                   {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(UP_BUTTON);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00045">45</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">return</span> ev3_button_is_pressed(UP_BUTTON);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="ac867b29759f58fad7ccdc865b7252562"></a>
@@ -342,8 +346,8 @@ Controller 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00050">50</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{ <span class="keywordflow">return</span> ev3_battery_voltage_mV(); }</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00065">65</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">return</span> ev3_battery_voltage_mV();</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a592fca2802b9cea70ef24eba17db7ec8"></a>
@@ -361,8 +365,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00052">52</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                              {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">int</span> luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">return</span> luminance;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div><div class="ttc" id="class_controller_html_ac252a70d6b3b606bd5ce313767b74b96"><div class="ttname"><a href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">Controller::colorSensor</a></div><div class="ttdeci">ColorSensor colorSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00029">Controller.h:29</a></div></div>
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00070">70</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">int</span> luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordflow">return</span> luminance;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div><div class="ttc" id="class_controller_html_ac252a70d6b3b606bd5ce313767b74b96"><div class="ttname"><a href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">Controller::colorSensor</a></div><div class="ttdeci">ColorSensor colorSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00029">Controller.h:29</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -394,8 +398,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00077">77</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                 {</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordflow">return</span> leftWheel.getCount();</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00105">105</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordflow">return</span> leftWheel.getCount();</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph.png" border="0" usemap="#class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph" alt=""/></div>
@@ -445,8 +449,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00058">58</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                                   {</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  r = rgb.r;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  g = rgb.g;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  b = rgb.b;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div><div class="ttc" id="class_controller_html_ac252a70d6b3b606bd5ce313767b74b96"><div class="ttname"><a href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">Controller::colorSensor</a></div><div class="ttdeci">ColorSensor colorSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00029">Controller.h:29</a></div></div>
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00077">77</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">colorSensor</a>.getRawColor(rgb);</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  r = rgb.r;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  g = rgb.g;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  b = rgb.b;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div><div class="ttc" id="class_controller_html_ac252a70d6b3b606bd5ce313767b74b96"><div class="ttname"><a href="class_controller.html#ac252a70d6b3b606bd5ce313767b74b96">Controller::colorSensor</a></div><div class="ttdeci">ColorSensor colorSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00029">Controller.h:29</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -465,8 +469,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00081">81</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                  {</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordflow">return</span> rightWheel.getCount();</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00110">110</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">return</span> rightWheel.getCount();</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph.png" border="0" usemap="#class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph" alt=""/></div>
@@ -524,8 +528,8 @@ Controller 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00071">71</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                                            {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  ev3_lcd_draw_string(str, x, y);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00095">95</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  ev3_lcd_draw_string(str, x, y);</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_ab1d15533ed8372b08b12b5684eb4284e_icgraph.png" border="0" usemap="#class_controller_ab1d15533ed8372b08b12b5684eb4284e_icgraph" alt=""/></div>
@@ -581,8 +585,8 @@ Controller 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00067">67</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                                {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  ev3_lcd_fill_rect(x, y, EV3_LCD_WIDTH, h, EV3_LCD_WHITE);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00090">90</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  ev3_lcd_fill_rect(x, y, EV3_LCD_WIDTH, h, EV3_LCD_WHITE);</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_a28c27614551c9f1471421b3f89bb2d5c_icgraph.png" border="0" usemap="#class_controller_a28c27614551c9f1471421b3f89bb2d5c_icgraph" alt=""/></div>
@@ -621,8 +625,8 @@ Controller 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00075">75</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{ ev3_lcd_set_font(EV3_FONT_SMALL); }</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00100">100</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  ev3_lcd_set_font(EV3_FONT_SMALL);</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_a5f4473814c4a669fd388916fdf1c38ce_icgraph.png" border="0" usemap="#class_controller_a5f4473814c4a669fd388916fdf1c38ce_icgraph" alt=""/></div>
@@ -653,8 +657,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00024">24</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{ ev3_led_set_color(LED_GREEN); }</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00030">30</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  ev3_led_set_color(LED_GREEN);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a3843d004fc1e44c63cd746b8822c2990"></a>
@@ -672,8 +676,27 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00022">22</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{ ev3_led_set_color(LED_ORANGE); }</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00025">25</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  ev3_led_set_color(LED_ORANGE);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a0db421426e48c56558848bba592616be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0db421426e48c56558848bba592616be">&#9670;&nbsp;</a></span>resetMotorCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::resetMotorCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00135">135</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  leftWheel.reset();</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  rightWheel.reset();</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a0806bb9e6dad708398bfcf188d98024a"></a>
@@ -692,8 +715,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00094">94</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                             {</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  leftWheel.setPWM(suppressPwmValue(pwm));</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00125">125</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  leftWheel.setPWM(suppressPwmValue(pwm));</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_a0806bb9e6dad708398bfcf188d98024a_icgraph.png" border="0" usemap="#class_controller_a0806bb9e6dad708398bfcf188d98024a_icgraph" alt=""/></div>
@@ -725,8 +748,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00098">98</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                              {</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  rightWheel.setPWM(suppressPwmValue(pwm));</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00130">130</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  rightWheel.setPWM(suppressPwmValue(pwm));</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_a78965353ac6b8a5815a5e4b5148267ac_icgraph.png" border="0" usemap="#class_controller_a78965353ac6b8a5815a5e4b5148267ac_icgraph" alt=""/></div>
@@ -766,8 +789,8 @@ Controller 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00018">18</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                                                {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  ev3_speaker_play_tone(NOTE_FS6, duration);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00020">20</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  ev3_speaker_play_tone(NOTE_FS6, duration);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_ac7c06058c2d04caff95fb680abe68519_icgraph.png" border="0" usemap="#class_controller_ac7c06058c2d04caff95fb680abe68519_icgraph" alt=""/></div>
@@ -799,8 +822,27 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00014">14</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                            {</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  ev3_speaker_set_volume(volume);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00015">15</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  ev3_speaker_set_volume(volume);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aed3aaec78fca32625b908bf6b26dcf86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed3aaec78fca32625b908bf6b26dcf86">&#9670;&nbsp;</a></span>stopMotor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::stopMotor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00141">141</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;{</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  leftWheel.stop();</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  rightWheel.stop();</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a2c68b1076bc4d456d69e92075a141cb3"></a>
@@ -827,8 +869,8 @@ Controller 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00065">65</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{ tslp_tsk(time); }</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00085">85</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  tslp_tsk(time);</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_a2c68b1076bc4d456d69e92075a141cb3_icgraph.png" border="0" usemap="#class_controller_a2c68b1076bc4d456d69e92075a141cb3_icgraph" alt=""/></div>
