@@ -8,14 +8,14 @@
 
 #include "Pid.h"
 
-class TurnControl
-{
-private:
-public:
-  TurnControl();
-  double calculateTurn(int currentBrightness, int targetBrightness, double Kp, double Ki, double Kd);
+class TurnControl {
+ private:
+  Pid pid;
+
+ public:
+  TurnControl(int targetBrightness, double Kp = 0.0, double Ki = 0.0, double Kd = 0.0);
+  double calculateTurn(int currentBrightness, int targetBrightness, double Kp, double Ki,
+                       double Kd);
 };
-
-
 
 #endif
