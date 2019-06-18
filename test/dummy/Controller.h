@@ -138,6 +138,11 @@ class Controller {
   int getRightMotorCount() { return rightWheel.getCount(); };
   void setLeftMotorPwm(const int pwm) { leftWheel.setPWM(suppressPwmValue(pwm)); };
   void setRightMotorPwm(const int pwm) { rightWheel.setPWM(suppressPwmValue(pwm)); };
+  void resetMotorCount()
+  {
+    leftWheel.reset();
+    rightWheel.reset();
+  }
   static int suppressPwmValue(const int value)
   {
     if(value > MOTOR_PWM_MAX) {
