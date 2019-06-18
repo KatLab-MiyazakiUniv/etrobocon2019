@@ -92,4 +92,38 @@ namespace etrobocon2019_test {
     ASSERT_LE(expected - 5.0, mileage);
     ASSERT_LE(mileage, expected);
   }
+
+  TEST(Navigator, moveByPidForward)
+  {
+    Controller controller;
+    Distance distance;
+    Navigator navigator(controller);
+
+    double expected = 1000.0;
+    double start
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+
+    navigator.moveByPid(expected, 30);
+
+    double end
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+    ASSERT_LE(expected, end - start);
+  }
+
+  TEST(Navigator, moveByPidBackward)
+  {
+    Controller controller;
+    Distance distance;
+    Navigator navigator(controller);
+
+    double expected = -1000.0;
+    double start
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+
+    navigator.moveByPid(expected, 30);
+
+    double end
+        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+    ASSERT_LE(end - start, expected);
+  }
 }  // namespace etrobocon2019_test
