@@ -103,21 +103,14 @@ void Controller::convertHsv(int& r, int& g, int& b)
 {
   // r,g,bの最大値を求める
   double max = r;
-  if(max < g) {
-    max = g;
-  }
-  if(max < b) {
-    max = b;
-  }
+  if(max < g) max = g;
+  if(max < b) max = b;
+  
 
   // r,g,bの最小値を求める
   double min = r;
-  if(min > g) {
-    min = g;
-  }
-  if(min > b) {
-    min = b;
-  }
+  if(min > g) min = g;
+  if(min > b) min = b;
 
   // 色相(hue)を求める
 
