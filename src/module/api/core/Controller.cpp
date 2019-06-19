@@ -2,99 +2,144 @@
 #include "Controller.h"
 
 Controller::Controller()
-    : touchSensor(PORT_1),
-      colorSensor(PORT_3),
-      liftMotor(PORT_A),
-      rightWheel(PORT_B),
-      leftWheel(PORT_C),
-      tailMotor(PORT_D) {
+  : touchSensor(PORT_1),
+    colorSensor(PORT_3),
+    liftMotor(PORT_A),
+    rightWheel(PORT_B),
+    leftWheel(PORT_C),
+    tailMotor(PORT_D)
+{
   colorSensor.getRawColor(rgb);
 }
 
-void Controller::speakerSetVolume(int volume) {
+void Controller::speakerSetVolume(int volume)
+{
   ev3_speaker_set_volume(volume);
 }
 
-void Controller::speakerPlayToneFS6(int duration) {
+void Controller::speakerPlayToneFS6(int duration)
+{
   ev3_speaker_play_tone(NOTE_FS6, duration);
 }
 
-void Controller::ledSetColorOrange() { ev3_led_set_color(LED_ORANGE); }
+void Controller::ledSetColorOrange()
+{
+  ev3_led_set_color(LED_ORANGE);
+}
 
-void Controller::ledSetColorGreen() { ev3_led_set_color(LED_GREEN); }
+void Controller::ledSetColorGreen()
+{
+  ev3_led_set_color(LED_GREEN);
+}
 
-bool Controller::buttonIsPressedBack() {
+bool Controller::buttonIsPressedBack()
+{
   return ev3_button_is_pressed(BACK_BUTTON);
 }
 
-bool Controller::buttonIsPressedEnter() {
+bool Controller::buttonIsPressedEnter()
+{
   return ev3_button_is_pressed(ENTER_BUTTON);
 }
 
-bool Controller::buttonIsPressedUp() {
+bool Controller::buttonIsPressedUp()
+{
   return ev3_button_is_pressed(UP_BUTTON);
 }
 
-bool Controller::buttonIsPressedDown() {
+bool Controller::buttonIsPressedDown()
+{
   return ev3_button_is_pressed(DOWN_BUTTON);
 }
 
-bool Controller::buttonIsPressedRight() {
+bool Controller::buttonIsPressedRight()
+{
   return ev3_button_is_pressed(RIGHT_BUTTON);
 }
 
-bool Controller::buttonIsPressedLeft() {
+bool Controller::buttonIsPressedLeft()
+{
   return ev3_button_is_pressed(LEFT_BUTTON);
 }
 
-float Controller::getBatteryVoltage() { return ev3_battery_voltage_mV(); }
+float Controller::getBatteryVoltage()
+{
+  return ev3_battery_voltage_mV();
+}
 
-int Controller::getBrightness() {
+int Controller::getBrightness()
+{
   colorSensor.getRawColor(rgb);
   int luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;
   return luminance;
 }
 
-void Controller::getRawColor(int& r, int& g, int& b) {
+void Controller::getRawColor(int& r, int& g, int& b)
+{
   colorSensor.getRawColor(rgb);
   r = rgb.r;
   g = rgb.g;
   b = rgb.b;
 }
 
-void Controller::tslpTsk(int time) { tslp_tsk(time); }
+void Controller::tslpTsk(int time)
+{
+  tslp_tsk(time);
+}
 
-void Controller::lcdFillRect(int x, int y, int h) {
+void Controller::lcdFillRect(int x, int y, int h)
+{
   ev3_lcd_fill_rect(x, y, EV3_LCD_WIDTH, h, EV3_LCD_WHITE);
 }
 
-void Controller::lcdDrawString(const char* str, int x, int y) {
+void Controller::lcdDrawString(const char* str, int x, int y)
+{
   ev3_lcd_draw_string(str, x, y);
 }
 
-void Controller::lcdSetFont() { ev3_lcd_set_font(EV3_FONT_SMALL); }
+void Controller::lcdSetFont()
+{
+  ev3_lcd_set_font(EV3_FONT_SMALL);
+}
 
-int Controller::getLeftMotorCount(){
+int Controller::getLeftMotorCount()
+{
   return leftWheel.getCount();
 }
 
-int Controller::getRightMotorCount(){
+int Controller::getRightMotorCount()
+{
   return rightWheel.getCount();
 }
 
-int Controller::suppressPwmValue(const int value){
-  if(value > MOTOR_PWM_MAX){
+int Controller::suppressPwmValue(const int value)
+{
+  if(value > MOTOR_PWM_MAX) {
     return MOTOR_PWM_MAX;
-  }else if(value < MOTOR_PWM_MIN){
+  } else if(value < MOTOR_PWM_MIN) {
     return MOTOR_PWM_MIN;
   }
   return value;
 }
 
-void Controller::setLeftMotorPwm(const int pwm){
+void Controller::setLeftMotorPwm(const int pwm)
+{
   leftWheel.setPWM(suppressPwmValue(pwm));
 }
 
-void Controller::setRightMotorPwm(const int pwm){
+void Controller::setRightMotorPwm(const int pwm)
+{
   rightWheel.setPWM(suppressPwmValue(pwm));
+}
+
+void Controller::resetMotorCount()
+{
+  leftWheel.reset();
+  rightWheel.reset();
+}
+
+void Controller::stopMotor()
+{
+  leftWheel.stop();
+  rightWheel.stop();
 }
