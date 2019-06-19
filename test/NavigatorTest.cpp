@@ -21,12 +21,12 @@ namespace etrobocon2019_test {
 
     double expected = 1000.0;
     double start
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
     navigator.move(expected);
 
     double end
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     double mileage = end - start;
 
     ASSERT_LE(expected, mileage);
@@ -41,12 +41,12 @@ namespace etrobocon2019_test {
 
     double expected = 1000.0;
     double start
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
     navigator.move(expected, 50);
 
     double end
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     double mileage = end - start;
 
     ASSERT_LE(expected, mileage);
@@ -61,12 +61,12 @@ namespace etrobocon2019_test {
 
     double expected = -1000.0;
     double start
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
     navigator.move(expected);
 
     double end
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     double mileage = end - start;
 
     ASSERT_LE(expected - 5.0, mileage);
@@ -81,12 +81,12 @@ namespace etrobocon2019_test {
 
     double expected = -1000.0;
     double start
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
     navigator.move(expected, 50);
 
     double end
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     double mileage = end - start;
 
     ASSERT_LE(expected - 5.0, mileage);
@@ -101,12 +101,12 @@ namespace etrobocon2019_test {
 
     double expected = 1000.0;
     double start
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
     navigator.moveByPid(expected, 30);
 
     double end
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     ASSERT_LE(expected, end - start);
   }
 
@@ -118,12 +118,12 @@ namespace etrobocon2019_test {
 
     double expected = -1000.0;
     double start
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
     navigator.moveByPid(expected, 30);
 
     double end
-        = distance.getDistance(controller.leftWheel.getCount(), controller.rightWheel.getCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     ASSERT_LE(end - start, expected);
   }
 }  // namespace etrobocon2019_test
