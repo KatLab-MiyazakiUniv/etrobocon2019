@@ -6,7 +6,7 @@
 #include "Distance.h"
 #include <gtest/gtest.h>
 
-namespace etrobocon2019_test{
+namespace etrobocon2019_test {
   TEST(Distance, Distance_init) { Distance distance(); }
 
   TEST(Distance, getDistanceTestForward)
@@ -82,4 +82,4 @@ namespace etrobocon2019_test{
 
     ASSERT_DOUBLE_EQ(expectedDistance, distance.getDistance(leftAngle, rightAngle));
   }
-}
+}  // namespace etrobocon2019_test

@@ -19,7 +19,7 @@ class Distance {
   Distance();
   /**
    * 走行距離を取得する
-   * 
+   *
    * @brief 走行距離を計算して戻り値として返す
    * @param leftAngle 左側のタイヤの回転角度[deg]
    * @param rightAngle 右側のタイヤの回転角度[deg]
@@ -27,7 +27,7 @@ class Distance {
    */
   double getDistance(int leftAngle, int rightAngle);
 
-private:
+ private:
   const int radius;  //タイヤの半径[mm]
 };
 

@@ -7,7 +7,8 @@
 
 Distance::Distance() : radius(50) {}
 
-double Distance::getDistance(int leftAngle, int rightAngle) {
+double Distance::getDistance(int leftAngle, int rightAngle)
+{
   // 左タイヤと右タイヤの角位置の平均を求める
   double angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
 
