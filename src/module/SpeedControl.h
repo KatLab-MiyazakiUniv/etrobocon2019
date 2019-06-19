@@ -15,8 +15,6 @@ class SpeedControl {
   Controller& controller;
   Distance dist;
   Pid pid;
-  const double C;    //定数C
-  const int radius;  //タイヤの半径[mm]
   double prevDistance;
 
  public:

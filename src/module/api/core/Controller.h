@@ -20,6 +20,15 @@
  * tail_motor   = EV3_PORT_D;
  */
 
+unsigned struct HsvStatus {
+  //色相 範囲(0~360)
+  double hue;
+  //彩度 範囲(0~100)
+  double saturation;
+  //明度 範囲(0~100)
+  double value;
+};
+
 using namespace ev3api;
 
 class Controller {
@@ -47,6 +56,8 @@ class Controller {
   static float getBatteryVoltage();
   static void tslpTsk(int time);  // 4msec周期起動
   void getRawColor(int& r, int& g, int& b);
+  void convertHsv(int &r, int &g, int &b); // RGBをHSV変換する
+  HsvStatus getHsv();
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
@@ -54,11 +65,10 @@ class Controller {
   int getRightMotorCount();
   void setLeftMotorPwm(const int pwm);
   void setRightMotorPwm(const int pwm);
-  void resetMotorCount();
-  void stopMotor();
 
  private:
   rgb_raw_t rgb;
+  HsvStatus hsv;
   Motor liftMotor;
   Motor rightWheel;
   Motor leftWheel;

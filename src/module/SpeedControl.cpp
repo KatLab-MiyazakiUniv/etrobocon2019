@@ -8,7 +8,7 @@
 
 SpeedControl::SpeedControl(Controller& controller_, int targetSpeed, double Kp, double Ki,
                            double Kd)
-  : controller(controller_), dist(), pid(targetSpeed, Kp, Ki, Kd), C(7.2), radius(50)
+  : controller(controller_), dist(), pid(targetSpeed, Kp, Ki, Kd)
 {
   // 左右のモータの角位置を取得
   int leftAngle = controller.getLeftMotorCount();
@@ -42,11 +42,14 @@ double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, doubl
   //現在の速度を求める
   double currentSpeed = (nextDistance - prevDistance) / 0.004;
 
+  //prevDistanceの更新
+  prevDistance = dist.getDistance(leftAngle, rightAngle);
+
   // pid値を求める
   double pidValue = pid.control(currentSpeed);
 
-  // PWM値 = pid値 * 360度 / (円周率 * タイヤの半径[mm] * 定数C)
-  double pwmValue = pidValue * 360 / (M_PI * radius * C);
+  // PWM値 = pid値
+  double pwmValue = pidValue;
 
   // PWM値を返す
   return pwmValue;
