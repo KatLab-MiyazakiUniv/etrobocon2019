@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">1f6eeb2dc2b767a944612318d0a03063cef24d8a</span>
+   &#160;<span id="projectnumber">d2b24a88a7bfeefff6a0865495065a2e60f12bae</span>
    </div>
   </td>
  </tr>
@@ -84,10 +84,10 @@ NormalCourse 連携図</div>
 <tr class="separator:a33468cc4af0219f2d5616a6f19d75590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69429f971125c89ae04fc71375c805d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3">runNormalCourse</a> ()</td></tr>
 <tr class="separator:a69429f971125c89ae04fc71375c805d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb7c65a1f38e5bef851400c905737aa4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_normal_course.html#aeb7c65a1f38e5bef851400c905737aa4">getIsLeftCourse</a> ()</td></tr>
-<tr class="separator:aeb7c65a1f38e5bef851400c905737aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf2cfa6ba336eaf90865b5348526306a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_normal_course.html#aaf2cfa6ba336eaf90865b5348526306a">getTargetBrightness</a> ()</td></tr>
-<tr class="separator:aaf2cfa6ba336eaf90865b5348526306a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee246ed52d1a1bd021e61ab2f0f7060"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_normal_course.html#afee246ed52d1a1bd021e61ab2f0f7060">getIsLeftCourse</a> () const</td></tr>
+<tr class="separator:afee246ed52d1a1bd021e61ab2f0f7060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2388bcfbe11237c2cb27e40a0f86570"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_normal_course.html#ab2388bcfbe11237c2cb27e40a0f86570">getTargetBrightness</a> () const</td></tr>
+<tr class="separator:ab2388bcfbe11237c2cb27e40a0f86570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock">
@@ -127,18 +127,19 @@ NormalCourse 連携図</div>
 <p>コンストラクタ </p><dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">controller</td><td>[コントローラのインスタンス] </td></tr>
+    <tr><td class="paramname">isLeftCourse_</td><td>[エッジがどっちかtrueがLeftコース] </td></tr>
     <tr><td class="paramname">targetBrightness_</td><td>[カラーセンサーの目標値] </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00012">12</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  : controller(controller_), isLeftCourse(isLeftCourse_), targetBrightness(targetBrightness_)</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00013">13</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  : controller(controller_), isLeftCourse(isLeftCourse_), targetBrightness(targetBrightness_)</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="aeb7c65a1f38e5bef851400c905737aa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb7c65a1f38e5bef851400c905737aa4">&#9670;&nbsp;</a></span>getIsLeftCourse()</h2>
+<a id="afee246ed52d1a1bd021e61ab2f0f7060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee246ed52d1a1bd021e61ab2f0f7060">&#9670;&nbsp;</a></span>getIsLeftCourse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,19 +148,18 @@ NormalCourse 連携図</div>
           <td class="memname">bool NormalCourse::getIsLeftCourse </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>現在のisLeftCourse（エッジ）を返すゲッター</p>
-<p>現在のselectedEdge（エッジ）を返すゲッター </p>
+<p>現在のisLeftCourse（エッジ）を返すゲッター </p>
 
-<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00049">49</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">return</span> isLeftCourse;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00054">54</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">return</span> isLeftCourse;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
-<a id="aaf2cfa6ba336eaf90865b5348526306a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf2cfa6ba336eaf90865b5348526306a">&#9670;&nbsp;</a></span>getTargetBrightness()</h2>
+<a id="ab2388bcfbe11237c2cb27e40a0f86570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2388bcfbe11237c2cb27e40a0f86570">&#9670;&nbsp;</a></span>getTargetBrightness()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,14 +168,14 @@ NormalCourse 連携図</div>
           <td class="memname">int NormalCourse::getTargetBrightness </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>targetBrightness（カラーセンサの目標値）を返すゲッター </p>
 
-<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00057">57</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">return</span> targetBrightness;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00062">62</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordflow">return</span> targetBrightness;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a69429f971125c89ae04fc71375c805d3"></a>
@@ -194,9 +194,10 @@ NormalCourse 連携図</div>
 </div><div class="memdoc">
 <p>実際にNormalコースを走る．</p>
 <p>実際にNormalコースを走る． ここにパラメータを頑張って書く． </p>
+<p>詳しく見たいならLineTracer.hを見てね． 進む距離，目標スピード，スピードpid，ターンpid</p>
 
-<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00030">30</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">// 配列の個数</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  constexpr <span class="keywordtype">int</span> arraySize = 2;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  std::array&lt;NormalCourseProperty, arraySize&gt; normalCourseProperty</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      = { { { 1000, 10, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } },     <span class="comment">// 第1区間</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            { 500, 80, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } } } };  <span class="comment">// 第2区間</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_line_tracer.html">LineTracer</a> lineTracer(targetBrightness, isLeftCourse);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; ncp : normalCourseProperty) {</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    lineTracer.run(ncp);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// １区間終わるごとに音を奏でる．</span></div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    controller.<a class="code" href="class_controller.html#ac7c06058c2d04caff95fb680abe68519">speakerPlayToneFS6</a>(100);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div><div class="ttc" id="class_controller_html_ac7c06058c2d04caff95fb680abe68519"><div class="ttname"><a href="class_controller.html#ac7c06058c2d04caff95fb680abe68519">Controller::speakerPlayToneFS6</a></div><div class="ttdeci">static void speakerPlayToneFS6(int duration)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00020">Controller.cpp:20</a></div></div>
+<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00031">31</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">// 配列の個数</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  constexpr <span class="keywordtype">int</span> arraySize = 2;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  std::array&lt;NormalCourseProperty, arraySize&gt; normalCourseProperty</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      = { { { 1000, 10, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } },     <span class="comment">// 第1区間</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            { 500, 80, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } } } };  <span class="comment">// 第2区間</span></div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="class_line_tracer.html">LineTracer</a> lineTracer(targetBrightness, isLeftCourse);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; ncp : normalCourseProperty) {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    lineTracer.run(ncp);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// １区間終わるごとに音を奏でる．</span></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    controller.<a class="code" href="class_controller.html#ac7c06058c2d04caff95fb680abe68519">speakerPlayToneFS6</a>(100);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div><div class="ttc" id="class_controller_html_ac7c06058c2d04caff95fb680abe68519"><div class="ttname"><a href="class_controller.html#ac7c06058c2d04caff95fb680abe68519">Controller::speakerPlayToneFS6</a></div><div class="ttdeci">static void speakerPlayToneFS6(int duration)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00020">Controller.cpp:20</a></div></div>
 <div class="ttc" id="class_line_tracer_html"><div class="ttname"><a href="class_line_tracer.html">LineTracer</a></div><div class="ttdef"><b>Definition:</b> <a href="_line_tracer_8h_source.html#l00037">LineTracer.h:37</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 呼び出し関係図:</div>
@@ -245,13 +246,13 @@ NormalCourse 連携図</div>
 </div><div class="memdoc">
 <p>左エッジ，右エッジを切り替える． </p><dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">selectedEdge_</td><td>[Leftコースである場合True] </td></tr>
+    <tr><td class="paramname">isLeftCourse_</td><td>[Leftコースである場合True] </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00021">21</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  isLeftCourse = isLeftCourse_;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="_normal_course_8cpp_source.html">NormalCourse.cpp</a> の <a class="el" href="_normal_course_8cpp_source.html#l00022">22</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  isLeftCourse = isLeftCourse_;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
