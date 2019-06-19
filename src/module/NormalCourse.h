@@ -32,12 +32,12 @@ class NormalCourse {
   /**
    * 現在のisLeftCourse（エッジ）を返すゲッター
    */
-  bool getIsLeftCourse();
+  bool getIsLeftCourse() const;
 
   /**
    * targetBrightness（カラーセンサの目標値）を返すゲッター
    */
-  int getTargetBrightness();
+  int getTargetBrightness() const;
 
  private:
   //! コントローラー

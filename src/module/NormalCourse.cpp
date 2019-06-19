@@ -51,7 +51,7 @@ void NormalCourse::runNormalCourse()
 /**
  * 現在のisLeftCourse（エッジ）を返すゲッター
  */
-bool NormalCourse::getIsLeftCourse()
+bool NormalCourse::getIsLeftCourse() const
 {
   return isLeftCourse;
 }
@@ -59,7 +59,7 @@ bool NormalCourse::getIsLeftCourse()
 /**
  * targetBrightness（カラーセンサの目標値）を返すゲッター
  */
-int NormalCourse::getTargetBrightness()
+int NormalCourse::getTargetBrightness() const
 {
   return targetBrightness;
 }
