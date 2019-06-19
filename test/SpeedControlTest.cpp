@@ -20,9 +20,9 @@ namespace etrobocon2019_test {
     SpeedControl SpeedCtrl(controller, 50, 0.6, 0.05, 0.04);
     Pid pid(50, 0.6, 0.05, 0.04);
 
-    // 左右のモータの角位置を取得
-    int leftAngle = controller.leftWheel.getCount();
-    int rightAngle = controller.rightWheel.getCount();
+    // 4ms後の左右のモータの角位置を取得
+    int leftAngle = controller.getLeftMotorCount();
+    int rightAngle = controller.getRightMotorCount();
     // 走行距離の取得[mm]
     double prevDistance = dist.getDistance(leftAngle, rightAngle);
 
@@ -30,8 +30,8 @@ namespace etrobocon2019_test {
     controller.tslpTsk(4);
 
     // 4ms後の左右のモータの角位置を取得
-    leftAngle = controller.leftWheel.getCount();
-    rightAngle = controller.rightWheel.getCount();
+    leftAngle = controller.getLeftMotorCount();
+    rightAngle = controller.getRightMotorCount();
 
     // 4ms後の走行距離の取得[mm]
     double nextDistance = dist.getDistance(leftAngle, rightAngle);
