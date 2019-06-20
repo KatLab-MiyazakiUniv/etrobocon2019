@@ -3,9 +3,9 @@
 <area shape="rect" id="node3" href="$_controller_8h.html" title="Controller.h" alt="" coords="353,304,451,331"/>
 <area shape="rect" id="node9" href="$_calibrator_8h.html" title="キャリブレーションを行うクラス " alt="" coords="251,80,348,107"/>
 <area shape="rect" id="node11" href="$_display_8h.html" title="Display.h" alt="" coords="357,155,439,181"/>
-<area shape="rect" id="node13" href="$_normal_course_8h.html" title="NormalCourseを走る " alt="" coords="455,80,581,107"/>
+<area shape="rect" id="node13" href="$_normal_course_8h.html" title="NormalCourseを走る " alt="" coords="453,80,580,107"/>
 <area shape="rect" id="node15" href="$_line_tracer_8h.html" title="LineTracer.h" alt="" coords="594,155,693,181"/>
 <area shape="rect" id="node16" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="565,229,655,256"/>
-<area shape="rect" id="node17" href="$_turn_control_8h.html" title="旋回値制御クラス " alt="" coords="680,229,788,256"/>
-<area shape="rect" id="node18" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="707,304,761,331"/>
+<area shape="rect" id="node18" href="$_turn_control_8h.html" title="旋回値制御クラス " alt="" coords="680,229,788,256"/>
+<area shape="rect" id="node19" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="707,304,761,331"/>
 </map>

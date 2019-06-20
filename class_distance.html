@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">4107eca621a1fb0f80477b3de5211b7bb6047000</span>
+   &#160;<span id="projectnumber">4a0c1e156d9f1a40d947648311006e16552c4041</span>
    </div>
   </td>
  </tr>
@@ -79,6 +79,7 @@ Distance 連携図</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a10c71cb57a2a8f5c66b2e91f63e3595a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance.html#a10c71cb57a2a8f5c66b2e91f63e3595a">Distance</a> ()</td></tr>
+<tr class="memdesc:a10c71cb57a2a8f5c66b2e91f63e3595a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distanceクラスのコンストラクタ  <a href="#a10c71cb57a2a8f5c66b2e91f63e3595a">[詳解]</a><br /></td></tr>
 <tr class="separator:a10c71cb57a2a8f5c66b2e91f63e3595a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2d57716464febfa145a892afe35433b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance.html#ab2d57716464febfa145a892afe35433b">getDistance</a> (int leftAngle, int rightAngle)</td></tr>
 <tr class="memdesc:ab2d57716464febfa145a892afe35433b"><td class="mdescLeft">&#160;</td><td class="mdescRight">走行距離を計算して戻り値として返す  <a href="#ab2d57716464febfa145a892afe35433b">[詳解]</a><br /></td></tr>
@@ -86,7 +87,7 @@ Distance 連携図</div>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock">
-<p class="definition"> <a class="el" href="_distance_8h_source.html">Distance.h</a> の <a class="el" href="_distance_8h_source.html#l00011">11</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_distance_8h_source.html">Distance.h</a> の <a class="el" href="_distance_8h_source.html#l00013">13</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
 <a id="a10c71cb57a2a8f5c66b2e91f63e3595a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10c71cb57a2a8f5c66b2e91f63e3595a">&#9670;&nbsp;</a></span>Distance()</h2>
@@ -103,8 +104,11 @@ Distance 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_distance_8cpp_source.html">Distance.cpp</a> の <a class="el" href="_distance_8cpp_source.html#l00010">10</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;: radius(50) {}</div></div><!-- fragment -->
+<p>Distanceクラスのコンストラクタ </p>
+<p>コンストラクタ </p>
+
+<p class="definition"> <a class="el" href="_distance_8cpp_source.html">Distance.cpp</a> の <a class="el" href="_distance_8cpp_source.html#l00008">8</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;: radius(50) {}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
@@ -135,6 +139,7 @@ Distance 連携図</div>
 </div><div class="memdoc">
 
 <p>走行距離を計算して戻り値として返す </p>
+<p>走行距離を取得する</p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">leftAngle</td><td>左側のタイヤの回転角度[deg] </td></tr>
@@ -142,10 +147,10 @@ Distance 連携図</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>走行距離[mm] </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>走行距離[mm]。走行体が前へ進んでいたら正、後ろへ進んでいたら負になる </dd></dl>
 
-<p class="definition"> <a class="el" href="_distance_8cpp_source.html">Distance.cpp</a> の <a class="el" href="_distance_8cpp_source.html#l00018">18</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                                                          {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="comment">// 左タイヤと右タイヤの角位置の平均を求める</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">double</span> angle = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(leftAngle + rightAngle) / 2.0;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordflow">return</span> 2.0 * M_PI * radius * angle / 360.0;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_distance_8cpp_source.html">Distance.cpp</a> の <a class="el" href="_distance_8cpp_source.html#l00010">10</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="comment">// 左タイヤと右タイヤの角位置の平均を求める</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">double</span> angle = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(leftAngle + rightAngle) / 2.0;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordflow">return</span> 2.0 * M_PI * radius * angle / 360.0;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_distance_ab2d57716464febfa145a892afe35433b_icgraph.png" border="0" usemap="#class_distance_ab2d57716464febfa145a892afe35433b_icgraph" alt=""/></div>
