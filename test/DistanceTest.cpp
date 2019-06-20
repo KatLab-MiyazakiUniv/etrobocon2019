@@ -3,36 +3,83 @@
  *  @brief  Distanceクラスのテストファイル
  *  @author Oiwane
  **/
-#define _USE_MATH_DEFINES
 #include "Distance.h"
 #include <gtest/gtest.h>
-#include <cmath>
 
-namespace etrobocon2019_test{
-  TEST(Distance, getDistanceTest1)
+namespace etrobocon2019_test {
+  TEST(Distance, Distance_init) { Distance distance(); }
+
+  TEST(Distance, getDistanceTestForward)
   {
-    Distance dist;
+    Distance distance;
     Controller controller;
     const int radius = 50;
+    int pwm = 30;
 
-    int leftAngle = 10;
-    int rightAngle = 11;
+    // 回転角の取得
+    int leftAngle = controller.getLeftMotorCount();
+    int rightAngle = controller.getRightMotorCount();
+
+    // 走行距離の計算
     double angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
-    double expected = 2.0 * M_PI * radius * angle / 360.0;
-  
-    ASSERT_EQ(expected, dist.getDistance(leftAngle, rightAngle));
+    double start = 2.0 * M_PI * radius * angle / 360.0;
+
+    // モータの回転角を更新させるためにループ
+    // ループ回数自体に意味はない
+    for(int i = 0; i < 30; i++) {
+      // pwm値のセット
+      controller.setLeftMotorPwm(pwm);
+      controller.setRightMotorPwm(pwm);
+    }
+
+    // 回転角の取得
+    leftAngle = controller.getLeftMotorCount();
+    rightAngle = controller.getRightMotorCount();
+
+    // 走行距離の計算
+    angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
+    double end = 2.0 * M_PI * radius * angle / 360.0;
+
+    // 初めの位置からどれだけ進んだか計算
+    double expectedDistance = end - start;
+
+    ASSERT_DOUBLE_EQ(expectedDistance, distance.getDistance(leftAngle, rightAngle));
   }
-  TEST(Distance, getDistanceTest2)
+
+  TEST(Distance, getDistanceBackward)
   {
-    Distance dist;
+    Distance distance;
     Controller controller;
     const int radius = 50;
+    int pwm = -30;
 
-    int leftAngle = 10;
-    int rightAngle = 11;
+    // 回転角の取得
+    int leftAngle = controller.getLeftMotorCount();
+    int rightAngle = controller.getRightMotorCount();
+
+    // 走行距離の計算
     double angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
-    double expected = 2.0 * M_PI * radius * angle / 360.0;
-  
-    ASSERT_EQ(expected, dist.getDistance(leftAngle, rightAngle));
+    double start = 2.0 * M_PI * radius * angle / 360.0;
+
+    // モータの回転角を更新させるためにループ
+    // ループ回数自体に意味はない
+    for(int i = 0; i < 30; i++) {
+      // pwm値のセット
+      controller.setLeftMotorPwm(pwm);
+      controller.setRightMotorPwm(pwm);
+    }
+
+    // 回転角の取得
+    leftAngle = controller.getLeftMotorCount();
+    rightAngle = controller.getRightMotorCount();
+
+    // 走行距離の計算
+    angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
+    double end = 2.0 * M_PI * radius * angle / 360.0;
+
+    // 初めの位置からどれだけ進んだか計算
+    double expectedDistance = end - start;
+
+    ASSERT_DOUBLE_EQ(expectedDistance, distance.getDistance(leftAngle, rightAngle));
   }
-}
+}  // namespace etrobocon2019_test
