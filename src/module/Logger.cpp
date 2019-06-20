@@ -34,3 +34,13 @@ void Logger::write(const char* format, ...)
 
   va_end(args);
 }
+
+void Logger::putDelimiter()
+{
+  // ファイルの先頭のときは、デリミタ―を挿入しない
+  if(std::ftell(fp) == SEEK_SET) return;
+
+  // ファイルの末尾にコンマを挿入する
+  fseek(fp, -1L, SEEK_END);
+  fputc(',', fp);
+}

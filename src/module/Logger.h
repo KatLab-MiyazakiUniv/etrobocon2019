@@ -40,6 +40,11 @@ class Logger {
   void write(const char* format, ...);
 
   /**
+   * @brief 挿入するデータの末尾にデリミタ―(コンマ)を挿入する
+   */
+  void putDelimiter();
+
+  /**
    * @brief 整数型のデータを出力ファイルに書き込む
    * @detail Usage: foo << 1 << 2 << 3; (自動的にデリミターと改行が挿入される)
    * @param intValue [整数型(int, unsigned int, std::int8_t, etc...)]
@@ -48,7 +53,8 @@ class Logger {
             typename std::enable_if<std::is_integral<T>::value, std::nullptr_t>::type = nullptr>
   Logger& operator<<(T intValue)
   {
-    fprintf(fp, "%d", intValue);
+    putDelimiter();
+    fprintf(fp, "%d\n", intValue);
     return *this;
   }
 
@@ -62,7 +68,8 @@ class Logger {
             = nullptr>
   Logger& operator<<(T floatingPointValue)
   {
-    fprintf(fp, "%f", floatingPointValue);
+    putDelimiter();
+    fprintf(fp, "%f\n", floatingPointValue);
     return *this;
   }
 
@@ -75,7 +82,8 @@ class Logger {
             typename std::enable_if<std::is_same<T, const char*>::value>::type* = nullptr>
   Logger& operator<<(T stringLiteral)
   {
-    fprintf(fp, "%s", stringLiteral);
+    putDelimiter();
+    fprintf(fp, "%s\n", stringLiteral);
     return *this;
   }
 };
