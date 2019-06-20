@@ -14,7 +14,7 @@ namespace etrobocon2019_test {
   {
     Logger logger;
     // ファイルが正しく書き込めることを確認する
-    ASSERT_TRUE(logger.write("%d\n", 123));
+    logger.write("%d\n", 123);
 
     // 出力ファイルが存在することを確認する
     std::ifstream ifs("log.csv");

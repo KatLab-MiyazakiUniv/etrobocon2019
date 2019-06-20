@@ -7,6 +7,7 @@
 #define LOGGER_H
 #include <cstdio>
 #include <cstdarg>
+#include <cassert>
 #include <string>
 
 class Logger {
@@ -36,7 +37,7 @@ class Logger {
    * @param format [書式指定子]
    */
 
-  bool write(const char* format, ...);
+  void write(const char* format, ...);
 };
 
 #endif

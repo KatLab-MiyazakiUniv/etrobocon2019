@@ -8,6 +8,7 @@
 Logger::Logger(const char* mode)
 {
   fp = std::fopen(getFileName().c_str(), mode);
+  assert(fp != nullptr);
 }
 
 Logger::~Logger()
@@ -22,15 +23,14 @@ std::string Logger::getFileName()
   return "log.csv";
 }
 
-bool Logger::write(const char* format, ...)
+void Logger::write(const char* format, ...)
 {
-  if(fp == nullptr) return false;
-
+  // 可変長引数の展開
   va_list args;
   va_start(args, format);
 
+  // ファイル出力
   std::vfprintf(fp, format, args);
 
   va_end(args);
-  return true;
 }
