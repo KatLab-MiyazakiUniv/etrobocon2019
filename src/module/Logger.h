@@ -5,14 +5,16 @@
  */
 #ifndef LOGGER_H
 #define LOGGER_H
+#include <cstdio>
 #include <string>
 
 class Logger {
  private:
-  unsigned int number;  // ファイル番号
+  FILE* fp;
 
  public:
-  Logger();
+  Logger(const char* mode = "a");
+  ~Logger();
   std::string getFileName();
 };
 

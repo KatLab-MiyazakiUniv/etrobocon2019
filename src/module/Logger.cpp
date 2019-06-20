@@ -5,6 +5,19 @@
  */
 #include "Logger.h"
 
-Logger::Logger() : number(0) {}
+Logger::Logger(const char* mode)
+{
+  fp = std::fopen(getFileName().c_str(), mode);
+}
 
-std::string Logger::getFileName() {}
+Logger::~Logger()
+{
+  std::fclose(fp);
+}
+
+std::string Logger::getFileName()
+{
+  // TODO とりあえずログファイル名は、「log」としておく
+  // ユニークな名前にするためには、例えば現在時刻を取得する必要があるが、取得しようとするとmutexエラーが起きる
+  return "log.csv";
+}
