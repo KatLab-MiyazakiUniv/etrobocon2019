@@ -47,17 +47,22 @@ class ColorSensor {
 
 class Controller {
 <<<<<<< HEAD
+<<<<<<< HEAD
  public:
   Clock clock;
   HsvStatus hsv;
 =======
  private:
 >>>>>>> upstream/master
+=======
+ private:
+>>>>>>> b079cd0e12ca80fb5a80a0bcceef8d67537cf88d
   Motor rightWheel;
   Motor leftWheel;
   Motor liftMotor;
 
  public:
+  HsvStatus hsv;
   Clock clock;
   TouchSensor touchSensor;
   ColorSensor colorSensor;

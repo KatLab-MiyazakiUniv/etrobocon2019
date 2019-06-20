@@ -133,6 +133,9 @@ void Controller::setRightMotorPwm(const int pwm)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b079cd0e12ca80fb5a80a0bcceef8d67537cf88d
 void Controller::convertHsv(int& r, int& g, int& b)
 {
   // r,g,bの最大値を求める
@@ -178,7 +181,10 @@ HsvStatus Controller::getHsv()
   return hsv;
 }  // hsv値を返す
 
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b079cd0e12ca80fb5a80a0bcceef8d67537cf88d
 void Controller::resetMotorCount()
 {
   leftWheel.reset();
@@ -190,4 +196,7 @@ void Controller::stopMotor()
   leftWheel.stop();
   rightWheel.stop();
 }
+<<<<<<< HEAD
 >>>>>>> upstream/master
+=======
+>>>>>>> b079cd0e12ca80fb5a80a0bcceef8d67537cf88d
