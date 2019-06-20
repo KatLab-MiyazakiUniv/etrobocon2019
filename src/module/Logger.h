@@ -56,6 +56,14 @@ class Logger {
     fprintf(fp, "%f", floatingPointValue);
     return *this;
   }
+
+  template <typename T,
+            typename std::enable_if<std::is_same<T, const char*>::value>::type* = nullptr>
+  Logger& operator<<(T stringLiteral)
+  {
+    fprintf(fp, "%s", stringLiteral);
+    return *this;
+  }
 };
 
 #endif
