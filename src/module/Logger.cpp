@@ -21,3 +21,16 @@ std::string Logger::getFileName()
   // ユニークな名前にするためには、例えば現在時刻を取得する必要があるが、取得しようとするとmutexエラーが起きる
   return "log.csv";
 }
+
+bool Logger::write(const char* format, ...)
+{
+  if(fp == nullptr) return false;
+
+  va_list args;
+  va_start(args, format);
+
+  std::vfprintf(fp, format, args);
+
+  va_end(args);
+  return true;
+}
