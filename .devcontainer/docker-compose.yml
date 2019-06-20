@@ -6,6 +6,7 @@ services:
     volumes:
       - ../:/home/hrp2/sdk/workspace/product
       - ~/.gitconfig:/home/etrobo/.gitconfig
+      - ./.bashrc:/home/etrobo/.bashrc
     environment:
       SHELL: "/bin/bash"
       HOME: "/home/etrobo"
