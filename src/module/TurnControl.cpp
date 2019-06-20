@@ -6,7 +6,7 @@
 #include "TurnControl.h"
 
 /**
- *  [TurnControl::turnControl]
+ *  コンストラクタ
  *  @param  tragetBrightness  [目標の光センサー値]
  *  @param  Kp                [Pゲイン]
  *  @param  Ki                [Iゲイン]
@@ -19,6 +19,7 @@ TurnControl::TurnControl(int targetBrightness, double Kp, double Ki, double Kd)
 
 /**
  *  [TurnControl::calculateTurn]
+ *  @brief  旋回値を計算する関数
  *  @param  currentBrightness [現在の光センサー値]
  *  @param  tragetBrightness  [目標の光センサー値]
  *  @param  Kp                [Pゲイン]
