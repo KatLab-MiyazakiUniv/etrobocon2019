@@ -54,6 +54,8 @@ class Controller {
   int getRightMotorCount();
   void setLeftMotorPwm(const int pwm);
   void setRightMotorPwm(const int pwm);
+  void resetMotorCount();
+  void stopMotor();
 
  private:
   rgb_raw_t rgb;
