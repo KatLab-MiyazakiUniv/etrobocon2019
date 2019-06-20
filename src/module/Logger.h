@@ -9,6 +9,7 @@
 #include <cstdarg>
 #include <cassert>
 #include <string>
+#include <type_traits>
 
 class Logger {
  private:
@@ -16,13 +17,13 @@ class Logger {
 
  public:
   /**
-   * @brief ファイルポインタを確保するコンストラクタ
+   * @brief ファイルポインターを確保するコンストラクター
    * @param mode [ファイルの書き込みモード（デフォルトでは追記）]
    */
   Logger(const char* mode = "a");
 
   /**
-   * @brief ファイルポインタを解放するデストラクタ
+   * @brief ファイルポインターを解放するデストラクター
    */
   ~Logger();
 
@@ -38,6 +39,14 @@ class Logger {
    */
 
   void write(const char* format, ...);
+
+  template <typename T,
+            typename std::enable_if<std::is_integral<T>::value, std::nullptr_t>::type = nullptr>
+  Logger& operator<<(T intValue)
+  {
+    fprintf(fp, "%d,", intValue);
+    return *this;
+  }
 };
 
 #endif
