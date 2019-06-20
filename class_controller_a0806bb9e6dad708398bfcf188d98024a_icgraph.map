@@ -1,5 +1,5 @@
 <map id="Controller::setLeftMotorPwm" name="Controller::setLeftMotorPwm">
-<area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="LineTracer::run" alt="" coords="287,5,404,32"/>
+<area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="287,5,404,32"/>
 <area shape="rect" id="node6" href="$class_navigator.html#abbf56b48c4f42f4d006dd2637927421a" title="specifiedValueの値でbackwardかforwardを呼び出す。 " alt="" coords="280,56,411,83"/>
 <area shape="rect" id="node7" href="$class_navigator.html#ace0ed497062e8f9504a26af3b9b8617d" title="PID制御を用いて両輪の回転量が等しくなるように前進または後進する " alt="" coords="261,107,429,133"/>
 <area shape="rect" id="node3" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="477,5,715,32"/>

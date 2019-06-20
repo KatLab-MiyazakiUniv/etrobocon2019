@@ -1,3 +1,8 @@
 <map id="Pid::setParameter" name="Pid::setParameter">
 <area shape="rect" id="node2" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="191,5,407,32"/>
+<area shape="rect" id="node3" href="$class_turn_control.html#a06c881f1596ee9dbe992cac664025c58" title="旋回値を計算する関数 " alt="" coords="203,56,394,83"/>
+<area shape="rect" id="node4" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="455,56,572,83"/>
+<area shape="rect" id="node5" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="620,56,857,83"/>
+<area shape="rect" id="node6" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="905,56,1065,83"/>
+<area shape="rect" id="node7" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1113,56,1204,83"/>
 </map>
