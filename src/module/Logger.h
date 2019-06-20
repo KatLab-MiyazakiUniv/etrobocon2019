@@ -44,7 +44,16 @@ class Logger {
             typename std::enable_if<std::is_integral<T>::value, std::nullptr_t>::type = nullptr>
   Logger& operator<<(T intValue)
   {
-    fprintf(fp, "%d,", intValue);
+    fprintf(fp, "%d", intValue);
+    return *this;
+  }
+
+  template <typename T,
+            typename std::enable_if<std::is_floating_point<T>::value, std::nullptr_t>::type
+            = nullptr>
+  Logger& operator<<(T floatingPointValue)
+  {
+    fprintf(fp, "%f", floatingPointValue);
     return *this;
   }
 };
