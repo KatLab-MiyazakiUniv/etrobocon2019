@@ -20,7 +20,7 @@
  * tail_motor   = EV3_PORT_D;
  */
 
-unsigned struct HsvStatus {
+struct HsvStatus {
   //色相 範囲(0~360)
   double hue;
   //彩度 範囲(0~100)
