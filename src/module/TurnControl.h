@@ -13,7 +13,7 @@ class TurnControl {
   Pid pid;
 
  public:
-  TurnControl(int targetBrightness, double Kp = 0.0, double Ki = 0.0, double Kd = 0.0);
+  TurnControl(int targetBrightness, double Kp, double Ki, double Kd);
   double calculateTurn(int currentBrightness, int targetBrightness, double Kp, double Ki,
                        double Kd);
 };

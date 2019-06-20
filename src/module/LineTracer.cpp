@@ -14,7 +14,7 @@ LineTracer::LineTracer(int targetBrightness_, bool isLeftCourse_)
   : targetBrightness(targetBrightness_),
     isLeftCourse(isLeftCourse_),
     distance(),
-    turnControl(targetBrightness_)
+    turnControl(targetBrightness_, 0.0, 0.0, 0.0)
 {
 }
 
