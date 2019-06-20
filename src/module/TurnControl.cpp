@@ -5,24 +5,33 @@
  */
 #include "TurnControl.h"
 
-TurnControl::TurnControl()
+/**
+ *  コンストラクタ
+ *  @param  tragetBrightness  [目標の光センサー値]
+ *  @param  Kp                [Pゲイン]
+ *  @param  Ki                [Iゲイン]
+ *  @param  Kd                [Dゲイン]
+ */
+TurnControl::TurnControl(int targetBrightness, double Kp, double Ki, double Kd)
+  : pid(static_cast<double>(targetBrightness), Kp, Ki, Kd)
 {
 }
 
 /**
  *  [TurnControl::calculateTurn]
- *  @param  currentBrightness [現在の光センサー値]  
+ *  @brief  旋回値を計算する関数
+ *  @param  currentBrightness [現在の光センサー値]
  *  @param  tragetBrightness  [目標の光センサー値]
  *  @param  Kp                [Pゲイン]
  *  @param  Ki                [Iゲイン]
  *  @param  Kd                [Dゲイン]
  *  @return                   [旋回値]
  */
-double TurnControl::calculateTurn(int currentBrightness, int targetBrightness, double Kp, double Ki, double Kd)
+double TurnControl::calculateTurn(int currentBrightness, int targetBrightness, double Kp, double Ki,
+                                  double Kd)
 {
-  Pid pid(static_cast<double>(targetBrightness), Kp, Ki, Kd);
+  // pidの値を更新(パラメータに変更がなくても更新する)
+  pid.setParameter(static_cast<double>(targetBrightness), Kp, Ki, Kd);
 
-  double turnValue = pid.control(static_cast<double>(currentBrightness));
-
-  return turnValue;
+  return pid.control(static_cast<double>(currentBrightness));
 }
