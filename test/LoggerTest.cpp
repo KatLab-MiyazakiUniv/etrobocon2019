@@ -1,6 +1,6 @@
 /**
  * @file   LoggerTest.cpp
- * @brief  LoggerTestクラスのテストファイル
+ * @brief  Loggerクラスのテストファイル
  * @author T.Miyaji
  */
 #include <gtest/gtest.h>
