@@ -39,7 +39,7 @@ namespace etrobocon2019_test {
     std::ifstream ifs("log.csv");
     ASSERT_TRUE(ifs.is_open());
 
-    作成したファイルを削除する
+    // 作成したファイルを削除する
     std::remove("log.csv");
   }
 }  // namespace etrobocon2019_test
