@@ -1,6 +1,6 @@
 /**
  * @file Logger.h
- * @brief　ユーザーが与えたデータをcsv形式でLogフォルダ上に記録するクラス
+ * @brief　ユーザーが与えたデータをcsv形式で記録するクラス
  * @detail 記録するためには、「write」または「<<演算子」機能を使用する。
  * @author T.Miyaji
  */
