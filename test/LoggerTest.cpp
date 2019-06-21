@@ -32,14 +32,14 @@ namespace etrobocon2019_test {
   {
     Logger logger;
 
-    logger << 1 << "," << 2.3 << ","
-           << "a\n";
+    logger << 1 << 2 << 4.3;
+    logger << 3;
 
     // 出力ファイルが存在することを確認する
     std::ifstream ifs("log.csv");
     ASSERT_TRUE(ifs.is_open());
 
     // 作成したファイルを削除する
-    std::remove("log.csv");
+    // std::remove("log.csv");
   }
 }  // namespace etrobocon2019_test

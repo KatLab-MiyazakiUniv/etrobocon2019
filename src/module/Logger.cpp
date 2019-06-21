@@ -5,6 +5,24 @@
  */
 #include "Logger.h"
 
+LogFile::TemporaryObject::TemporaryObject(FILE* fp_) : fp(fp_), isHead(true) {}
+
+LogFile::TemporaryObject::~TemporaryObject()
+{
+  std::fputc('\n', fp);
+}
+
+void LogFile::TemporaryObject::putDelimiter()
+{
+  // ファイルの先頭のときは、デリミタ―を挿入しない
+  if(isHead) {
+    isHead = false;
+    return;
+  }
+  // コンマを挿入する
+  std::fputc(',', fp);
+}
+
 Logger::Logger(const char* mode)
 {
   fp = std::fopen(getFileName().c_str(), mode);
@@ -33,14 +51,4 @@ void Logger::write(const char* format, ...)
   std::vfprintf(fp, format, args);
 
   va_end(args);
-}
-
-void Logger::putDelimiter()
-{
-  // ファイルの先頭のときは、デリミタ―を挿入しない
-  if(std::ftell(fp) == SEEK_SET) return;
-
-  // ファイルの末尾にコンマを挿入する
-  fseek(fp, -1L, SEEK_END);
-  fputc(',', fp);
 }
