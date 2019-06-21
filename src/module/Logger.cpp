@@ -1,6 +1,6 @@
 /**
  * @file Logger.cpp
- * @brief　ユーザーが与えたデータをcsv形式でLogフォルダ上に記録するクラス
+ * @brief　ユーザーが与えたデータをcsv形式で記録するクラス
  * @author T.Miyaji
  */
 #include "Logger.h"
