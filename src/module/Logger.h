@@ -1,6 +1,7 @@
 /**
  * @file Logger.h
  * @brief　ユーザーが与えたデータをcsv形式でLogフォルダ上に記録するクラス
+ * @detail 記録するためには、「write」または「<<演算子」機能を使用する。
  * @author T.Miyaji
  */
 #ifndef LOGGER_H
@@ -19,7 +20,14 @@ namespace LogFile {
 
    public:
     TemporaryObject(FILE* fp_);
+    /**
+     * @brief 行末に改行を挿入する
+     */
     ~TemporaryObject();
+    /**
+     * @brief データの先頭にデリミタ―を挿入する
+     * @note 行頭の場合は、デリミタ―は挿入されない
+     */
     void putDelimiter();
 
     /**
@@ -95,6 +103,11 @@ class Logger {
    */
   void write(const char* format, ...);
 
+  /**
+   * @brief 指定したデータを出力ファイルに書き込む
+   * @detail Usage: foo << 1 << 2.4 << "aa"; (自動的にデリミターと改行が挿入される)
+   * @param data [記録するデータ]
+   */
   template <typename T>
   LogFile::TemporaryObject operator<<(T data)
   {
