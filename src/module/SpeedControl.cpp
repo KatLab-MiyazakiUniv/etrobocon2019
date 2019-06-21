@@ -6,6 +6,14 @@
 
 #include "SpeedControl.h"
 
+/**
+ *  コンストラクタ
+ *  @param  tragetSpeed       [目標速度]
+ *  @param  Kp                [Pゲイン]
+ *  @param  Ki                [Iゲイン]
+ *  @param  Kd                [Dゲイン]
+ */
+
 SpeedControl::SpeedControl(Controller& controller_, int targetSpeed, double Kp, double Ki,
                            double Kd)
   : controller(controller_), dist(), pid(targetSpeed, Kp, Ki, Kd)
