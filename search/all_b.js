@@ -1,10 +1,17 @@
 var searchData=
 [
-  ['main_5fpriority',['MAIN_PRIORITY',['../app_8h.html#a0fc58460f052686e9a3987fe7f606d17',1,'app.h']]],
-  ['main_5ftask',['main_task',['../app_8cpp.html#a4754344fc3fec0a802660bb5dcdefad9',1,'main_task(intptr_t unused):&#160;app.cpp'],['../app_8h.html#ab874c34d9d66b14d189a9a3f2d065991',1,'main_task(intptr_t exinf):&#160;app.cpp']]],
-  ['makefile_2einc',['Makefile.inc',['../_makefile_8inc.html',1,'']]],
-  ['motor_5fpwm_5fmax',['MOTOR_PWM_MAX',['../class_controller.html#a41bfe4231d282b5e15516d35ad327150',1,'Controller']]],
-  ['motor_5fpwm_5fmin',['MOTOR_PWM_MIN',['../class_controller.html#a1d287382c61600efd21be5be50d9aaba',1,'Controller']]],
-  ['move',['move',['../class_navigator.html#abbf56b48c4f42f4d006dd2637927421a',1,'Navigator']]],
-  ['movebypid',['moveByPid',['../class_navigator.html#ace0ed497062e8f9504a26af3b9b8617d',1,'Navigator']]]
+  ['lcddrawstring',['lcdDrawString',['../class_controller.html#ab1d15533ed8372b08b12b5684eb4284e',1,'Controller']]],
+  ['lcdfillrect',['lcdFillRect',['../class_controller.html#a28c27614551c9f1471421b3f89bb2d5c',1,'Controller']]],
+  ['lcdsetfont',['lcdSetFont',['../class_controller.html#a5f4473814c4a669fd388916fdf1c38ce',1,'Controller']]],
+  ['ledsetcolorgreen',['ledSetColorGreen',['../class_controller.html#a1d690be9e14008230edb6ee8530485bf',1,'Controller']]],
+  ['ledsetcolororange',['ledSetColorOrange',['../class_controller.html#a3843d004fc1e44c63cd746b8822c2990',1,'Controller']]],
+  ['limit',['limit',['../class_pid.html#a2718b26235c522f5ae7f313453bb55a6',1,'Pid']]],
+  ['linetracer',['LineTracer',['../class_line_tracer.html',1,'LineTracer'],['../class_line_tracer.html#ac00e4e219e2746eec38e3c03b3a95a1a',1,'LineTracer::LineTracer()']]],
+  ['linetracer_2ecpp',['LineTracer.cpp',['../_line_tracer_8cpp.html',1,'']]],
+  ['linetracer_2eh',['LineTracer.h',['../_line_tracer_8h.html',1,'']]],
+  ['logfile',['LogFile',['../namespace_log_file.html',1,'']]],
+  ['logger',['Logger',['../class_logger.html',1,'Logger'],['../class_logger.html#a23754816fc1fa14b3feef68e5a130705',1,'Logger::Logger()']]],
+  ['logger_2ecpp',['Logger.cpp',['../_logger_8cpp.html',1,'']]],
+  ['logger_2eh',['Logger.h',['../_logger_8h.html',1,'']]],
+  ['lowpassfilter',['lowPassFilter',['../class_filter.html#a8fe12d5752852afc7a7179c2112d92e5',1,'Filter']]]
 ];

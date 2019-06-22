@@ -13,5 +13,6 @@ var searchData=
   ['controller',['Controller',['../class_controller.html',1,'Controller'],['../class_controller.html#a95c56822d667e94b031451729ce069a9',1,'Controller::Controller()']]],
   ['controller_2ecpp',['Controller.cpp',['../_controller_8cpp.html',1,'']]],
   ['controller_2eh',['Controller.h',['../_controller_8h.html',1,'']]],
+  ['converthsv',['convertHsv',['../class_controller.html#a766aad422708897cefd8303306867167',1,'Controller']]],
   ['contributor_20covenant_20code_20of_20conduct',['Contributor Covenant Code of Conduct',['../md__c_o_d_e__o_f__c_o_n_d_u_c_t.html',1,'']]]
 ];

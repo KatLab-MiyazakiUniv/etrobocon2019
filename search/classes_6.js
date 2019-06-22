@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pid',['Pid',['../class_pid.html',1,'']]],
-  ['pidgain',['PidGain',['../struct_pid_gain.html',1,'']]],
-  ['pidparameter',['PidParameter',['../struct_pid_parameter.html',1,'']]]
+  ['navigator',['Navigator',['../class_navigator.html',1,'']]],
+  ['normalcourse',['NormalCourse',['../class_normal_course.html',1,'']]],
+  ['normalcourseproperty',['NormalCourseProperty',['../struct_normal_course_property.html',1,'']]]
 ];
