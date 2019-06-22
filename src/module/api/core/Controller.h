@@ -57,7 +57,7 @@ class Controller {
   static void tslpTsk(int time);  // 4msec周期起動
   void getRawColor(int& r, int& g, int& b);
   void convertHsv(int &r, int &g, int &b); // RGBをHSV変換する
-  HsvStatus getHsv();
+  HsvStatus getHsv() const;
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
