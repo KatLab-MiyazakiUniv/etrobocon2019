@@ -132,10 +132,6 @@ void Controller::setRightMotorPwm(const int pwm)
   rightWheel.setPWM(suppressPwmValue(pwm));
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b079cd0e12ca80fb5a80a0bcceef8d67537cf88d
 void Controller::convertHsv(int& r, int& g, int& b)
 {
   // r,g,bの最大値を求める
@@ -149,25 +145,34 @@ void Controller::convertHsv(int& r, int& g, int& b)
   if(min > g) min = g;
   if(min > b) min = b;
 
-//0除算を防ぐ処理
-  if(max - min != 0)  max += 1;
-
   // 色相(hue)を求める
 
   // 3つが同値の時は色相(hue)は０
   if(r == g && r == b) hsv.hue = 0;
 
   // rが最大値の場合
-  else if(max == r) hsv.hue = 60 * ((g - b) / (max - min));
-
+  else if(max == r){ 
+    //0除算を防ぐ処理
+    if(max - min != 0)  max += 1;
+    hsv.hue = 60 * ((g - b) / (max - min));
+  }
   // gが最大値の場合
-  else if(max == g) hsv.hue = 60 * ((b - r) / (max - min)) + 120;
-
+  else if(max == g){
+    //0除算を防ぐ処理
+    if(max - min != 0)  max += 1;
+    hsv.hue = 60 * ((b - r) / (max - min)) + 120;
+  }
   // bが最大値の場合
-  else if(max == b) hsv.hue = 60 * ((r - g) / (max - min)) + 240;
-
+  else if(max == b){
+    //0除算を防ぐ処理
+    if(max - min != 0)  max += 1;
+    hsv.hue = 60 * ((r - g) / (max - min)) + 240;
+  }
   //求められた色彩(hue)がマイナス値だった場合は360を加算して0～360の範囲に収める
   if(hsv.hue < 0) hsv.hue += 360;
+
+  //0除算を防ぐ処理
+  if(max - min != 0)  max += 1;
 
   // 彩度(saturation)を求める
   hsv.saturation = (max - min) / max * 100;
@@ -176,18 +181,12 @@ void Controller::convertHsv(int& r, int& g, int& b)
   hsv.value = max / 255 * 100;
 }
 
-HsvStatus Controller::getHsv()
+HsvStatus Controller::getHsv() const
 {
   return hsv;
 }  // hsv値を返す
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b079cd0e12ca80fb5a80a0bcceef8d67537cf88d
-void Controller::resetMotorCount()
 {
-  leftWheel.reset();
   rightWheel.reset();
 }
 
@@ -196,7 +195,3 @@ void Controller::stopMotor()
   leftWheel.stop();
   rightWheel.stop();
 }
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> b079cd0e12ca80fb5a80a0bcceef8d67537cf88d

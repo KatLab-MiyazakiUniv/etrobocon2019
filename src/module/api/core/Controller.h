@@ -22,11 +22,11 @@
 
 struct HsvStatus {
   //色相 範囲(0~360)
-  double hue;
+  double hue = 0;
   //彩度 範囲(0~100)
-  double saturation;
+  double saturation = 0;
   //明度 範囲(0~100)
-  double value;
+  double value = 0;
 };
 
 using namespace ev3api;
