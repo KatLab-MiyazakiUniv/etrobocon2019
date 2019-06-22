@@ -186,6 +186,7 @@ HsvStatus Controller::getHsv() const
   return hsv;
 }  // hsv値を返す
 
+void Controller::resetMotorCount()
 {
   rightWheel.reset();
 }
