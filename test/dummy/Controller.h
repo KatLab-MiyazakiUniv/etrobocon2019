@@ -87,7 +87,7 @@ class Controller {
     return;
   };
 
-  void convertHsv(std::uint16_t& r, std::uint16_t& g, std::uint16_t& b)
+  void convertHsv(int& r, int& g, int& b)
   {
 
     double max = r;
