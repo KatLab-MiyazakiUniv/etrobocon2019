@@ -17,11 +17,12 @@ namespace LogFile {
    private:
     FILE* fp;
     bool isHead;
+    bool linefeed;
 
    public:
-    TemporaryObject(FILE* fp_);
+    TemporaryObject(FILE* fp_, bool linefeed_);
     /**
-     * @brief 行末に改行を挿入する
+     * @brief 行末に改行を挿入する (linefeedがtrueのとき)
      */
     ~TemporaryObject();
     /**
@@ -32,7 +33,8 @@ namespace LogFile {
 
     /**
      * @brief 整数型のデータを出力ファイルに書き込む
-     * @detail Usage: foo << 1 << 2 << 3; (自動的にデリミターと改行が挿入される)
+     * @detail Usage: foo << 1 << 2 << 3;
+     * (自動的にデリミターと、linefeedがtrueのとき改行が挿入される)
      * @param intValue [整数型(int, unsigned int, std::int8_t, etc...)]
      */
     template <typename T,
@@ -46,7 +48,8 @@ namespace LogFile {
 
     /**
      * @brief 浮動小数点数型のデータを出力ファイルに書き込む
-     * @detail Usage: foo << 1.2 << 2.4 << 3.98; (自動的にデリミターと改行が挿入される)
+     * @detail Usage: foo << 1.2 << 2.4 << 3.98;
+     * (自動的にデリミターと、linefeedがtrueのとき改行が挿入される)
      * @param floatingPointValue [浮動小数点数型(float, double)]
      */
     template <typename T,
@@ -61,7 +64,8 @@ namespace LogFile {
 
     /**
      * @brief 文字列を出力ファイルに書き込む
-     * @detail Usage: foo << "aa" << "bb" (自動的にデリミタ―と改行が挿入される)
+     * @detail Usage: foo << "aa" << "bb"
+     * (自動的にデリミターと、linefeedがtrueのとき改行が挿入される)
      * @param stringLiteral [文字列型（const char*)]
      */
     template <typename T,
@@ -78,13 +82,15 @@ namespace LogFile {
 class Logger {
  private:
   FILE* fp;
+  bool linefeed;
 
  public:
   /**
    * @brief ファイルポインターを確保するコンストラクター
    * @param mode [ファイルの書き込みモード（デフォルトでは書き込みモード）]
+   * @param linefeed_ [<<演算子を用いたとき、自動的に改行を入れるかどうか（デフォルトでは挿入する）]
    */
-  Logger(const std::string& fileName = "log.csv", const char* mode = "w");
+  Logger(const std::string& fileName = "log.csv", const char* mode = "w", bool linefeed_ = true);
 
   /**
    * @brief ファイルポインターを解放するデストラクター
@@ -105,13 +111,14 @@ class Logger {
 
   /**
    * @brief 指定したデータを出力ファイルに書き込む
-   * @detail Usage: foo << 1 << 2.4 << "aa"; (自動的にデリミターと改行が挿入される)
+   * @detail Usage: foo << 1 << 2.4 << "aa";
+   * (自動的にデリミターと、linefeedがtrueのとき改行が挿入される)
    * @param data [記録するデータ]
    */
   template <typename T>
   LogFile::TemporaryObject operator<<(T data)
   {
-    LogFile::TemporaryObject object(fp);
+    LogFile::TemporaryObject object(fp, linefeed);
     object << data;
     return object;
   }
