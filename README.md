@@ -15,7 +15,7 @@ We have the following goals and enthusiasm for the contest:
  - The running time is less than 20 seconds.
  - The bonus time is 18 seconds or more.
 
-## Strategy
+## Feature and Strategy
 ### Line trace
 We use PID control technology for the line trace. The robot's operation in line trace can be obtained from two values, the forward value and the turn value.
 
