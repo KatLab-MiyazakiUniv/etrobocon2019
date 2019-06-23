@@ -9,7 +9,6 @@
 #include <cstdio>
 #include <cstdarg>
 #include <cassert>
-#include <string>
 #include <type_traits>
 
 namespace LogFile {
@@ -82,19 +81,14 @@ class Logger {
  public:
   /**
    * @brief ファイルポインターを確保するコンストラクター
-   * @param mode [ファイルの書き込みモード（デフォルトでは追記）]
+   * @param mode [ファイルの書き込みモード（デフォルトでは新規書き込み）]
    */
-  Logger(const std::string& fileName = "log.csv", const char* mode = "a");
+  Logger(const char* fileName = "log.csv", const char* mode = "w");
 
   /**
    * @brief ファイルポインターを解放するデストラクター
    */
   ~Logger();
-
-  /**
-   * @brief 出力ファイル名を返す
-   */
-  const std::string& getFileName(const std::string& fileName) const;
 
   /**
    * @brief 指定したデータを出力ファイルに書き込む

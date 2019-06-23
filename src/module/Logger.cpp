@@ -23,20 +23,15 @@ void LogFile::TemporaryObject::putDelimiter()
   std::fputc(',', fp);
 }
 
-Logger::Logger(const std::string& fileName, const char* mode)
+Logger::Logger(const char* fileName, const char* mode)
 {
-  fp = std::fopen(getFileName(fileName).c_str(), mode);
+  fp = fopen(fileName, mode);
   assert(fp != nullptr);
 }
 
 Logger::~Logger()
 {
-  std::fclose(fp);
-}
-
-const std::string& Logger::getFileName(const std::string& fileName) const
-{
-  return fileName;
+  fclose(fp);
 }
 
 void Logger::write(const char* format, ...)
