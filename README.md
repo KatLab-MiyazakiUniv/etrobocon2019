@@ -1,9 +1,25 @@
 # etrobocon2019
 Presented by [KatLab](http://earth.cs.miyazaki-u.ac.jp).
 
-[![CircleCI](https://circleci.com/gh/KatLab-MiyazakiUniv/etrobocon2019/tree/master.svg?style=svg)](https://circleci.com/gh/KatLab-MiyazakiUniv/etrobocon2019/tree/master) [![codecov](https://codecov.io/gh/KatLab-MiyazakiUniv/etrobocon2019/branch/master/graph/badge.svg)](https://codecov.io/gh/KatLab-MiyazakiUniv/etrobocon2019)
 
-## BUILD
+[![CircleCI](https://circleci.com/gh/KatLab-MiyazakiUniv/etrobocon2019/tree/master.svg?style=svg)](https://circleci.com/gh/KatLab-MiyazakiUniv/etrobocon2019/tree/master) [![codecov](https://codecov.io/gh/KatLab-MiyazakiUniv/etrobocon2019/branch/master/graph/badge.svg)](https://codecov.io/gh/KatLab-MiyazakiUniv/etrobocon2019) 
+
+## Description
+ET Robocon is a contest for embedded software technology. The robot uses MINDSTORMS and the competition course is predetermined. 
+This repository contains the programs that Team KatLab uses for advanced course in the developer class.
+
+We have the following goals and enthusiasm for the contest:
+ - We will participate in a championship!
+ - We use AI and image processing technologies in our strategy.
+ - We develop **fast** and **flexible** using Agile (eXtreme-Programming) and Ticket-Driven Development (TiDD).
+ - The running time is less than 20 seconds.
+ - The bonus time is 18 seconds or more.
+
+## Strategy
+### Line trace
+We use PID control technology for the line trace. The robot's operation in line trace can be obtained from two values, the forward value and the turn value.
+
+## Build
 
 Execution command.
 ```bash
@@ -16,7 +32,7 @@ $ ls
 et2019
 ```
 
-## DEVELOP
+## Develop
 ### Where is reference?
 
 [Here](https://katlab-miyazakiuniv.github.io/etrobocon2019/annotated.html).
