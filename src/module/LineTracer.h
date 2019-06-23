@@ -8,8 +8,7 @@
 
 #include "Controller.h"
 #include "Distance.h"
-// NOTE: 後日実装予定
-//#include "SpeedControl.h"
+#include "SpeedControl.h"
 #include "TurnControl.h"
 
 struct PidParameter
@@ -60,8 +59,7 @@ private:
     bool isLeftCourse;
     Distance distance;
 
-    // NOTE: 後日実装予定
-    //SpeedControl speedControl;
+    SpeedControl speedControl;
     TurnControl turnControl;
     Controller controller;
 };

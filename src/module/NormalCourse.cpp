@@ -37,7 +37,7 @@ void NormalCourse::runNormalCourse()
        * 詳しく見たいならLineTracer.hを見てね．
        * 進む距離，目標スピード，スピードpid，ターンpid
        */
-      = { { { 1000, 10, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } },     // 第1区間
+      = { { { 1000, 300, { 0.1, 0.0, 0.0 }, { 0.4, 0.01, 0.0 } },     // 第1区間
             { 500, 80, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } } } };  // 第2区間
 
   LineTracer lineTracer(targetBrightness, isLeftCourse);

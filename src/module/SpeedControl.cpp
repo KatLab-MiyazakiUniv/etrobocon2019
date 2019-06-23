@@ -48,7 +48,7 @@ double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, doubl
   double nextDistance = dist.getDistance(leftAngle, rightAngle);
 
   //現在の速度を求める
-  double currentSpeed = (nextDistance - prevDistance) / 0.004;
+  double currentSpeed = nextDistance - prevDistance;
 
   //prevDistanceの更新
   prevDistance = dist.getDistance(leftAngle, rightAngle);

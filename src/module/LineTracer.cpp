@@ -14,6 +14,7 @@ LineTracer::LineTracer(int targetBrightness_, bool isLeftCourse_)
   : targetBrightness(targetBrightness_),
     isLeftCourse(isLeftCourse_),
     distance(),
+    speedControl(controller, 0.0, 0.0, 0.0, 0.0),
     turnControl(targetBrightness_, 0.0, 0.0, 0.0)
 {
 }
@@ -37,18 +38,14 @@ void LineTracer::run(NormalCourseProperty& settings)
 
   // 目標距離を走り終えるまでループ
   while(currentDistance - initialDistance < settings.targetDistance) {
+    // 前進値の計算
+    speedValue = speedControl.calculateSpeed(settings.targetSpeed, settings.speedPid.kp,
+                                             settings.speedPid.ki, settings.speedPid.kd);
+
     // 旋回値の計算
     turnValue
         = turnControl.calculateTurn(controller.getBrightness(), targetBrightness,
                                     settings.turnPid.kp, settings.turnPid.ki, settings.turnPid.kd);
-
-    // 前進値の計算
-    speedValue = 30;
-    /* NOTE: 後日実装予定
-    speedValue = speedControl.calculateSpeed(
-        settings.speedPid.kp, settings.speedPid.ki, settings.speedPid.kd,
-        settings.targetSpeed);
-    */
 
     // モータ出力の計算
     if(isLeftCourse) {
@@ -68,6 +65,7 @@ void LineTracer::run(NormalCourseProperty& settings)
     // 現在の走行距離の取得
     currentDistance
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
+    controller.tslpTsk(4);
   }
 }
 
