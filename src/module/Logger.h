@@ -84,7 +84,7 @@ class Logger {
    * @brief ファイルポインターを確保するコンストラクター
    * @param mode [ファイルの書き込みモード（デフォルトでは追記）]
    */
-  Logger(const char* mode = "a");
+  Logger(const std::string& fileName = "log.csv", const char* mode = "a");
 
   /**
    * @brief ファイルポインターを解放するデストラクター
@@ -94,7 +94,7 @@ class Logger {
   /**
    * @brief 出力ファイル名を返す
    */
-  std::string getFileName();
+  const std::string& getFileName(const std::string& fileName) const;
 
   /**
    * @brief 指定したデータを出力ファイルに書き込む

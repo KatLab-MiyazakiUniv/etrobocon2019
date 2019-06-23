@@ -23,9 +23,9 @@ void LogFile::TemporaryObject::putDelimiter()
   std::fputc(',', fp);
 }
 
-Logger::Logger(const char* mode)
+Logger::Logger(const std::string& fileName, const char* mode)
 {
-  fp = std::fopen(getFileName().c_str(), mode);
+  fp = std::fopen(getFileName(fileName).c_str(), mode);
   assert(fp != nullptr);
 }
 
@@ -34,11 +34,9 @@ Logger::~Logger()
   std::fclose(fp);
 }
 
-std::string Logger::getFileName()
+const std::string& Logger::getFileName(const std::string& fileName) const
 {
-  // TODO とりあえずログファイル名は、「log」としておく
-  // ユニークな名前にするためには、例えば現在時刻を取得する必要があるが、取得しようとするとmutexエラーが起きる
-  return "log.csv";
+  return fileName;
 }
 
 void Logger::write(const char* format, ...)
