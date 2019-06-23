@@ -82,9 +82,9 @@ class Logger {
  public:
   /**
    * @brief ファイルポインターを確保するコンストラクター
-   * @param mode [ファイルの書き込みモード（デフォルトでは追記）]
+   * @param mode [ファイルの書き込みモード（デフォルトでは書き込みモード）]
    */
-  Logger(const std::string& fileName = "log.csv", const char* mode = "a");
+  Logger(const std::string& fileName = "log.csv", const char* mode = "w");
 
   /**
    * @brief ファイルポインターを解放するデストラクター
