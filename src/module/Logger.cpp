@@ -5,14 +5,11 @@
  */
 #include "Logger.h"
 
-LogFile::TemporaryObject::TemporaryObject(FILE* fp_, bool linefeed_)
-  : fp(fp_), isHead(true), linefeed(linefeed_)
-{
-}
+LogFile::TemporaryObject::TemporaryObject(FILE* fp_) : fp(fp_), isHead(true) {}
 
 LogFile::TemporaryObject::~TemporaryObject()
 {
-  if(linefeed) std::fputc('\n', fp);
+  std::fputc('\n', fp);
 }
 
 void LogFile::TemporaryObject::putDelimiter()
@@ -26,8 +23,7 @@ void LogFile::TemporaryObject::putDelimiter()
   std::fputc(',', fp);
 }
 
-Logger::Logger(const std::string& fileName, const char* mode, bool linefeed_)
-  : fp(nullptr), linefeed(linefeed_)
+Logger::Logger(const std::string& fileName, const char* mode)
 {
   fp = std::fopen(getFileName(fileName).c_str(), mode);
   assert(fp != nullptr);
