@@ -1,8 +1,10 @@
 <map id="Controller::tslpTsk" name="Controller::tslpTsk">
 <area shape="rect" id="node2" href="$class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="196,5,371,32"/>
 <area shape="rect" id="node6" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="192,56,375,83"/>
-<area shape="rect" id="node7" href="$class_navigator.html#ace0ed497062e8f9504a26af3b9b8617d" title="PID制御を用いて両輪の回転量が等しくなるように前進または後進する " alt="" coords="199,107,367,133"/>
-<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="423,31,585,57"/>
-<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="633,31,793,57"/>
-<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="841,31,932,57"/>
+<area shape="rect" id="node7" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="225,107,342,133"/>
+<area shape="rect" id="node9" href="$class_navigator.html#ace0ed497062e8f9504a26af3b9b8617d" title="PID制御を用いて両輪の回転量が等しくなるように前進または後進する " alt="" coords="199,157,367,184"/>
+<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="460,56,623,83"/>
+<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="708,81,868,108"/>
+<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="916,81,1007,108"/>
+<area shape="rect" id="node8" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="423,107,660,133"/>
 </map>

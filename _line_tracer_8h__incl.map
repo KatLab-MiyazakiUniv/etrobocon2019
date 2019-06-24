@@ -1,6 +1,7 @@
 <map id="src/module/LineTracer.h" name="src/module/LineTracer.h">
-<area shape="rect" id="node2" href="$_controller_8h.html" title="Controller.h" alt="" coords="209,155,307,181"/>
-<area shape="rect" id="node8" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="295,80,386,107"/>
-<area shape="rect" id="node10" href="$_turn_control_8h.html" title="旋回値制御クラス " alt="" coords="411,80,519,107"/>
-<area shape="rect" id="node11" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="437,155,492,181"/>
+<area shape="rect" id="node2" href="$_controller_8h.html" title="Controller.h" alt="" coords="209,229,307,256"/>
+<area shape="rect" id="node8" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="265,155,355,181"/>
+<area shape="rect" id="node10" href="$_speed_control_8h.html" title="前進値制御クラス " alt="" coords="324,80,445,107"/>
+<area shape="rect" id="node11" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="456,155,511,181"/>
+<area shape="rect" id="node12" href="$_turn_control_8h.html" title="旋回値制御クラス " alt="" coords="521,80,629,107"/>
 </map>

@@ -1,10 +1,10 @@
 <map id="Controller::getLeftMotorCount" name="Controller::getLeftMotorCount">
-<area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="280,5,397,32"/>
-<area shape="rect" id="node6" href="$class_navigator.html#abbf56b48c4f42f4d006dd2637927421a" title="specifiedValueの値でbackwardかforwardを呼び出す。 " alt="" coords="273,56,404,83"/>
-<area shape="rect" id="node7" href="$class_navigator.html#ace0ed497062e8f9504a26af3b9b8617d" title="PID制御を用いて両輪の回転量が等しくなるように前進または後進する " alt="" coords="255,107,423,133"/>
-<area shape="rect" id="node8" href="$class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0" title="SpeedControl::SpeedControl" alt="" coords="237,157,441,184"/>
-<area shape="rect" id="node9" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="231,208,447,235"/>
-<area shape="rect" id="node3" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="495,5,732,32"/>
-<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="780,5,940,32"/>
-<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="988,5,1079,32"/>
+<area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="495,88,612,115"/>
+<area shape="rect" id="node6" href="$class_navigator.html#abbf56b48c4f42f4d006dd2637927421a" title="specifiedValueの値でbackwardかforwardを呼び出す。 " alt="" coords="273,38,404,64"/>
+<area shape="rect" id="node7" href="$class_navigator.html#ace0ed497062e8f9504a26af3b9b8617d" title="PID制御を用いて両輪の回転量が等しくなるように前進または後進する " alt="" coords="255,88,423,115"/>
+<area shape="rect" id="node8" href="$class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0" title="SpeedControl::SpeedControl" alt="" coords="237,139,441,166"/>
+<area shape="rect" id="node9" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="231,190,447,216"/>
+<area shape="rect" id="node3" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="660,88,897,115"/>
+<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="945,88,1105,115"/>
+<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1153,88,1244,115"/>
 </map>
