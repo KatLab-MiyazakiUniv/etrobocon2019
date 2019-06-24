@@ -104,27 +104,6 @@ void Navigator::moveByPidAndSpeed(double specifiedDistance, int specifiedSpeed, 
   controller.setLeftMotorPwm(0);
 }
 
-// void Navigator::forward(double specifiedDistance, double goalDistance, int pwm, double alpha)
-// {
-//   Logger logger;
-//   while(hasArrived(goalDistance, true)) {
-//     logger.write("%d\n", pwm);
-//     controller.setRightMotorPwm(pwm + alpha);
-//     controller.setLeftMotorPwm(pwm - alpha);
-//     controller.tslpTsk(4);
-//   }
-//   logger.write("\n");
-// }
-
-// void Navigator::backward(double specifiedDistance, double goalDistance, int pwm, double alpha)
-// {
-//   while(hasArrived(goalDistance, false)) {
-//     controller.setRightMotorPwm(pwm + alpha);
-//     controller.setLeftMotorPwm(pwm - alpha);
-//     controller.tslpTsk(4);
-//   }
-// }
-
 bool Navigator::hasArrived(double goalDistance, bool isForward)
 {
   int leftAngle = controller.getLeftMotorCount();
