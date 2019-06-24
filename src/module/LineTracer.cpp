@@ -5,7 +5,7 @@
  */
 
 #include "LineTracer.h"
-#include "Logger.h"
+//#include "Logger.h"
 
 LineTracer::LineTracer(Controller& controller_, int targetBrightness_, bool isLeftCourse_)
   : controller(controller_),
@@ -15,12 +15,14 @@ LineTracer::LineTracer(Controller& controller_, int targetBrightness_, bool isLe
     speedControl(controller, 0.0, 0.0, 0.0, 0.0),
     turnControl(targetBrightness_, 0.0, 0.0, 0.0)
 {
+  /*
   Logger logger{ "w" };
   logger << "brightness"
          << "speed"
          << "turn"
          << "LEFT"
          << "RIGHT";
+  */
 }
 
 void LineTracer::run(NormalCourseProperty& settings)
@@ -34,7 +36,7 @@ void LineTracer::run(NormalCourseProperty& settings)
   int speedValue = 0;                     // 直進値
   int leftPWM = 0;                        // 左モータの出力
   int rightPWM = 0;                       // 右モータの出力
-  Logger logger{ "a" };
+  //Logger logger{ "a" };
 
   // 目標距離を走り終えるまでループ
   while(currentDistance - initialDistance < settings.targetDistance) {
@@ -57,7 +59,7 @@ void LineTracer::run(NormalCourseProperty& settings)
       leftPWM = speedValue + turnValue;
       rightPWM = speedValue - turnValue;
     }
-    logger << controller.getBrightness() << speedValue << turnValue << leftPWM << rightPWM;
+    //logger << controller.getBrightness() << speedValue << turnValue << leftPWM << rightPWM;
     // PWM値の設定
     controller.setLeftMotorPwm(leftPWM);
     controller.setRightMotorPwm(rightPWM);
