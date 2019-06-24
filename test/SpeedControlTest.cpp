@@ -39,7 +39,7 @@ namespace etrobocon2019_test {
     //現在の速度を求める
     double currentSpeed = (nextDistance - prevDistance) / 0.004;
 
-    //prevDistanceの更新
+    // prevDistanceの更新
     prevDistance = nextDistance;
 
     // pid値を求める
