@@ -40,13 +40,13 @@ void LineTracer::run(NormalCourseProperty& settings)
   // 目標距離を走り終えるまでループ
   while(currentDistance - initialDistance < settings.targetDistance) {
     // 前進値の計算
-    speedValue = speedControl.calculateSpeed(settings.targetSpeed, settings.speedPid.kp,
-                                             settings.speedPid.ki, settings.speedPid.kd);
+    speedValue = speedControl.calculateSpeed(settings.targetSpeed, settings.speedPid.Kp,
+                                             settings.speedPid.Ki, settings.speedPid.Kd);
 
     // 旋回値の計算
     turnValue
         = turnControl.calculateTurn(controller.getBrightness(), targetBrightness,
-                                    settings.turnPid.kp, settings.turnPid.ki, settings.turnPid.kd);
+                                    settings.turnPid.Kp, settings.turnPid.Ki, settings.turnPid.Kd);
 
     // モータ出力の計算
     if(isLeftCourse) {

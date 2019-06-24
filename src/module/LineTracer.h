@@ -10,16 +10,7 @@
 #include "Distance.h"
 #include "SpeedControl.h"
 #include "TurnControl.h"
-
-struct PidParameter
-{
-    // p値
-    double kp;
-    // k値
-    double ki;
-    // d値
-    double kd;
-};
+#include "Pid.h"
 
 struct NormalCourseProperty
 {
@@ -28,9 +19,9 @@ struct NormalCourseProperty
     // 目標スピード
     int targetSpeed;
     // speedPid
-    PidParameter speedPid;
+    PidGain speedPid;
     // turnPid
-    PidParameter turnPid;
+    PidGain turnPid;
 };
 
 class LineTracer
