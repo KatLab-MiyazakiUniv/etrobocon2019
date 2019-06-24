@@ -4,7 +4,8 @@
     "extensions": [
         "formulahendry.terminal",
         "ms-vscode.cpptools",
-        "streetsidesoftware.code-spell-checker"
+        "streetsidesoftware.code-spell-checker",
+        "github.vscode-pull-request-github"
     ],
     "service": "etrobo-docker",
     "workspaceFolder": "/home/hrp2/sdk/workspace/product",
