@@ -1,5 +1,5 @@
 {
-    "name": "ETrobo-docker",
+    "name": "etrobo-docker",
     "dockerComposeFile": "docker-compose.yml",
     "extensions": [
         "formulahendry.terminal",
