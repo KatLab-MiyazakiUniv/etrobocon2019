@@ -10,8 +10,9 @@
  *  @param targetBrightness_  [カラーセンサーの目標値]
  *  @param isLeftCourse_ [Leftコースである場合True]
  */
-LineTracer::LineTracer(int targetBrightness_, bool isLeftCourse_)
-  : targetBrightness(targetBrightness_),
+LineTracer::LineTracer(Controller& controller_, int targetBrightness_, bool isLeftCourse_)
+  : controller(controller_),
+    targetBrightness(targetBrightness_),
     isLeftCourse(isLeftCourse_),
     distance(),
     speedControl(controller, 0.0, 0.0, 0.0, 0.0),

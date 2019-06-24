@@ -40,7 +40,7 @@ void NormalCourse::runNormalCourse()
       = { { { 1000, 300, { 0.1, 0.0, 0.0 }, { 0.4, 0.01, 0.0 } },     // 第1区間
             { 500, 80, { 0.1, 0.0, 0.0 }, { 0.1, 0.01, 0.0 } } } };  // 第2区間
 
-  LineTracer lineTracer(targetBrightness, isLeftCourse);
+  LineTracer lineTracer(controller, targetBrightness, isLeftCourse);
   for(auto& ncp : normalCourseProperty) {
     lineTracer.run(ncp);
     // １区間終わるごとに音を奏でる．
