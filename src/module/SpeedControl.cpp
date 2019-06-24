@@ -33,7 +33,7 @@ double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, doubl
   //現在の速度を求める
   double currentSpeed = nextDistance - prevDistance;
 
-  //prevDistanceの更新
+  // prevDistanceの更新
   prevDistance = dist.getDistance(leftAngle, rightAngle);
 
   // pid値を求める
