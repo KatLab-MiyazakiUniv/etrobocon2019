@@ -21,8 +21,20 @@ class Navigator {
    *
    * @brief Navigatorクラスのコンストラクタ
    * @param &controller_ [Controllerインスタンスの参照]
+   * @param Kp_ [SpeedControl用のPゲイン]
+   * @param Ki_ [SpeedControl用のIゲイン]
+   * @param Kd_ [SpeedControl用のDゲイン]
    */
-  explicit Navigator(Controller& controller_, SpeedControl& speedControl_);
+  explicit Navigator(Controller& controller_, double Kp_ = 0.60, double Ki_ = 0.0,
+                     double Kd_ = 0.0);
+  /**
+   * @brief SpeedControl用のPidゲインのセッター
+   * @param Kp_ [SpeedControl用のPゲイン]
+   * @param Ki_ [SpeedControl用のIゲイン]
+   * @param Kd_ [SpeedControl用のDゲイン]
+   * @return なし
+   */
+  void setPidGain(double Kp_, double Ki_, double Kd_);
   /**
    * 前進と後進をする
    *
@@ -40,7 +52,7 @@ class Navigator {
    * @param specifiedSpeed [移動したい速度]
    * @return なし
    */
-  void moveBySpeed(double specifiedDistance, int specifiedSpeed);
+  void moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed);
   /**
    * @TODO move関数に統合する？ また、IおよびDゲインも指定できるようにする？
    * @brief PID制御を用いて両輪の回転量が等しくなるように前進または後進する
@@ -62,13 +74,16 @@ class Navigator {
    * @param iGain [PID制御のIゲイン]
    * @param dGain [PID制御のDゲイン]
    */
-  void moveByPidAndSpeed(double specifiedDistance, int specifiedSpeed, const double pGain = 0.6,
-                         const double iGain = 0.0, const double dGain = 0.0);
+  void moveAtSpecifiedSpeedByPid(double specifiedDistance, int specifiedSpeed,
+                                 const double pGain = 0.6, const double iGain = 0.0,
+                                 const double dGain = 0.0);
 
  private:
   Distance distance;
   Controller& controller;
-  SpeedControl& speedControl;
+  double KpForSpeed;
+  double KiForSpeed;
+  double KdForSpeed;
   /**
    * 指定した距離動いたか判定する
    * @brief 現在値とgoalDistanceを比較し、resultに"true"か"false"を格納する

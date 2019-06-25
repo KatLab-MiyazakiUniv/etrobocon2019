@@ -7,7 +7,17 @@
 
 #include "Navigator.h"
 
-Navigator::Navigator(Controller& controller_, SpeedControl& speedControl_) : distance(), controller(controller_), speedControl(speedControl_) {}
+Navigator::Navigator(Controller& controller_, double Kp_, double Ki_, double Kd_)
+  : distance(), controller(controller_), KpForSpeed(Kp_), KiForSpeed(Ki_), KdForSpeed(Kd_)
+{
+}
+
+void Navigator::setPidGain(double Kp_, double Ki_, double Kd_)
+{
+  KpForSpeed = Kp_;
+  KiForSpeed = Ki_;
+  KdForSpeed = Kd_;
+}
 
 void Navigator::move(double specifiedDistance, int pwm)
 {
@@ -17,37 +27,37 @@ void Navigator::move(double specifiedDistance, int pwm)
 
   if(specifiedDistance < 0) {
     while(hasArrived(goalDistance, false)) {
-      setPwmValue(-std::abs(pwm));
+      setPwmValue(static_cast<int>(-std::abs(pwm)));
     }
   } else {
     while(hasArrived(goalDistance, true)) {
-      setPwmValue(std::abs(pwm));
+      setPwmValue(static_cast<int>(std::abs(pwm)));
     }
   }
 
-  controller.setRightMotorPwm(0);
-  controller.setLeftMotorPwm(0);
+  controller.stopMotor();
 }
 
-void Navigator::moveBySpeed(double specifiedDistance, int specifiedSpeed)
+void Navigator::moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed)
 {
   int leftAngle = controller.getLeftMotorCount();
   int rightAngle = controller.getRightMotorCount();
   double goalDistance = specifiedDistance + distance.getDistance(leftAngle, rightAngle);
 
-  if(specifiedDistance < 0){
-    while(hasArrived(goalDistance, false)){
-      double pwm = speedControl.calculateSpeed(specifiedSpeed, 0.60, 0.05, 0.04);
-      setPwmValue(-std::abs(static_cast<int>(pwm)));
+  SpeedControl speedControl(controller, specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+
+  if(specifiedDistance < 0) {
+    while(hasArrived(goalDistance, false)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+      setPwmValue(static_cast<int>(-std::abs(pwm)));
     }
   } else {
-    while(hasArrived(goalDistance, true)){
-      double pwm = speedControl.calculateSpeed(specifiedSpeed, 0.60, 0.05, 0.04);
-      setPwmValue(std::abs(static_cast<int>(pwm)));
+    while(hasArrived(goalDistance, true)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+      setPwmValue(static_cast<int>(std::abs(pwm)));
     }
   }
-  controller.setRightMotorPwm(0);
-  controller.setLeftMotorPwm(0);
+  controller.stopMotor();
 }
 
 void Navigator::moveByPid(double specifiedDistance, int pwm, const double pGain, const double iGain,
@@ -64,20 +74,20 @@ void Navigator::moveByPid(double specifiedDistance, int pwm, const double pGain,
 
   if(specifiedDistance < 0) {
     while(hasArrived(goalDistance, false)) {
-      setPwmValue(-std::abs(pwm), alpha);
+      setPwmValue(static_cast<int>(-std::abs(pwm)), alpha);
     }
   } else {
     while(hasArrived(goalDistance, true)) {
-      setPwmValue(std::abs(pwm), alpha);
+      setPwmValue(static_cast<int>(std::abs(pwm)), alpha);
     }
   }
 
-  controller.setRightMotorPwm(0);
-  controller.setLeftMotorPwm(0);
+  controller.stopMotor();
 }
 
-void Navigator::moveByPidAndSpeed(double specifiedDistance, int specifiedSpeed, const double pGain, const double iGain,
-                          const double dGain)
+void Navigator::moveAtSpecifiedSpeedByPid(double specifiedDistance, int specifiedSpeed,
+                                          const double pGain, const double iGain,
+                                          const double dGain)
 {
   int leftAngle = controller.getLeftMotorCount();
   int rightAngle = controller.getRightMotorCount();
@@ -88,20 +98,21 @@ void Navigator::moveByPidAndSpeed(double specifiedDistance, int specifiedSpeed, 
   Pid pid(pGain, iGain, dGain);
   double alpha = pid.control(rightAngle - leftAngle);
 
-  if(specifiedDistance < 0){
-    while(hasArrived(goalDistance, false)){
-      double pwm = speedControl.calculateSpeed(specifiedSpeed, 0.60, 0.05, 0.04);
-      setPwmValue(-std::abs(static_cast<int>(pwm)), alpha);
+  SpeedControl speedControl(controller, specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+
+  if(specifiedDistance < 0) {
+    while(hasArrived(goalDistance, false)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+      setPwmValue(static_cast<int>(-std::abs(pwm)), alpha);
     }
   } else {
-    while(hasArrived(goalDistance, true)){
-      double pwm = speedControl.calculateSpeed(specifiedSpeed, 0.60, 0.05, 0.04);
-      setPwmValue(std::abs(static_cast<int>(pwm)), alpha);
+    while(hasArrived(goalDistance, true)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+      setPwmValue(static_cast<int>(std::abs(pwm)), alpha);
     }
   }
 
-  controller.setRightMotorPwm(0);
-  controller.setLeftMotorPwm(0);
+  controller.stopMotor();
 }
 
 bool Navigator::hasArrived(double goalDistance, bool isForward)
