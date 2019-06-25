@@ -7,62 +7,112 @@
 
 #include "Navigator.h"
 
-Navigator::Navigator(Controller& controller_) : distance(), controller(controller_) {}
+Navigator::Navigator(Controller& controller_, double Kp_, double Ki_, double Kd_)
+  : distance(), controller(controller_), pidForSpeed(Kp_, Ki_, Kd_)
+{
+}
 
-void Navigator::move(double specifiedValue, int pwm)
+void Navigator::setPidGain(double Kp_, double Ki_, double Kd_)
+{
+  pidForSpeed.Kp = Kp_;
+  pidForSpeed.Ki = Ki_;
+  pidForSpeed.Kd = Kd_;
+}
+
+void Navigator::move(double specifiedDistance, int pwm)
 {
   int leftAngle = controller.getLeftMotorCount();
   int rightAngle = controller.getRightMotorCount();
-  double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
+  double goalDistance = specifiedDistance + distance.getDistance(leftAngle, rightAngle);
 
-  if(specifiedValue < 0) {
-    backward(specifiedValue, goalDistance, -std::abs(pwm));
+  if(specifiedDistance < 0) {
+    while(hasArrived(goalDistance, false)) {
+      setPwmValue(static_cast<int>(-std::abs(pwm)));
+    }
   } else {
-    forward(specifiedValue, goalDistance, std::abs(pwm));
+    while(hasArrived(goalDistance, true)) {
+      setPwmValue(static_cast<int>(std::abs(pwm)));
+    }
   }
 
-  controller.setRightMotorPwm(0);
-  controller.setLeftMotorPwm(0);
+  controller.stopMotor();
 }
 
-void Navigator::moveByPid(double specifiedValue, int pwm, const double pGain, const double iGain,
+void Navigator::moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed)
+{
+  int leftAngle = controller.getLeftMotorCount();
+  int rightAngle = controller.getRightMotorCount();
+  double goalDistance = specifiedDistance + distance.getDistance(leftAngle, rightAngle);
+
+  SpeedControl speedControl(controller, specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
+
+  if(specifiedDistance < 0) {
+    while(hasArrived(goalDistance, false)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
+      setPwmValue(static_cast<int>(-std::abs(pwm)));
+    }
+  } else {
+    while(hasArrived(goalDistance, true)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
+      setPwmValue(static_cast<int>(std::abs(pwm)));
+    }
+  }
+  controller.stopMotor();
+}
+
+void Navigator::moveByPid(double specifiedDistance, int pwm, const double pGain, const double iGain,
                           const double dGain)
 {
   int leftAngle = controller.getLeftMotorCount();
   int rightAngle = controller.getRightMotorCount();
-  double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
+  double goalDistance = specifiedDistance + distance.getDistance(leftAngle, rightAngle);
 
   // 右車輪の回転量 - 左車輪の回転量
   // 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる
   Pid pid(pGain, iGain, dGain);
   double alpha = pid.control(rightAngle - leftAngle);
 
-  if(specifiedValue < 0) {
-    backward(specifiedValue, goalDistance, -std::abs(pwm), alpha);
+  if(specifiedDistance < 0) {
+    while(hasArrived(goalDistance, false)) {
+      setPwmValue(static_cast<int>(-std::abs(pwm)), alpha);
+    }
   } else {
-    forward(specifiedValue, goalDistance, std::abs(pwm), alpha);
+    while(hasArrived(goalDistance, true)) {
+      setPwmValue(static_cast<int>(std::abs(pwm)), alpha);
+    }
   }
 
-  controller.setRightMotorPwm(0);
-  controller.setLeftMotorPwm(0);
+  controller.stopMotor();
 }
 
-void Navigator::forward(double specifiedValue, double goalDistance, int pwm, double alpha)
+void Navigator::moveAtSpecifiedSpeedByPid(double specifiedDistance, int specifiedSpeed,
+                                          const double pGain, const double iGain,
+                                          const double dGain)
 {
-  while(hasArrived(goalDistance, true)) {
-    controller.setRightMotorPwm(pwm + alpha);
-    controller.setLeftMotorPwm(pwm - alpha);
-    controller.tslpTsk(4);
-  }
-}
+  int leftAngle = controller.getLeftMotorCount();
+  int rightAngle = controller.getRightMotorCount();
+  double goalDistance = specifiedDistance + distance.getDistance(leftAngle, rightAngle);
 
-void Navigator::backward(double specifiedValue, double goalDistance, int pwm, double alpha)
-{
-  while(hasArrived(goalDistance, false)) {
-    controller.setRightMotorPwm(pwm + alpha);
-    controller.setLeftMotorPwm(pwm - alpha);
-    controller.tslpTsk(4);
+  // 右車輪の回転量 - 左車輪の回転量
+  // 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる
+  Pid pid(pGain, iGain, dGain);
+  double alpha = pid.control(rightAngle - leftAngle);
+
+  SpeedControl speedControl(controller, specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
+
+  if(specifiedDistance < 0) {
+    while(hasArrived(goalDistance, false)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
+      setPwmValue(static_cast<int>(-std::abs(pwm)), alpha);
+    }
+  } else {
+    while(hasArrived(goalDistance, true)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
+      setPwmValue(static_cast<int>(std::abs(pwm)), alpha);
+    }
   }
+
+  controller.stopMotor();
 }
 
 bool Navigator::hasArrived(double goalDistance, bool isForward)
@@ -78,4 +128,11 @@ bool Navigator::hasArrived(double goalDistance, bool isForward)
   } else {
     return currentDistance >= goalDistance;
   }
+}
+
+void Navigator::setPwmValue(int pwm, double alpha)
+{
+  controller.setRightMotorPwm(pwm + alpha);
+  controller.setLeftMotorPwm(pwm - alpha);
+  controller.tslpTsk(4);
 }
