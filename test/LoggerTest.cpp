@@ -5,15 +5,18 @@
  */
 #include <gtest/gtest.h>
 #include <fstream>
-#include <string>
-#include <sstream>
-#include <vector>
 #include "Logger.h"
-#include <iostream>
 
 namespace etrobocon2019_test {
   TEST(Logger, construct) { Logger logger; }
 
+  TEST(Logger, construct_fileName)
+  {
+    Logger logger("log101.csv");  // ファイル名は適当
+    // 出力ファイルが存在することを確認する
+    std::ifstream ifs("log101.csv");
+    ASSERT_TRUE(ifs.is_open());
+  }
   TEST(Logger, writeTest)
   {
     Logger logger;
