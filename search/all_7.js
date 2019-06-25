@@ -4,7 +4,6 @@ var searchData=
   ['getblackbrightness',['getBlackBrightness',['../class_calibrator.html#a9d3a1cc5a10ea43b93be1b7f0c8cbbec',1,'Calibrator']]],
   ['getbrightness',['getBrightness',['../class_controller.html#a592fca2802b9cea70ef24eba17db7ec8',1,'Controller']]],
   ['getdistance',['getDistance',['../class_distance.html#ab2d57716464febfa145a892afe35433b',1,'Distance']]],
-  ['getfilename',['getFileName',['../class_logger.html#abe18bc05e457e2b2c35ac4a9f73cb34e',1,'Logger']]],
   ['gethsv',['getHsv',['../class_controller.html#a8e4a17cc784820e63b5417940f2ca4db',1,'Controller']]],
   ['getisleftcourse',['getIsLeftCourse',['../class_normal_course.html#afee246ed52d1a1bd021e61ab2f0f7060',1,'NormalCourse']]],
   ['getleftmotorcount',['getLeftMotorCount',['../class_controller.html#ae1e791420cc83acd20b4dfc185befc2b',1,'Controller']]],

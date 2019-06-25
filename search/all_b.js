@@ -10,7 +10,7 @@ var searchData=
   ['linetracer_2ecpp',['LineTracer.cpp',['../_line_tracer_8cpp.html',1,'']]],
   ['linetracer_2eh',['LineTracer.h',['../_line_tracer_8h.html',1,'']]],
   ['logfile',['LogFile',['../namespace_log_file.html',1,'']]],
-  ['logger',['Logger',['../class_logger.html',1,'Logger'],['../class_logger.html#a23754816fc1fa14b3feef68e5a130705',1,'Logger::Logger()']]],
+  ['logger',['Logger',['../class_logger.html',1,'Logger'],['../class_logger.html#a5d2a2990c64e7c358bdeb0238c87e639',1,'Logger::Logger()']]],
   ['logger_2ecpp',['Logger.cpp',['../_logger_8cpp.html',1,'']]],
   ['logger_2eh',['Logger.h',['../_logger_8h.html',1,'']]],
   ['lowpassfilter',['lowPassFilter',['../class_filter.html#a8fe12d5752852afc7a7179c2112d92e5',1,'Filter']]]

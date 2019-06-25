@@ -7,6 +7,6 @@ var searchData=
   ['ledsetcolororange',['ledSetColorOrange',['../class_controller.html#a3843d004fc1e44c63cd746b8822c2990',1,'Controller']]],
   ['limit',['limit',['../class_pid.html#a2718b26235c522f5ae7f313453bb55a6',1,'Pid']]],
   ['linetracer',['LineTracer',['../class_line_tracer.html#a5c3653d052e3befa96ce913073058697',1,'LineTracer']]],
-  ['logger',['Logger',['../class_logger.html#a23754816fc1fa14b3feef68e5a130705',1,'Logger']]],
+  ['logger',['Logger',['../class_logger.html#a5d2a2990c64e7c358bdeb0238c87e639',1,'Logger']]],
   ['lowpassfilter',['lowPassFilter',['../class_filter.html#a8fe12d5752852afc7a7179c2112d92e5',1,'Filter']]]
 ];
