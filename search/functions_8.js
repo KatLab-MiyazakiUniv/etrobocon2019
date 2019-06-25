@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['navigator',['Navigator',['../class_navigator.html#a50d5d9971a80529b4eaef5803ec5acac',1,'Navigator']]],
-  ['normalcourse',['NormalCourse',['../class_normal_course.html#aea09269116e523d98672684bbcb90bd2',1,'NormalCourse']]]
+  ['main_5ftask',['main_task',['../app_8cpp.html#a4754344fc3fec0a802660bb5dcdefad9',1,'main_task(intptr_t unused):&#160;app.cpp'],['../app_8h.html#ab874c34d9d66b14d189a9a3f2d065991',1,'main_task(intptr_t exinf):&#160;app.cpp']]],
+  ['move',['move',['../class_navigator.html#abbf56b48c4f42f4d006dd2637927421a',1,'Navigator']]],
+  ['movebypid',['moveByPid',['../class_navigator.html#ace0ed497062e8f9504a26af3b9b8617d',1,'Navigator']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['red',['red',['../_controller_8h.html#ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4',1,'Controller.h']]],
   ['reset',['reset',['../class_filter.html#a288108037db5d2c874f8b94093dc87e8',1,'Filter']]],
   ['resetmotorcount',['resetMotorCount',['../class_controller.html#a0db421426e48c56558848bba592616be',1,'Controller']]],
   ['run',['run',['../class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250',1,'LineTracer']]],

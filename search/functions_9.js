@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator&lt;&lt;',['../class_log_file_1_1_temporary_object.html#a5e89f9e1d908e4d29f84d02afd8b99e5',1,'LogFile::TemporaryObject::operator&lt;&lt;(T intValue)'],['../class_log_file_1_1_temporary_object.html#a434c5642043441441b461145d80ebc8d',1,'LogFile::TemporaryObject::operator&lt;&lt;(T floatingPointValue)'],['../class_log_file_1_1_temporary_object.html#a8e7d96ad86c2bae1c3a78d658331799b',1,'LogFile::TemporaryObject::operator&lt;&lt;(T stringLiteral)'],['../class_logger.html#af1f9b90e0e562fdd88dd6ea013267214',1,'Logger::operator&lt;&lt;()']]]
+  ['navigator',['Navigator',['../class_navigator.html#a50d5d9971a80529b4eaef5803ec5acac',1,'Navigator']]],
+  ['normalcourse',['NormalCourse',['../class_normal_course.html#aea09269116e523d98672684bbcb90bd2',1,'NormalCourse']]]
 ];

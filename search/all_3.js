@@ -8,6 +8,7 @@ var searchData=
   ['calibrator_2eh',['Calibrator.h',['../_calibrator_8h.html',1,'']]],
   ['clock',['clock',['../class_controller.html#a55147b5c14f76de55eb646d25ccb746f',1,'Controller']]],
   ['code_5fof_5fconduct_2emd',['CODE_OF_CONDUCT.md',['../_c_o_d_e___o_f___c_o_n_d_u_c_t_8md.html',1,'']]],
+  ['color',['Color',['../_controller_8h.html#ab87bacfdad76e61b9412d7124be44c1c',1,'Controller.h']]],
   ['colorsensor',['colorSensor',['../class_controller.html#ac252a70d6b3b606bd5ce313767b74b96',1,'Controller']]],
   ['control',['control',['../class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b',1,'Pid']]],
   ['controller',['Controller',['../class_controller.html',1,'Controller'],['../class_controller.html#a95c56822d667e94b031451729ce069a9',1,'Controller::Controller()']]],
