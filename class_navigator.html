@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">c54496060d061574afe215092bd81b010d5c60df</span>
+   &#160;<span id="projectnumber">be984b0615c75ab82746f163bda283f357e332b0</span>
    </div>
   </td>
  </tr>
@@ -78,22 +78,31 @@ Navigator 連携図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a50d5d9971a80529b4eaef5803ec5acac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#a50d5d9971a80529b4eaef5803ec5acac">Navigator</a> (<a class="el" href="class_controller.html">Controller</a> &amp;controller_)</td></tr>
-<tr class="memdesc:a50d5d9971a80529b4eaef5803ec5acac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Navigatorクラスのコンストラクタ  <a href="#a50d5d9971a80529b4eaef5803ec5acac">[詳解]</a><br /></td></tr>
-<tr class="separator:a50d5d9971a80529b4eaef5803ec5acac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbf56b48c4f42f4d006dd2637927421a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#abbf56b48c4f42f4d006dd2637927421a">move</a> (double specifiedValue, int pwm=30)</td></tr>
-<tr class="memdesc:abbf56b48c4f42f4d006dd2637927421a"><td class="mdescLeft">&#160;</td><td class="mdescRight">specifiedValueの値でbackwardかforwardを呼び出す。  <a href="#abbf56b48c4f42f4d006dd2637927421a">[詳解]</a><br /></td></tr>
-<tr class="separator:abbf56b48c4f42f4d006dd2637927421a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace0ed497062e8f9504a26af3b9b8617d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#ace0ed497062e8f9504a26af3b9b8617d">moveByPid</a> (double specifiedValue, int pwm=10, const double pGain=0.6, const double iGain=0.0, const double dGain=0.0)</td></tr>
-<tr class="memdesc:ace0ed497062e8f9504a26af3b9b8617d"><td class="mdescLeft">&#160;</td><td class="mdescRight">PID制御を用いて両輪の回転量が等しくなるように前進または後進する  <a href="#ace0ed497062e8f9504a26af3b9b8617d">[詳解]</a><br /></td></tr>
-<tr class="separator:ace0ed497062e8f9504a26af3b9b8617d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc044dcea1f7125623e6ea159773d3f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#afc044dcea1f7125623e6ea159773d3f1">Navigator</a> (<a class="el" href="class_controller.html">Controller</a> &amp;controller_, double Kp_=0.60, double Ki_=0.0, double Kd_=0.0)</td></tr>
+<tr class="memdesc:afc044dcea1f7125623e6ea159773d3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Navigatorクラスのコンストラクタ  <a href="#afc044dcea1f7125623e6ea159773d3f1">[詳解]</a><br /></td></tr>
+<tr class="separator:afc044dcea1f7125623e6ea159773d3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae957bc98e8392761e5a6132068dabfab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#ae957bc98e8392761e5a6132068dabfab">setPidGain</a> (double Kp_, double Ki_, double Kd_)</td></tr>
+<tr class="memdesc:ae957bc98e8392761e5a6132068dabfab"><td class="mdescLeft">&#160;</td><td class="mdescRight">SpeedControl用のPidゲインのセッター  <a href="#ae957bc98e8392761e5a6132068dabfab">[詳解]</a><br /></td></tr>
+<tr class="separator:ae957bc98e8392761e5a6132068dabfab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb">move</a> (double specifiedDistance, int pwm=30)</td></tr>
+<tr class="memdesc:ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">specifiedDistanceの値でbackwardかforwardを呼び出す。  <a href="#ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb">[詳解]</a><br /></td></tr>
+<tr class="separator:ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34f4d70ff245db32fee78e14c1212fd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8">moveAtSpecifiedSpeed</a> (double specifiedDistance, int specifiedSpeed)</td></tr>
+<tr class="memdesc:a34f4d70ff245db32fee78e14c1212fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す  <a href="#a34f4d70ff245db32fee78e14c1212fd8">[詳解]</a><br /></td></tr>
+<tr class="separator:a34f4d70ff245db32fee78e14c1212fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a093d0d47cdd93208f27301a02638b35e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#a093d0d47cdd93208f27301a02638b35e">moveByPid</a> (double specifiedDistance, int pwm=10, const double pGain=0.6, const double iGain=0.0, const double dGain=0.0)</td></tr>
+<tr class="memdesc:a093d0d47cdd93208f27301a02638b35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">PID制御を用いて両輪の回転量が等しくなるように前進または後進する  <a href="#a093d0d47cdd93208f27301a02638b35e">[詳解]</a><br /></td></tr>
+<tr class="separator:a093d0d47cdd93208f27301a02638b35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ded27d59d752cd9c51fe5dd525a9e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_navigator.html#ad6ded27d59d752cd9c51fe5dd525a9e3">moveAtSpecifiedSpeedByPid</a> (double specifiedDistance, int specifiedSpeed, const double pGain=0.6, const double iGain=0.0, const double dGain=0.0)</td></tr>
+<tr class="memdesc:ad6ded27d59d752cd9c51fe5dd525a9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">PID制御を用いて両輪の回転量が等しくなるように指定された速度で前進または後進する  <a href="#ad6ded27d59d752cd9c51fe5dd525a9e3">[詳解]</a><br /></td></tr>
+<tr class="separator:ad6ded27d59d752cd9c51fe5dd525a9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock">
-<p class="definition"> <a class="el" href="_navigator_8h_source.html">Navigator.h</a> の <a class="el" href="_navigator_8h_source.html#l00016">16</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_navigator_8h_source.html">Navigator.h</a> の <a class="el" href="_navigator_8h_source.html#l00017">17</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
-<a id="a50d5d9971a80529b4eaef5803ec5acac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50d5d9971a80529b4eaef5803ec5acac">&#9670;&nbsp;</a></span>Navigator()</h2>
+<a id="afc044dcea1f7125623e6ea159773d3f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc044dcea1f7125623e6ea159773d3f1">&#9670;&nbsp;</a></span>Navigator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -105,8 +114,30 @@ Navigator 連携図</div>
           <td class="memname">Navigator::Navigator </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_controller.html">Controller</a> &amp;&#160;</td>
-          <td class="paramname"><em>controller_</em></td><td>)</td>
+          <td class="paramname"><em>controller_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Kp_</em> = <code>0.60</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Ki_</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Kd_</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -117,20 +148,24 @@ Navigator 連携図</div>
 </div><div class="memdoc">
 
 <p>Navigatorクラスのコンストラクタ </p>
-<p>コンストラクタ </p><dl class="params"><dt>引数</dt><dd>
+<p>コンストラクタ</p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">&amp;controller_</td><td>[Controllerインスタンスの参照] </td></tr>
+    <tr><td class="paramname">Kp_</td><td>[SpeedControl用のPゲイン] </td></tr>
+    <tr><td class="paramname">Ki_</td><td>[SpeedControl用のIゲイン] </td></tr>
+    <tr><td class="paramname">Kd_</td><td>[SpeedControl用のDゲイン] </td></tr>
   </table>
   </dd>
 </dl>
 
 <p class="definition"> <a class="el" href="_navigator_8cpp_source.html">Navigator.cpp</a> の <a class="el" href="_navigator_8cpp_source.html#l00010">10</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;: distance(), controller(controller_) {}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  : distance(), controller(controller_), pidForSpeed(Kp_, Ki_, Kd_)</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="abbf56b48c4f42f4d006dd2637927421a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbf56b48c4f42f4d006dd2637927421a">&#9670;&nbsp;</a></span>move()</h2>
+<a id="ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb">&#9670;&nbsp;</a></span>move()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,7 +174,7 @@ Navigator 連携図</div>
           <td class="memname">void Navigator::move </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>specifiedValue</em>, </td>
+          <td class="paramname"><em>specifiedDistance</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -155,39 +190,193 @@ Navigator 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p>specifiedValueの値でbackwardかforwardを呼び出す。 </p>
-<p>前進と後進をする </p><dl class="params"><dt>引数</dt><dd>
+<p>specifiedDistanceの値でbackwardかforwardを呼び出す。 </p>
+<p>前進と後進をする</p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">specifiedValue</td><td>[移動したい距離(mm)。正なら前進、負なら後進。] </td></tr>
+    <tr><td class="paramname">specifiedDistance</td><td>[移動したい距離(mm)。正なら前進、負なら後進。] </td></tr>
     <tr><td class="paramname">pwm</td><td>[モータの強さ] </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_navigator_8cpp_source.html">Navigator.cpp</a> の <a class="el" href="_navigator_8cpp_source.html#l00012">12</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">int</span> leftAngle = controller.<a class="code" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">getLeftMotorCount</a>();</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordtype">int</span> rightAngle = controller.<a class="code" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">getRightMotorCount</a>();</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">double</span> goalDistance = specifiedValue + distance.<a class="code" href="class_distance.html#ab2d57716464febfa145a892afe35433b">getDistance</a>(leftAngle, rightAngle);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordflow">if</span>(specifiedValue &lt; 0) {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    backward(specifiedValue, goalDistance, -std::abs(pwm));</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    forward(specifiedValue, goalDistance, std::abs(pwm));</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  }</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  controller.<a class="code" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac">setRightMotorPwm</a>(0);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  controller.<a class="code" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a">setLeftMotorPwm</a>(0);</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div><div class="ttc" id="class_controller_html_ac5b49c1fe116fbbd7069bce0100868f0"><div class="ttname"><a href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">Controller::getRightMotorCount</a></div><div class="ttdeci">int getRightMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00133">Controller.cpp:133</a></div></div>
-<div class="ttc" id="class_controller_html_a0806bb9e6dad708398bfcf188d98024a"><div class="ttname"><a href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a">Controller::setLeftMotorPwm</a></div><div class="ttdeci">void setLeftMotorPwm(const int pwm)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00148">Controller.cpp:148</a></div></div>
+<p class="definition"> <a class="el" href="_navigator_8cpp_source.html">Navigator.cpp</a> の <a class="el" href="_navigator_8cpp_source.html#l00022">22</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">int</span> leftAngle = controller.<a class="code" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">getLeftMotorCount</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">int</span> rightAngle = controller.<a class="code" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">getRightMotorCount</a>();</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">double</span> goalDistance = specifiedDistance + distance.<a class="code" href="class_distance.html#ab2d57716464febfa145a892afe35433b">getDistance</a>(leftAngle, rightAngle);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordflow">if</span>(specifiedDistance &lt; 0) {</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">while</span>(hasArrived(goalDistance, <span class="keyword">false</span>)) {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      setPwmValue(static_cast&lt;int&gt;(-std::abs(pwm)));</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">while</span>(hasArrived(goalDistance, <span class="keyword">true</span>)) {</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      setPwmValue(static_cast&lt;int&gt;(std::abs(pwm)));</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  }</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  controller.<a class="code" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">stopMotor</a>();</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div><div class="ttc" id="class_controller_html_ac5b49c1fe116fbbd7069bce0100868f0"><div class="ttname"><a href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">Controller::getRightMotorCount</a></div><div class="ttdeci">int getRightMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00133">Controller.cpp:133</a></div></div>
+<div class="ttc" id="class_controller_html_aed3aaec78fca32625b908bf6b26dcf86"><div class="ttname"><a href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">Controller::stopMotor</a></div><div class="ttdeci">void stopMotor()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00216">Controller.cpp:216</a></div></div>
 <div class="ttc" id="class_controller_html_ae1e791420cc83acd20b4dfc185befc2b"><div class="ttname"><a href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">Controller::getLeftMotorCount</a></div><div class="ttdeci">int getLeftMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00128">Controller.cpp:128</a></div></div>
-<div class="ttc" id="class_controller_html_a78965353ac6b8a5815a5e4b5148267ac"><div class="ttname"><a href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac">Controller::setRightMotorPwm</a></div><div class="ttdeci">void setRightMotorPwm(const int pwm)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00153">Controller.cpp:153</a></div></div>
 <div class="ttc" id="class_distance_html_ab2d57716464febfa145a892afe35433b"><div class="ttname"><a href="class_distance.html#ab2d57716464febfa145a892afe35433b">Distance::getDistance</a></div><div class="ttdeci">double getDistance(int leftAngle, int rightAngle)</div><div class="ttdoc">走行距離を計算して戻り値として返す </div><div class="ttdef"><b>Definition:</b> <a href="_distance_8cpp_source.html#l00010">Distance.cpp:10</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_navigator_abbf56b48c4f42f4d006dd2637927421a_cgraph.png" border="0" usemap="#class_navigator_abbf56b48c4f42f4d006dd2637927421a_cgraph" alt=""/></div>
-<map name="class_navigator_abbf56b48c4f42f4d006dd2637927421a_cgraph" id="class_navigator_abbf56b48c4f42f4d006dd2637927421a_cgraph">
-<area shape="rect" id="node2" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="204,5,381,47"/>
-<area shape="rect" id="node3" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="199,71,386,112"/>
-<area shape="rect" id="node4" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="210,137,375,163"/>
-<area shape="rect" id="node5" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="184,187,401,214"/>
-<area shape="rect" id="node6" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="189,238,397,265"/>
+<div class="center"><img src="class_navigator_ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb_cgraph.png" border="0" usemap="#class_navigator_ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb_cgraph" alt=""/></div>
+<map name="class_navigator_ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb_cgraph" id="class_navigator_ad3e9b0d9bb016b6d7ca0d7cd9f98bbcb_cgraph">
+<area shape="rect" id="node2" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="189,5,366,47"/>
+<area shape="rect" id="node3" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="184,71,371,112"/>
+<area shape="rect" id="node4" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="195,137,360,163"/>
+<area shape="rect" id="node5" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="198,187,357,214"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ace0ed497062e8f9504a26af3b9b8617d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace0ed497062e8f9504a26af3b9b8617d">&#9670;&nbsp;</a></span>moveByPid()</h2>
+<a id="a34f4d70ff245db32fee78e14c1212fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34f4d70ff245db32fee78e14c1212fd8">&#9670;&nbsp;</a></span>moveAtSpecifiedSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Navigator::moveAtSpecifiedSpeed </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>specifiedDistance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>specifiedSpeed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す </p>
+<p>指定した速度で前進と後進をする</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">specifiedDistance</td><td>[移動したい距離(mm)] </td></tr>
+    <tr><td class="paramname">specifiedSpeed</td><td>[移動したい速度] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_navigator_8cpp_source.html">Navigator.cpp</a> の <a class="el" href="_navigator_8cpp_source.html#l00041">41</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">int</span> leftAngle = controller.<a class="code" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">getLeftMotorCount</a>();</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">int</span> rightAngle = controller.<a class="code" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">getRightMotorCount</a>();</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">double</span> goalDistance = specifiedDistance + distance.<a class="code" href="class_distance.html#ab2d57716464febfa145a892afe35433b">getDistance</a>(leftAngle, rightAngle);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="class_speed_control.html">SpeedControl</a> speedControl(controller, specifiedSpeed, pidForSpeed.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a>);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">if</span>(specifiedDistance &lt; 0) {</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">while</span>(hasArrived(goalDistance, <span class="keyword">false</span>)) {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordtype">double</span> pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a>);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      setPwmValue(static_cast&lt;int&gt;(-std::abs(pwm)));</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">while</span>(hasArrived(goalDistance, <span class="keyword">true</span>)) {</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordtype">double</span> pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a>);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      setPwmValue(static_cast&lt;int&gt;(std::abs(pwm)));</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  controller.<a class="code" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">stopMotor</a>();</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div><div class="ttc" id="class_controller_html_ac5b49c1fe116fbbd7069bce0100868f0"><div class="ttname"><a href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">Controller::getRightMotorCount</a></div><div class="ttdeci">int getRightMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00133">Controller.cpp:133</a></div></div>
+<div class="ttc" id="class_controller_html_aed3aaec78fca32625b908bf6b26dcf86"><div class="ttname"><a href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">Controller::stopMotor</a></div><div class="ttdeci">void stopMotor()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00216">Controller.cpp:216</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_a2650d82677c378794a7f0a0e1b58f2ad"><div class="ttname"><a href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">PidGain::Kp</a></div><div class="ttdeci">double Kp</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00011">Pid.h:11</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_ab587119dd4edf489f7765b590252c536"><div class="ttname"><a href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">PidGain::Kd</a></div><div class="ttdeci">double Kd</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00013">Pid.h:13</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_a1de2cd775c0c61114683b197c50d4221"><div class="ttname"><a href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">PidGain::Ki</a></div><div class="ttdeci">double Ki</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00012">Pid.h:12</a></div></div>
+<div class="ttc" id="class_controller_html_ae1e791420cc83acd20b4dfc185befc2b"><div class="ttname"><a href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">Controller::getLeftMotorCount</a></div><div class="ttdeci">int getLeftMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00128">Controller.cpp:128</a></div></div>
+<div class="ttc" id="class_speed_control_html"><div class="ttname"><a href="class_speed_control.html">SpeedControl</a></div><div class="ttdef"><b>Definition:</b> <a href="_speed_control_8h_source.html#l00013">SpeedControl.h:13</a></div></div>
+<div class="ttc" id="class_distance_html_ab2d57716464febfa145a892afe35433b"><div class="ttname"><a href="class_distance.html#ab2d57716464febfa145a892afe35433b">Distance::getDistance</a></div><div class="ttdeci">double getDistance(int leftAngle, int rightAngle)</div><div class="ttdoc">走行距離を計算して戻り値として返す </div><div class="ttdef"><b>Definition:</b> <a href="_distance_8cpp_source.html#l00010">Distance.cpp:10</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_navigator_a34f4d70ff245db32fee78e14c1212fd8_cgraph.png" border="0" usemap="#class_navigator_a34f4d70ff245db32fee78e14c1212fd8_cgraph" alt=""/></div>
+<map name="class_navigator_a34f4d70ff245db32fee78e14c1212fd8_cgraph" id="class_navigator_a34f4d70ff245db32fee78e14c1212fd8_cgraph">
+<area shape="rect" id="node2" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="526,5,703,47"/>
+<area shape="rect" id="node3" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="521,71,708,112"/>
+<area shape="rect" id="node4" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="532,238,697,265"/>
+<area shape="rect" id="node5" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="257,135,473,162"/>
+<area shape="rect" id="node11" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="286,237,445,263"/>
+<area shape="rect" id="node6" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="546,187,683,214"/>
+<area shape="rect" id="node9" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="567,137,662,163"/>
+<area shape="rect" id="node7" href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="756,187,876,214"/>
+<area shape="rect" id="node8" href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="924,187,1075,214"/>
+<area shape="rect" id="node10" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="776,137,856,163"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad6ded27d59d752cd9c51fe5dd525a9e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ded27d59d752cd9c51fe5dd525a9e3">&#9670;&nbsp;</a></span>moveAtSpecifiedSpeedByPid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Navigator::moveAtSpecifiedSpeedByPid </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>specifiedDistance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>specifiedSpeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>pGain</em> = <code>0.6</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>iGain</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>dGain</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>PID制御を用いて両輪の回転量が等しくなるように指定された速度で前進または後進する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">specifiedDistance</td><td>[移動したい距離(mm)。正なら前進、負なら後進] </td></tr>
+    <tr><td class="paramname">specifiedSpeed</td><td>[移動したい速度] </td></tr>
+    <tr><td class="paramname">pGain</td><td>[PID制御のPゲイン] </td></tr>
+    <tr><td class="paramname">iGain</td><td>[PID制御のIゲイン] </td></tr>
+    <tr><td class="paramname">dGain</td><td>[PID制御のDゲイン] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="_navigator_8cpp_source.html">Navigator.cpp</a> の <a class="el" href="_navigator_8cpp_source.html#l00088">88</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">int</span> leftAngle = controller.<a class="code" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">getLeftMotorCount</a>();</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordtype">int</span> rightAngle = controller.<a class="code" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">getRightMotorCount</a>();</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordtype">double</span> goalDistance = specifiedDistance + distance.<a class="code" href="class_distance.html#ab2d57716464febfa145a892afe35433b">getDistance</a>(leftAngle, rightAngle);</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">// 右車輪の回転量 - 左車輪の回転量</span></div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="comment">// 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる</span></div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="class_pid.html">Pid</a> pid(pGain, iGain, dGain);</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordtype">double</span> alpha = pid.control(rightAngle - leftAngle);</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <a class="code" href="class_speed_control.html">SpeedControl</a> speedControl(controller, specifiedSpeed, pidForSpeed.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a>);</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">if</span>(specifiedDistance &lt; 0) {</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">while</span>(hasArrived(goalDistance, <span class="keyword">false</span>)) {</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keywordtype">double</span> pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a>);</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      setPwmValue(static_cast&lt;int&gt;(-std::abs(pwm)), alpha);</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">while</span>(hasArrived(goalDistance, <span class="keyword">true</span>)) {</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keywordtype">double</span> pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a>, pidForSpeed.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a>);</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      setPwmValue(static_cast&lt;int&gt;(std::abs(pwm)), alpha);</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  }</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  controller.<a class="code" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">stopMotor</a>();</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div><div class="ttc" id="class_controller_html_ac5b49c1fe116fbbd7069bce0100868f0"><div class="ttname"><a href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">Controller::getRightMotorCount</a></div><div class="ttdeci">int getRightMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00133">Controller.cpp:133</a></div></div>
+<div class="ttc" id="class_controller_html_aed3aaec78fca32625b908bf6b26dcf86"><div class="ttname"><a href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">Controller::stopMotor</a></div><div class="ttdeci">void stopMotor()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00216">Controller.cpp:216</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_a2650d82677c378794a7f0a0e1b58f2ad"><div class="ttname"><a href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">PidGain::Kp</a></div><div class="ttdeci">double Kp</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00011">Pid.h:11</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_ab587119dd4edf489f7765b590252c536"><div class="ttname"><a href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">PidGain::Kd</a></div><div class="ttdeci">double Kd</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00013">Pid.h:13</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_a1de2cd775c0c61114683b197c50d4221"><div class="ttname"><a href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">PidGain::Ki</a></div><div class="ttdeci">double Ki</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00012">Pid.h:12</a></div></div>
+<div class="ttc" id="class_controller_html_ae1e791420cc83acd20b4dfc185befc2b"><div class="ttname"><a href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">Controller::getLeftMotorCount</a></div><div class="ttdeci">int getLeftMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00128">Controller.cpp:128</a></div></div>
+<div class="ttc" id="class_speed_control_html"><div class="ttname"><a href="class_speed_control.html">SpeedControl</a></div><div class="ttdef"><b>Definition:</b> <a href="_speed_control_8h_source.html#l00013">SpeedControl.h:13</a></div></div>
+<div class="ttc" id="class_pid_html"><div class="ttname"><a href="class_pid.html">Pid</a></div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00018">Pid.h:18</a></div></div>
+<div class="ttc" id="class_distance_html_ab2d57716464febfa145a892afe35433b"><div class="ttname"><a href="class_distance.html#ab2d57716464febfa145a892afe35433b">Distance::getDistance</a></div><div class="ttdeci">double getDistance(int leftAngle, int rightAngle)</div><div class="ttdoc">走行距離を計算して戻り値として返す </div><div class="ttdef"><b>Definition:</b> <a href="_distance_8cpp_source.html#l00010">Distance.cpp:10</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_navigator_ad6ded27d59d752cd9c51fe5dd525a9e3_cgraph.png" border="0" usemap="#class_navigator_ad6ded27d59d752cd9c51fe5dd525a9e3_cgraph" alt=""/></div>
+<map name="class_navigator_ad6ded27d59d752cd9c51fe5dd525a9e3_cgraph" id="class_navigator_ad6ded27d59d752cd9c51fe5dd525a9e3_cgraph">
+<area shape="rect" id="node2" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="527,5,705,47"/>
+<area shape="rect" id="node3" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="523,71,709,112"/>
+<area shape="rect" id="node4" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="533,187,699,214"/>
+<area shape="rect" id="node5" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="569,238,663,265"/>
+<area shape="rect" id="node7" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="258,137,474,163"/>
+<area shape="rect" id="node11" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="287,289,445,315"/>
+<area shape="rect" id="node12" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="257,339,475,366"/>
+<area shape="rect" id="node13" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="262,390,470,417"/>
+<area shape="rect" id="node14" href="class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="297,441,435,467"/>
+<area shape="rect" id="node6" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="777,238,857,265"/>
+<area shape="rect" id="node8" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="547,137,685,163"/>
+<area shape="rect" id="node9" href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="757,137,877,163"/>
+<area shape="rect" id="node10" href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="925,137,1076,163"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a093d0d47cdd93208f27301a02638b35e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a093d0d47cdd93208f27301a02638b35e">&#9670;&nbsp;</a></span>moveByPid()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +385,7 @@ Navigator 連携図</div>
           <td class="memname">void Navigator::moveByPid </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>specifiedValue</em>, </td>
+          <td class="paramname"><em>specifiedDistance</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -233,7 +422,7 @@ Navigator 連携図</div>
 <p>PID制御を用いて両輪の回転量が等しくなるように前進または後進する </p>
 <p>move関数に統合する？ また、IおよびDゲインも指定できるようにする？ </p><dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">specifiedValue</td><td>[移動したい距離(mm)。正なら前進、負なら後進] </td></tr>
+    <tr><td class="paramname">specifiedDistance</td><td>[移動したい距離(mm)。正なら前進、負なら後進] </td></tr>
     <tr><td class="paramname">pwm</td><td>[モータの強さ] </td></tr>
     <tr><td class="paramname">pGain</td><td>[PID制御のPゲイン] </td></tr>
     <tr><td class="paramname">iGain</td><td>[PID制御のIゲイン] </td></tr>
@@ -243,29 +432,76 @@ Navigator 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_navigator_8cpp_source.html">Navigator.cpp</a> の <a class="el" href="_navigator_8cpp_source.html#l00028">28</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">int</span> leftAngle = controller.<a class="code" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">getLeftMotorCount</a>();</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">int</span> rightAngle = controller.<a class="code" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">getRightMotorCount</a>();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">double</span> goalDistance = specifiedValue + distance.<a class="code" href="class_distance.html#ab2d57716464febfa145a892afe35433b">getDistance</a>(leftAngle, rightAngle);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">// 右車輪の回転量 - 左車輪の回転量</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">// 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="class_pid.html">Pid</a> pid(pGain, iGain, dGain);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">double</span> alpha = pid.control(rightAngle - leftAngle);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">if</span>(specifiedValue &lt; 0) {</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    backward(specifiedValue, goalDistance, -std::abs(pwm), alpha);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    forward(specifiedValue, goalDistance, std::abs(pwm), alpha);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  }</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  controller.<a class="code" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac">setRightMotorPwm</a>(0);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  controller.<a class="code" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a">setLeftMotorPwm</a>(0);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div><div class="ttc" id="class_controller_html_ac5b49c1fe116fbbd7069bce0100868f0"><div class="ttname"><a href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">Controller::getRightMotorCount</a></div><div class="ttdeci">int getRightMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00133">Controller.cpp:133</a></div></div>
-<div class="ttc" id="class_controller_html_a0806bb9e6dad708398bfcf188d98024a"><div class="ttname"><a href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a">Controller::setLeftMotorPwm</a></div><div class="ttdeci">void setLeftMotorPwm(const int pwm)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00148">Controller.cpp:148</a></div></div>
+<p class="definition"> <a class="el" href="_navigator_8cpp_source.html">Navigator.cpp</a> の <a class="el" href="_navigator_8cpp_source.html#l00063">63</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">int</span> leftAngle = controller.<a class="code" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">getLeftMotorCount</a>();</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">int</span> rightAngle = controller.<a class="code" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">getRightMotorCount</a>();</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">double</span> goalDistance = specifiedDistance + distance.<a class="code" href="class_distance.html#ab2d57716464febfa145a892afe35433b">getDistance</a>(leftAngle, rightAngle);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="comment">// 右車輪の回転量 - 左車輪の回転量</span></div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="comment">// 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる</span></div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="class_pid.html">Pid</a> pid(pGain, iGain, dGain);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">double</span> alpha = pid.control(rightAngle - leftAngle);</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordflow">if</span>(specifiedDistance &lt; 0) {</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">while</span>(hasArrived(goalDistance, <span class="keyword">false</span>)) {</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      setPwmValue(static_cast&lt;int&gt;(-std::abs(pwm)), alpha);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">while</span>(hasArrived(goalDistance, <span class="keyword">true</span>)) {</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      setPwmValue(static_cast&lt;int&gt;(std::abs(pwm)), alpha);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  }</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  controller.<a class="code" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">stopMotor</a>();</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div><div class="ttc" id="class_controller_html_ac5b49c1fe116fbbd7069bce0100868f0"><div class="ttname"><a href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0">Controller::getRightMotorCount</a></div><div class="ttdeci">int getRightMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00133">Controller.cpp:133</a></div></div>
+<div class="ttc" id="class_controller_html_aed3aaec78fca32625b908bf6b26dcf86"><div class="ttname"><a href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">Controller::stopMotor</a></div><div class="ttdeci">void stopMotor()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00216">Controller.cpp:216</a></div></div>
 <div class="ttc" id="class_controller_html_ae1e791420cc83acd20b4dfc185befc2b"><div class="ttname"><a href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b">Controller::getLeftMotorCount</a></div><div class="ttdeci">int getLeftMotorCount()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00128">Controller.cpp:128</a></div></div>
-<div class="ttc" id="class_controller_html_a78965353ac6b8a5815a5e4b5148267ac"><div class="ttname"><a href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac">Controller::setRightMotorPwm</a></div><div class="ttdeci">void setRightMotorPwm(const int pwm)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00153">Controller.cpp:153</a></div></div>
 <div class="ttc" id="class_pid_html"><div class="ttname"><a href="class_pid.html">Pid</a></div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00018">Pid.h:18</a></div></div>
 <div class="ttc" id="class_distance_html_ab2d57716464febfa145a892afe35433b"><div class="ttname"><a href="class_distance.html#ab2d57716464febfa145a892afe35433b">Distance::getDistance</a></div><div class="ttdeci">double getDistance(int leftAngle, int rightAngle)</div><div class="ttdoc">走行距離を計算して戻り値として返す </div><div class="ttdef"><b>Definition:</b> <a href="_distance_8cpp_source.html#l00010">Distance.cpp:10</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_navigator_ace0ed497062e8f9504a26af3b9b8617d_cgraph.png" border="0" usemap="#class_navigator_ace0ed497062e8f9504a26af3b9b8617d_cgraph" alt=""/></div>
-<map name="class_navigator_ace0ed497062e8f9504a26af3b9b8617d_cgraph" id="class_navigator_ace0ed497062e8f9504a26af3b9b8617d_cgraph">
-<area shape="rect" id="node2" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="241,5,419,47"/>
-<area shape="rect" id="node3" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="237,71,423,112"/>
-<area shape="rect" id="node4" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="247,137,413,163"/>
-<area shape="rect" id="node5" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="283,187,377,214"/>
-<area shape="rect" id="node7" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="221,238,439,265"/>
-<area shape="rect" id="node8" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="226,289,434,315"/>
-<area shape="rect" id="node9" href="class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="261,339,399,366"/>
-<area shape="rect" id="node6" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="487,187,567,214"/>
+<div class="center"><img src="class_navigator_a093d0d47cdd93208f27301a02638b35e_cgraph.png" border="0" usemap="#class_navigator_a093d0d47cdd93208f27301a02638b35e_cgraph" alt=""/></div>
+<map name="class_navigator_a093d0d47cdd93208f27301a02638b35e_cgraph" id="class_navigator_a093d0d47cdd93208f27301a02638b35e_cgraph">
+<area shape="rect" id="node2" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="226,5,403,47"/>
+<area shape="rect" id="node3" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="221,71,408,112"/>
+<area shape="rect" id="node4" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="232,137,397,163"/>
+<area shape="rect" id="node5" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="267,187,362,214"/>
+<area shape="rect" id="node7" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="235,238,394,265"/>
+<area shape="rect" id="node6" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="456,187,536,214"/>
 </map>
 </div>
 
+</div>
+</div>
+<a id="ae957bc98e8392761e5a6132068dabfab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae957bc98e8392761e5a6132068dabfab">&#9670;&nbsp;</a></span>setPidGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Navigator::setPidGain </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Kp_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Ki_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Kd_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SpeedControl用のPidゲインのセッター </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Kp_</td><td>[SpeedControl用のPゲイン] </td></tr>
+    <tr><td class="paramname">Ki_</td><td>[SpeedControl用のIゲイン] </td></tr>
+    <tr><td class="paramname">Kd_</td><td>[SpeedControl用のDゲイン] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_navigator_8cpp_source.html">Navigator.cpp</a> の <a class="el" href="_navigator_8cpp_source.html#l00015">15</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  pidForSpeed.<a class="code" href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">Kp</a> = Kp_;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  pidForSpeed.<a class="code" href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">Ki</a> = Ki_;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  pidForSpeed.<a class="code" href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">Kd</a> = Kd_;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div><div class="ttc" id="struct_pid_gain_html_a2650d82677c378794a7f0a0e1b58f2ad"><div class="ttname"><a href="struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad">PidGain::Kp</a></div><div class="ttdeci">double Kp</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00011">Pid.h:11</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_ab587119dd4edf489f7765b590252c536"><div class="ttname"><a href="struct_pid_gain.html#ab587119dd4edf489f7765b590252c536">PidGain::Kd</a></div><div class="ttdeci">double Kd</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00013">Pid.h:13</a></div></div>
+<div class="ttc" id="struct_pid_gain_html_a1de2cd775c0c61114683b197c50d4221"><div class="ttname"><a href="struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221">PidGain::Ki</a></div><div class="ttdeci">double Ki</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8h_source.html#l00012">Pid.h:12</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
