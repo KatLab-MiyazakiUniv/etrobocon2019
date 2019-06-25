@@ -81,9 +81,7 @@ class Navigator {
  private:
   Distance distance;
   Controller& controller;
-  double KpForSpeed;
-  double KiForSpeed;
-  double KdForSpeed;
+  PidGain pidForSpeed;
   /**
    * 指定した距離動いたか判定する
    * @brief 現在値とgoalDistanceを比較し、resultに"true"か"false"を格納する

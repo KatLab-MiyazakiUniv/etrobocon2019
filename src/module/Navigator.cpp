@@ -8,15 +8,15 @@
 #include "Navigator.h"
 
 Navigator::Navigator(Controller& controller_, double Kp_, double Ki_, double Kd_)
-  : distance(), controller(controller_), KpForSpeed(Kp_), KiForSpeed(Ki_), KdForSpeed(Kd_)
+  : distance(), controller(controller_), pidForSpeed(Kp_, Ki_, Kd_)
 {
 }
 
 void Navigator::setPidGain(double Kp_, double Ki_, double Kd_)
 {
-  KpForSpeed = Kp_;
-  KiForSpeed = Ki_;
-  KdForSpeed = Kd_;
+  pidForSpeed.Kp = Kp_;
+  pidForSpeed.Ki = Ki_;
+  pidForSpeed.Kd = Kd_;
 }
 
 void Navigator::move(double specifiedDistance, int pwm)
@@ -44,16 +44,16 @@ void Navigator::moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpee
   int rightAngle = controller.getRightMotorCount();
   double goalDistance = specifiedDistance + distance.getDistance(leftAngle, rightAngle);
 
-  SpeedControl speedControl(controller, specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+  SpeedControl speedControl(controller, specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
 
   if(specifiedDistance < 0) {
     while(hasArrived(goalDistance, false)) {
-      double pwm = speedControl.calculateSpeed(specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
       setPwmValue(static_cast<int>(-std::abs(pwm)));
     }
   } else {
     while(hasArrived(goalDistance, true)) {
-      double pwm = speedControl.calculateSpeed(specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
       setPwmValue(static_cast<int>(std::abs(pwm)));
     }
   }
@@ -98,16 +98,16 @@ void Navigator::moveAtSpecifiedSpeedByPid(double specifiedDistance, int specifie
   Pid pid(pGain, iGain, dGain);
   double alpha = pid.control(rightAngle - leftAngle);
 
-  SpeedControl speedControl(controller, specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+  SpeedControl speedControl(controller, specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
 
   if(specifiedDistance < 0) {
     while(hasArrived(goalDistance, false)) {
-      double pwm = speedControl.calculateSpeed(specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
       setPwmValue(static_cast<int>(-std::abs(pwm)), alpha);
     }
   } else {
     while(hasArrived(goalDistance, true)) {
-      double pwm = speedControl.calculateSpeed(specifiedSpeed, KpForSpeed, KiForSpeed, KdForSpeed);
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki, pidForSpeed.Kd);
       setPwmValue(static_cast<int>(std::abs(pwm)), alpha);
     }
   }
