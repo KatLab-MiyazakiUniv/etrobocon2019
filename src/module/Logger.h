@@ -9,7 +9,6 @@
 #include <cstdio>
 #include <cstdarg>
 #include <cassert>
-#include <string>
 #include <type_traits>
 
 namespace LogFile {
@@ -61,7 +60,7 @@ namespace LogFile {
 
     /**
      * @brief 文字列を出力ファイルに書き込む
-     * @detail Usage: foo << "aa" << "bb" (自動的にデリミタ―と改行が挿入される)
+     * @detail Usage: foo << "aa" << "bb" (自動的にデリミターと改行が挿入される)
      * @param stringLiteral [文字列型（const char*)]
      */
     template <typename T,
@@ -82,19 +81,14 @@ class Logger {
  public:
   /**
    * @brief ファイルポインターを確保するコンストラクター
-   * @param mode [ファイルの書き込みモード（デフォルトでは追記）]
+   * @param mode [ファイルの書き込みモード（デフォルトでは新規書き込み）]
    */
-  Logger(const char* mode = "a");
+  Logger(const char* fileName = "log.csv", const char* mode = "w");
 
   /**
    * @brief ファイルポインターを解放するデストラクター
    */
   ~Logger();
-
-  /**
-   * @brief 出力ファイル名を返す
-   */
-  std::string getFileName();
 
   /**
    * @brief 指定したデータを出力ファイルに書き込む
