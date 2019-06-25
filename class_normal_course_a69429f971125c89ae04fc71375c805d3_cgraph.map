@@ -5,7 +5,7 @@
 <area shape="rect" id="node4" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="835,57,1013,98"/>
 <area shape="rect" id="node5" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="831,122,1017,163"/>
 <area shape="rect" id="node6" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="566,164,782,191"/>
-<area shape="rect" id="node12" href="$class_turn_control.html#a06c881f1596ee9dbe992cac664025c58" title="旋回値を計算する関数 " alt="" coords="579,215,769,241"/>
+<area shape="rect" id="node12" href="$class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="579,215,769,241"/>
 <area shape="rect" id="node13" href="$class_controller.html#a592fca2802b9cea70ef24eba17db7ec8" title="Controller::getBrightness" alt="" coords="582,265,766,292"/>
 <area shape="rect" id="node14" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="570,316,778,343"/>
 <area shape="rect" id="node15" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="565,367,783,393"/>

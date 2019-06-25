@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">c3dfe6c6bbe22b2fa4740b28e1bc26a639645b2d</span>
+   &#160;<span id="projectnumber">b3917c5ed938ad0c2e21a791ed7d624efe1c3ec2</span>
    </div>
   </td>
  </tr>
@@ -80,9 +80,9 @@ TurnControl 連携図</div>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:ae492d3a93446b94e889c90633447ab94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_control.html#ae492d3a93446b94e889c90633447ab94">TurnControl</a> (int targetBrightness, double Kp, double Ki, double Kd)</td></tr>
 <tr class="separator:ae492d3a93446b94e889c90633447ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06c881f1596ee9dbe992cac664025c58"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_control.html#a06c881f1596ee9dbe992cac664025c58">calculateTurn</a> (int currentBrightness, int targetBrightness, double Kp, double Ki, double Kd)</td></tr>
-<tr class="memdesc:a06c881f1596ee9dbe992cac664025c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">旋回値を計算する関数  <a href="#a06c881f1596ee9dbe992cac664025c58">[詳解]</a><br /></td></tr>
-<tr class="separator:a06c881f1596ee9dbe992cac664025c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f4fe7ad0c56bf5e01ee1f4caf9fb404"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404">calculateTurn</a> (int forward, int currentBrightness, int targetBrightness, double Kp, double Ki, double Kd)</td></tr>
+<tr class="memdesc:a7f4fe7ad0c56bf5e01ee1f4caf9fb404"><td class="mdescLeft">&#160;</td><td class="mdescRight">旋回値を計算する関数  <a href="#a7f4fe7ad0c56bf5e01ee1f4caf9fb404">[詳解]</a><br /></td></tr>
+<tr class="separator:a7f4fe7ad0c56bf5e01ee1f4caf9fb404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock">
@@ -140,8 +140,8 @@ TurnControl 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="a06c881f1596ee9dbe992cac664025c58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06c881f1596ee9dbe992cac664025c58">&#9670;&nbsp;</a></span>calculateTurn()</h2>
+<a id="a7f4fe7ad0c56bf5e01ee1f4caf9fb404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f4fe7ad0c56bf5e01ee1f4caf9fb404">&#9670;&nbsp;</a></span>calculateTurn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,6 +149,12 @@ TurnControl 連携図</div>
         <tr>
           <td class="memname">double TurnControl::calculateTurn </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>forward</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>currentBrightness</em>, </td>
         </tr>
@@ -185,7 +191,7 @@ TurnControl 連携図</div>
 </div><div class="memdoc">
 
 <p>旋回値を計算する関数 </p>
-<p>[<a class="el" href="class_turn_control.html#a06c881f1596ee9dbe992cac664025c58" title="旋回値を計算する関数 ">TurnControl::calculateTurn</a>] </p><dl class="params"><dt>引数</dt><dd>
+<p>[<a class="el" href="class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 ">TurnControl::calculateTurn</a>] </p><dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">currentBrightness</td><td>[現在の光センサー値] </td></tr>
     <tr><td class="paramname">tragetBrightness</td><td>[目標の光センサー値] </td></tr>
@@ -198,13 +204,13 @@ TurnControl 連携図</div>
 <dl class="section return"><dt>戻り値</dt><dd>[旋回値] </dd></dl>
 
 <p class="definition"> <a class="el" href="_turn_control_8cpp_source.html">TurnControl.cpp</a> の <a class="el" href="_turn_control_8cpp_source.html#l00030">30</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">// pidの値を更新(パラメータに変更がなくても更新する)</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  pid.<a class="code" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88">setParameter</a>(static_cast&lt;double&gt;(targetBrightness), Kp, Ki, Kd);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordflow">return</span> pid.<a class="code" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b">control</a>(static_cast&lt;double&gt;(currentBrightness));</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div><div class="ttc" id="class_pid_html_afed28045449cfb8f565ffb11b443dc88"><div class="ttname"><a href="class_pid.html#afed28045449cfb8f565ffb11b443dc88">Pid::setParameter</a></div><div class="ttdeci">const double setParameter(double target_, double Kp_, double Ki_=0.0, double Kd_=0.0)</div><div class="ttdoc">目標値とPIDゲインの設定をする関数 </div><div class="ttdef"><b>Definition:</b> <a href="_pid_8cpp_source.html#l00058">Pid.cpp:58</a></div></div>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">// pidの値を更新(パラメータに変更がなくても更新する)</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  pid.<a class="code" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88">setParameter</a>(static_cast&lt;double&gt;(targetBrightness), Kp, Ki, Kd);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">auto</span> pidValue = pid.<a class="code" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b">control</a>(static_cast&lt;double&gt;(currentBrightness));</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">double</span> forwardPercent = forward / 100.0;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordflow">return</span> pidValue * forwardPercent;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div><div class="ttc" id="class_pid_html_afed28045449cfb8f565ffb11b443dc88"><div class="ttname"><a href="class_pid.html#afed28045449cfb8f565ffb11b443dc88">Pid::setParameter</a></div><div class="ttdeci">const double setParameter(double target_, double Kp_, double Ki_=0.0, double Kd_=0.0)</div><div class="ttdoc">目標値とPIDゲインの設定をする関数 </div><div class="ttdef"><b>Definition:</b> <a href="_pid_8cpp_source.html#l00058">Pid.cpp:58</a></div></div>
 <div class="ttc" id="class_pid_html_a7e50b0cc4372d927904e50f0d177ee3b"><div class="ttname"><a href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b">Pid::control</a></div><div class="ttdeci">double control(double value, double delta=0.004)</div><div class="ttdef"><b>Definition:</b> <a href="_pid_8cpp_source.html#l00028">Pid.cpp:28</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_turn_control_a06c881f1596ee9dbe992cac664025c58_cgraph.png" border="0" usemap="#class_turn_control_a06c881f1596ee9dbe992cac664025c58_cgraph" alt=""/></div>
-<map name="class_turn_control_a06c881f1596ee9dbe992cac664025c58_cgraph" id="class_turn_control_a06c881f1596ee9dbe992cac664025c58_cgraph">
+<div class="center"><img src="class_turn_control_a7f4fe7ad0c56bf5e01ee1f4caf9fb404_cgraph.png" border="0" usemap="#class_turn_control_a7f4fe7ad0c56bf5e01ee1f4caf9fb404_cgraph" alt=""/></div>
+<map name="class_turn_control_a7f4fe7ad0c56bf5e01ee1f4caf9fb404_cgraph" id="class_turn_control_a7f4fe7ad0c56bf5e01ee1f4caf9fb404_cgraph">
 <area shape="rect" id="node2" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="244,5,381,32"/>
 <area shape="rect" id="node5" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="265,56,360,83"/>
 <area shape="rect" id="node3" href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="429,5,549,32"/>
@@ -215,8 +221,8 @@ TurnControl 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_turn_control_a06c881f1596ee9dbe992cac664025c58_icgraph.png" border="0" usemap="#class_turn_control_a06c881f1596ee9dbe992cac664025c58_icgraph" alt=""/></div>
-<map name="class_turn_control_a06c881f1596ee9dbe992cac664025c58_icgraph" id="class_turn_control_a06c881f1596ee9dbe992cac664025c58_icgraph">
+<div class="center"><img src="class_turn_control_a7f4fe7ad0c56bf5e01ee1f4caf9fb404_icgraph.png" border="0" usemap="#class_turn_control_a7f4fe7ad0c56bf5e01ee1f4caf9fb404_icgraph" alt=""/></div>
+<map name="class_turn_control_a7f4fe7ad0c56bf5e01ee1f4caf9fb404_icgraph" id="class_turn_control_a7f4fe7ad0c56bf5e01ee1f4caf9fb404_icgraph">
 <area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="244,5,361,32"/>
 <area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="409,5,647,32"/>
 <area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="695,5,855,32"/>

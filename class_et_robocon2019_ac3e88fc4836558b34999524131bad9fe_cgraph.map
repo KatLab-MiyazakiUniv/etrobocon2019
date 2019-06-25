@@ -21,7 +21,7 @@
 <area shape="rect" id="node21" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="1009,439,1186,480"/>
 <area shape="rect" id="node22" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="1004,504,1191,545"/>
 <area shape="rect" id="node23" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="735,493,951,519"/>
-<area shape="rect" id="node29" href="$class_turn_control.html#a06c881f1596ee9dbe992cac664025c58" title="旋回値を計算する関数 " alt="" coords="747,594,938,621"/>
+<area shape="rect" id="node29" href="$class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="747,594,938,621"/>
 <area shape="rect" id="node30" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="739,645,947,671"/>
 <area shape="rect" id="node31" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="734,695,951,722"/>
 <area shape="rect" id="node24" href="$class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="1029,570,1166,597"/>
