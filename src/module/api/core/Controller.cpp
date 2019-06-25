@@ -2,99 +2,219 @@
 #include "Controller.h"
 
 Controller::Controller()
-    : touchSensor(PORT_1),
-      colorSensor(PORT_3),
-      liftMotor(PORT_A),
-      rightWheel(PORT_B),
-      leftWheel(PORT_C),
-      tailMotor(PORT_D) {
+  : touchSensor(PORT_1),
+    colorSensor(PORT_3),
+    liftMotor(PORT_A),
+    rightWheel(PORT_B),
+    leftWheel(PORT_C),
+    tailMotor(PORT_D)
+{
   colorSensor.getRawColor(rgb);
 }
 
-void Controller::speakerSetVolume(int volume) {
+void Controller::speakerSetVolume(int volume)
+{
   ev3_speaker_set_volume(volume);
 }
 
-void Controller::speakerPlayToneFS6(int duration) {
+void Controller::speakerPlayToneFS6(int duration)
+{
   ev3_speaker_play_tone(NOTE_FS6, duration);
 }
 
-void Controller::ledSetColorOrange() { ev3_led_set_color(LED_ORANGE); }
+void Controller::ledSetColorOrange()
+{
+  ev3_led_set_color(LED_ORANGE);
+}
 
-void Controller::ledSetColorGreen() { ev3_led_set_color(LED_GREEN); }
+void Controller::ledSetColorGreen()
+{
+  ev3_led_set_color(LED_GREEN);
+}
 
-bool Controller::buttonIsPressedBack() {
+bool Controller::buttonIsPressedBack()
+{
   return ev3_button_is_pressed(BACK_BUTTON);
 }
 
-bool Controller::buttonIsPressedEnter() {
+bool Controller::buttonIsPressedEnter()
+{
   return ev3_button_is_pressed(ENTER_BUTTON);
 }
 
-bool Controller::buttonIsPressedUp() {
+bool Controller::buttonIsPressedUp()
+{
   return ev3_button_is_pressed(UP_BUTTON);
 }
 
-bool Controller::buttonIsPressedDown() {
+bool Controller::buttonIsPressedDown()
+{
   return ev3_button_is_pressed(DOWN_BUTTON);
 }
 
-bool Controller::buttonIsPressedRight() {
+bool Controller::buttonIsPressedRight()
+{
   return ev3_button_is_pressed(RIGHT_BUTTON);
 }
 
-bool Controller::buttonIsPressedLeft() {
+bool Controller::buttonIsPressedLeft()
+{
   return ev3_button_is_pressed(LEFT_BUTTON);
 }
 
-float Controller::getBatteryVoltage() { return ev3_battery_voltage_mV(); }
+float Controller::getBatteryVoltage()
+{
+  return ev3_battery_voltage_mV();
+}
 
-int Controller::getBrightness() {
+int Controller::getBrightness()
+{
   colorSensor.getRawColor(rgb);
   int luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;
   return luminance;
 }
 
-void Controller::getRawColor(int& r, int& g, int& b) {
+void Controller::getRawColor(int& r, int& g, int& b)
+{
   colorSensor.getRawColor(rgb);
   r = rgb.r;
   g = rgb.g;
   b = rgb.b;
 }
 
-void Controller::tslpTsk(int time) { tslp_tsk(time); }
+Color Controller::hsvToColor(HsvStatus hsv)
+{
+  // 白黒の識別
+  if(hsv.value < 13.0) {
+    return Color::black;
+  } else if(hsv.value > 50.0) {
+    return Color::white;
+  }
 
-void Controller::lcdFillRect(int x, int y, int h) {
+  // 赤緑青黃の識別
+  if(hsv.hue < 30) {
+    return Color::red;
+  } else if(hsv.hue < 80.0) {
+    return Color::yellow;
+  } else if(hsv.hue < 160.0) {
+    return Color::green;
+  } else if(hsv.hue < 300.0) {
+    return Color::blue;
+  } else {
+    return Color::red;
+  }
+}
+
+void Controller::tslpTsk(int time)
+{
+  tslp_tsk(time);
+}
+
+void Controller::lcdFillRect(int x, int y, int h)
+{
   ev3_lcd_fill_rect(x, y, EV3_LCD_WIDTH, h, EV3_LCD_WHITE);
 }
 
-void Controller::lcdDrawString(const char* str, int x, int y) {
+void Controller::lcdDrawString(const char* str, int x, int y)
+{
   ev3_lcd_draw_string(str, x, y);
 }
 
-void Controller::lcdSetFont() { ev3_lcd_set_font(EV3_FONT_SMALL); }
+void Controller::lcdSetFont()
+{
+  ev3_lcd_set_font(EV3_FONT_SMALL);
+}
 
-int Controller::getLeftMotorCount(){
+int Controller::getLeftMotorCount()
+{
   return leftWheel.getCount();
 }
 
-int Controller::getRightMotorCount(){
+int Controller::getRightMotorCount()
+{
   return rightWheel.getCount();
 }
 
-int Controller::suppressPwmValue(const int value){
-  if(value > MOTOR_PWM_MAX){
+int Controller::suppressPwmValue(const int value)
+{
+  if(value > MOTOR_PWM_MAX) {
     return MOTOR_PWM_MAX;
-  }else if(value < MOTOR_PWM_MIN){
+  } else if(value < MOTOR_PWM_MIN) {
     return MOTOR_PWM_MIN;
   }
   return value;
 }
 
-void Controller::setLeftMotorPwm(const int pwm){
+void Controller::setLeftMotorPwm(const int pwm)
+{
   leftWheel.setPWM(suppressPwmValue(pwm));
 }
 
-void Controller::setRightMotorPwm(const int pwm){
+void Controller::setRightMotorPwm(const int pwm)
+{
   rightWheel.setPWM(suppressPwmValue(pwm));
+}
+
+void Controller::convertHsv(int& r, int& g, int& b)
+{
+  // r,g,bの最大値を求める
+  double max = r;
+  if(max < g) max = g;
+  if(max < b) max = b;
+
+  // r,g,bの最小値を求める
+  double min = r;
+  if(min > g) min = g;
+  if(min > b) min = b;
+
+  // 色相(hue)を求める
+
+  // 3つが同値の時は色相(hue)は０
+  if(r == g && r == b) hsv.hue = 0;
+
+  // rが最大値の場合
+  else if(max == r) {
+    // 0除算を防ぐ処理
+    if(max - min != 0) max += 1;
+    hsv.hue = 60 * ((g - b) / (max - min));
+  }
+  // gが最大値の場合
+  else if(max == g) {
+    // 0除算を防ぐ処理
+    if(max - min != 0) max += 1;
+    hsv.hue = 60 * ((b - r) / (max - min)) + 120;
+  }
+  // bが最大値の場合
+  else if(max == b) {
+    // 0除算を防ぐ処理
+    if(max - min != 0) max += 1;
+    hsv.hue = 60 * ((r - g) / (max - min)) + 240;
+  }
+  //求められた色彩(hue)がマイナス値だった場合は360を加算して0～360の範囲に収める
+  if(hsv.hue < 0) hsv.hue += 360;
+
+  // 0除算を防ぐ処理
+  if(max - min != 0) max += 1;
+
+  // 彩度(saturation)を求める
+  hsv.saturation = (max - min) / max * 100;
+
+  // 明度(value)を求める
+  hsv.value = max / 255 * 100;
+}
+
+HsvStatus Controller::getHsv() const
+{
+  return hsv;
+}  // hsv値を返す
+
+void Controller::resetMotorCount()
+{
+  rightWheel.reset();
+}
+
+void Controller::stopMotor()
+{
+  leftWheel.stop();
+  rightWheel.stop();
 }
