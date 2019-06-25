@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">be984b0615c75ab82746f163bda283f357e332b0</span>
+   &#160;<span id="projectnumber">c58be33710ff91bf448d25fd2dd55d7c35d9b7c8</span>
    </div>
   </td>
  </tr>
@@ -65,8 +65,22 @@ $(function() {
 <div class="contents">
 <div class="textblock"><p>Presented by <a href="http://earth.cs.miyazaki-u.ac.jp">KatLab</a>.</p>
 <p><a href="https://circleci.com/gh/KatLab-MiyazakiUniv/etrobocon2019/tree/master"></a> <a href="https://codecov.io/gh/KatLab-MiyazakiUniv/etrobocon2019"></a></p>
-<h2>BUILD</h2>
-<p>Execution command. </p><div class="fragment"><div class="line">$ ./make.sh</div></div><!-- fragment --><p>Built the executable file. </p><div class="fragment"><div class="line">$ ls</div><div class="line">et2019</div></div><!-- fragment --><h2>DEVELOP</h2>
+<h2>Description</h2>
+<p>ET Robocon is a contest for embedded software technology. The robot uses MINDSTORMS and the competition course is predetermined. This repository contains the programs that Team KatLab uses for advanced course in the developer class.</p>
+<p>We have the following goals and enthusiasm for the contest:</p><ul>
+<li>We will participate in a championship!</li>
+<li>We aim at the running time is less than <b>20 seconds</b>.</li>
+<li>We aim at the bonus time is <b>18 seconds</b> or more.</li>
+<li>We use AI and image processing technologies in our strategy.</li>
+<li>We develop fast and flexible using Agile (eXtreme-Programming) and Ticket-Driven Development (TiDD).</li>
+</ul>
+<h2>Feature and Strategy</h2>
+<h3>Line trace</h3>
+<p>We use PID control technology for the line trace. The robot's operation in the line trace can be obtained from two values, the forward value and the turn value.</p>
+<h3>Color recognition</h3>
+<p>We use HSV model instead of RGB model for color recognition. Color recognition is easier than RGB because HSV contains hue values that are classified based on wavelength patterns.</p>
+<h2>Build</h2>
+<p>Execution command. </p><div class="fragment"><div class="line">$ ./make.sh</div></div><!-- fragment --><p>Built the executable file. </p><div class="fragment"><div class="line">$ ls</div><div class="line">et2019</div></div><!-- fragment --><h2>Develop</h2>
 <h3>Where is reference?</h3>
 <p><a href="https://katlab-miyazakiuniv.github.io/etrobocon2019/annotated.html">Here</a>.</p>
 <h3>Where should you add your source files?</h3>
