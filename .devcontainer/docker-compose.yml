@@ -10,3 +10,7 @@ services:
     environment:
       SHELL: "/bin/bash"
       HOME: "/home/etrobo"
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
