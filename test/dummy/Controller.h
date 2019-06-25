@@ -15,6 +15,8 @@ unsigned struct HsvStatus {
   double value;
 };
 
+enum class Color { white, black, red, green, blue, yellow };
+
 class Motor {
  public:
   double count = 0.0;
@@ -89,7 +91,6 @@ class Controller {
 
   void convertHsv(int& r, int& g, int& b)
   {
-
     double max = r;
     if(max < g) {
       max = g;
@@ -106,7 +107,7 @@ class Controller {
     }
 
     // 色相(hue)を求める
-  if(r == g && r == b) {
+    if(r == g && r == b) {
       hsv.hue = 0;
     }
 
@@ -133,11 +134,31 @@ class Controller {
     hsv.value = max / 255 * 100;
   }
 
-    HsvStatus getHsv()
+  HsvStatus getHsv() { return hsv; }  // hsv値を返す
+
+  Color hsvToColor(HsvStatus hsv)
   {
-    return hsv;
-  }  // hsv値を返す
-  
+    // 白黒の識別
+    if(hsv.value < 13.0) {
+      return Color::black;
+    } else if(hsv.value > 50.0) {
+      return Color::white;
+    }
+
+    // 赤緑青黃の識別
+    if(hsv.hue < 30) {
+      return Color::red;
+    } else if(hsv.hue < 80.0) {
+      return Color::yellow;
+    } else if(hsv.hue < 160.0) {
+      return Color::green;
+    } else if(hsv.hue < 300.0) {
+      return Color::blue;
+    } else {
+      return Color::red;
+    }
+  }
+
   bool buttonIsPressedUp() { return false; };
   bool buttonIsPressedDown() { return false; };
 

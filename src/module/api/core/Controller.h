@@ -29,6 +29,8 @@ struct HsvStatus {
   double value = 0;
 };
 
+enum class Color { white, black, red, green, blue, yellow };
+
 using namespace ev3api;
 
 class Controller {
@@ -56,8 +58,9 @@ class Controller {
   static float getBatteryVoltage();
   static void tslpTsk(int time);  // 4msec周期起動
   void getRawColor(int& r, int& g, int& b);
-  void convertHsv(int &r, int &g, int &b); // RGBをHSV変換する
+  void convertHsv(int& r, int& g, int& b);  // RGBをHSV変換する
   HsvStatus getHsv() const;
+  Color hsvToColor(HsvStatus hsv);  // HSVから色を識別する
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
