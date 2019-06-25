@@ -19,6 +19,9 @@ We have the following goals and enthusiasm for the contest:
 ### Line trace
 We use PID control technology for the line trace. The robot's operation in the line trace can be obtained from two values, the forward value and the turn value.
 
+### Color recognition
+We use HSV model instead of RGB model for color recognition. Color recognition is easier than RGB because HSV contains hue values that are classified based on wavelength patterns.
+
 ## Build
 
 Execution command.
