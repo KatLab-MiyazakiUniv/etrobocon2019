@@ -7,10 +7,15 @@
 
 Distance::Distance() : radius(50) {}
 
+double Distance::calculate(int angle)
+{
+  return 2.0 * M_PI * radius * static_cast<double>(angle) / 360.0;
+}
+
 double Distance::getDistance(int leftAngle, int rightAngle)
 {
-  // 左タイヤと右タイヤの角位置の平均を求める
-  double angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
+  double leftDistance = this->calculate(leftAngle);
+  double rightDistance = this->calculate(rightAngle);
 
-  return 2.0 * M_PI * radius * angle / 360.0;
+  return (leftDistance + rightDistance) / 2.0;
 }
