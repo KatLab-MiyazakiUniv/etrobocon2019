@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">c58be33710ff91bf448d25fd2dd55d7c35d9b7c8</span>
+   &#160;<span id="projectnumber">177f6e5e351e79cf23c7576fde2ccea4a8d75efb</span>
    </div>
   </td>
  </tr>
@@ -175,27 +175,28 @@ LineTracer 連携図</div>
 <div class="ttc" id="class_controller_html_a78965353ac6b8a5815a5e4b5148267ac"><div class="ttname"><a href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac">Controller::setRightMotorPwm</a></div><div class="ttdeci">void setRightMotorPwm(const int pwm)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00153">Controller.cpp:153</a></div></div>
 <div class="ttc" id="struct_normal_course_property_html_a9275107504ad2fc04b0eb93f80a89aae"><div class="ttname"><a href="struct_normal_course_property.html#a9275107504ad2fc04b0eb93f80a89aae">NormalCourseProperty::targetDistance</a></div><div class="ttdeci">int targetDistance</div><div class="ttdef"><b>Definition:</b> <a href="_line_tracer_8h_source.html#l00017">LineTracer.h:17</a></div></div>
 <div class="ttc" id="class_controller_html_a2c68b1076bc4d456d69e92075a141cb3"><div class="ttname"><a href="class_controller.html#a2c68b1076bc4d456d69e92075a141cb3">Controller::tslpTsk</a></div><div class="ttdeci">static void tslpTsk(int time)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00108">Controller.cpp:108</a></div></div>
-<div class="ttc" id="class_distance_html_ab2d57716464febfa145a892afe35433b"><div class="ttname"><a href="class_distance.html#ab2d57716464febfa145a892afe35433b">Distance::getDistance</a></div><div class="ttdeci">double getDistance(int leftAngle, int rightAngle)</div><div class="ttdoc">走行距離を計算して戻り値として返す </div><div class="ttdef"><b>Definition:</b> <a href="_distance_8cpp_source.html#l00010">Distance.cpp:10</a></div></div>
+<div class="ttc" id="class_distance_html_ab2d57716464febfa145a892afe35433b"><div class="ttname"><a href="class_distance.html#ab2d57716464febfa145a892afe35433b">Distance::getDistance</a></div><div class="ttdeci">double getDistance(int leftAngle, int rightAngle)</div><div class="ttdoc">左右の平均走行距離を計算して戻り値として返す </div><div class="ttdef"><b>Definition:</b> <a href="_distance_8cpp_source.html#l00015">Distance.cpp:15</a></div></div>
 <div class="ttc" id="struct_normal_course_property_html_adac9aa833cdd8278381b75fbcbeb8d5f"><div class="ttname"><a href="struct_normal_course_property.html#adac9aa833cdd8278381b75fbcbeb8d5f">NormalCourseProperty::turnPid</a></div><div class="ttdeci">PidGain turnPid</div><div class="ttdef"><b>Definition:</b> <a href="_line_tracer_8h_source.html#l00023">LineTracer.h:23</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_line_tracer_aa99eef2a83f496a4999901d087e6a250_cgraph.png" border="0" usemap="#class_line_tracer_aa99eef2a83f496a4999901d087e6a250_cgraph" alt=""/></div>
 <map name="class_line_tracer_aa99eef2a83f496a4999901d087e6a250_cgraph" id="class_line_tracer_aa99eef2a83f496a4999901d087e6a250_cgraph">
-<area shape="rect" id="node2" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="447,5,612,32"/>
-<area shape="rect" id="node3" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="441,57,618,98"/>
-<area shape="rect" id="node4" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="436,122,623,163"/>
-<area shape="rect" id="node5" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="171,164,387,191"/>
-<area shape="rect" id="node11" href="class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="184,215,375,241"/>
-<area shape="rect" id="node12" href="class_controller.html#a592fca2802b9cea70ef24eba17db7ec8" title="Controller::getBrightness" alt="" coords="187,265,371,292"/>
-<area shape="rect" id="node13" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="175,316,383,343"/>
-<area shape="rect" id="node14" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="171,367,388,393"/>
-<area shape="rect" id="node15" href="class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="210,417,349,444"/>
-<area shape="rect" id="node6" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="461,239,598,265"/>
-<area shape="rect" id="node9" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="482,188,577,215"/>
-<area shape="rect" id="node7" href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="671,239,791,265"/>
-<area shape="rect" id="node8" href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="839,239,989,265"/>
-<area shape="rect" id="node10" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="691,188,771,215"/>
+<area shape="rect" id="node2" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="447,5,612,32"/>
+<area shape="rect" id="node4" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="441,57,618,98"/>
+<area shape="rect" id="node5" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="436,122,623,163"/>
+<area shape="rect" id="node6" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="171,164,387,191"/>
+<area shape="rect" id="node12" href="class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="184,215,375,241"/>
+<area shape="rect" id="node13" href="class_controller.html#a592fca2802b9cea70ef24eba17db7ec8" title="Controller::getBrightness" alt="" coords="187,265,371,292"/>
+<area shape="rect" id="node14" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="175,316,383,343"/>
+<area shape="rect" id="node15" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="171,367,388,393"/>
+<area shape="rect" id="node16" href="class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="210,417,349,444"/>
+<area shape="rect" id="node3" href="class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="671,5,817,32"/>
+<area shape="rect" id="node7" href="class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="461,239,598,265"/>
+<area shape="rect" id="node10" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="482,188,577,215"/>
+<area shape="rect" id="node8" href="class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="684,239,804,265"/>
+<area shape="rect" id="node9" href="struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="865,239,1016,265"/>
+<area shape="rect" id="node11" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="704,188,784,215"/>
 </map>
 </div>
 <div class="dynheader">

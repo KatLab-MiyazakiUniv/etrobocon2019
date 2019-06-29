@@ -1,6 +1,7 @@
 <map id="Navigator::move" name="Navigator::move">
 <area shape="rect" id="node2" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="189,5,366,47"/>
 <area shape="rect" id="node3" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="184,71,371,112"/>
-<area shape="rect" id="node4" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="走行距離を計算して戻り値として返す " alt="" coords="195,137,360,163"/>
-<area shape="rect" id="node5" href="$class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="198,187,357,214"/>
+<area shape="rect" id="node4" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="195,137,360,163"/>
+<area shape="rect" id="node6" href="$class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="198,187,357,214"/>
+<area shape="rect" id="node5" href="$class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="419,137,565,163"/>
 </map>

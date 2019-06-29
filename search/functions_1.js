@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['calculate',['calculate',['../class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f',1,'Distance']]],
   ['calculatespeed',['calculateSpeed',['../class_speed_control.html#abc31324b3a9170de05856ab5418b7938',1,'SpeedControl']]],
   ['calculateturn',['calculateTurn',['../class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404',1,'TurnControl']]],
   ['calibration',['calibration',['../class_calibrator.html#a7b3030d5d16e85264c61a05813678891',1,'Calibrator']]],
