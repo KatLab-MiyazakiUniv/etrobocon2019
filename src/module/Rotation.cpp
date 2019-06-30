@@ -5,9 +5,9 @@
  */
 #include "Rotation.h"
 
-Rotation::Rotation() : Radius(50.0), Tread(148.0) {}
+Rotation::Rotation() : Radius(50.0), Tread(130.0) {}
 
-double Rotation::calculate(int leftAngle, int rightAngle)
+double Rotation::calculate(const int leftAngle, const int rightAngle)
 {
   // 車輪の回転角度を自転角度に変換する係数
   //! @see docs/odometry/odometry.pdf

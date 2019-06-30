@@ -14,7 +14,7 @@ namespace etrobocon2019_test {
   {
     Rotation rotation;
     const double Radius = 50.0;
-    const double Tread = 148.0;
+    const double Tread = 130.0;
 
     // 時計回りに車輪を30度動かす
     double arc = M_PI * Radius * 30.0 / 180.0;

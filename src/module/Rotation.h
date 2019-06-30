@@ -22,7 +22,7 @@ class Rotation {
    * @param rightAngle [右車輪の回転角度 [deg]]
    * @return 自転角度（時計回り、反時計回りにかかわらず必ず正の数）
    */
-  double calculate(int leftAngle, int rightAngle);
+  double calculate(const int leftAngle, const int rightAngle);
 };
 
 #endif
