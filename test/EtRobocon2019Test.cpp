@@ -1,7 +1,7 @@
 #include "EtRobocon2019.h"  // このヘッダファイルのcppファイルをテスト
 #include <gtest/gtest.h>
 
-namespace etrobocon2018_test {
+namespace etrobocon2019_test {
 
   class EtRobocon2019Test : public ::testing::Test {
     friend class EtRobocon2019;
