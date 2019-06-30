@@ -19,11 +19,19 @@ class Distance {
   Distance();
   /**
    * 走行距離を取得する
+   * 
+   * @brief angleをもとに走行距離を計算する
+   * @param angle
+   * @return 走行距離
+   */
+  double calculate(int angle);
+  /**
+   * 左右の平均走行距離を取得する
    *
-   * @brief 走行距離を計算して戻り値として返す
+   * @brief 左右の平均走行距離を計算して戻り値として返す
    * @param leftAngle 左側のタイヤの回転角度[deg]
    * @param rightAngle 右側のタイヤの回転角度[deg]
-   * @return 走行距離[mm]。走行体が前へ進んでいたら正、後ろへ進んでいたら負になる
+   * @return [走行距離(mm)。走行体が前へ進んでいたら正、後ろへ進んでいたら負になる]
    */
   double getDistance(int leftAngle, int rightAngle);
 

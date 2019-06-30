@@ -9,6 +9,34 @@
 namespace etrobocon2019_test {
   TEST(Distance, Distance_init) { Distance distance(); }
 
+  TEST(Distance, calculateTest)
+  {
+    Distance distance;
+    Controller controller;
+    const int radius = 50;
+    int pwm = 30;
+
+    // 走行距離の計算 最初は0
+    int angle = controller.getLeftMotorCount();
+    double start = 2.0 * M_PI * radius * angle / 360.0;
+
+    // モータの回転角を更新させるためにループ
+    // ループ回数自体に意味はない
+    for(int i = 0; i < 30; i++) {
+      // pwm値のセット
+      controller.setLeftMotorPwm(pwm);
+    }
+
+    // 走行距離の計算
+    angle = controller.getLeftMotorCount();
+    double end = 2.0 * M_PI * radius * angle / 360.0;
+
+    // 初めの位置からどれだけ進んだか計算
+    double expectedDistance = end - start;
+
+    ASSERT_DOUBLE_EQ(expectedDistance, distance.calculate(angle));
+  }
+
   TEST(Distance, getDistanceTestForward)
   {
     Distance distance;
@@ -20,7 +48,7 @@ namespace etrobocon2019_test {
     int leftAngle = controller.getLeftMotorCount();
     int rightAngle = controller.getRightMotorCount();
 
-    // 走行距離の計算
+    // 走行距離の計算 最初は0
     double angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
     double start = 2.0 * M_PI * radius * angle / 360.0;
 
@@ -57,7 +85,7 @@ namespace etrobocon2019_test {
     int leftAngle = controller.getLeftMotorCount();
     int rightAngle = controller.getRightMotorCount();
 
-    // 走行距離の計算
+    // 走行距離の計算 最初は0
     double angle = static_cast<double>(leftAngle + rightAngle) / 2.0;
     double start = 2.0 * M_PI * radius * angle / 360.0;
 
