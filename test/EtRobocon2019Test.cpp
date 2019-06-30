@@ -11,7 +11,5 @@ namespace etrobocon2019_test {
     EtRobocon2019 et;
   };
 
-  TEST_F(EtRobocon2019Test, startTest)
-  {
-  }
-}  // namespace etrobocon2018_test
+  TEST_F(EtRobocon2019Test, startTest) {}
+}  // namespace etrobocon2019_test

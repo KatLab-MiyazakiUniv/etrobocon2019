@@ -5,25 +5,25 @@
  **/
 #include "Calibrator.h"
 
-Calibrator::Calibrator(Controller &controller_)
-    : controller(controller_),
-      isLeft(true),
-      brightnessOfWhite(0),
-      brightnessOfBlack(0) {}
+Calibrator::Calibrator(Controller& controller_)
+  : controller(controller_), isLeft(true), brightnessOfWhite(0), brightnessOfBlack(0)
+{
+}
 
-bool Calibrator::calibration() {
+bool Calibrator::calibration()
+{
   Display::print(2, "now calibration...");
-  if (!setLRCource()) {
-    Display::print(2, "Error setLRCource!");
+  if(!setLRCourse()) {
+    Display::print(2, "Error setLRCourse!");
     return false;
   }
 
-  if (!setBrightness(Brightness::WHITE)) {
+  if(!setBrightness(Brightness::WHITE)) {
     Display::print(2, "Error setBrightness White!");
     return false;
   }
 
-  if (!setBrightness(Brightness::BLACK)) {
+  if(!setBrightness(Brightness::BLACK)) {
     Display::print(2, "Error setBrightness Black!");
     return false;
   }
@@ -34,37 +34,39 @@ bool Calibrator::calibration() {
   return true;
 }
 
-bool Calibrator::setLRCource() {
-  char cource[8] = "Left";
+bool Calibrator::setLRCourse()
+{
+  char course[8] = "Left";
 
   controller.tslpTsk(500);
-  while (!controller.buttonIsPressedEnter()) {
-    if (isLeft) {
-      std::strcpy(cource, "Left");
+  while(!controller.buttonIsPressedEnter()) {
+    if(isLeft) {
+      std::strcpy(course, "Left");
     } else {
-      std::strcpy(cource, "Right");
+      std::strcpy(course, "Right");
     }
-    Display::print(3, "Set LRCource: %s ?", cource);
+    Display::print(3, "Set LRCourse: %s ?", course);
 
-    if (controller.buttonIsPressedLeft() || controller.buttonIsPressedRight()) {
+    if(controller.buttonIsPressedLeft() || controller.buttonIsPressedRight()) {
       isLeft = !isLeft;
       controller.speakerPlayToneFS6(50);
       controller.tslpTsk(500);
     }
     controller.tslpTsk(4);
   }
-  Display::print(3, "cource: %s", cource);
+  Display::print(3, "course: %s", course);
 
   controller.speakerPlayToneFS6(100);
   return true;
 }
 
-bool Calibrator::setBrightness(Brightness brightness) {
+bool Calibrator::setBrightness(Brightness brightness)
+{
   char name[8] = "none";
 
-  if (brightness == Brightness::WHITE) {
+  if(brightness == Brightness::WHITE) {
     std::strcpy(name, "White");
-  } else if (brightness == Brightness::BLACK) {
+  } else if(brightness == Brightness::BLACK) {
     std::strcpy(name, "Black");
   } else {
     return false;
@@ -72,9 +74,9 @@ bool Calibrator::setBrightness(Brightness brightness) {
 
   controller.tslpTsk(500);
 
-  while (1) {
+  while(1) {
     // ENTERボタンが押されたらループを抜ける
-    if (controller.buttonIsPressedEnter()) {
+    if(controller.buttonIsPressedEnter()) {
       controller.speakerPlayToneFS6(100);
       break;
     }
@@ -87,7 +89,7 @@ bool Calibrator::setBrightness(Brightness brightness) {
 
   controller.speakerPlayToneFS6(200);
 
-  if (brightness == Brightness::WHITE) {
+  if(brightness == Brightness::WHITE) {
     brightnessOfWhite = averageBrightness();
   } else {
     brightnessOfBlack = averageBrightness();
@@ -96,11 +98,12 @@ bool Calibrator::setBrightness(Brightness brightness) {
   return true;
 }
 
-int Calibrator::averageBrightness(){
-    // 4ms毎に10回明るさを取得して、その平均値をメンバ変数に代入する処理
+int Calibrator::averageBrightness()
+{
+  // 4ms毎に10回明るさを取得して、その平均値をメンバ変数に代入する処理
   int meanBrightness = 0;
   int times = 10;
-  for (int i = 0; i < times; i++) {
+  for(int i = 0; i < times; i++) {
     meanBrightness += controller.getBrightness();
     controller.tslpTsk(4);
   }
@@ -108,6 +111,15 @@ int Calibrator::averageBrightness(){
   return meanBrightness / times;
 }
 
-bool Calibrator::isLeftCource() const { return isLeft; }
-int Calibrator::getWhiteBrightness() const { return brightnessOfWhite; };
-int Calibrator::getBlackBrightness() const { return brightnessOfBlack; };
+bool Calibrator::isLeftCourse() const
+{
+  return isLeft;
+}
+int Calibrator::getWhiteBrightness() const
+{
+  return brightnessOfWhite;
+};
+int Calibrator::getBlackBrightness() const
+{
+  return brightnessOfBlack;
+};
