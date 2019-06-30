@@ -1,6 +1,6 @@
 /**
  * @file   Rotation.h
- * @brief  自転（走行体が両輪の中間を軸として回転）したときの角度を求めるクラス
+ * @brief  自転（yawing）したときの角度を求めるクラス
  * @author T.Miyaji
  */
 #ifndef ROTATION_H
