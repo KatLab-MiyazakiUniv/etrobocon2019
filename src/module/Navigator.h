@@ -41,9 +41,10 @@ class Navigator {
    * @brief specifiedDistanceの値でbackwardかforwardを呼び出す。
    * @param specifiedDistance [移動したい距離(mm)。正なら前進、負なら後進。]
    * @param pwm [モータの強さ]
+   * @param pGain [PID制御におけるPゲイン]
    * @return なし
    */
-  void move(double specifiedDistance, int pwm = 30);
+  void move(double specifiedDistance, int pwm = 30, const double pGain = 0.0);
   /**
    * 指定した速度で前進と後進をする
    *
