@@ -27,6 +27,7 @@ class Navigator {
    */
   explicit Navigator(Controller& controller_, double Kp_ = 0.60, double Ki_ = 0.0,
                      double Kd_ = 0.0);
+
   /**
    * @brief SpeedControl用のPidゲインのセッター
    * @param Kp_ [SpeedControl用のPゲイン]
@@ -35,16 +36,18 @@ class Navigator {
    * @return なし
    */
   void setPidGain(double Kp_, double Ki_, double Kd_);
+
   /**
    * 前進と後進をする
    *
    * @brief specifiedDistanceの値でbackwardかforwardを呼び出す。
    * @param specifiedDistance [移動したい距離(mm)。正なら前進、負なら後進。]
    * @param pwm [モータの強さ]
-   * @param pGain [PID制御におけるPゲイン]
+   * @param pGain [PID制御におけるPゲイン (デフォルトは0.0なので指定しなければP制御は実行されない)]
    * @return なし
    */
   void move(double specifiedDistance, int pwm = 30, const double pGain = 0.0);
+
   /**
    * 指定した速度で前進と後進をする
    *
@@ -54,30 +57,6 @@ class Navigator {
    * @return なし
    */
   void moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed);
-  /**
-   * @TODO move関数に統合する？ また、IおよびDゲインも指定できるようにする？
-   * @brief PID制御を用いて両輪の回転量が等しくなるように前進または後進する
-   * @param specifiedDistance [移動したい距離(mm)。正なら前進、負なら後進]
-   * @param pwm [モータの強さ]
-   * @param pGain [PID制御のPゲイン]
-   * @param iGain [PID制御のIゲイン]
-   * @param dGain [PID制御のDゲイン]
-   * @return なし
-   */
-  void moveByPid(double specifiedDistance, int pwm = 10, const double pGain = 0.6,
-                 const double iGain = 0.0, const double dGain = 0.0);
-
-  /**
-   * @brief PID制御を用いて両輪の回転量が等しくなるように指定された速度で前進または後進する
-   * @param specifiedDistance [移動したい距離(mm)。正なら前進、負なら後進]
-   * @param specifiedSpeed [移動したい速度]
-   * @param pGain [PID制御のPゲイン]
-   * @param iGain [PID制御のIゲイン]
-   * @param dGain [PID制御のDゲイン]
-   */
-  void moveAtSpecifiedSpeedByPid(double specifiedDistance, int specifiedSpeed,
-                                 const double pGain = 0.6, const double iGain = 0.0,
-                                 const double dGain = 0.0);
 
  private:
   Distance distance;
