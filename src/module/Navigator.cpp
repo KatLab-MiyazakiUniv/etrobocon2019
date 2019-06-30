@@ -25,18 +25,20 @@ void Navigator::move(double specifiedDistance, int pwm, const double pGain)
   int rightAngle = controller.getRightMotorCount();
   double goalDistance = specifiedDistance + distance.getDistance(leftAngle, rightAngle);
 
-  // 右車輪の回転量 - 左車輪の回転量
-  // 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる
+  // 左車輪の回転量 - 右車輪の回転量
+  // 左車輪の方が多く回転していれば、alphaは正となり右車輪にPWM + alphaの操作量が加えられる
   Pid pid(0, pGain);
-  double alpha = pid.control(rightAngle - leftAngle);
+  double alpha = pid.control(leftAngle - rightAngle);
 
   if(specifiedDistance < 0) {
     while(hasArrived(goalDistance, false)) {
-      setPwmValue(static_cast<int>(-std::abs(pwm)), alpha);
+      setPwmValue(static_cast<int>(-std::abs(pwm)), -alpha);
+      alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
     }
   } else {
     while(hasArrived(goalDistance, true)) {
-      setPwmValue(static_cast<int>(std::abs(pwm)), alpha);
+      setPwmValue(static_cast<int>(std::abs(pwm)), -alpha);
+      alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
     }
   }
 
