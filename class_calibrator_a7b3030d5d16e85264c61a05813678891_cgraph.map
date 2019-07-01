@@ -1,6 +1,6 @@
 <map id="Calibrator::calibration" name="Calibrator::calibration">
 <area shape="rect" id="node2" href="$class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="506,56,614,83"/>
-<area shape="rect" id="node6" href="$class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="220,165,395,192"/>
+<area shape="rect" id="node6" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="220,165,395,192"/>
 <area shape="rect" id="node12" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="216,107,399,133"/>
 <area shape="rect" id="node3" href="$class_controller.html#a5f4473814c4a669fd388916fdf1c38ce" title="Controller::lcdSetFont" alt="" coords="733,5,895,32"/>
 <area shape="rect" id="node4" href="$class_controller.html#a28c27614551c9f1471421b3f89bb2d5c" title="Controller::lcdFillRect" alt="" coords="735,56,893,83"/>

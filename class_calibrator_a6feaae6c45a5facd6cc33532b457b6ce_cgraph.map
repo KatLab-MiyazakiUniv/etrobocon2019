@@ -1,4 +1,4 @@
-<map id="Calibrator::setLRCource" name="Calibrator::setLRCource">
+<map id="Calibrator::setLRCourse" name="Calibrator::setLRCourse">
 <area shape="rect" id="node2" href="$class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="272,5,411,32"/>
 <area shape="rect" id="node3" href="$class_controller.html#ad1e858bf584915b7283a7726daf87de7" title="Controller::buttonIsPressed\lEnter" alt="" coords="242,57,441,98"/>
 <area shape="rect" id="node4" href="$class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="287,123,395,149"/>

@@ -1,5 +1,5 @@
 <map id="Controller::tslpTsk" name="Controller::tslpTsk">
-<area shape="rect" id="node2" href="$class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="207,5,381,32"/>
+<area shape="rect" id="node2" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="207,5,381,32"/>
 <area shape="rect" id="node6" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="203,56,385,83"/>
 <area shape="rect" id="node7" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="235,107,353,133"/>
 <area shape="rect" id="node9" href="$class_navigator.html#ad6ded27d59d752cd9c51fe5dd525a9e3" title="PID制御を用いて両輪の回転量が等しくなるように指定された速度で前進または後進する " alt="" coords="192,158,396,199"/>

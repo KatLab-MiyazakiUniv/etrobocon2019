@@ -1,12 +1,12 @@
 <map id="EtRobocon2019::start" name="EtRobocon2019::start">
 <area shape="rect" id="node2" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="251,93,413,119"/>
 <area shape="rect" id="node11" href="$class_controller.html#a6a22a0a31fb55dba1feac199cc9656ee" title="Controller::buttonIsPressed\lRight" alt="" coords="743,5,942,47"/>
-<area shape="rect" id="node15" href="$class_calibrator.html#a334ec5d52b80c7831cf52d083e3ece85" title="Calibrator::isLeftCource" alt="" coords="245,143,419,170"/>
+<area shape="rect" id="node15" href="$class_calibrator.html#a95b705d052954ea1ba64f502d3dc65dc" title="Calibrator::isLeftCourse" alt="" coords="245,143,419,170"/>
 <area shape="rect" id="node16" href="$class_calibrator.html#a70ccdd479323d8ceda75faccf36bb7da" title="Calibrator::getWhiteBrightness" alt="" coords="221,194,443,221"/>
 <area shape="rect" id="node17" href="$class_calibrator.html#a9d3a1cc5a10ea43b93be1b7f0c8cbbec" title="Calibrator::getBlackBrightness" alt="" coords="222,245,442,271"/>
 <area shape="rect" id="node18" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="213,295,451,322"/>
 <area shape="rect" id="node3" href="$class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="789,71,897,98"/>
-<area shape="rect" id="node7" href="$class_calibrator.html#a4d697128a6bc8fa72cf5cec3ed8d143b" title="Calibrator::setLRCource" alt="" coords="503,122,677,149"/>
+<area shape="rect" id="node7" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="503,122,677,149"/>
 <area shape="rect" id="node13" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="499,219,681,246"/>
 <area shape="rect" id="node4" href="$class_controller.html#a5f4473814c4a669fd388916fdf1c38ce" title="Controller::lcdSetFont" alt="" coords="1016,21,1179,47"/>
 <area shape="rect" id="node5" href="$class_controller.html#a28c27614551c9f1471421b3f89bb2d5c" title="Controller::lcdFillRect" alt="" coords="1018,71,1177,98"/>
