@@ -1,12 +1,14 @@
 <map id="src/module/Distance.h" name="src/module/Distance.h">
-<area shape="rect" id="node2" href="$_distance_8cpp.html" title="走行距離を計算するクラス " alt="" coords="212,80,395,107"/>
+<area shape="rect" id="node2" href="$_distance_8cpp.html" title="走行距離を計算するクラス " alt="" coords="233,80,416,107"/>
 <area shape="rect" id="node3" href="$_line_tracer_8h.html" title="src/module/LineTracer.h" alt="" coords="264,155,439,181"/>
-<area shape="rect" id="node8" href="$_speed_control_8h.html" title="前進値制御クラス " alt="" coords="470,80,667,107"/>
+<area shape="rect" id="node8" href="$_speed_control_8h.html" title="前進値制御クラス " alt="" coords="491,80,689,107"/>
 <area shape="rect" id="node9" href="$_navigator_8h.html" title="直進と後進できるクラス " alt="" coords="699,155,873,181"/>
+<area shape="rect" id="node12" href="$_rotation_8h.html" title="自転（yawing）したときの角度を求めるクラス " alt="" coords="864,80,1028,107"/>
 <area shape="rect" id="node4" href="$_normal_course_8h.html" title="NormalCourseを走る " alt="" coords="139,229,342,256"/>
 <area shape="rect" id="node7" href="$_line_tracer_8cpp.html" title="ライントレースを行うクラス " alt="" coords="367,229,557,256"/>
 <area shape="rect" id="node5" href="$_et_robocon2019_8cpp.html" title="src/module/EtRobocon2019.cpp" alt="" coords="5,304,231,331"/>
 <area shape="rect" id="node6" href="$_normal_course_8cpp.html" title="src/module/NormalCourse.cpp" alt="" coords="255,304,474,331"/>
 <area shape="rect" id="node11" href="$_speed_control_8cpp.html" title="前進値制御クラス " alt="" coords="463,155,675,181"/>
 <area shape="rect" id="node10" href="$_navigator_8cpp.html" title="直進と後進できるクラス " alt="" coords="692,229,880,256"/>
+<area shape="rect" id="node13" href="$_rotation_8cpp.html" title="自転（yawing）したときの角度を求めるクラス " alt="" coords="897,155,1075,181"/>
 </map>

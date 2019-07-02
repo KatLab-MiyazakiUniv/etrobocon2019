@@ -1,0 +1,4 @@
+<map id="Rotation::calculate" name="Rotation::calculate">
+<area shape="rect" id="node2" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="196,5,361,32"/>
+<area shape="rect" id="node3" href="$class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="409,5,556,32"/>
+</map>
