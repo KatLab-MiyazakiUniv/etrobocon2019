@@ -4,6 +4,7 @@
 Controller::Controller()
   : touchSensor(PORT_1),
     colorSensor(PORT_3),
+    gyroSensor(PORT_4),
     liftMotor(PORT_A),
     rightWheel(PORT_B),
     leftWheel(PORT_C),
@@ -217,4 +218,14 @@ void Controller::stopMotor()
 {
   leftWheel.stop();
   rightWheel.stop();
+}
+
+int Controller::getAngleOfRotation()
+{
+  int angle = gyroSensor.getAngle();
+  //角度を[0-360]の範囲で表す
+  if(angle>360) angle = angle % 360;
+  if(angle<0) angle = 360 + angle;
+
+  return angle;
 }

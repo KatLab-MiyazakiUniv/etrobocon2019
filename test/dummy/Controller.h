@@ -47,6 +47,12 @@ class ColorSensor {
   int brightness = 0;
 };
 
+class GyroSensor{
+  public:
+    int getAngle() {}
+    int angle = 0;
+};
+
 class Controller {
  private:
   Motor rightWheel;
@@ -58,6 +64,7 @@ class Controller {
   Clock clock;
   TouchSensor touchSensor;
   ColorSensor colorSensor;
+  GyroSensor gyroSensor;
 
   // モータ入力電圧の最大値
   static constexpr int MOTOR_PWM_MAX = 100;
@@ -240,5 +247,11 @@ class Controller {
     }
     return value;
   };
+  int getAngleOfRotation()
+  { int angle = gyroSensor.getAngle();
+    if(angle>360) angle = angle % 360;
+    if(angle<0) angle = 360 + angle;
+    return angle;
+  }
 };
 #endif
