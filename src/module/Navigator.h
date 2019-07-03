@@ -35,7 +35,7 @@ class Navigator {
    * @param Kd_ [SpeedControl用のDゲイン]
    * @return なし
    */
-  void setPidGain(double Kp_, double Ki_, double Kd_);
+  void setPidGain(double Kp, double Ki, double Kd);
 
   /**
    * 前進と後進をする

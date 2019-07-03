@@ -12,11 +12,9 @@ Navigator::Navigator(Controller& controller_, double Kp_, double Ki_, double Kd_
 {
 }
 
-void Navigator::setPidGain(double Kp_, double Ki_, double Kd_)
+void Navigator::setPidGain(double Kp, double Ki, double Kd)
 {
-  pidForSpeed.Kp = Kp_;
-  pidForSpeed.Ki = Ki_;
-  pidForSpeed.Kd = Kd_;
+  pidForSpeed.setPidGain(Kp, Ki, Kd);
 }
 
 void Navigator::move(double specifiedDistance, int pwm, const double pGain)
@@ -28,17 +26,16 @@ void Navigator::move(double specifiedDistance, int pwm, const double pGain)
   // 左車輪の回転量 - 右車輪の回転量
   // 左車輪の方が多く回転していれば、alphaは正となり右車輪にPWM + alphaの操作量が加えられる
   Pid pid(0, pGain);
-  double alpha = pid.control(leftAngle - rightAngle);
 
   if(specifiedDistance < 0) {
     while(hasArrived(goalDistance, false)) {
+      double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
       setPwmValue(static_cast<int>(-std::abs(pwm)), -alpha);
-      alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
     }
   } else {
     while(hasArrived(goalDistance, true)) {
+      double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
       setPwmValue(static_cast<int>(std::abs(pwm)), -alpha);
-      alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
     }
   }
 
