@@ -248,9 +248,18 @@ class Controller {
     return value;
   };
   int getAngleOfRotation()
-  { int angle = gyroSensor.getAngle();
-    if(angle>360) angle = angle % 360;
-    if(angle<0) angle = 360 + angle;
+  { 
+    int angle = gyroSensor.getAngle();
+
+    return limitAngle(angle);
+  }
+  int limitAngle(int angle)
+  {
+    angle = angle % 360;
+      if (angle < 0) {
+        angle = 360 + angle;
+        angle = limitAngle(angle);
+      }
     return angle;
   }
 };

@@ -76,6 +76,7 @@ class Controller {
   void reset();
   void setOffset(int offset);
   int getAngleOfRotation();
+  int limitAngle(int angle);
 
 private:
   rgb_raw_t rgb;

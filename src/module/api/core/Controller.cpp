@@ -224,8 +224,15 @@ int Controller::getAngleOfRotation()
 {
   int angle = gyroSensor.getAngle();
   //角度を[0-360]の範囲で表す
-  if(angle>360) angle = angle % 360;
-  if(angle<0) angle = 360 + angle;
+  return Controller::limitAngle(angle);
+}
 
+int Controller::limitAngle(int angle)
+{
+    angle = angle % 360;
+    if (angle < 0) {
+      angle = 360 + angle;
+      angle = limitAngle(angle);
+    }
   return angle;
 }
