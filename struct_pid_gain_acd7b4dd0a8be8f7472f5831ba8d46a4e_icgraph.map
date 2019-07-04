@@ -1,12 +1,12 @@
 <map id="PidGain::setPidGain" name="PidGain::setPidGain">
-<area shape="rect" id="node2" href="$class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="204,35,324,61"/>
-<area shape="rect" id="node3" href="$class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="372,35,509,61"/>
-<area shape="rect" id="node4" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="557,60,773,87"/>
-<area shape="rect" id="node11" href="$class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="570,8,761,35"/>
-<area shape="rect" id="node5" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="865,5,982,32"/>
-<area shape="rect" id="node9" href="$class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="821,57,1025,98"/>
-<area shape="rect" id="node10" href="$class_navigator.html#ad6ded27d59d752cd9c51fe5dd525a9e3" title="PID制御を用いて両輪の回転量が等しくなるように指定された速度で前進または後進する " alt="" coords="821,122,1025,163"/>
-<area shape="rect" id="node6" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="1073,5,1311,32"/>
-<area shape="rect" id="node7" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="1359,5,1519,32"/>
-<area shape="rect" id="node8" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1567,5,1657,32"/>
+<area shape="rect" id="node2" href="$class_navigator.html#a7de16390a75aaa21e0d4d2dd8831c6d4" title="SpeedControl用のPidゲインのセッター " alt="" coords="204,5,368,32"/>
+<area shape="rect" id="node3" href="$class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="226,56,346,83"/>
+<area shape="rect" id="node4" href="$class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="416,56,553,83"/>
+<area shape="rect" id="node5" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="601,81,817,108"/>
+<area shape="rect" id="node11" href="$class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="614,31,805,57"/>
+<area shape="rect" id="node6" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="909,31,1026,57"/>
+<area shape="rect" id="node10" href="$class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="865,82,1069,123"/>
+<area shape="rect" id="node7" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="1117,31,1355,57"/>
+<area shape="rect" id="node8" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="1403,31,1563,57"/>
+<area shape="rect" id="node9" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1611,31,1701,57"/>
 </map>

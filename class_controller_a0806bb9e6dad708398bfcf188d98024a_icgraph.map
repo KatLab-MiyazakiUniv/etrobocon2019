@@ -1,6 +1,6 @@
 <map id="Controller::setLeftMotorPwm" name="Controller::setLeftMotorPwm">
 <area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="305,5,422,32"/>
-<area shape="rect" id="node6" href="$class_navigator.html#ad6ded27d59d752cd9c51fe5dd525a9e3" title="PID制御を用いて両輪の回転量が等しくなるように指定された速度で前進または後進する " alt="" coords="261,57,465,98"/>
+<area shape="rect" id="node6" href="$class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="261,57,465,98"/>
 <area shape="rect" id="node3" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="513,5,751,32"/>
 <area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="799,5,959,32"/>
 <area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1007,5,1097,32"/>
