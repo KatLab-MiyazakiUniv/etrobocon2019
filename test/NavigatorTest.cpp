@@ -189,4 +189,21 @@ namespace etrobocon2019_test {
 
     ASSERT_EQ(expected, actual);
   }
+
+  TEST(Navigator, spin)
+  {
+    Controller controller;
+    Rotation rotation;
+    Navigator navigator(controller);
+
+    double expected = 90;
+    navigator.spin(expected);
+
+    double actual
+        = rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount());
+
+    // 回頭角度の精度は、期待出力 + 5度まで許容する
+    ASSERT_LE(expected, actual);
+    ASSERT_GE(expected + 5, actual);
+  }
 }  // namespace etrobocon2019_test
