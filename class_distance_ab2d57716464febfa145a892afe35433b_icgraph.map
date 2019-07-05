@@ -1,12 +1,12 @@
 <map id="Distance::getDistance" name="Distance::getDistance">
-<area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="526,40,643,67"/>
-<area shape="rect" id="node6" href="$class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="261,40,392,67"/>
-<area shape="rect" id="node7" href="$class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="483,172,687,213"/>
-<area shape="rect" id="node8" href="$class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="225,142,429,184"/>
-<area shape="rect" id="node9" href="$class_rotation.html#ac4372167196fa15520af1f37d145a400" title="自転したときの角度を求める " alt="" coords="255,208,398,235"/>
-<area shape="rect" id="node10" href="$class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0" title="SpeedControl::SpeedControl" alt="" coords="225,259,429,286"/>
-<area shape="rect" id="node11" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="219,91,435,118"/>
-<area shape="rect" id="node3" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="735,40,972,67"/>
-<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="1020,40,1180,67"/>
-<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1228,40,1319,67"/>
+<area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="526,11,643,37"/>
+<area shape="rect" id="node6" href="$class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="261,152,392,179"/>
+<area shape="rect" id="node7" href="$class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="483,83,687,125"/>
+<area shape="rect" id="node8" href="$class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="524,228,645,255"/>
+<area shape="rect" id="node9" href="$class_rotation.html#ac4372167196fa15520af1f37d145a400" title="自転したときの角度を求める " alt="" coords="255,253,398,280"/>
+<area shape="rect" id="node10" href="$class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0" title="SpeedControl::SpeedControl" alt="" coords="225,304,429,331"/>
+<area shape="rect" id="node11" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="219,51,435,77"/>
+<area shape="rect" id="node3" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="735,11,972,37"/>
+<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="1020,11,1180,37"/>
+<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1228,11,1319,37"/>
 </map>

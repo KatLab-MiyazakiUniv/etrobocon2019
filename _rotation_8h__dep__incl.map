@@ -1,3 +1,6 @@
 <map id="src/module/Rotation.h" name="src/module/Rotation.h">
-<area shape="rect" id="node2" href="$_rotation_8cpp.html" title="自転（yawing）したときの角度を求めるクラス " alt="" coords="5,80,184,107"/>
+<area shape="rect" id="node2" href="$_navigator_8h.html" title="直進と後進できるクラス " alt="" coords="146,80,319,107"/>
+<area shape="rect" id="node5" href="$_rotation_8cpp.html" title="自転（yawing）したときの角度を求めるクラス " alt="" coords="343,80,522,107"/>
+<area shape="rect" id="node3" href="$_et_robocon2019_8cpp.html" title="src/module/EtRobocon2019.cpp" alt="" coords="5,155,231,181"/>
+<area shape="rect" id="node4" href="$_navigator_8cpp.html" title="直進と後進できるクラス " alt="" coords="255,155,443,181"/>
 </map>

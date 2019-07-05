@@ -15,6 +15,7 @@ var searchData=
   ['speedcontrol_2ecpp',['SpeedControl.cpp',['../_speed_control_8cpp.html',1,'']]],
   ['speedcontrol_2eh',['SpeedControl.h',['../_speed_control_8h.html',1,'']]],
   ['speedpid',['speedPid',['../struct_normal_course_property.html#a5acebd80c95f9f24236c2aed386be703',1,'NormalCourseProperty']]],
+  ['spin',['spin',['../class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28',1,'Navigator']]],
   ['stack_5fsize',['STACK_SIZE',['../app_8h.html#a6423a880df59733d2d9b509c7718d3a9',1,'app.h']]],
   ['start',['start',['../class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe',1,'EtRobocon2019']]],
   ['stopmotor',['stopMotor',['../class_controller.html#aed3aaec78fca32625b908bf6b26dcf86',1,'Controller']]]

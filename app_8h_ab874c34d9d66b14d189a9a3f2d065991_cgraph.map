@@ -1,34 +1,34 @@
 <map id="main_task" name="main_task">
-<area shape="rect" id="node2" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="144,169,304,195"/>
-<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="389,93,552,119"/>
-<area shape="rect" id="node12" href="$class_controller.html#a6a22a0a31fb55dba1feac199cc9656ee" title="Controller::buttonIsPressed\lRight" alt="" coords="882,5,1081,47"/>
-<area shape="rect" id="node16" href="$class_calibrator.html#a95b705d052954ea1ba64f502d3dc65dc" title="Calibrator::isLeftCourse" alt="" coords="383,143,558,170"/>
-<area shape="rect" id="node17" href="$class_calibrator.html#a70ccdd479323d8ceda75faccf36bb7da" title="Calibrator::getWhiteBrightness" alt="" coords="359,194,582,221"/>
-<area shape="rect" id="node18" href="$class_calibrator.html#a9d3a1cc5a10ea43b93be1b7f0c8cbbec" title="Calibrator::getBlackBrightness" alt="" coords="361,245,581,271"/>
-<area shape="rect" id="node19" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="352,295,589,322"/>
-<area shape="rect" id="node4" href="$class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="927,71,1035,98"/>
-<area shape="rect" id="node8" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="641,122,816,149"/>
-<area shape="rect" id="node14" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="637,219,820,246"/>
-<area shape="rect" id="node5" href="$class_controller.html#a5f4473814c4a669fd388916fdf1c38ce" title="Controller::lcdSetFont" alt="" coords="1155,21,1317,47"/>
-<area shape="rect" id="node6" href="$class_controller.html#a28c27614551c9f1471421b3f89bb2d5c" title="Controller::lcdFillRect" alt="" coords="1157,71,1315,98"/>
-<area shape="rect" id="node7" href="$class_controller.html#ab1d15533ed8372b08b12b5684eb4284e" title="Controller::lcdDrawString" alt="" coords="1143,122,1329,149"/>
-<area shape="rect" id="node9" href="$class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="912,290,1051,317"/>
-<area shape="rect" id="node10" href="$class_controller.html#ad1e858bf584915b7283a7726daf87de7" title="Controller::buttonIsPressed\lEnter" alt="" coords="882,173,1081,215"/>
-<area shape="rect" id="node11" href="$class_controller.html#a3c541c01b9a02403c43fac24b8c882ac" title="Controller::buttonIsPressedLeft" alt="" coords="870,122,1093,149"/>
-<area shape="rect" id="node13" href="$class_controller.html#ac7c06058c2d04caff95fb680abe68519" title="Controller::speakerPlayToneFS6" alt="" coords="868,239,1095,266"/>
-<area shape="rect" id="node15" href="$class_controller.html#a592fca2802b9cea70ef24eba17db7ec8" title="Controller::getBrightness" alt="" coords="889,341,1073,367"/>
-<area shape="rect" id="node20" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="670,467,787,494"/>
-<area shape="rect" id="node21" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="1153,387,1319,414"/>
-<area shape="rect" id="node23" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="1147,439,1325,480"/>
-<area shape="rect" id="node24" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="1143,504,1329,545"/>
-<area shape="rect" id="node25" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="873,493,1089,519"/>
-<area shape="rect" id="node31" href="$class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="886,594,1077,621"/>
-<area shape="rect" id="node32" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="877,645,1085,671"/>
-<area shape="rect" id="node33" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="873,695,1090,722"/>
-<area shape="rect" id="node22" href="$class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="1377,387,1524,414"/>
-<area shape="rect" id="node26" href="$class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="1167,570,1305,597"/>
-<area shape="rect" id="node29" href="$class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="1189,621,1283,647"/>
-<area shape="rect" id="node27" href="$class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="1391,570,1511,597"/>
-<area shape="rect" id="node28" href="$struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="1572,570,1723,597"/>
-<area shape="rect" id="node30" href="$class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="1411,621,1491,647"/>
+<area shape="rect" id="node2" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="144,572,304,599"/>
+<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="389,521,552,548"/>
+<area shape="rect" id="node16" href="$class_calibrator.html#a95b705d052954ea1ba64f502d3dc65dc" title="Calibrator::isLeftCourse" alt="" coords="383,572,558,599"/>
+<area shape="rect" id="node17" href="$class_calibrator.html#a70ccdd479323d8ceda75faccf36bb7da" title="Calibrator::getWhiteBrightness" alt="" coords="359,623,582,649"/>
+<area shape="rect" id="node18" href="$class_calibrator.html#a9d3a1cc5a10ea43b93be1b7f0c8cbbec" title="Calibrator::getBlackBrightness" alt="" coords="361,673,581,700"/>
+<area shape="rect" id="node19" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="352,445,589,472"/>
+<area shape="rect" id="node4" href="$class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="927,649,1035,676"/>
+<area shape="rect" id="node8" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="641,547,816,573"/>
+<area shape="rect" id="node14" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="637,496,820,523"/>
+<area shape="rect" id="node5" href="$class_controller.html#a5f4473814c4a669fd388916fdf1c38ce" title="Controller::lcdSetFont" alt="" coords="1155,599,1317,625"/>
+<area shape="rect" id="node6" href="$class_controller.html#a28c27614551c9f1471421b3f89bb2d5c" title="Controller::lcdFillRect" alt="" coords="1157,649,1315,676"/>
+<area shape="rect" id="node7" href="$class_controller.html#ab1d15533ed8372b08b12b5684eb4284e" title="Controller::lcdDrawString" alt="" coords="1143,700,1329,727"/>
+<area shape="rect" id="node9" href="$class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="912,416,1051,443"/>
+<area shape="rect" id="node10" href="$class_controller.html#ad1e858bf584915b7283a7726daf87de7" title="Controller::buttonIsPressed\lEnter" alt="" coords="882,518,1081,559"/>
+<area shape="rect" id="node11" href="$class_controller.html#a3c541c01b9a02403c43fac24b8c882ac" title="Controller::buttonIsPressedLeft" alt="" coords="870,700,1093,727"/>
+<area shape="rect" id="node12" href="$class_controller.html#a6a22a0a31fb55dba1feac199cc9656ee" title="Controller::buttonIsPressed\lRight" alt="" coords="882,583,1081,625"/>
+<area shape="rect" id="node13" href="$class_controller.html#ac7c06058c2d04caff95fb680abe68519" title="Controller::speakerPlayToneFS6" alt="" coords="868,467,1095,493"/>
+<area shape="rect" id="node15" href="$class_controller.html#a592fca2802b9cea70ef24eba17db7ec8" title="Controller::getBrightness" alt="" coords="889,365,1073,392"/>
+<area shape="rect" id="node20" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="670,239,787,265"/>
+<area shape="rect" id="node21" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="1153,5,1319,32"/>
+<area shape="rect" id="node23" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="1147,57,1325,98"/>
+<area shape="rect" id="node24" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="1143,122,1329,163"/>
+<area shape="rect" id="node25" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="873,112,1089,139"/>
+<area shape="rect" id="node31" href="$class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="886,213,1077,240"/>
+<area shape="rect" id="node32" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="877,264,1085,291"/>
+<area shape="rect" id="node33" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="873,315,1090,341"/>
+<area shape="rect" id="node22" href="$class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="1377,5,1524,32"/>
+<area shape="rect" id="node26" href="$class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="1167,188,1305,215"/>
+<area shape="rect" id="node29" href="$class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="1189,239,1283,265"/>
+<area shape="rect" id="node27" href="$class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="1391,188,1511,215"/>
+<area shape="rect" id="node28" href="$struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="1572,188,1723,215"/>
+<area shape="rect" id="node30" href="$class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="1411,239,1491,265"/>
 </map>

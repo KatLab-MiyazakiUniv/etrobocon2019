@@ -1,7 +1,7 @@
 <map id="Controller::setLeftMotorPwm" name="Controller::setLeftMotorPwm">
-<area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="305,5,422,32"/>
-<area shape="rect" id="node6" href="$class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="261,57,465,98"/>
-<area shape="rect" id="node3" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="513,5,751,32"/>
-<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="799,5,959,32"/>
-<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1007,5,1097,32"/>
+<area shape="rect" id="node2" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="263,5,381,32"/>
+<area shape="rect" id="node6" href="$class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="261,56,383,83"/>
+<area shape="rect" id="node3" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="431,5,668,32"/>
+<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="716,5,876,32"/>
+<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="924,5,1015,32"/>
 </map>

@@ -1,0 +1,11 @@
+<map id="Navigator::spin" name="Navigator::spin">
+<area shape="rect" id="node2" href="$class_rotation.html#ac4372167196fa15520af1f37d145a400" title="自転したときの角度を求める " alt="" coords="212,5,355,32"/>
+<area shape="rect" id="node3" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="440,31,605,57"/>
+<area shape="rect" id="node5" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="195,107,372,149"/>
+<area shape="rect" id="node6" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="190,173,377,214"/>
+<area shape="rect" id="node7" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="179,239,387,265"/>
+<area shape="rect" id="node8" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="175,289,392,316"/>
+<area shape="rect" id="node9" href="$class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="214,340,353,367"/>
+<area shape="rect" id="node10" href="$class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="204,391,363,417"/>
+<area shape="rect" id="node4" href="$class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="653,31,800,57"/>
+</map>
