@@ -1,4 +1,5 @@
 <map id="Controller::stopMotor" name="Controller::stopMotor">
 <area shape="rect" id="node2" href="$class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="249,5,379,32"/>
 <area shape="rect" id="node3" href="$class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="212,57,416,98"/>
+<area shape="rect" id="node4" href="$class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="212,122,416,163"/>
 </map>

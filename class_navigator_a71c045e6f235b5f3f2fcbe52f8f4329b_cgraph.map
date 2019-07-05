@@ -1,0 +1,14 @@
+<map id="Navigator::moveToSpecifiedColor" name="Navigator::moveToSpecifiedColor">
+<area shape="rect" id="node2" href="$class_controller.html#a96f63da6f3ceaa71bc7d95ae73d7e6c4" title="Controller::getRawColor" alt="" coords="277,5,455,32"/>
+<area shape="rect" id="node3" href="$class_controller.html#a766aad422708897cefd8303306867167" title="Controller::convertHsv" alt="" coords="282,56,450,83"/>
+<area shape="rect" id="node4" href="$class_controller.html#ac9babd9f17deef86759153fc1f1ee511" title="Controller::hsvToColor" alt="" coords="283,107,449,133"/>
+<area shape="rect" id="node5" href="$class_controller.html#a8e4a17cc784820e63b5417940f2ca4db" title="Controller::getHsv" alt="" coords="296,157,436,184"/>
+<area shape="rect" id="node6" href="$class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="297,208,435,235"/>
+<area shape="rect" id="node7" href="$class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="287,259,445,285"/>
+<area shape="rect" id="node8" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="277,310,455,351"/>
+<area shape="rect" id="node9" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="273,375,459,417"/>
+<area shape="rect" id="node10" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="283,441,449,468"/>
+<area shape="rect" id="node12" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="257,492,475,519"/>
+<area shape="rect" id="node13" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="262,543,470,569"/>
+<area shape="rect" id="node11" href="$class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="523,441,669,468"/>
+</map>
