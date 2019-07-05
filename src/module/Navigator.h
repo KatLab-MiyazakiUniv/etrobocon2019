@@ -12,6 +12,7 @@
 #include "Distance.h"
 #include "Pid.h"
 #include "SpeedControl.h"
+#include "Rotation.h"
 #include <cmath>
 
 class Navigator {
@@ -66,6 +67,14 @@ class Navigator {
    * @return なし
    */
   void moveToSpecifiedColor(Color specifiedColor, int pwm = 30);
+
+  /**
+   * @brief 走行体を回頭させる(yawing)
+   * @param angle [回頭角度(正の値)]
+   * @param clockwise [時計回りに回転するかどうか(デフォルトで時計回り)]
+   * @param pwm [モーターパワー]
+   */
+  void spin(double angle, bool clockwise = true, int pwm = 10);
 
  private:
   Distance distance;

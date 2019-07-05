@@ -94,6 +94,22 @@ void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
   controller.stopMotor();
 }
 
+void Navigator::spin(double angle, bool clockwise, int pwm)
+{
+  // angleの絶対値を取る
+  angle = std::abs(angle);
+  Rotation rotation;
+
+  while(rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount())
+        < angle) {
+    controller.setLeftMotorPwm(clockwise ? pwm : -pwm);
+    controller.setRightMotorPwm(clockwise ? -pwm : pwm);
+    controller.tslpTsk(4);
+  }
+
+  controller.stopMotor();
+}
+
 bool Navigator::hasArrived(double goalDistance, bool isForward)
 {
   int leftAngle = controller.getLeftMotorCount();
