@@ -31,11 +31,13 @@ void Navigator::move(double specifiedDistance, int pwm, const double pGain)
     while(hasArrived(goalDistance, false)) {
       double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
       setPwmValue(-std::abs(pwm), -alpha);
+      controller.tslpTsk(4);
     }
   } else {
     while(hasArrived(goalDistance, true)) {
       double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
       setPwmValue(std::abs(pwm), -alpha);
+      controller.tslpTsk(4);
     }
   }
 
@@ -56,12 +58,14 @@ void Navigator::moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpee
       double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki,
                                                pidForSpeed.Kd);
       setPwmValue(static_cast<int>(-std::abs(pwm)));
+      controller.tslpTsk(4);
     }
   } else {
     while(hasArrived(goalDistance, true)) {
       double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki,
                                                pidForSpeed.Kd);
       setPwmValue(static_cast<int>(std::abs(pwm)));
+      controller.tslpTsk(4);
     }
   }
   controller.stopMotor();
@@ -85,6 +89,7 @@ void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
     controller.getRawColor(r, g, b);
     // rgb値をhsv値に変換
     controller.convertHsv(r, g, b);
+    controller.tslpTsk(4);
   }
   controller.stopMotor();
 }
@@ -108,5 +113,4 @@ void Navigator::setPwmValue(int pwm, double alpha)
 {
   controller.setRightMotorPwm(pwm + alpha);
   controller.setLeftMotorPwm(pwm - alpha);
-  controller.tslpTsk(4);
 }
