@@ -223,7 +223,8 @@ void Controller::stopMotor()
 int Controller::getAngleOfRotation()
 {
   int angle = gyroSensor.getAngle();
-  //角度を[0-360]の範囲で表す
+  //角度を[0-360]の範囲で表す,
+  //右手系(反時計回り)が正である
   return Controller::limitAngle(angle);
 }
 
