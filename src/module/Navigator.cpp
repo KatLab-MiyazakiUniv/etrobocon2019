@@ -30,12 +30,12 @@ void Navigator::move(double specifiedDistance, int pwm, const double pGain)
   if(specifiedDistance < 0) {
     while(hasArrived(goalDistance, false)) {
       double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
-      setPwmValue(static_cast<int>(-std::abs(pwm)), -alpha);
+      setPwmValue(-std::abs(pwm), -alpha);
     }
   } else {
     while(hasArrived(goalDistance, true)) {
       double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
-      setPwmValue(static_cast<int>(std::abs(pwm)), -alpha);
+      setPwmValue(std::abs(pwm), -alpha);
     }
   }
 
@@ -63,6 +63,28 @@ void Navigator::moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpee
                                                pidForSpeed.Kd);
       setPwmValue(static_cast<int>(std::abs(pwm)));
     }
+  }
+  controller.stopMotor();
+}
+
+void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
+{
+  int r = 0;
+  int g = 0;
+  int b = 0;
+
+  // カラーセンサからrgb値を取得
+  controller.getRawColor(r, g, b);
+  // rgb値をhsv値に変換
+  controller.convertHsv(r, g, b);
+
+  // 特定の色まで移動する
+  while(controller.hsvToColor(controller.getHsv()) != specifiedColor) {
+    setPwmValue(pwm);
+    // カラーセンサからrgb値を取得
+    controller.getRawColor(r, g, b);
+    // rgb値をhsv値に変換
+    controller.convertHsv(r, g, b);
   }
   controller.stopMotor();
 }

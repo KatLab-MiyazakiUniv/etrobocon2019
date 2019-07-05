@@ -58,6 +58,15 @@ class Navigator {
    */
   void moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed);
 
+  /**
+   * 指定した色まで前進と後進をする
+   *
+   * @param specifiedColor [指定する色]
+   * @param pwm [モータの強さ。正なら前進、負なら後進する]
+   * @return なし
+   */
+  void moveToSpecifiedColor(Color specifiedColor, int pwm = 30);
+
  private:
   Distance distance;
   Controller& controller;
