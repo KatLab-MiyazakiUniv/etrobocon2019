@@ -49,7 +49,7 @@ class ColorSensor {
 
 class GyroSensor{
   public:
-    int getAngle() {return angle}
+    int getAngle() { return angle; }
     int angle = 0;
 };
 
