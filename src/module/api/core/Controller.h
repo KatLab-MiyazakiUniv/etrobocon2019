@@ -71,10 +71,6 @@ class Controller {
   void setRightMotorPwm(const int pwm);
   void resetMotorCount();
   void stopMotor();
-  int getAngle();
-  int getAnglerVelocity();
-  void reset();
-  void setOffset(int offset);
   int getAngleOfRotation();
   int limitAngle(int angle);
 
