@@ -1,6 +1,7 @@
 var searchData=
 [
   ['setbrightness',['setBrightness',['../class_calibrator.html#a8b483258504e164e749ef7fa1566cec9',1,'Calibrator']]],
+  ['setcameramode',['setCameraMode',['../class_calibrator.html#af2aadfe9b368acf3ea56e7f8c077bdac',1,'Calibrator']]],
   ['setisleftcourse',['setIsLeftCourse',['../class_normal_course.html#a33468cc4af0219f2d5616a6f19d75590',1,'NormalCourse']]],
   ['setleftmotorpwm',['setLeftMotorPwm',['../class_controller.html#a0806bb9e6dad708398bfcf188d98024a',1,'Controller']]],
   ['setlrcourse',['setLRCourse',['../class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce',1,'Calibrator']]],

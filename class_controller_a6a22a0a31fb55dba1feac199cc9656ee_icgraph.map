@@ -1,6 +1,7 @@
 <map id="Controller::buttonIsPressedRight" name="Controller::buttonIsPressedRight">
-<area shape="rect" id="node2" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="252,13,427,39"/>
-<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="475,13,637,39"/>
-<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="685,13,845,39"/>
-<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="893,13,984,39"/>
+<area shape="rect" id="node2" href="$class_calibrator.html#af2aadfe9b368acf3ea56e7f8c077bdac" title="Calibrator::setCameraMode" alt="" coords="252,5,452,32"/>
+<area shape="rect" id="node6" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="265,56,439,83"/>
+<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="500,31,663,57"/>
+<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="711,31,871,57"/>
+<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="919,31,1009,57"/>
 </map>

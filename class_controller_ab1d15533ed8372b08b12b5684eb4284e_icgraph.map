@@ -1,8 +1,9 @@
 <map id="Controller::lcdDrawString" name="Controller::lcdDrawString">
-<area shape="rect" id="node2" href="$class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="239,24,347,51"/>
-<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="625,24,788,51"/>
-<area shape="rect" id="node6" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="399,24,573,51"/>
-<area shape="rect" id="node7" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="395,75,577,102"/>
-<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="836,24,996,51"/>
-<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1044,24,1135,51"/>
+<area shape="rect" id="node2" href="$class_display.html#a82cf0667f3e7ecf2866ddb43f6f48d76" title="Display::print" alt="" coords="239,57,347,83"/>
+<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="643,57,805,83"/>
+<area shape="rect" id="node6" href="$class_calibrator.html#af2aadfe9b368acf3ea56e7f8c077bdac" title="Calibrator::setCameraMode" alt="" coords="395,31,595,58"/>
+<area shape="rect" id="node7" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="407,82,582,109"/>
+<area shape="rect" id="node8" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="403,133,586,159"/>
+<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="853,57,1013,83"/>
+<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1061,57,1152,83"/>
 </map>
