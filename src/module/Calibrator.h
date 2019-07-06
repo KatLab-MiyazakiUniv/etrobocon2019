@@ -23,10 +23,10 @@ class Calibrator {
    */
   bool calibration();
 
-  /**
-   *
+  /** カメラシステムを使用するかどうかを判断する。
+   * @return Lカメラシステムを使用するかどうかの真偽値（Trueなら使用する）
    */
-  bool setCameraMode();
+  bool useCameraSystem() const;
 
   /** Leftコースであるかどうかを判断する。
    * @return Leftコースであるかどうかの真偽値（TrueならLeftコース）
@@ -43,6 +43,11 @@ class Calibrator {
    */
   int getBlackBrightness() const;
 
+  /** カメラシステムを使用するかどうかを設定する
+   * @return 正常終了したかどうかの真偽値(Trueなら正常終了)
+   */
+  bool setCameraMode();
+
   /** LコースかRコースかを設定する。
    * @return 正常終了したかどうかの真偽値（Trueなら正常終了）
    */
@@ -56,8 +61,8 @@ class Calibrator {
 
  private:
   Controller& controller;
-  bool isCameraMode;
-  bool isLeft;  // Leftコースであるかどうかの真偽値（TrueならLeftコース）
+  bool isCameraMode;  // カメラシステムを使用するかどうか(Trueなら使用する)
+  bool isLeft;        // Leftコースであるかどうかの真偽値（TrueならLeftコース）
   unsigned int brightnessOfWhite;  // 白色の明るさ
   unsigned int brightnessOfBlack;  // 黒色の明るさ
 

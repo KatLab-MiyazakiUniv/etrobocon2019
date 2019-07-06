@@ -147,14 +147,21 @@ int Calibrator::averageBrightness()
   return meanBrightness / times;
 }
 
+bool Calibrator::useCameraSystem() const
+{
+  return isCameraMode;
+}
+
 bool Calibrator::isLeftCourse() const
 {
   return isLeft;
 }
+
 int Calibrator::getWhiteBrightness() const
 {
   return brightnessOfWhite;
 };
+
 int Calibrator::getBlackBrightness() const
 {
   return brightnessOfBlack;
