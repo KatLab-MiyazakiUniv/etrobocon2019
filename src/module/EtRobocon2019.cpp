@@ -3,6 +3,7 @@
 #include "Calibrator.h"
 #include "Display.h"
 #include "NormalCourse.h"
+#include "Navigator.h"
 
 void EtRobocon2019::start()
 {
@@ -15,8 +16,8 @@ void EtRobocon2019::start()
   bool isLeftCourse = calibrator.isLeftCourse();
   // 黒と白を足して2で割る．
   int targetBrightness = (calibrator.getWhiteBrightness() + calibrator.getBlackBrightness()) / 2;
-  // 右ボタンが押されるまで待つ（これを書かないと自動で走り出す．）
-  while(!controller.buttonIsPressedRight()) {
+  // タッチセンサーが押されるまで待つ（これを書かないと自動で走り出す．）
+  while(!controller.touchSensor.isPressed()) {
   }
 
   NormalCourse normalCourse(controller, isLeftCourse, targetBrightness);

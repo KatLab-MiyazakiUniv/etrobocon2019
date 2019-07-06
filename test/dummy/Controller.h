@@ -80,7 +80,7 @@ class Controller {
     }
     return false;
   };
-  void getRawColor(std::uint16_t& r, std::uint16_t& g, std::uint16_t& b)
+  void getRawColor(int& r, int& g, int& b)
   {
     r = mock_r;
     g = mock_g;
