@@ -23,6 +23,11 @@ class Calibrator {
    */
   bool calibration();
 
+  /**
+   *
+   */
+  bool setCameraMode();
+
   /** Leftコースであるかどうかを判断する。
    * @return Leftコースであるかどうかの真偽値（TrueならLeftコース）
    */
@@ -51,6 +56,7 @@ class Calibrator {
 
  private:
   Controller& controller;
+  bool isCameraMode;
   bool isLeft;  // Leftコースであるかどうかの真偽値（TrueならLeftコース）
   unsigned int brightnessOfWhite;  // 白色の明るさ
   unsigned int brightnessOfBlack;  // 黒色の明るさ

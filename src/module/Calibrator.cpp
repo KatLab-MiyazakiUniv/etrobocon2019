@@ -6,13 +6,23 @@
 #include "Calibrator.h"
 
 Calibrator::Calibrator(Controller& controller_)
-  : controller(controller_), isLeft(true), brightnessOfWhite(0), brightnessOfBlack(0)
+  : controller(controller_),
+    isCameraMode(true),
+    isLeft(true),
+    brightnessOfWhite(0),
+    brightnessOfBlack(0)
 {
 }
 
 bool Calibrator::calibration()
 {
   Display::print(2, "now calibration...");
+
+  if(!setCameraMode()) {
+    Display::print(2, "Error setCameraMode!");
+    return false;
+  }
+
   if(!setLRCourse()) {
     Display::print(2, "Error setLRCourse!");
     return false;
@@ -28,9 +38,35 @@ bool Calibrator::calibration()
     return false;
   }
 
-  Display::print(4, "White: %3d", brightnessOfWhite);
-  Display::print(5, "Black: %3d", brightnessOfBlack);
+  Display::print(5, "White: %3d", brightnessOfWhite);
+  Display::print(6, "Black: %3d", brightnessOfBlack);
 
+  return true;
+}
+
+bool Calibrator::setCameraMode()
+{
+  char cameraMode[8] = "ON";
+
+  controller.tslpTsk(500);
+  while(!controller.buttonIsPressedEnter()) {
+    if(isCameraMode) {
+      std::strcpy(cameraMode, "ON");
+    } else {
+      std::strcpy(cameraMode, "OFF");
+    }
+    Display::print(3, "camera system: %s ?", cameraMode);
+
+    if(controller.buttonIsPressedLeft() || controller.buttonIsPressedRight()) {
+      isCameraMode = !isCameraMode;
+      controller.speakerPlayToneFS6(50);
+      controller.tslpTsk(500);
+    }
+    controller.tslpTsk(4);
+  }
+  Display::print(3, "camera system: %s", cameraMode);
+
+  controller.speakerPlayToneFS6(100);
   return true;
 }
 
@@ -45,7 +81,7 @@ bool Calibrator::setLRCourse()
     } else {
       std::strcpy(course, "Right");
     }
-    Display::print(3, "Set LRCourse: %s ?", course);
+    Display::print(4, "Set LRCourse: %s ?", course);
 
     if(controller.buttonIsPressedLeft() || controller.buttonIsPressedRight()) {
       isLeft = !isLeft;
@@ -54,7 +90,7 @@ bool Calibrator::setLRCourse()
     }
     controller.tslpTsk(4);
   }
-  Display::print(3, "course: %s", course);
+  Display::print(4, "course: %s", course);
 
   controller.speakerPlayToneFS6(100);
   return true;
@@ -82,7 +118,7 @@ bool Calibrator::setBrightness(Brightness brightness)
     }
 
     int tmpColor = controller.getBrightness();
-    Display::print(4, "Set brightness of %s: %3d ?", name, tmpColor);
+    Display::print(5, "Set brightness of %s: %3d ?", name, tmpColor);
 
     controller.tslpTsk(4);
   }
