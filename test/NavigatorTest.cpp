@@ -170,4 +170,40 @@ namespace etrobocon2019_test {
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     ASSERT_LE(end - start, expected);
   }
+
+  TEST(Navigator, moveToSpecifiedColorTest)
+  {
+    Controller controller;
+    Navigator navigator(controller);
+
+    Color expected = Color::black;
+
+    navigator.moveToSpecifiedColor(expected);
+
+    int r = 0;
+    int g = 0;
+    int b = 0;
+    controller.getRawColor(r, g, b);
+    controller.convertHsv(r, g, b);
+    Color actual = controller.hsvToColor(controller.getHsv());
+
+    ASSERT_EQ(expected, actual);
+  }
+
+  TEST(Navigator, spin)
+  {
+    Controller controller;
+    Rotation rotation;
+    Navigator navigator(controller);
+
+    double expected = 90;
+    navigator.spin(expected);
+
+    double actual
+        = rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount());
+
+    // 回頭角度の精度は、期待出力 + 5度まで許容する
+    ASSERT_LE(expected, actual);
+    ASSERT_GE(expected + 5, actual);
+  }
 }  // namespace etrobocon2019_test

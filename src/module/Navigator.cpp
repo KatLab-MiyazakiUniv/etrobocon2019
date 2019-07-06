@@ -30,12 +30,14 @@ void Navigator::move(double specifiedDistance, int pwm, const double pGain)
   if(specifiedDistance < 0) {
     while(hasArrived(goalDistance, false)) {
       double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
-      setPwmValue(static_cast<int>(-std::abs(pwm)), -alpha);
+      setPwmValue(-std::abs(pwm), -alpha);
+      controller.tslpTsk(4);
     }
   } else {
     while(hasArrived(goalDistance, true)) {
       double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
-      setPwmValue(static_cast<int>(std::abs(pwm)), -alpha);
+      setPwmValue(std::abs(pwm), -alpha);
+      controller.tslpTsk(4);
     }
   }
 
@@ -56,14 +58,55 @@ void Navigator::moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpee
       double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki,
                                                pidForSpeed.Kd);
       setPwmValue(static_cast<int>(-std::abs(pwm)));
+      controller.tslpTsk(4);
     }
   } else {
     while(hasArrived(goalDistance, true)) {
       double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki,
                                                pidForSpeed.Kd);
       setPwmValue(static_cast<int>(std::abs(pwm)));
+      controller.tslpTsk(4);
     }
   }
+  controller.stopMotor();
+}
+
+void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
+{
+  int r = 0;
+  int g = 0;
+  int b = 0;
+
+  // カラーセンサからrgb値を取得
+  controller.getRawColor(r, g, b);
+  // rgb値をhsv値に変換
+  controller.convertHsv(r, g, b);
+
+  // 特定の色まで移動する
+  while(controller.hsvToColor(controller.getHsv()) != specifiedColor) {
+    setPwmValue(pwm);
+    // カラーセンサからrgb値を取得
+    controller.getRawColor(r, g, b);
+    // rgb値をhsv値に変換
+    controller.convertHsv(r, g, b);
+    controller.tslpTsk(4);
+  }
+  controller.stopMotor();
+}
+
+void Navigator::spin(double angle, bool clockwise, int pwm)
+{
+  // angleの絶対値を取る
+  angle = std::abs(angle);
+  Rotation rotation;
+
+  while(rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount())
+        < angle) {
+    controller.setLeftMotorPwm(clockwise ? pwm : -pwm);
+    controller.setRightMotorPwm(clockwise ? -pwm : pwm);
+    controller.tslpTsk(4);
+  }
+
   controller.stopMotor();
 }
 
@@ -86,5 +129,4 @@ void Navigator::setPwmValue(int pwm, double alpha)
 {
   controller.setRightMotorPwm(pwm + alpha);
   controller.setLeftMotorPwm(pwm - alpha);
-  controller.tslpTsk(4);
 }
