@@ -21,9 +21,58 @@ namespace etrobocon2019_test {
     Controller con;
     Calibrator calibrator(con);
 
+    ASSERT_EQ(calibrator.getCameraMode(), true);
     ASSERT_EQ(calibrator.isLeftCourse(), true);
     ASSERT_EQ(calibrator.getWhiteBrightness(), 0);
     ASSERT_EQ(calibrator.getBlackBrightness(), 0);
+  }
+
+  TEST(Calibrator, setCameraModeTest1)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+
+    calibrator.setCameraMode();
+
+    ASSERT_EQ(calibrator.getCameraMode(), true);
+  }
+
+  TEST(Calibrator, setCameraModeTest2)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+
+    con.pushRight = true;
+    calibrator.setCameraMode();
+
+    ASSERT_EQ(calibrator.getCameraMode(), false);
+  }
+
+  TEST(Calibrator, setCameraModeTest3)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+
+    con.pushLeft = true;
+    calibrator.setCameraMode();
+
+    ASSERT_EQ(calibrator.getCameraMode(), false);
+  }
+
+  TEST(Calibrator, setCameraModeTest4)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+
+    con.pushLeft = true;
+    con.pushRight = true;
+    calibrator.setCameraMode();
+
+    ASSERT_EQ(calibrator.getCameraMode(), true);
   }
 
   TEST(Calibrator, setLRCourseTest1)

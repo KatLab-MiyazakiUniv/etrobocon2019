@@ -26,7 +26,7 @@ class Calibrator {
   /** カメラシステムを使用するかどうかを判断する。
    * @return Lカメラシステムを使用するかどうかの真偽値（Trueなら使用する）
    */
-  bool useCameraSystem() const;
+  bool getCameraMode() const;
 
   /** Leftコースであるかどうかを判断する。
    * @return Leftコースであるかどうかの真偽値（TrueならLeftコース）

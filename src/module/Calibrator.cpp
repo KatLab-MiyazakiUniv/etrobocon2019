@@ -147,7 +147,7 @@ int Calibrator::averageBrightness()
   return meanBrightness / times;
 }
 
-bool Calibrator::useCameraSystem() const
+bool Calibrator::getCameraMode() const
 {
   return isCameraMode;
 }
