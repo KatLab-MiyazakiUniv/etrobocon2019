@@ -31,18 +31,21 @@ void NormalCourse::setIsLeftCourse(bool isLeftCourse_)
 void NormalCourse::runNormalCourse()
 {
   // 配列の個数
-  constexpr int arraySize = 4;
-  int baseSpeed = 500;
+  constexpr int arraySize = 7;
+  int baseSpeed = 700;
   std::array<NormalCourseProperty, arraySize> normalCourseProperty
       /**
        * 詳しく見たいならLineTracer.hを見てね．
        * 進む距離，目標スピード，スピードpid，ターンpid
        */
       = { {
-          { 500, baseSpeed, { 0.1, 0.0, 0.1 }, { 0.8, 0.01, 0.01 } },        // 第1区間
-          { 1000, baseSpeed - 50, { 0.1, 0.0, 0.1 }, { 0.8, 0.01, 0.05 } },  // 第2区間
-          { 5000, baseSpeed - 50, { 0.1, 0.0, 0.1 }, { 0.8, 0.01, 0.05 } },  // 第3区間
-          { 5000, baseSpeed - 50, { 0.1, 0.0, 0.1 }, { 0.8, 0.01, 0.05 } },  // 第4区間
+          { 600, baseSpeed, { 0.1, 0.0, 0.1 }, { 0.9, 0.01, 0.06 } },         // 第1区間
+          { 800, baseSpeed - 50, { 1.5, 0.0, 0.1 }, { 1.1, 0.01, 0.07 } },    // 第2区間
+          { 1200, baseSpeed - 180, { 0.3, 0.0, 0.1 }, { 1.1, 0.01, 0.05 } },  // 第3区間
+          { 2300, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.2, 0.01, 0.05 } },        // 第4区間
+          { 1000, baseSpeed + 100, { 0.1, 0.0, 0.1 }, { 0.9, 0.01, 0.04 } },  // 第5区間
+          { 1300, baseSpeed + 100, { 2.0, 0.0, 0.1 }, { 1.0, 0.01, 0.05 } },  // 第6区間
+          { 2500, baseSpeed + 50, { 0.1, 0.0, 0.1 }, { 1.1, 0.01, 0.05 } },   // 第7区間
       } };
   LineTracer lineTracer(controller, targetBrightness, isLeftCourse);
   for(auto& ncp : normalCourseProperty) {

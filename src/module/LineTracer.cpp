@@ -5,7 +5,7 @@
  */
 
 #include "LineTracer.h"
-//#include "Logger.h"
+#include "Logger.h"
 
 LineTracer::LineTracer(Controller& controller_, int targetBrightness_, bool isLeftCourse_)
   : controller(controller_),
@@ -14,15 +14,9 @@ LineTracer::LineTracer(Controller& controller_, int targetBrightness_, bool isLe
     distance(),
     speedControl(controller, 0.0, 0.0, 0.0, 0.0),
     turnControl(targetBrightness_, 0.0, 0.0, 0.0)
-{
-  /*
-  Logger logger{ "w" };
-  logger << "brightness"
-         << "speed"
-         << "turn"
-         << "LEFT"
-         << "RIGHT";
-  */
+{ 
+//  Logger logger{ "dataw.csv" };
+//  logger << "Distance"<< "speed";
 }
 
 void LineTracer::run(NormalCourseProperty& settings)
@@ -59,14 +53,15 @@ void LineTracer::run(NormalCourseProperty& settings)
       leftPWM = speedValue + turnValue;
       rightPWM = speedValue - turnValue;
     }
-    //logger << controller.getBrightness() << speedValue << turnValue << leftPWM << rightPWM;
     // PWM値の設定
     controller.setLeftMotorPwm(leftPWM);
     controller.setRightMotorPwm(rightPWM);
 
     // 現在の走行距離の取得
     currentDistance
-        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
+      = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
+    //  Logger logger{"dataw.csv","a"};
+    //  logger << currentDistance << speedValue;
     controller.tslpTsk(4);
   }
 }
