@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>etrobocon2019 feat.KatLab: LogFile 名前空間</title>
+<title>etrobocon2019 feat.KatLab: ガレージ駐車</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,19 +59,68 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">クラス</a>  </div>
   <div class="headertitle">
-<div class="title">LogFile 名前空間</div>  </div>
+<div class="title">ガレージ駐車 </div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_log_file_1_1_temporary_object.html">TemporaryObject</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-</div><!-- contents -->
+<div class="textblock"><h2>用語について</h2>
+<p>用語は以下の2つの図で使用されている用語を使用する。</p>
+<center><div class="image">
+<img src="phraseology1.png" width="500"/>
+</div>
+</center> <center><div class="image">
+<img src="phraseology2.png" width="500"/>
+</div>
+</center> <hr/>
+<div style="page-break-before:always"></div><h2>Lコース</h2>
+<p>Lコースのガレージは下の図のようになっている</p>
+<center><div class="image">
+<img src="garage_L.png" height="350"/>
+</div>
+</center><p>走行体の動きとしては次の図のような動きを予定している。</p>
+<center><div class="image">
+<img src="algorithm_L.png" height="350"/>
+</div>
+</center><ol type="1">
+<li>ブロックサークル5と8のサークルの間の直線から駐車領域(AL)前の青線まで前進する。</li>
+<li>青線から駐車領域(AL)に走行体の前半分が入るまで前進する。</li>
+<li>右に旋回する。</li>
+<li>3秒間停車する。 <hr/>
+</li>
+</ol>
+<div style="page-break-before:always"></div><h2>Rコース</h2>
+<p>Rコースのガレージは下の図のようになっている</p>
+<center><div class="image">
+<img src="garage_R.png" width="350"/>
+</div>
+</center><p>走行体の動きとしては次の図のような動きを予定している。</p>
+<center><div class="image">
+<img src="algorithm_R.png" width="350"/>
+</div>
+</center><ol type="1">
+<li>ブロックサークル1と4の間の直線からブロックサークル4のブロックサークルの左上にある青の交点サークルまで進む。</li>
+<li>Lコース(画像の左)側を向く。</li>
+<li>一定距離、前進したら左に旋回する。</li>
+<li>ガレージ(AR)前の黒線まで前進する。</li>
+<li>右に旋回する。</li>
+<li>青線の中央まで前進する。</li>
+<li>左に旋回する。</li>
+<li>駐車領域(AR)に走行体全体が入るまで前進する。</li>
+<li>3秒間停車する。 <hr/>
+</li>
+</ol>
+<h2>必要な機能</h2>
+<ul>
+<li>色を識別する機能(実装済み、ただし精度が低い)</li>
+<li>指定した距離を移動する機能(実装済み)</li>
+<li>指定した角度だけ旋回する機能(実装済み) <hr/>
+</li>
+</ul>
+<h2>課題</h2>
+<ul>
+<li>色識別の精度を上げる </li>
+</ul>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
