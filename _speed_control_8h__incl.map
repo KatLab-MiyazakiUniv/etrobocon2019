@@ -1,5 +1,5 @@
 <map id="src/module/SpeedControl.h" name="src/module/SpeedControl.h">
-<area shape="rect" id="node2" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="234,80,325,107"/>
-<area shape="rect" id="node10" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="400,80,455,107"/>
-<area shape="rect" id="node3" href="$_controller_8h.html" title="Controller.h" alt="" coords="209,155,307,181"/>
+<area shape="rect" id="node2" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="291,80,382,107"/>
+<area shape="rect" id="node11" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="457,80,512,107"/>
+<area shape="rect" id="node3" href="$_controller_8h.html" title="Controller.h" alt="" coords="267,155,364,181"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="src/module/Rotation.cpp" name="src/module/Rotation.cpp">
-<area shape="rect" id="node2" href="$_rotation_8h.html" title="自転（yawing）したときの角度を求めるクラス " alt="" coords="277,80,365,107"/>
-<area shape="rect" id="node3" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="234,155,325,181"/>
-<area shape="rect" id="node4" href="$_controller_8h.html" title="Controller.h" alt="" coords="209,229,307,256"/>
+<area shape="rect" id="node2" href="$_rotation_8h.html" title="自転（yawing）したときの角度を求めるクラス " alt="" coords="334,80,422,107"/>
+<area shape="rect" id="node3" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="291,155,382,181"/>
+<area shape="rect" id="node4" href="$_controller_8h.html" title="Controller.h" alt="" coords="267,229,364,256"/>
 </map>

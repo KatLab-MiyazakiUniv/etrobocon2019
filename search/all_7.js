@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getangleofrotation',['getAngleOfRotation',['../class_controller.html#a1f07f4fedd5c19e84919e9477b55f7b2',1,'Controller']]],
   ['getbatteryvoltage',['getBatteryVoltage',['../class_controller.html#ac867b29759f58fad7ccdc865b7252562',1,'Controller']]],
   ['getblackbrightness',['getBlackBrightness',['../class_calibrator.html#a9d3a1cc5a10ea43b93be1b7f0c8cbbec',1,'Calibrator']]],
   ['getbrightness',['getBrightness',['../class_controller.html#a592fca2802b9cea70ef24eba17db7ec8',1,'Controller']]],
@@ -12,5 +13,6 @@ var searchData=
   ['getrightmotorcount',['getRightMotorCount',['../class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0',1,'Controller']]],
   ['gettargetbrightness',['getTargetBrightness',['../class_normal_course.html#ab2388bcfbe11237c2cb27e40a0f86570',1,'NormalCourse']]],
   ['getwhitebrightness',['getWhiteBrightness',['../class_calibrator.html#a70ccdd479323d8ceda75faccf36bb7da',1,'Calibrator']]],
-  ['green',['green',['../_controller_8h.html#ab87bacfdad76e61b9412d7124be44c1ca9f27410725ab8cc8854a2769c7a516b8',1,'Controller.h']]]
+  ['green',['green',['../_controller_8h.html#ab87bacfdad76e61b9412d7124be44c1ca9f27410725ab8cc8854a2769c7a516b8',1,'Controller.h']]],
+  ['gyrosensor',['gyroSensor',['../class_controller.html#aab30d5a7d297ae2f327e8521cbda2cda',1,'Controller']]]
 ];

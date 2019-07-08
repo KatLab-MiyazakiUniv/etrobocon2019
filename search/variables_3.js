@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['motor_5fpwm_5fmax',['MOTOR_PWM_MAX',['../class_controller.html#a41bfe4231d282b5e15516d35ad327150',1,'Controller']]],
-  ['motor_5fpwm_5fmin',['MOTOR_PWM_MIN',['../class_controller.html#a1d287382c61600efd21be5be50d9aaba',1,'Controller']]]
+  ['kd',['Kd',['../struct_pid_gain.html#ab587119dd4edf489f7765b590252c536',1,'PidGain']]],
+  ['ki',['Ki',['../struct_pid_gain.html#a1de2cd775c0c61114683b197c50d4221',1,'PidGain']]],
+  ['kp',['Kp',['../struct_pid_gain.html#a2650d82677c378794a7f0a0e1b58f2ad',1,'PidGain']]]
 ];

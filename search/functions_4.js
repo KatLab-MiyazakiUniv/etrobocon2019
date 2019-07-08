@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getangleofrotation',['getAngleOfRotation',['../class_controller.html#a1f07f4fedd5c19e84919e9477b55f7b2',1,'Controller']]],
   ['getbatteryvoltage',['getBatteryVoltage',['../class_controller.html#ac867b29759f58fad7ccdc865b7252562',1,'Controller']]],
   ['getblackbrightness',['getBlackBrightness',['../class_calibrator.html#a9d3a1cc5a10ea43b93be1b7f0c8cbbec',1,'Calibrator']]],
   ['getbrightness',['getBrightness',['../class_controller.html#a592fca2802b9cea70ef24eba17db7ec8',1,'Controller']]],
