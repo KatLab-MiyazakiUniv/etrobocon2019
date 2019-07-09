@@ -7,7 +7,7 @@
 #include "ColorSensor.h"
 #include "Motor.h"
 #include "TouchSensor.h"
-
+#include "GyroSensor.h"
 /*
  * touch_sensor = EV3_PORT_1;
  * sonar_sensor = EV3_PORT_2;
@@ -39,6 +39,7 @@ class Controller {
   TouchSensor touchSensor;
   ColorSensor colorSensor;
   Clock clock;
+  GyroSensor gyroSensor;
   // モータ入力電圧の最大値
   static constexpr int MOTOR_PWM_MAX = 100;
   // モータ入力電圧の最小値
@@ -70,8 +71,10 @@ class Controller {
   void setRightMotorPwm(const int pwm);
   void resetMotorCount();
   void stopMotor();
+  int getAngleOfRotation();
+  int limitAngle(int angle);
 
- private:
+private:
   rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;
