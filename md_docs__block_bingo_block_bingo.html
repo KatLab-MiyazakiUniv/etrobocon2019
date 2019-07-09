@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>etrobocon2019 feat.KatLab: ブロックビンゴにおける戦略</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">etrobocon2019 feat.KatLab
+   &#160;<span id="projectnumber">b4aee3c16943bcc138b10cfeb640f15993b1a766</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ブロックビンゴにおける戦略 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2>1. ブロックビンゴの説明</h2>
+<p>ブロックビンゴは、以下の2つの要素で構成されている。</p><ol type="1">
+<li>ブロックサークル内の黒ブロックの運搬</li>
+<li>交点サークルに置かれたカラーブロック（黒ブロックを含む）の運搬</li>
+</ol>
+<h3>1.1 どちらから先に攻略すればいいのか？</h3>
+<p>交点サークルに置かれたカラーブロックは、交点サークルから伸びる黒線を走行体がライントレースしながら進み、指定のブロックサークルへ運ぶことで攻略できる。</p>
+<p>しかしながら、ブロックサークル内の黒ブロックはブロックサークルの中央に置かれているため、黒線をライントレースするような移動では攻略できない。したがって、走行体は複数のブロックサークルの中心を通りながら走行して攻略することになる。このことから、カラーブロックが配置されているブロックサークルは少ない方が望ましい。</p>
+<p>以上のことから、**ブロックサークル内の黒ブロックの運搬を先に攻略**する。</p>
+<h3>1.2 ブロックビンゴの攻略を始めるには何が必要か？</h3>
+<p>ブロックビンゴの攻略に必要な機能は、以下の5つである。</p><ol type="1">
+<li>数字カードに書かれた数字の認識</li>
+<li>ブロックサークルに置かれたカラーブロックの位置</li>
+<li>交点サークルに置かれたカラーブロックの位置</li>
+<li>正確な走行体の移動制御</li>
+<li>ブロック運搬における最適経路の探索アルゴリズム</li>
+</ol>
+<p>このうち3番目の機能は、交点サークルに置かれたカラーブロックの移動でのみ用いる。なお、1.から3.の機能はカメラシステムを用いた画像処理アルゴリズムで解決する。</p>
+<h1>2. 走行体の移動</h1>
+<p>1.2節で述べた走行体の移動制御について説明する。走行体は1.1節で述べたように、ブロックビンゴの2つの要素によって走行する場所が異なる。</p>
+<p>ブロックサークル内の黒ブロックの運搬時には、走行体はブロックサークルの中心を通りながら移動する。また、交点サークルに置かれたカラーブロックの運搬時には、走行体は交点サークルから伸びる黒線をライントレースしながら移動する。</p>
+<p>よって走行体の移動は、ブロックビンゴの2つの要素によって**分けて考える**必要がある。</p>
+<h2>2.1 ブロックサークル内の黒ブロック運搬時の走行体の移動</h2>
+<p>走行体がブロックサークルの中心を通りながら移動するには、以下の移動制御ができている必要がある。</p><ol type="1">
+<li>ブロックサークルの進入</li>
+<li>直進</li>
+<li>左旋回</li>
+<li>右旋回</li>
+<li>180度回頭</li>
+<li>ブロックサークルの退出</li>
+</ol>
+<p>以降、走行体の移動に関しては開始点、終了点、条件の3つの観点から説明する。また、走行体の座標は(a, b, theta)の3つの変数を用いて説明する。ここで、aとは数字カードの長辺と平行に座標軸をとったx座標の1つである。x軸はゴールゲート方向に正である。また、bとは数字カードの短辺と平行に座標軸をとったy座標の1つである。y軸はガレージ方向に正である。さらにthetaとは、反時計回りを正とした角度(deg)である(-180度 &lt;= theta &lt;= 180度)。theta = 0のとき、走行体はy軸と平行でy座標が正の向きに向いている。</p>
+<h3>2.1.1</h3>
+<p>それぞれの走行体の移動の説明は省略。</p>
+<h1>3. ブロックサークル内の黒ブロック運搬時の経路探索</h1>
+<p>ブロックサークル内の黒ブロック運搬では、走行体は複数のブロックサークルを移動しながら、黒ブロックを運搬する。この際、走行体がブロックサークル4、1、2と進む向きを外回りとし、外回りと反対の向きを内回りとする。このとき、走行体はブロックサークル内のカラーブロックが置いてある方向とは逆の向きで、黒ブロックをボーナスサークルへ運搬する。 </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

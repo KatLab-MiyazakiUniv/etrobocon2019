@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>etrobocon2019 feat.KatLab: odometry</title>
+<title>etrobocon2019 feat.KatLab: docs/BlockBingo/block_bingo.md ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">833c19a15bd12a5c10b75d973aa83fac673a83e8</span>
+   &#160;<span id="projectnumber">b4aee3c16943bcc138b10cfeb640f15993b1a766</span>
    </div>
   </td>
  </tr>
@@ -60,46 +60,12 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">odometry </div>  </div>
+<div class="title">docs/BlockBingo/block_bingo.md ファイル</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>オドメトリ手法</h1>
-<p>ETロボコン2019では、走行体の走行距離と自転角度を <em>オドメトリ手法</em> を用いて計算する。</p>
-<p><em>オドメトリ手法</em> とは、走行体の車輪に関する回転角度から、走行体の位置を推定する手法の総称である。 </p><hr/>
-<h1>走行距離の計算</h1>
-<p>求める走行距離は、下図で赤く表記した $d$ である。 旋回角度($$ 自転角度)の $$ も求められるが、今回は無視する。</p>
-<center><div class="image">
-<img src="distance_angle.png" width="500"/>
-</div>
-</center> <hr/>
-<h1>走行距離の計算</h1>
-<p>距離 $d$ は、各車輪の移動距離 $d_L, d_R$ から求められる。 左車輪と右車輪、それぞれの回転角度を $x_L, x_R$ とし、下図のように車輪半径を$r$とすると</p>
-<center><div class="image">
-<img src="tire.png" width="300"/>
-</div>
-</center> <hr/>
-<h1>走行距離の計算</h1>
-<p>左車輪と右車輪、それぞれの移動距離 $d_L, d_R$ は扇形の弧長だから</p>
-<p>$$d_L = {2 r}{360} x_L,  d_R = {2 r}{360} x_R$$</p>
-<p>で計算できる。 </p><hr/>
-<h1>走行距離の計算</h1>
-<p>求めた $d_L, d_R$ を平均すると走行体の走行距離 $d$ を得る</p>
-<p>$$d = {1}{2}(d_L + d_R)$$</p>
-<center><div class="image">
-<img src="distance_angle.png" width="500"/>
-</div>
-</center> <hr/>
-<h1>自転角度の計算</h1>
-<p>自転角度とは、走行体が車輪間の中心を軸として回転した際の回転角度である。 自転角度は、下図に示すように、左車輪と右車輪のいずれか一方から求めることができる。今回は、両輪から求めて平均をとる。</p>
-<center><div class="image">
-<img src="rotation.png" width="500"/>
-</div>
-</center> <hr/>
-<h1>自転角度の計算</h1>
-<p>左車輪から自転角度 $$ を求める。 扇形と中心角との関係から、走行体のトレッド幅を$T$とすると</p>
-<p>${aligned}  &amp;= {180}{T/2  }  d_L \ \ &amp;= {180}{T/2  }  {  r}{180}  x_L \ \ &amp;= {2r}{T}  x_L {aligned}$</p>
-<p>となる。同様にして $$ も求めて、$$ を求める $$ = {1}{2}( + ) </p>
-</div></div><!-- contents -->
+
+<p><a href="block__bingo_8md_source.html">[ソースコード]</a></p>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
