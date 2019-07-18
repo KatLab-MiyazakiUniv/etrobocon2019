@@ -100,6 +100,8 @@ void Navigator::spin(double angle, bool clockwise, int pwm)
   angle = std::abs(angle);
   Rotation rotation;
 
+  controller.resetMotorCount();
+
   while(rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount())
         < angle) {
     controller.setLeftMotorPwm(clockwise ? pwm : -pwm);
