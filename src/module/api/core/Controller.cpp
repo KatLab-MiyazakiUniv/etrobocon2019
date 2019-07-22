@@ -83,26 +83,80 @@ void Controller::getRawColor(int& r, int& g, int& b)
   b = rgb.b;
 }
 
-Color Controller::hsvToColor(HsvStatus hsv)
+Color Controller::hsvToColor(const HsvStatus& status)
 {
-  // 白黒の識別
-  if(hsv.value < 13.0) {
-    return Color::black;
-  } else if(hsv.value > 50.0) {
-    return Color::white;
-  }
-
-  // 赤緑青黃の識別
-  if(hsv.hue < 30) {
-    return Color::red;
-  } else if(hsv.hue < 80.0) {
-    return Color::yellow;
-  } else if(hsv.hue < 160.0) {
-    return Color::green;
-  } else if(hsv.hue < 300.0) {
-    return Color::blue;
-  } else {
-    return Color::red;
+  if(status.value <= 33.5294){
+    if(status.value <= 18.4314){
+      return Color::black;
+    }else {
+      if(status.hue <= 159.5357){
+        if(status.hue <= 83.739){
+          if(status.hue <= 40.8904){
+            return Color::black;
+          }else {
+            return Color::yellow;
+          }
+        }else {
+          return Color::green;
+        }
+      }else {
+        if(status.value <= 32.9412){
+          return Color::blue;
+        }else {
+          if(status.hue <= 299.6104){
+            return Color::black;
+          }else {
+            return Color::red;
+          }
+        }
+      }
+    }
+  }else {
+    if(status.value <= 45.2941){
+      if(status.hue <= 263.0811){
+        if(status.hue <= 32.8235){
+          return Color::red;
+        }else {
+          if(status.hue <= 76.7547){
+            if(status.hue <= 44.8367){
+              if(status.hue <= 40.5263){
+                return Color::yellow;
+              }else {
+                return Color::red;
+              }
+            }else {
+              return Color::yellow;
+            }
+          }else {
+            if(status.value <= 40.1961){
+              if(status.value <= 35.4902){
+                return Color::green;
+              }else {
+                return Color::blue;
+              }
+            }else {
+              return Color::white;
+            }
+          }
+        }
+      }else {
+        return Color::red;
+      }
+    }else {
+      if(status.hue <= 283.6016){
+        if(status.hue <= 99.2199){
+          if(status.value <= 51.1765){
+            return Color::yellow;
+          }else {
+            return Color::red;
+          }
+        }else {
+          return Color::white;
+        }
+      }else {
+        return Color::red;
+      }
+    }
   }
 }
 
