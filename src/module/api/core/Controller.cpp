@@ -211,6 +211,7 @@ HsvStatus Controller::getHsv() const
 
 void Controller::resetMotorCount()
 {
+  leftWheel.reset();
   rightWheel.reset();
 }
 
@@ -230,10 +231,10 @@ int Controller::getAngleOfRotation()
 
 int Controller::limitAngle(int angle)
 {
-    angle = angle % 360;
-    if (angle < 0) {
-      angle = 360 + angle;
-      angle = limitAngle(angle);
-    }
+  angle = angle % 360;
+  if(angle < 0) {
+    angle = 360 + angle;
+    angle = limitAngle(angle);
+  }
   return angle;
 }
