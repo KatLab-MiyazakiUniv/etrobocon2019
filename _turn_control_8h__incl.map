@@ -1,3 +1,4 @@
 <map id="src/module/TurnControl.h" name="src/module/TurnControl.h">
-<area shape="rect" id="node2" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="70,80,125,107"/>
+<area shape="rect" id="node2" href="$_filter_8h.html" title="外乱対策のためのフィルターをまとめたクラス " alt="" coords="23,80,89,107"/>
+<area shape="rect" id="node3" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="113,80,167,107"/>
 </map>

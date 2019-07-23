@@ -1,4 +1,5 @@
 <map id="src/module/TurnControl.cpp" name="src/module/TurnControl.cpp">
 <area shape="rect" id="node2" href="$_turn_control_8h.html" title="旋回値制御クラス " alt="" coords="51,80,159,107"/>
-<area shape="rect" id="node3" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="77,155,132,181"/>
+<area shape="rect" id="node3" href="$_filter_8h.html" title="外乱対策のためのフィルターをまとめたクラス " alt="" coords="31,155,96,181"/>
+<area shape="rect" id="node4" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="120,155,175,181"/>
 </map>

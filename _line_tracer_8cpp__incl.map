@@ -1,9 +1,10 @@
 <map id="src/module/LineTracer.cpp" name="src/module/LineTracer.cpp">
 <area shape="rect" id="node2" href="$_line_tracer_8h.html" title="LineTracer.h" alt="" coords="442,80,541,107"/>
-<area shape="rect" id="node15" href="$_logger_8h.html" title="　ユーザーが与えたデータをcsv形式で記録するクラス &#160;記録するためには、「write」または「&lt;&lt;演算子」機能�..." alt="" coords="794,80,871,107"/>
+<area shape="rect" id="node16" href="$_logger_8h.html" title="　ユーザーが与えたデータをcsv形式で記録するクラス &#160;記録するためには、「write」または「&lt;&lt;演算子」機能�..." alt="" coords="794,80,871,107"/>
 <area shape="rect" id="node3" href="$_controller_8h.html" title="Controller.h" alt="" coords="267,304,364,331"/>
 <area shape="rect" id="node10" href="$_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="322,229,413,256"/>
 <area shape="rect" id="node12" href="$_speed_control_8h.html" title="前進値制御クラス " alt="" coords="381,155,503,181"/>
 <area shape="rect" id="node13" href="$_pid_8h.html" title="PID制御クラス " alt="" coords="513,229,568,256"/>
 <area shape="rect" id="node14" href="$_turn_control_8h.html" title="旋回値制御クラス " alt="" coords="579,155,687,181"/>
+<area shape="rect" id="node15" href="$_filter_8h.html" title="外乱対策のためのフィルターをまとめたクラス " alt="" coords="600,229,665,256"/>
 </map>

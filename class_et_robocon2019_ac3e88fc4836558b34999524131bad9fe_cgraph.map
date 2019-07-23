@@ -18,17 +18,18 @@
 <area shape="rect" id="node12" href="$class_controller.html#ac7c06058c2d04caff95fb680abe68519" title="Controller::speakerPlayToneFS6" alt="" coords="747,291,973,317"/>
 <area shape="rect" id="node15" href="$class_controller.html#a592fca2802b9cea70ef24eba17db7ec8" title="Controller::getBrightness" alt="" coords="768,392,952,419"/>
 <area shape="rect" id="node20" href="$class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="540,519,657,545"/>
-<area shape="rect" id="node21" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="1032,439,1197,465"/>
-<area shape="rect" id="node23" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="1026,490,1203,531"/>
-<area shape="rect" id="node24" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="1021,555,1208,597"/>
+<area shape="rect" id="node21" href="$class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="1032,435,1197,461"/>
+<area shape="rect" id="node23" href="$class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="1026,486,1203,527"/>
+<area shape="rect" id="node24" href="$class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="1021,551,1208,593"/>
 <area shape="rect" id="node25" href="$class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="752,544,968,571"/>
 <area shape="rect" id="node31" href="$class_turn_control.html#a7f4fe7ad0c56bf5e01ee1f4caf9fb404" title="旋回値を計算する関数 " alt="" coords="765,645,955,672"/>
-<area shape="rect" id="node32" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="756,696,964,723"/>
-<area shape="rect" id="node33" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="751,747,969,773"/>
-<area shape="rect" id="node22" href="$class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="1256,439,1403,465"/>
-<area shape="rect" id="node26" href="$class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="1046,621,1183,648"/>
-<area shape="rect" id="node29" href="$class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="1067,672,1162,699"/>
-<area shape="rect" id="node27" href="$class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="1269,621,1389,648"/>
-<area shape="rect" id="node28" href="$struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="1451,621,1601,648"/>
-<area shape="rect" id="node30" href="$class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="1289,672,1369,699"/>
+<area shape="rect" id="node33" href="$class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="756,696,964,723"/>
+<area shape="rect" id="node34" href="$class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="751,747,969,773"/>
+<area shape="rect" id="node22" href="$class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="1256,435,1403,461"/>
+<area shape="rect" id="node26" href="$class_pid.html#afed28045449cfb8f565ffb11b443dc88" title="目標値とPIDゲインの設定をする関数 " alt="" coords="1046,668,1183,695"/>
+<area shape="rect" id="node29" href="$class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="1067,617,1162,644"/>
+<area shape="rect" id="node27" href="$class_pid.html#a546b13dc17f46a16524d69bcf4d9f09f" title="PIDゲインの設定をする関数 " alt="" coords="1269,668,1389,695"/>
+<area shape="rect" id="node28" href="$struct_pid_gain.html#acd7b4dd0a8be8f7472f5831ba8d46a4e" title="PidGain::setPidGain" alt="" coords="1451,668,1601,695"/>
+<area shape="rect" id="node30" href="$class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="1289,617,1369,644"/>
+<area shape="rect" id="node32" href="$class_filter.html#a8fe12d5752852afc7a7179c2112d92e5" title="ローパスフィルター(現在値と前回値を参考にして値を決定する) " alt="" coords="1041,719,1188,745"/>
 </map>
