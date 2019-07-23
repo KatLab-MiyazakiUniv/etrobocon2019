@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">93f55e11c60b2e2f1916ad2fb0424c62b9d88906</span>
+   &#160;<span id="projectnumber">f7a2051c243304b87d1ff55905b7c71761d37f45</span>
    </div>
   </td>
  </tr>
@@ -381,6 +381,7 @@ Controller 連携図</div>
 <div class="center"><img src="class_controller_a766aad422708897cefd8303306867167_icgraph.png" border="0" usemap="#class_controller_a766aad422708897cefd8303306867167_icgraph" alt=""/></div>
 <map name="class_controller_a766aad422708897cefd8303306867167_icgraph" id="class_controller_a766aad422708897cefd8303306867167_icgraph">
 <area shape="rect" id="node2" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="221,5,425,47"/>
+<area shape="rect" id="node3" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="473,13,680,39"/>
 </map>
 </div>
 
@@ -401,9 +402,9 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00223">223</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;{</div><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="keywordtype">int</span> angle = <a class="code" href="class_controller.html#aab30d5a7d297ae2f327e8521cbda2cda">gyroSensor</a>.getAngle();</div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="comment">//角度を[0-360]の範囲で表す,</span></div><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="comment">//右手系(反時計回り)が正である</span></div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c">Controller::limitAngle</a>(angle);</div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;}</div><div class="ttc" id="class_controller_html_aab30d5a7d297ae2f327e8521cbda2cda"><div class="ttname"><a href="class_controller.html#aab30d5a7d297ae2f327e8521cbda2cda">Controller::gyroSensor</a></div><div class="ttdeci">GyroSensor gyroSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00042">Controller.h:42</a></div></div>
-<div class="ttc" id="class_controller_html_ada61c491dbf6a1f7ff678140cbc7d76c"><div class="ttname"><a href="class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c">Controller::limitAngle</a></div><div class="ttdeci">int limitAngle(int angle)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00231">Controller.cpp:231</a></div></div>
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00224">224</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;{</div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="keywordtype">int</span> angle = <a class="code" href="class_controller.html#aab30d5a7d297ae2f327e8521cbda2cda">gyroSensor</a>.getAngle();</div><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="comment">//角度を[0-360]の範囲で表す,</span></div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="comment">//右手系(反時計回り)が正である</span></div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c">Controller::limitAngle</a>(angle);</div><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}</div><div class="ttc" id="class_controller_html_aab30d5a7d297ae2f327e8521cbda2cda"><div class="ttname"><a href="class_controller.html#aab30d5a7d297ae2f327e8521cbda2cda">Controller::gyroSensor</a></div><div class="ttdeci">GyroSensor gyroSensor</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8h_source.html#l00042">Controller.h:42</a></div></div>
+<div class="ttc" id="class_controller_html_ada61c491dbf6a1f7ff678140cbc7d76c"><div class="ttname"><a href="class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c">Controller::limitAngle</a></div><div class="ttdeci">int limitAngle(int angle)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00232">Controller.cpp:232</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -497,6 +498,7 @@ Controller 連携図</div>
 <div class="center"><img src="class_controller_a8e4a17cc784820e63b5417940f2ca4db_icgraph.png" border="0" usemap="#class_controller_a8e4a17cc784820e63b5417940f2ca4db_icgraph" alt=""/></div>
 <map name="class_controller_a8e4a17cc784820e63b5417940f2ca4db_icgraph" id="class_controller_a8e4a17cc784820e63b5417940f2ca4db_icgraph">
 <area shape="rect" id="node2" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="193,5,397,47"/>
+<area shape="rect" id="node3" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="445,13,652,39"/>
 </map>
 </div>
 
@@ -523,15 +525,16 @@ Controller 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph.png" border="0" usemap="#class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph" alt=""/></div>
 <map name="class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph" id="class_controller_ae1e791420cc83acd20b4dfc185befc2b_icgraph">
-<area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="538,36,655,63"/>
-<area shape="rect" id="node6" href="class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="273,36,404,63"/>
-<area shape="rect" id="node7" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="495,134,699,175"/>
-<area shape="rect" id="node8" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="278,137,399,164"/>
-<area shape="rect" id="node9" href="class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0" title="SpeedControl::SpeedControl" alt="" coords="237,188,441,215"/>
-<area shape="rect" id="node10" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="231,87,447,113"/>
-<area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="747,36,984,63"/>
-<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="1032,36,1192,63"/>
-<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1240,36,1331,63"/>
+<area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="539,132,657,159"/>
+<area shape="rect" id="node6" href="class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="273,5,404,32"/>
+<area shape="rect" id="node8" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="496,205,700,246"/>
+<area shape="rect" id="node9" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="278,56,399,83"/>
+<area shape="rect" id="node10" href="class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0" title="SpeedControl::SpeedControl" alt="" coords="237,208,441,235"/>
+<area shape="rect" id="node11" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="231,157,447,184"/>
+<area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="749,132,987,159"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="1035,132,1195,159"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1243,132,1333,159"/>
+<area shape="rect" id="node7" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="495,31,701,57"/>
 </map>
 </div>
 
@@ -577,6 +580,7 @@ Controller 連携図</div>
 <div class="center"><img src="class_controller_a96f63da6f3ceaa71bc7d95ae73d7e6c4_icgraph.png" border="0" usemap="#class_controller_a96f63da6f3ceaa71bc7d95ae73d7e6c4_icgraph" alt=""/></div>
 <map name="class_controller_a96f63da6f3ceaa71bc7d95ae73d7e6c4_icgraph" id="class_controller_a96f63da6f3ceaa71bc7d95ae73d7e6c4_icgraph">
 <area shape="rect" id="node2" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="231,5,435,47"/>
+<area shape="rect" id="node3" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="483,13,689,39"/>
 </map>
 </div>
 
@@ -603,15 +607,16 @@ Controller 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph.png" border="0" usemap="#class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph" alt=""/></div>
 <map name="class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph" id="class_controller_ac5b49c1fe116fbbd7069bce0100868f0_icgraph">
-<area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="547,35,665,62"/>
-<area shape="rect" id="node6" href="class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="283,35,413,62"/>
-<area shape="rect" id="node7" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="504,133,708,175"/>
-<area shape="rect" id="node8" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="287,137,409,163"/>
-<area shape="rect" id="node9" href="class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0" title="SpeedControl::SpeedControl" alt="" coords="246,187,450,214"/>
-<area shape="rect" id="node10" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="240,86,456,113"/>
-<area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="756,35,993,62"/>
-<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="1041,35,1201,62"/>
-<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1249,35,1340,62"/>
+<area shape="rect" id="node2" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="549,132,666,159"/>
+<area shape="rect" id="node6" href="class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="283,5,413,32"/>
+<area shape="rect" id="node8" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="505,205,709,246"/>
+<area shape="rect" id="node9" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="287,56,409,83"/>
+<area shape="rect" id="node10" href="class_speed_control.html#a5e8cb9b423a482a27049cfc76f95cbf0" title="SpeedControl::SpeedControl" alt="" coords="246,208,450,235"/>
+<area shape="rect" id="node11" href="class_speed_control.html#abc31324b3a9170de05856ab5418b7938" title="SpeedControl::calculateSpeed" alt="" coords="240,157,456,184"/>
+<area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="759,132,996,159"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="1044,132,1204,159"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1252,132,1343,159"/>
+<area shape="rect" id="node7" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="504,31,711,57"/>
 </map>
 </div>
 
@@ -648,6 +653,7 @@ Controller 連携図</div>
 <div class="center"><img src="class_controller_ac9babd9f17deef86759153fc1f1ee511_icgraph.png" border="0" usemap="#class_controller_ac9babd9f17deef86759153fc1f1ee511_icgraph" alt=""/></div>
 <map name="class_controller_ac9babd9f17deef86759153fc1f1ee511_icgraph" id="class_controller_ac9babd9f17deef86759153fc1f1ee511_icgraph">
 <area shape="rect" id="node2" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="219,5,423,47"/>
+<area shape="rect" id="node3" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="471,13,677,39"/>
 </map>
 </div>
 
@@ -864,8 +870,8 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00231">231</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;{</div><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    angle = angle % 360;</div><div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">if</span> (angle &lt; 0) {</div><div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      angle = 360 + angle;</div><div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      angle = <a class="code" href="class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c">limitAngle</a>(angle);</div><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="keywordflow">return</span> angle;</div><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div><div class="ttc" id="class_controller_html_ada61c491dbf6a1f7ff678140cbc7d76c"><div class="ttname"><a href="class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c">Controller::limitAngle</a></div><div class="ttdeci">int limitAngle(int angle)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00231">Controller.cpp:231</a></div></div>
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00232">232</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div><div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  angle = angle % 360;</div><div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="keywordflow">if</span>(angle &lt; 0) {</div><div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    angle = 360 + angle;</div><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    angle = <a class="code" href="class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c">limitAngle</a>(angle);</div><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  }</div><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keywordflow">return</span> angle;</div><div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}</div><div class="ttc" id="class_controller_html_ada61c491dbf6a1f7ff678140cbc7d76c"><div class="ttname"><a href="class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c">Controller::limitAngle</a></div><div class="ttdeci">int limitAngle(int angle)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00232">Controller.cpp:232</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -893,7 +899,16 @@ Controller 連携図</div>
 </div><div class="memdoc">
 
 <p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00212">212</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  rightWheel.reset();</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  leftWheel.reset();</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  rightWheel.reset();</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_controller_a0db421426e48c56558848bba592616be_icgraph.png" border="0" usemap="#class_controller_a0db421426e48c56558848bba592616be_icgraph" alt=""/></div>
+<map name="class_controller_a0db421426e48c56558848bba592616be_icgraph" id="class_controller_a0db421426e48c56558848bba592616be_icgraph">
+<area shape="rect" id="node2" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="256,5,377,32"/>
+<area shape="rect" id="node3" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="425,5,632,32"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a0806bb9e6dad708398bfcf188d98024a"></a>
@@ -923,6 +938,7 @@ Controller 連携図</div>
 <area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="431,5,668,32"/>
 <area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="716,5,876,32"/>
 <area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="924,5,1015,32"/>
+<area shape="rect" id="node7" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="446,56,653,83"/>
 </map>
 </div>
 
@@ -955,6 +971,7 @@ Controller 連携図</div>
 <area shape="rect" id="node3" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="440,5,677,32"/>
 <area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="725,5,885,32"/>
 <area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="933,5,1024,32"/>
+<area shape="rect" id="node7" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="455,56,662,83"/>
 </map>
 </div>
 
@@ -1037,16 +1054,17 @@ Controller 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00217">217</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;{</div><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  leftWheel.stop();</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  rightWheel.stop();</div><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+<p class="definition"> <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a> の <a class="el" href="_controller_8cpp_source.html#l00218">218</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;{</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  leftWheel.stop();</div><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  rightWheel.stop();</div><div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_controller_aed3aaec78fca32625b908bf6b26dcf86_icgraph.png" border="0" usemap="#class_controller_aed3aaec78fca32625b908bf6b26dcf86_icgraph" alt=""/></div>
 <map name="class_controller_aed3aaec78fca32625b908bf6b26dcf86_icgraph" id="class_controller_aed3aaec78fca32625b908bf6b26dcf86_icgraph">
 <area shape="rect" id="node2" href="class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="249,5,379,32"/>
-<area shape="rect" id="node3" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="212,57,416,98"/>
-<area shape="rect" id="node4" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="212,122,416,163"/>
-<area shape="rect" id="node5" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="253,188,375,215"/>
+<area shape="rect" id="node4" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="212,57,416,98"/>
+<area shape="rect" id="node5" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="212,122,416,163"/>
+<area shape="rect" id="node6" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="253,188,375,215"/>
+<area shape="rect" id="node3" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="464,129,671,156"/>
 </map>
 </div>
 
@@ -1087,13 +1105,14 @@ Controller 連携図</div>
 <area shape="rect" id="node7" href="class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="203,107,385,133"/>
 <area shape="rect" id="node8" href="class_line_tracer.html#aa99eef2a83f496a4999901d087e6a250" title="走行距離や目標スピード、スピード制御PID、回転制御PIDを NormalCourseProperty 構造体を使用し渡す。 ..." alt="" coords="235,157,353,184"/>
 <area shape="rect" id="node10" href="class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="229,208,359,235"/>
-<area shape="rect" id="node11" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="192,259,396,301"/>
-<area shape="rect" id="node12" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="192,325,396,366"/>
-<area shape="rect" id="node13" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="233,391,355,417"/>
+<area shape="rect" id="node12" href="class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8" title="specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す " alt="" coords="192,259,396,301"/>
+<area shape="rect" id="node13" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="192,325,396,366"/>
+<area shape="rect" id="node14" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="233,391,355,417"/>
 <area shape="rect" id="node3" href="class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="481,69,644,96"/>
-<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="729,107,889,133"/>
-<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="937,107,1028,133"/>
-<area shape="rect" id="node9" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="444,132,681,159"/>
+<area shape="rect" id="node4" href="class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="729,108,889,135"/>
+<area shape="rect" id="node5" href="app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="937,108,1028,135"/>
+<area shape="rect" id="node9" href="class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="444,145,681,172"/>
+<area shape="rect" id="node11" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="459,332,666,359"/>
 </map>
 </div>
 

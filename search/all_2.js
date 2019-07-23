@@ -2,6 +2,9 @@ var searchData=
 [
   ['black',['black',['../_controller_8h.html#ab87bacfdad76e61b9412d7124be44c1ca1ffd9e753c8054cc61456ac7fac1ac89',1,'black():&#160;Controller.h'],['../_calibrator_8h.html#a2c361c9ad6210393f1646454f207cc1da08d0012388564e95c3b4a7407cf04965',1,'BLACK():&#160;Calibrator.h']]],
   ['block_5fbingo_2emd',['block_bingo.md',['../block__bingo_8md.html',1,'']]],
+  ['blockbingo',['BlockBingo',['../class_block_bingo.html',1,'BlockBingo'],['../class_block_bingo.html#a79744b7151fdc9b08c44fede6e2edd43',1,'BlockBingo::BlockBingo()']]],
+  ['blockbingo_2ecpp',['BlockBingo.cpp',['../_block_bingo_8cpp.html',1,'']]],
+  ['blockbingo_2eh',['BlockBingo.h',['../_block_bingo_8h.html',1,'']]],
   ['blue',['blue',['../_controller_8h.html#ab87bacfdad76e61b9412d7124be44c1ca48d6215903dff56238e52e8891380c8f',1,'Controller.h']]],
   ['brightness',['Brightness',['../_calibrator_8h.html#a2c361c9ad6210393f1646454f207cc1d',1,'Calibrator.h']]],
   ['buttonispressedback',['buttonIsPressedBack',['../class_controller.html#a5674a4689bb73d50483bf19c617ac213',1,'Controller']]],

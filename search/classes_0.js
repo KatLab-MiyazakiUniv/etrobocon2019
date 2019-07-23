@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['calibrator',['Calibrator',['../class_calibrator.html',1,'']]],
-  ['controller',['Controller',['../class_controller.html',1,'']]]
+  ['blockbingo',['BlockBingo',['../class_block_bingo.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['display',['Display',['../class_display.html',1,'']]],
-  ['distance',['Distance',['../class_distance.html',1,'']]]
+  ['calibrator',['Calibrator',['../class_calibrator.html',1,'']]],
+  ['controller',['Controller',['../class_controller.html',1,'']]]
 ];

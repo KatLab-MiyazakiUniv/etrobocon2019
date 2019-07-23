@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rotation',['Rotation',['../class_rotation.html',1,'']]]
+  ['pid',['Pid',['../class_pid.html',1,'']]],
+  ['pidgain',['PidGain',['../struct_pid_gain.html',1,'']]]
 ];

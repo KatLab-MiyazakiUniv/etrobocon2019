@@ -7,5 +7,6 @@ var searchData=
   ['motor_5fpwm_5fmin',['MOTOR_PWM_MIN',['../class_controller.html#a1d287382c61600efd21be5be50d9aaba',1,'Controller']]],
   ['move',['move',['../class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7',1,'Navigator']]],
   ['moveatspecifiedspeed',['moveAtSpecifiedSpeed',['../class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8',1,'Navigator']]],
+  ['movecircle4ofl',['moveCircle4OfL',['../class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7',1,'BlockBingo']]],
   ['movetospecifiedcolor',['moveToSpecifiedColor',['../class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b',1,'Navigator']]]
 ];

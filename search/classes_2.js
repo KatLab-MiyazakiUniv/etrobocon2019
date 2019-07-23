@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['etrobocon2019',['EtRobocon2019',['../class_et_robocon2019.html',1,'']]]
+  ['display',['Display',['../class_display.html',1,'']]],
+  ['distance',['Distance',['../class_distance.html',1,'']]]
 ];

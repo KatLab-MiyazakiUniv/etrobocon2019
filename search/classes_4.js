@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hsvstatus',['HsvStatus',['../struct_hsv_status.html',1,'']]]
+  ['filter',['Filter',['../class_filter.html',1,'']]]
 ];

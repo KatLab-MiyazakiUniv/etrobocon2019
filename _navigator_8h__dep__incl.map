@@ -1,4 +1,6 @@
 <map id="src/module/Navigator.h" name="src/module/Navigator.h">
-<area shape="rect" id="node2" href="$_et_robocon2019_8cpp.html" title="src/module/EtRobocon2019.cpp" alt="" coords="5,80,231,107"/>
-<area shape="rect" id="node3" href="$_navigator_8cpp.html" title="直進と後進できるクラス " alt="" coords="255,80,443,107"/>
+<area shape="rect" id="node2" href="$_block_bingo_8h.html" title="ブロックビンゴに使用するクラス " alt="" coords="13,80,196,107"/>
+<area shape="rect" id="node4" href="$_et_robocon2019_8cpp.html" title="src/module/EtRobocon2019.cpp" alt="" coords="220,80,445,107"/>
+<area shape="rect" id="node5" href="$_navigator_8cpp.html" title="直進と後進できるクラス " alt="" coords="469,80,657,107"/>
+<area shape="rect" id="node3" href="$_block_bingo_8cpp.html" title="ブロックビンゴに使用するクラス " alt="" coords="5,155,204,181"/>
 </map>
