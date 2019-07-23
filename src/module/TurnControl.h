@@ -6,10 +6,12 @@
 #ifndef TURN_CONTROL_H
 #define TURN_CONTROL_H
 
+#include "Filter.h"
 #include "Pid.h"
 
 class TurnControl {
  private:
+  Filter<> filter;
   Pid pid;
 
  public:
