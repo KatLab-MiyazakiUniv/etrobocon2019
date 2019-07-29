@@ -1,7 +1,7 @@
 <map id="Navigator::moveToSpecifiedColor" name="Navigator::moveToSpecifiedColor">
 <area shape="rect" id="node2" href="$class_controller.html#a96f63da6f3ceaa71bc7d95ae73d7e6c4" title="Controller::getRawColor" alt="" coords="257,5,435,32"/>
 <area shape="rect" id="node3" href="$class_controller.html#a766aad422708897cefd8303306867167" title="Controller::convertHsv" alt="" coords="262,56,430,83"/>
-<area shape="rect" id="node4" href="$class_controller.html#ac9babd9f17deef86759153fc1f1ee511" title="Controller::hsvToColor" alt="" coords="263,107,429,133"/>
+<area shape="rect" id="node4" href="$class_controller.html#add5d70e5a1780660ea7d8766391bb41d" title="Controller::hsvToColor" alt="" coords="263,107,429,133"/>
 <area shape="rect" id="node5" href="$class_controller.html#a8e4a17cc784820e63b5417940f2ca4db" title="Controller::getHsv" alt="" coords="276,157,416,184"/>
 <area shape="rect" id="node6" href="$class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="277,208,415,235"/>
 <area shape="rect" id="node7" href="$class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="267,259,425,285"/>
