@@ -13,7 +13,8 @@ APPL_CXXOBJS += \
     TurnControl.o \
     NormalCourse.o \
     Navigator.o \
-    Logger.o
+    Logger.o \
+    Rotation.o
 
 SRCLANG := c++
 

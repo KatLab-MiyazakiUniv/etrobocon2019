@@ -16,95 +16,153 @@ $ g++-8 CalibratorTest.cpp ../src/module/Calibrator.cpp gtest_main.o gtest-all.o
 
 namespace etrobocon2019_test {
 
-TEST(Calibrator, init) {
-  Controller con;
-  Calibrator calibrator(con);
+  TEST(Calibrator, init)
+  {
+    Controller con;
+    Calibrator calibrator(con);
 
-  ASSERT_EQ(calibrator.isLeftCource(), true);
-  ASSERT_EQ(calibrator.getWhiteBrightness(), 0);
-  ASSERT_EQ(calibrator.getBlackBrightness(), 0);
-}
+    ASSERT_EQ(calibrator.getCameraMode(), true);
+    ASSERT_EQ(calibrator.isLeftCourse(), true);
+    ASSERT_EQ(calibrator.getWhiteBrightness(), 0);
+    ASSERT_EQ(calibrator.getBlackBrightness(), 0);
+  }
 
-TEST(Calibrator, setLRCourceTest1) {
-  Controller con;
+  TEST(Calibrator, setCameraModeTest1)
+  {
+    Controller con;
 
-  Calibrator calibrator(con);
+    Calibrator calibrator(con);
 
-  calibrator.setLRCource();
+    calibrator.setCameraMode();
 
-  ASSERT_EQ(calibrator.isLeftCource(), true);
-}
+    ASSERT_EQ(calibrator.getCameraMode(), true);
+  }
 
-TEST(Calibrator, setLRCourceTest2) {
-  Controller con;
+  TEST(Calibrator, setCameraModeTest2)
+  {
+    Controller con;
 
-  Calibrator calibrator(con);
+    Calibrator calibrator(con);
 
-  con.pushRight = true;
-  calibrator.setLRCource();
+    con.pushRight = true;
+    calibrator.setCameraMode();
 
-  ASSERT_EQ(calibrator.isLeftCource(), false);
-}
+    ASSERT_EQ(calibrator.getCameraMode(), false);
+  }
 
-TEST(Calibrator, setLRCourceTest3) {
-  Controller con;
+  TEST(Calibrator, setCameraModeTest3)
+  {
+    Controller con;
 
-  Calibrator calibrator(con);
+    Calibrator calibrator(con);
 
-  con.pushLeft = true;
-  calibrator.setLRCource();
+    con.pushLeft = true;
+    calibrator.setCameraMode();
 
-  ASSERT_EQ(calibrator.isLeftCource(), false);
-}
+    ASSERT_EQ(calibrator.getCameraMode(), false);
+  }
 
-TEST(Calibrator, setLRCourceTest4) {
-  Controller con;
+  TEST(Calibrator, setCameraModeTest4)
+  {
+    Controller con;
 
-  Calibrator calibrator(con);
+    Calibrator calibrator(con);
 
-  con.pushLeft = true;
-  con.pushRight = true;
-  calibrator.setLRCource();
-  ASSERT_EQ(calibrator.isLeftCource(), true);
-}
+    con.pushLeft = true;
+    con.pushRight = true;
+    calibrator.setCameraMode();
 
-TEST(Calibrator, setBrightnessTest1) {
-  Controller con;
+    ASSERT_EQ(calibrator.getCameraMode(), true);
+  }
 
-  Calibrator calibrator(con);
+  TEST(Calibrator, setLRCourseTest1)
+  {
+    Controller con;
 
-  con.brightness = 100;
-  calibrator.setBrightness(Brightness::WHITE);
-  ASSERT_EQ(calibrator.getWhiteBrightness(), 100);
-}
+    Calibrator calibrator(con);
 
-TEST(Calibrator, setBrightnessTest2) {
-  Controller con;
+    calibrator.setLRCourse();
 
-  Calibrator calibrator(con);
+    ASSERT_EQ(calibrator.isLeftCourse(), true);
+  }
 
-  con.brightness = 200;
-  calibrator.setBrightness(Brightness::BLACK);
-  ASSERT_EQ(calibrator.getBlackBrightness(), 200);
-}
+  TEST(Calibrator, setLRCourseTest2)
+  {
+    Controller con;
 
-TEST(Calibrator, setBrightnessTest3) {
-  Controller con;
+    Calibrator calibrator(con);
 
-  Calibrator calibrator(con);
-  con.brightness = 120;
-  calibrator.setBrightness(Brightness::WHITE);
-  ASSERT_EQ(calibrator.getWhiteBrightness(), 120);
-  con.brightness = 30;
-  calibrator.setBrightness(Brightness::BLACK);
-  ASSERT_EQ(calibrator.getBlackBrightness(), 30);
-}
+    con.pushRight = true;
+    calibrator.setLRCourse();
 
-TEST(Calibrator, calibrationTest) {
-  Controller con;
+    ASSERT_EQ(calibrator.isLeftCourse(), false);
+  }
 
-  Calibrator calibrator(con);
-  calibrator.calibration();
-}
+  TEST(Calibrator, setLRCourseTest3)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+
+    con.pushLeft = true;
+    calibrator.setLRCourse();
+
+    ASSERT_EQ(calibrator.isLeftCourse(), false);
+  }
+
+  TEST(Calibrator, setLRCourseTest4)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+
+    con.pushLeft = true;
+    con.pushRight = true;
+    calibrator.setLRCourse();
+    ASSERT_EQ(calibrator.isLeftCourse(), true);
+  }
+
+  TEST(Calibrator, setBrightnessTest1)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+
+    con.brightness = 100;
+    calibrator.setBrightness(Brightness::WHITE);
+    ASSERT_EQ(calibrator.getWhiteBrightness(), 100);
+  }
+
+  TEST(Calibrator, setBrightnessTest2)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+
+    con.brightness = 200;
+    calibrator.setBrightness(Brightness::BLACK);
+    ASSERT_EQ(calibrator.getBlackBrightness(), 200);
+  }
+
+  TEST(Calibrator, setBrightnessTest3)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+    con.brightness = 120;
+    calibrator.setBrightness(Brightness::WHITE);
+    ASSERT_EQ(calibrator.getWhiteBrightness(), 120);
+    con.brightness = 30;
+    calibrator.setBrightness(Brightness::BLACK);
+    ASSERT_EQ(calibrator.getBlackBrightness(), 30);
+  }
+
+  TEST(Calibrator, calibrationTest)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+    calibrator.calibration();
+  }
 
 }  // namespace etrobocon2019_test

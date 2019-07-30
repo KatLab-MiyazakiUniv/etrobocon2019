@@ -12,6 +12,7 @@
 #include "Distance.h"
 #include "Pid.h"
 #include "SpeedControl.h"
+#include "Rotation.h"
 #include <cmath>
 
 class Navigator {
@@ -27,6 +28,7 @@ class Navigator {
    */
   explicit Navigator(Controller& controller_, double Kp_ = 0.60, double Ki_ = 0.0,
                      double Kd_ = 0.0);
+
   /**
    * @brief SpeedControl用のPidゲインのセッター
    * @param Kp_ [SpeedControl用のPゲイン]
@@ -34,16 +36,19 @@ class Navigator {
    * @param Kd_ [SpeedControl用のDゲイン]
    * @return なし
    */
-  void setPidGain(double Kp_, double Ki_, double Kd_);
+  void setPidGain(double Kp, double Ki, double Kd);
+
   /**
    * 前進と後進をする
    *
    * @brief specifiedDistanceの値でbackwardかforwardを呼び出す。
    * @param specifiedDistance [移動したい距離(mm)。正なら前進、負なら後進。]
    * @param pwm [モータの強さ]
+   * @param pGain [PID制御におけるPゲイン (デフォルトは0.0なので指定しなければP制御は実行されない)]
    * @return なし
    */
-  void move(double specifiedDistance, int pwm = 30);
+  void move(double specifiedDistance, int pwm = 30, const double pGain = 0.0);
+
   /**
    * 指定した速度で前進と後進をする
    *
@@ -53,30 +58,23 @@ class Navigator {
    * @return なし
    */
   void moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed);
-  /**
-   * @TODO move関数に統合する？ また、IおよびDゲインも指定できるようにする？
-   * @brief PID制御を用いて両輪の回転量が等しくなるように前進または後進する
-   * @param specifiedDistance [移動したい距離(mm)。正なら前進、負なら後進]
-   * @param pwm [モータの強さ]
-   * @param pGain [PID制御のPゲイン]
-   * @param iGain [PID制御のIゲイン]
-   * @param dGain [PID制御のDゲイン]
-   * @return なし
-   */
-  void moveByPid(double specifiedDistance, int pwm = 10, const double pGain = 0.6,
-                 const double iGain = 0.0, const double dGain = 0.0);
 
   /**
-   * @brief PID制御を用いて両輪の回転量が等しくなるように指定された速度で前進または後進する
-   * @param specifiedDistance [移動したい距離(mm)。正なら前進、負なら後進]
-   * @param specifiedSpeed [移動したい速度]
-   * @param pGain [PID制御のPゲイン]
-   * @param iGain [PID制御のIゲイン]
-   * @param dGain [PID制御のDゲイン]
+   * 指定した色まで前進と後進をする
+   *
+   * @param specifiedColor [指定する色]
+   * @param pwm [モータの強さ。正なら前進、負なら後進する]
+   * @return なし
    */
-  void moveAtSpecifiedSpeedByPid(double specifiedDistance, int specifiedSpeed,
-                                 const double pGain = 0.6, const double iGain = 0.0,
-                                 const double dGain = 0.0);
+  void moveToSpecifiedColor(Color specifiedColor, int pwm = 30);
+
+  /**
+   * @brief 走行体を回頭させる(yawing)
+   * @param angle [回頭角度(正の値)]
+   * @param clockwise [時計回りに回転するかどうか(デフォルトで時計回り)]
+   * @param pwm [モーターパワー]
+   */
+  void spin(double angle, bool clockwise = true, int pwm = 10);
 
  private:
   Distance distance;
