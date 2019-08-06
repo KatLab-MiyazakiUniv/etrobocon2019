@@ -22,7 +22,7 @@ namespace etrobocon2019_test {
     blockbingo.moveCircle4OfL();
   }
 
-  TEST(BlockBingo, execOrderTest)
+  TEST(BlockBingo, execOrderMoveTest)
   {
     Controller controller;
     BlockBingo blockbingo(controller);
@@ -39,5 +39,14 @@ namespace etrobocon2019_test {
 
     ASSERT_LE(expected, actual);
     ASSERT_LE(actual, expected + 5.0);
+  }
+
+  TEST(BlockBingo, execOrderSpinTest)
+  {
+    Controller controller;
+    BlockBingo blockbingo(controller);
+
+    std::array<OrderProperty, 1> propertys = { { Order::SPIN, 45.0, Color::black } };
+    blockbingo.execOrder<1>(propertys);
   }
 }  // namespace etrobocon2019_test
