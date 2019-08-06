@@ -7,7 +7,6 @@
 #define BLOCKBINGO_H
 
 #include <array>
-#include <functional>
 #include "Controller.h"
 #include "Navigator.h"
 
