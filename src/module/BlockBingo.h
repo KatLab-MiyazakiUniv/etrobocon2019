@@ -52,7 +52,7 @@ class BlockBingo {
 
     for(const auto& property : propertys) {
       if(property.orderName == Order::MOVE) {
-        navigator.move(350.0, 10);
+        navigator.move(350.0, 10, 0.6);
       } else if(property.orderName == Order::SPIN) {
         navigator.spin(property.paramValue, (property.paramValue > 0));
       } else if(property.orderName == Order::COLOR) {
