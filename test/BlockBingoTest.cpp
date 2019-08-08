@@ -49,4 +49,22 @@ namespace etrobocon2019_test {
     std::array<OrderProperty, 1> propertys = { { Order::SPIN, 45.0, Color::black } };
     blockbingo.execOrder<1>(propertys);
   }
+
+  TEST(BlockBingo, execOrderColorTest)
+  {
+    Controller controller;
+    BlockBingo blockbingo(controller);
+
+    std::array<OrderProperty, 1> propertys = { { Order::COLOR, 0.0, Color::black } };
+    blockbingo.execOrder<1>(propertys);
+
+    int r = 0;
+    int g = 0;
+    int b = 0;
+    controller.getRawColor(r, g, b);
+    controller.convertHsv(r, g, b);
+    Color actual = controller.hsvToColor(controller.getHsv());
+
+    ASSERT_TRUE(propertys[0].paramColor == actual);
+  }
 }  // namespace etrobocon2019_test
