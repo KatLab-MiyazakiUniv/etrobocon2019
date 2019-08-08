@@ -50,7 +50,7 @@ class BlockBingo {
   {
     Navigator navigator(controller);
 
-    for(OrderProperty property : propertys) {
+    for(const auto& property : propertys) {
       if(property.orderName == Order::MOVE) {
         navigator.move(350.0, 10);
       } else if(property.orderName == Order::COLOR) {
