@@ -53,10 +53,10 @@ class BlockBingo {
     for(const auto& property : propertys) {
       if(property.orderName == Order::MOVE) {
         navigator.move(350.0, 10);
-      } else if(property.orderName == Order::COLOR) {
-        navigator.moveToSpecifiedColor(property.paramColor, 10);
       } else if(property.orderName == Order::SPIN) {
         navigator.spin(property.paramValue, (property.paramValue > 0));
+      } else if(property.orderName == Order::COLOR) {
+        navigator.moveToSpecifiedColor(property.paramColor, 10);
       } else {
         controller.stopMotor();
         controller.speakerPlayToneFS6(100);
