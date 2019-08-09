@@ -20,6 +20,7 @@ void EtRobocon2019::start()
   while(!controller.touchSensor.isPressed()) {
   }
 
+  controller.tslpTsk(1000);
   NormalCourse normalCourse(controller, isLeftCourse, targetBrightness);
   // NormalCourseを走り出す．
   normalCourse.runNormalCourse();
