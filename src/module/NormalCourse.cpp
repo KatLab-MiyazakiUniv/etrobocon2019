@@ -31,7 +31,7 @@ void NormalCourse::setIsLeftCourse(bool isLeftCourse_)
 void NormalCourse::runNormalCourse()
 {
   // 配列の個数
-  constexpr int arraySize = 4;
+  constexpr int arraySize = 5;
   int baseSpeed = 600;
   std::array<NormalCourseProperty, arraySize> normalCourseProperty
       /**
@@ -40,10 +40,11 @@ void NormalCourse::runNormalCourse()
        */
       = { {
           { 600, baseSpeed, { 0.1, 0.0, 0.0 }, { 0.9, 0.01, 0.06 } },  // 第1区間
-          { 800, baseSpeed, { 0.1, 0.0, 0.0 }, { 0.9, 0.0, 0.08 } },
+          { 800, baseSpeed, { 0.1, 0.0, 0.0 }, { 0.9, 0.0, 0.08 } },   // 第2区間
           { 1300, baseSpeed, { 0.1, 0.0, 0.0 }, { 0.9, 0.0, 0.04 } },  // 第3区間
-          { 2300, baseSpeed, { 0.1, 0.0, 0.1 }, { 0.9, 0.0, 0.06 } },  // 第4区間
-          // { 1000, baseSpeed, { 0.1, 0.0, 0.1 }, { 0.9, 0.01, 0.04 } },  // 第5区間
+          { 1000, baseSpeed, { 0.4, 0.0, 0.0 }, { 1.1, 0.02, 0.1 } },  // 第4区間
+          { 1000, baseSpeed, { 0.1, 0.0, 0.0 }, { 0.9, 0.0, 0.09 } },  // 第5区間
+           { 1000, baseSpeed, { 0.1, 0.0, 0.1 }, { 0.9, 0.01, 0.04 } },  // 第5区間
           // { 1300, baseSpeed, { 2.0, 0.0, 0.1 }, { 1.0, 0.01, 0.05 } },  // 第6区間
           // { 2500, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.1, 0.01, 0.05 } },  // 第7区間
       } };
