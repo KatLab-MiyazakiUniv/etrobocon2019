@@ -50,7 +50,7 @@ void NormalCourse::runNormalCourse()
           { 1500, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },    // 第9区間
       } };
   LineTracer lineTracer(controller, targetBrightness, isLeftCourse);
-  for(auto& ncp : normalCourseProperty) {
+  for(const auto& ncp : normalCourseProperty) {
     lineTracer.run(ncp);
     // １区間終わるごとに音を奏でる．
     controller.speakerPlayToneFS6(100);
