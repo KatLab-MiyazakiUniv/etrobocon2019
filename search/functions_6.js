@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isleftcourse',['isLeftCourse',['../class_calibrator.html#a95b705d052954ea1ba64f502d3dc65dc',1,'Calibrator']]]
+  ['hsvtocolor',['hsvToColor',['../class_controller.html#add5d70e5a1780660ea7d8766391bb41d',1,'Controller']]]
 ];

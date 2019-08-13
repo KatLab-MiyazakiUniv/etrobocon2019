@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['white',['white',['../_controller_8h.html#ab87bacfdad76e61b9412d7124be44c1cad508fe45cecaf653904a0e774084bb5c',1,'white():&#160;Controller.h'],['../_calibrator_8h.html#a2c361c9ad6210393f1646454f207cc1dab5bf627e448384cf3a4c35121ca6008d',1,'WHITE():&#160;Calibrator.h']]]
+  ['move',['MOVE',['../_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f',1,'BlockBingo.h']]]
 ];

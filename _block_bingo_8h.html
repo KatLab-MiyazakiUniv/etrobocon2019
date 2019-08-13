@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">659df5851c0a79f7e469329baa22d75ea9057619</span>
+   &#160;<span id="projectnumber">ece30a9a007fff7d3ad48592c0d09a74643377bb</span>
    </div>
   </td>
  </tr>
@@ -64,7 +64,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">クラス</a>  </div>
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#enum-members">列挙型</a>  </div>
   <div class="headertitle">
 <div class="title">BlockBingo.h ファイル</div>  </div>
 </div><!--header-->
@@ -72,19 +73,20 @@ $(function() {
 
 <p>ブロックビンゴに使用するクラス  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_controller_8h_source.html">Controller.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &quot;<a class="el" href="_controller_8h_source.html">Controller.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_navigator_8h_source.html">Navigator.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 BlockBingo.h の依存先関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="_block_bingo_8h__incl.png" border="0" usemap="#src_2module_2_block_bingo_8h" alt=""/></div>
 <map name="src_2module_2_block_bingo_8h" id="src_2module_2_block_bingo_8h">
-<area shape="rect" id="node2" href="_controller_8h.html" title="Controller.h" alt="" coords="267,304,364,331"/>
-<area shape="rect" id="node9" href="_navigator_8h.html" title="直進と後進できるクラス " alt="" coords="416,80,513,107"/>
-<area shape="rect" id="node10" href="_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="517,229,607,256"/>
-<area shape="rect" id="node12" href="_pid_8h.html" title="PID制御クラス " alt="" coords="364,229,419,256"/>
-<area shape="rect" id="node13" href="_speed_control_8h.html" title="前進値制御クラス " alt="" coords="404,155,525,181"/>
-<area shape="rect" id="node14" href="_rotation_8h.html" title="自転（yawing）したときの角度を求めるクラス " alt="" coords="601,155,689,181"/>
+<area shape="rect" id="node3" href="_controller_8h.html" title="Controller.h" alt="" coords="267,304,364,331"/>
+<area shape="rect" id="node10" href="_navigator_8h.html" title="直進と後進できるクラス " alt="" coords="416,80,513,107"/>
+<area shape="rect" id="node11" href="_distance_8h.html" title="走行距離を計算するクラス " alt="" coords="517,229,607,256"/>
+<area shape="rect" id="node13" href="_pid_8h.html" title="PID制御クラス " alt="" coords="364,229,419,256"/>
+<area shape="rect" id="node14" href="_speed_control_8h.html" title="前進値制御クラス " alt="" coords="404,155,525,181"/>
+<area shape="rect" id="node15" href="_rotation_8h.html" title="自転（yawing）したときの角度を求めるクラス " alt="" coords="601,155,689,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -100,15 +102,58 @@ BlockBingo.h の依存先関係図:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_order_property.html">OrderProperty</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block_bingo.html">BlockBingo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+列挙型</h2></td></tr>
+<tr class="memitem:afbb7a18945a0832b5189bbe768dd0c51"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51">Order</a> { <a class="el" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f">Order::MOVE</a>, 
+<a class="el" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a01518642fd172918ac4e6fa78bbb3164">Order::SPIN</a>, 
+<a class="el" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a04bd834032febb3fda8c6936ee140949">Order::COLOR</a>
+ }</td></tr>
+<tr class="separator:afbb7a18945a0832b5189bbe768dd0c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ブロックビンゴに使用するクラス </p>
 <dl class="section author"><dt>著者</dt><dd>Oiwane </dd></dl>
 
 <p class="definition"> <a class="el" href="_block_bingo_8h_source.html">BlockBingo.h</a> に定義があります。</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">列挙型詳解</h2>
+<a id="afbb7a18945a0832b5189bbe768dd0c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbb7a18945a0832b5189bbe768dd0c51">&#9670;&nbsp;</a></span>Order</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51">Order</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f"></a>MOVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afbb7a18945a0832b5189bbe768dd0c51a01518642fd172918ac4e6fa78bbb3164"></a>SPIN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afbb7a18945a0832b5189bbe768dd0c51a04bd834032febb3fda8c6936ee140949"></a>COLOR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition"> <a class="el" href="_block_bingo_8h_source.html">BlockBingo.h</a> の <a class="el" href="_block_bingo_8h_source.html#l00013">13</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{ <a class="code" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f">MOVE</a>, <a class="code" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a01518642fd172918ac4e6fa78bbb3164">SPIN</a>, <a class="code" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a04bd834032febb3fda8c6936ee140949">COLOR</a> };</div><div class="ttc" id="_block_bingo_8h_html_afbb7a18945a0832b5189bbe768dd0c51a04bd834032febb3fda8c6936ee140949"><div class="ttname"><a href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a04bd834032febb3fda8c6936ee140949">Order::COLOR</a></div></div>
+<div class="ttc" id="_block_bingo_8h_html_afbb7a18945a0832b5189bbe768dd0c51a01518642fd172918ac4e6fa78bbb3164"><div class="ttname"><a href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a01518642fd172918ac4e6fa78bbb3164">Order::SPIN</a></div></div>
+<div class="ttc" id="_block_bingo_8h_html_afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f"><div class="ttname"><a href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f">Order::MOVE</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">

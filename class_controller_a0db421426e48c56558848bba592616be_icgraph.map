@@ -1,4 +1,5 @@
 <map id="Controller::resetMotorCount" name="Controller::resetMotorCount">
-<area shape="rect" id="node2" href="$class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="256,5,377,32"/>
+<area shape="rect" id="node2" href="$class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="256,31,377,57"/>
 <area shape="rect" id="node3" href="$class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7" title="Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサーク..." alt="" coords="425,5,632,32"/>
+<area shape="rect" id="node4" href="$class_block_bingo.html#ae8d4334cac635143c8bf1e4d0305f3ee" title="BlockBingo::execOrder" alt="" coords="443,56,614,83"/>
 </map>

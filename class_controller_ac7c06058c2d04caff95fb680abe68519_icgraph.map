@@ -1,9 +1,10 @@
 <map id="Controller::speakerPlayToneFS6" name="Controller::speakerPlayToneFS6">
-<area shape="rect" id="node2" href="$class_calibrator.html#af2aadfe9b368acf3ea56e7f8c077bdac" title="Calibrator::setCameraMode" alt="" coords="280,5,480,32"/>
-<area shape="rect" id="node6" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="293,56,467,83"/>
-<area shape="rect" id="node7" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="289,107,471,133"/>
-<area shape="rect" id="node8" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="528,132,765,159"/>
-<area shape="rect" id="node3" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="565,69,728,96"/>
-<area shape="rect" id="node4" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="813,107,973,133"/>
-<area shape="rect" id="node5" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1021,107,1112,133"/>
+<area shape="rect" id="node2" href="$class_block_bingo.html#ae8d4334cac635143c8bf1e4d0305f3ee" title="BlockBingo::execOrder" alt="" coords="295,5,465,32"/>
+<area shape="rect" id="node3" href="$class_calibrator.html#af2aadfe9b368acf3ea56e7f8c077bdac" title="Calibrator::setCameraMode" alt="" coords="280,56,480,83"/>
+<area shape="rect" id="node7" href="$class_calibrator.html#a6feaae6c45a5facd6cc33532b457b6ce" title="Calibrator::setLRCourse" alt="" coords="293,107,467,133"/>
+<area shape="rect" id="node8" href="$class_calibrator.html#a8b483258504e164e749ef7fa1566cec9" title="Calibrator::setBrightness" alt="" coords="289,157,471,184"/>
+<area shape="rect" id="node9" href="$class_normal_course.html#a69429f971125c89ae04fc71375c805d3" title="NormalCourse::runNormalCourse" alt="" coords="528,183,765,209"/>
+<area shape="rect" id="node4" href="$class_calibrator.html#a7b3030d5d16e85264c61a05813678891" title="falseが返ってきた場合、エラーメッセージがLCDに出ます。スタートを取りやめ、原因をさぐってください。 ..." alt="" coords="565,120,728,147"/>
+<area shape="rect" id="node5" href="$class_et_robocon2019.html#ac3e88fc4836558b34999524131bad9fe" title="EtRobocon2019::start" alt="" coords="813,157,973,184"/>
+<area shape="rect" id="node6" href="$app_8h.html#ab874c34d9d66b14d189a9a3f2d065991" title="main_task" alt="" coords="1021,157,1112,184"/>
 </map>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">etrobocon2019 feat.KatLab
-   &#160;<span id="projectnumber">659df5851c0a79f7e469329baa22d75ea9057619</span>
+   &#160;<span id="projectnumber">ece30a9a007fff7d3ad48592c0d09a74643377bb</span>
    </div>
   </td>
  </tr>
@@ -83,10 +83,13 @@ BlockBingo 連携図</div>
 <tr class="memitem:a1a3329ad31406fbde48272d42aedffa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7">moveCircle4OfL</a> ()</td></tr>
 <tr class="memdesc:a1a3329ad31406fbde48272d42aedffa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lコースのブロックビンゴ開始点からブロックサークル4の手前の 黒線の中点まで斜めに移動し、ブロックサークル4の中央まで移動する。  <a href="#a1a3329ad31406fbde48272d42aedffa7">[詳解]</a><br /></td></tr>
 <tr class="separator:a1a3329ad31406fbde48272d42aedffa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8d4334cac635143c8bf1e4d0305f3ee"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
+<tr class="memitem:ae8d4334cac635143c8bf1e4d0305f3ee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_block_bingo.html#ae8d4334cac635143c8bf1e4d0305f3ee">execOrder</a> (std::array&lt; <a class="el" href="struct_order_property.html">OrderProperty</a>, N &gt; &amp;propertys)</td></tr>
+<tr class="separator:ae8d4334cac635143c8bf1e4d0305f3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock">
-<p class="definition"> <a class="el" href="_block_bingo_8h_source.html">BlockBingo.h</a> の <a class="el" href="_block_bingo_8h_source.html#l00012">12</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_block_bingo_8h_source.html">BlockBingo.h</a> の <a class="el" href="_block_bingo_8h_source.html#l00026">26</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
 <a id="a79744b7151fdc9b08c44fede6e2edd43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79744b7151fdc9b08c44fede6e2edd43">&#9670;&nbsp;</a></span>BlockBingo()</h2>
@@ -123,6 +126,75 @@ BlockBingo 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="ae8d4334cac635143c8bf1e4d0305f3ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8d4334cac635143c8bf1e4d0305f3ee">&#9670;&nbsp;</a></span>execOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BlockBingo::execOrder </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; <a class="el" href="struct_order_property.html">OrderProperty</a>, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>propertys</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>パソコンから受け取ったリストの通りに処理を実行する </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">propertys</td><td>[命令の情報のリスト] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="_block_bingo_8h_source.html">BlockBingo.h</a> の <a class="el" href="_block_bingo_8h_source.html#l00049">49</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_navigator.html">Navigator</a> navigator(controller);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; property : propertys) {</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">if</span>(property.orderName == <a class="code" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f">Order::MOVE</a>) {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        navigator.move(350.0, 10, 0.6);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(property.orderName == <a class="code" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a01518642fd172918ac4e6fa78bbb3164">Order::SPIN</a>) {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        navigator.spin(property.paramValue, (property.paramValue &gt; 0));</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(property.orderName == <a class="code" href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a04bd834032febb3fda8c6936ee140949">Order::COLOR</a>) {</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        navigator.moveToSpecifiedColor(property.paramColor, 10);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        controller.<a class="code" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">stopMotor</a>();</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        controller.<a class="code" href="class_controller.html#ac7c06058c2d04caff95fb680abe68519">speakerPlayToneFS6</a>(100);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      }</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  }</div><div class="ttc" id="_block_bingo_8h_html_afbb7a18945a0832b5189bbe768dd0c51a04bd834032febb3fda8c6936ee140949"><div class="ttname"><a href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a04bd834032febb3fda8c6936ee140949">Order::COLOR</a></div></div>
+<div class="ttc" id="class_controller_html_aed3aaec78fca32625b908bf6b26dcf86"><div class="ttname"><a href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86">Controller::stopMotor</a></div><div class="ttdeci">void stopMotor()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00272">Controller.cpp:272</a></div></div>
+<div class="ttc" id="class_controller_html_ac7c06058c2d04caff95fb680abe68519"><div class="ttname"><a href="class_controller.html#ac7c06058c2d04caff95fb680abe68519">Controller::speakerPlayToneFS6</a></div><div class="ttdeci">static void speakerPlayToneFS6(int duration)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00021">Controller.cpp:21</a></div></div>
+<div class="ttc" id="class_navigator_html"><div class="ttname"><a href="class_navigator.html">Navigator</a></div><div class="ttdef"><b>Definition:</b> <a href="_navigator_8h_source.html#l00018">Navigator.h:18</a></div></div>
+<div class="ttc" id="_block_bingo_8h_html_afbb7a18945a0832b5189bbe768dd0c51a01518642fd172918ac4e6fa78bbb3164"><div class="ttname"><a href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51a01518642fd172918ac4e6fa78bbb3164">Order::SPIN</a></div></div>
+<div class="ttc" id="_block_bingo_8h_html_afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f"><div class="ttname"><a href="_block_bingo_8h.html#afbb7a18945a0832b5189bbe768dd0c51af7f93635f8e193a924ae4a691bb66b8f">Order::MOVE</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_block_bingo_ae8d4334cac635143c8bf1e4d0305f3ee_cgraph.png" border="0" usemap="#class_block_bingo_ae8d4334cac635143c8bf1e4d0305f3ee_cgraph" alt=""/></div>
+<map name="class_block_bingo_ae8d4334cac635143c8bf1e4d0305f3ee_cgraph" id="class_block_bingo_ae8d4334cac635143c8bf1e4d0305f3ee_cgraph">
+<area shape="rect" id="node2" href="class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7" title="specifiedDistanceの値でbackwardかforwardを呼び出す。 " alt="" coords="272,180,403,207"/>
+<area shape="rect" id="node10" href="class_controller.html#aed3aaec78fca32625b908bf6b26dcf86" title="Controller::stopMotor" alt="" coords="528,543,687,569"/>
+<area shape="rect" id="node11" href="class_navigator.html#aa4c793d90e07fa57aadc6d1914c56d28" title="走行体を回頭させる(yawing) " alt="" coords="277,365,398,392"/>
+<area shape="rect" id="node16" href="class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b" title="Navigator::moveToSpecified\lColor" alt="" coords="235,586,439,627"/>
+<area shape="rect" id="node21" href="class_controller.html#ac7c06058c2d04caff95fb680abe68519" title="Controller::speakerPlayToneFS6" alt="" coords="224,652,451,679"/>
+<area shape="rect" id="node3" href="class_controller.html#ae1e791420cc83acd20b4dfc185befc2b" title="Controller::getLeftMotor\lCount" alt="" coords="519,107,696,149"/>
+<area shape="rect" id="node4" href="class_controller.html#ac5b49c1fe116fbbd7069bce0100868f0" title="Controller::getRightMotor\lCount" alt="" coords="514,173,701,214"/>
+<area shape="rect" id="node5" href="class_distance.html#ab2d57716464febfa145a892afe35433b" title="左右の平均走行距離を計算して戻り値として返す " alt="" coords="764,391,929,417"/>
+<area shape="rect" id="node7" href="class_pid.html#a7e50b0cc4372d927904e50f0d177ee3b" title="Pid::control" alt="" coords="560,5,655,32"/>
+<area shape="rect" id="node9" href="class_controller.html#a2c68b1076bc4d456d69e92075a141cb3" title="Controller::tslpTsk" alt="" coords="538,492,677,519"/>
+<area shape="rect" id="node6" href="class_distance.html#ab2ac93b22c5eb15f5e7f06571c66f57f" title="angleをもとに走行距離を計算する " alt="" coords="977,391,1124,417"/>
+<area shape="rect" id="node8" href="class_pid.html#a2718b26235c522f5ae7f313453bb55a6" title="Pid::limit" alt="" coords="807,5,887,32"/>
+<area shape="rect" id="node12" href="class_controller.html#a0db421426e48c56558848bba592616be" title="Controller::resetMotorCount" alt="" coords="506,289,709,316"/>
+<area shape="rect" id="node13" href="class_rotation.html#ac4372167196fa15520af1f37d145a400" title="自転したときの角度を求める " alt="" coords="536,441,679,468"/>
+<area shape="rect" id="node14" href="class_controller.html#a0806bb9e6dad708398bfcf188d98024a" title="Controller::setLeftMotorPwm" alt="" coords="503,340,711,367"/>
+<area shape="rect" id="node15" href="class_controller.html#a78965353ac6b8a5815a5e4b5148267ac" title="Controller::setRightMotorPwm" alt="" coords="499,239,716,265"/>
+<area shape="rect" id="node17" href="class_controller.html#a96f63da6f3ceaa71bc7d95ae73d7e6c4" title="Controller::getRawColor" alt="" coords="519,644,696,671"/>
+<area shape="rect" id="node18" href="class_controller.html#a766aad422708897cefd8303306867167" title="Controller::convertHsv" alt="" coords="523,695,691,721"/>
+<area shape="rect" id="node19" href="class_controller.html#add5d70e5a1780660ea7d8766391bb41d" title="Controller::hsvToColor" alt="" coords="525,745,690,772"/>
+<area shape="rect" id="node20" href="class_controller.html#a8e4a17cc784820e63b5417940f2ca4db" title="Controller::getHsv" alt="" coords="537,593,677,620"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a1a3329ad31406fbde48272d42aedffa7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a3329ad31406fbde48272d42aedffa7">&#9670;&nbsp;</a></span>moveCircle4OfL()</h2>
 

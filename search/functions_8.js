@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['main_5ftask',['main_task',['../app_8cpp.html#a4754344fc3fec0a802660bb5dcdefad9',1,'main_task(intptr_t unused):&#160;app.cpp'],['../app_8h.html#ab874c34d9d66b14d189a9a3f2d065991',1,'main_task(intptr_t exinf):&#160;app.cpp']]],
-  ['move',['move',['../class_navigator.html#ac6c06ea7120c771a786a2eaaedeadfd7',1,'Navigator']]],
-  ['moveatspecifiedspeed',['moveAtSpecifiedSpeed',['../class_navigator.html#a34f4d70ff245db32fee78e14c1212fd8',1,'Navigator']]],
-  ['movecircle4ofl',['moveCircle4OfL',['../class_block_bingo.html#a1a3329ad31406fbde48272d42aedffa7',1,'BlockBingo']]],
-  ['movetospecifiedcolor',['moveToSpecifiedColor',['../class_navigator.html#a71c045e6f235b5f3f2fcbe52f8f4329b',1,'Navigator']]]
+  ['lcddrawstring',['lcdDrawString',['../class_controller.html#ab1d15533ed8372b08b12b5684eb4284e',1,'Controller']]],
+  ['lcdfillrect',['lcdFillRect',['../class_controller.html#a28c27614551c9f1471421b3f89bb2d5c',1,'Controller']]],
+  ['lcdsetfont',['lcdSetFont',['../class_controller.html#a5f4473814c4a669fd388916fdf1c38ce',1,'Controller']]],
+  ['ledsetcolorgreen',['ledSetColorGreen',['../class_controller.html#a1d690be9e14008230edb6ee8530485bf',1,'Controller']]],
+  ['ledsetcolororange',['ledSetColorOrange',['../class_controller.html#a3843d004fc1e44c63cd746b8822c2990',1,'Controller']]],
+  ['limit',['limit',['../class_pid.html#a2718b26235c522f5ae7f313453bb55a6',1,'Pid']]],
+  ['limitangle',['limitAngle',['../class_controller.html#ada61c491dbf6a1f7ff678140cbc7d76c',1,'Controller']]],
+  ['linetracer',['LineTracer',['../class_line_tracer.html#a5c3653d052e3befa96ce913073058697',1,'LineTracer']]],
+  ['logger',['Logger',['../class_logger.html#a5d2a2990c64e7c358bdeb0238c87e639',1,'Logger']]],
+  ['lowpassfilter',['lowPassFilter',['../class_filter.html#a8fe12d5752852afc7a7179c2112d92e5',1,'Filter']]]
 ];
