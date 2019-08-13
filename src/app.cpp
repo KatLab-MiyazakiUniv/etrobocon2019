@@ -10,10 +10,13 @@
 // tag::main_task_1[]
 void main_task(intptr_t unused)
 {
-  while(1) {
-    Display::print(1, "%d", debug_counts);
-    tslp_tsk(1000);
-  }
+  // int debug_counts = 0;
+  // while(1) {
+  //   Display::print(1, "%d", debug_counts);
+  //   tslp_tsk(1000);
+  //   debug_counts++;
+  // }
+   EtRobocon2019::start();
   ext_tsk();
 }
 // end::main_task_2[]
@@ -22,7 +25,6 @@ void bt_task(intptr_t unused)
 {
   // int debug_count = 0;
   Bluetooth bluetooth;
-  // Display display;
   int receiveCommand;
   FILE* bt = NULL;
   // 通信開始
