@@ -1,12 +1,12 @@
 /**
  *  @file   Bluetooth.h
- *  @brief  PCとEV3がBluetooth通信するときに使う構造体
+ *  @brief  PCとEV3がBluetooth通信する（使う時は別タスクにしたほうがいい）
  *  @author Tatsumi0000
  */
 #ifndef BLUETOOTH_H
 #define BLUETOOTH_H
+#include "Controller.h"
 #include "Display.h"
-#include "ev3api.h"
 
 class Bluetooth {
  public:
