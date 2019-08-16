@@ -5,16 +5,29 @@
  */
 #include "Bluetooth.h"
 
-Bluetooth::Bluetooth() {}
+Bluetooth::Bluetooth() : bt(NULL) {}
 
-FILE* Bluetooth::serialOpen()
+Bluetooth::~Bluetooth()
 {
-  FILE* bt = NULL;
+  Bluetooth::serialClose();
+}
 
+void Bluetooth::serialOpen()
+{
   bt = ev3_serial_open_file(EV3_SERIAL_BT);
   if(bt == NULL) {
-    Display::print(6, "failed to ev3_serial_open_file");
-    return NULL;
+    Display::print(10, "not connected");
+  } else {
+    Display::print(10, "Bluetooth connected");
   }
-  return bt;
+}
+
+int Bluetooth::serialRead()
+{
+  return fgetc(bt);
+}
+
+void Bluetooth::serialClose()
+{
+  fclose(bt);
 }

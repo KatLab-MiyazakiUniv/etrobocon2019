@@ -16,7 +16,7 @@ void main_task(intptr_t unused)
   //   tslp_tsk(1000);
   //   debug_counts++;
   // }
-   EtRobocon2019::start();
+  EtRobocon2019::start();
   ext_tsk();
 }
 // end::main_task_2[]
@@ -26,18 +26,17 @@ void bt_task(intptr_t unused)
   // int debug_count = 0;
   Bluetooth bluetooth;
   int receiveCommand;
-  FILE* bt = NULL;
   // 通信開始
-  bt = bluetooth.serialOpen();
-  if(bt == NULL) {
-    Display::print(10, "not connected");
-  } else {
-    Display::print(11, "Bluetooth connected");
-  }
+  bluetooth.serialOpen();
+  // if(bt == NULL) {
+  //   Display::print(10, "not connected");
+  // } else {
+  //   Display::print(11, "Bluetooth connected");
+  // }
 
   while(1) {
     // 受信（PCからコマンドが送られるまで一生ここで止まる）
-    receiveCommand = fgetc(bt);
+    receiveCommand = bluetooth.serialRead();
     Display::print(6, "%d", receiveCommand);
     // Display::print(12, "%d", debug_count);
     // debug_count += 1;
