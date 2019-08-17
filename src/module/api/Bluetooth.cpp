@@ -1,6 +1,6 @@
 /**
  *  @file   Bluetooth.cpp
- *  @brief  PCとEV3がBluetooth通信するときに使う構造体
+ *  @brief  PCとEV3がBluetooth通信する（使う時は別タスクにしたほうがいい）
  *  @author Tatsumi0000
  */
 #include "Bluetooth.h"

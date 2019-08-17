@@ -16,10 +16,10 @@ class Bluetooth {
    */
   Bluetooth(/* args */);
 
-   /**
-    * デストラクタ
-    * @brief Bluetoothクラスのデストラクタ
-    */
+  /**
+   * デストラクタ
+   * @brief Bluetoothクラスのデストラクタ
+   */
   ~Bluetooth();
 
   /**
