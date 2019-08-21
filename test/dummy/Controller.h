@@ -166,6 +166,55 @@ class Controller {
     }
   }
 
+  Color ditermine(HsvStatus hsv){
+    Color color = this->hsvToColor(status);
+    int determine = 3;
+    if (color == Color::white) {
+      if (white < determinNum) {
+        white += 1;
+      } else {
+        return Color::white;
+      }
+      }
+      else if (color == Color::black) {
+        if(black<determinNum){
+          black += 1;
+        }else{
+          return Color::black;
+        }
+      }
+      else if (color == Color::red) {
+        if(red<determinNum){
+          red += 1;
+        }else{
+          return Color::red;
+        }
+      }
+      else if (color == Color::green) {
+        if(green<determinNum){
+          green += 1;
+        }else{
+          return Color::green;
+        }
+      }
+      else if (color == Color::blue) {
+        if(blue<determinNum){
+          blue += 1;
+        }else{
+          return Color::blue;
+        }
+      }
+      else if (color == Color::yellow) {
+        if(yellow<determinNum){
+          yellow += 1;
+        }else{
+          return Color::yellow;
+        }
+      }
+    }
+  }
+
+
   bool buttonIsPressedUp() { return false; };
   bool buttonIsPressedDown() { return false; };
 
