@@ -166,8 +166,8 @@ class Controller {
     }
   }
 
-  Color ditermine(HsvStatus hsv){
-   return this->hsvToColor(status);
+  Color ditermineColor(HsvStatus hsv){
+   return this->hsvToColor(hsv);
   }
 
 
