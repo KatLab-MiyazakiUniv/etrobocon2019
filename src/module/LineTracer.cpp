@@ -14,12 +14,12 @@ LineTracer::LineTracer(Controller& controller_, int targetBrightness_, bool isLe
     distance(),
     speedControl(controller, 0.0, 0.0, 0.0, 0.0),
     turnControl(targetBrightness_, 0.0, 0.0, 0.0)
-{ 
-//  Logger logger{ "dataw.csv" };
-//  logger << "Distance"<< "speed";
+{
+  //  Logger logger{ "dataw.csv" };
+  //  logger << "Distance"<< "speed";
 }
 
-void LineTracer::run(NormalCourseProperty& settings)
+void LineTracer::run(const NormalCourseProperty& settings)
 {
   // 関数呼び出し時の走行距離を取得・設定
   int initialDistance
@@ -30,7 +30,7 @@ void LineTracer::run(NormalCourseProperty& settings)
   int speedValue = 0;                     // 直進値
   int leftPWM = 0;                        // 左モータの出力
   int rightPWM = 0;                       // 右モータの出力
-  //Logger logger{ "a" };
+  // Logger logger{ "a" };
 
   // 目標距離を走り終えるまでループ
   while(currentDistance - initialDistance < settings.targetDistance) {
@@ -59,7 +59,7 @@ void LineTracer::run(NormalCourseProperty& settings)
 
     // 現在の走行距離の取得
     currentDistance
-      = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     //  Logger logger{"dataw.csv","a"};
     //  logger << currentDistance << speedValue;
     controller.tslpTsk(4);
