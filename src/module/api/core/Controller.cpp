@@ -160,6 +160,57 @@ Color Controller::hsvToColor(const HsvStatus& status)
   }
 }
 
+Color Controller::determineColor(const HsvStatus &status)
+{
+  int white = 0, black = 0, red = 0, green = 0, blue = 0, yellow = 0;
+  int determinNum = 3;
+  while (1) {
+    Color color = this->hsvToColor(status);
+    if (color == Color::white) {
+      if(white<determinNum){
+        white += 1;
+      }else{
+        return Color::white;
+      }
+    }
+    else if (color == Color::black) {
+      if(black<determinNum){
+        black += 1;
+      }else{
+        return Color::black;
+      }
+    }
+    else if (color == Color::red) {
+      if(red<determinNum){
+        red += 1;
+      }else{
+        return Color::red;
+      }
+    }
+    else if (color == Color::green) {
+      if(green<determinNum){
+        green += 1;
+      }else{
+        return Color::green;
+      }
+    }
+    else if (color == Color::blue) {
+      if(blue<determinNum){
+        blue += 1;
+      }else{
+        return Color::blue;
+      }
+    }
+    else if (color == Color::yellow) {
+      if(yellow<determinNum){
+        yellow += 1;
+      }else{
+        return Color::yellow;
+      }
+    }
+  }
+}
+
 void Controller::tslpTsk(int time)
 {
   tslp_tsk(time);
