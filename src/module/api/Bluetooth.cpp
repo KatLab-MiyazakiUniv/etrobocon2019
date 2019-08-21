@@ -5,7 +5,11 @@
  */
 #include "Bluetooth.h"
 
-Bluetooth::Bluetooth() : bt(NULL) {}
+Bluetooth::Bluetooth() : bt(nullptr)
+{
+  // 通信開始
+  Bluetooth::serialOpen();
+}
 
 Bluetooth::~Bluetooth()
 {

@@ -26,13 +26,6 @@ void bt_task(intptr_t unused)
   // int debug_count = 0;
   Bluetooth bluetooth;
   int receiveCommand;
-  // 通信開始
-  bluetooth.serialOpen();
-  // if(bt == NULL) {
-  //   Display::print(10, "not connected");
-  // } else {
-  //   Display::print(11, "Bluetooth connected");
-  // }
 
   while(1) {
     // 受信（PCからコマンドが送られるまで一生ここで止まる）
