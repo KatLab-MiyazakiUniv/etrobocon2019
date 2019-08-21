@@ -160,7 +160,7 @@ Color Controller::hsvToColor(const HsvStatus& status)
   }
 }
 
-Color Controller::determineColor(const HsvStatus &status)
+Color Controller::determineColor(const HsvStatus& status)
 {
   int white = 0, black = 0, red = 0, green = 0, blue = 0, yellow = 0;
   int determinNum = 3;
