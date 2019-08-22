@@ -146,51 +146,52 @@ Color Controller::hsvToColor(const HsvStatus& status)
     return Color::red;
 }
 
+//色検出を繰り返し行い,ある色がdetermineNum(以下だと３)回検出されれば返す関数である
 Color Controller::determineColor(const HsvStatus& status)
 {
   int white = 0, black = 0, red = 0, green = 0, blue = 0, yellow = 0;
-  int determinNum = 3;
+  static const int determineNum = 3;
   while (1) {
     Color color = this->hsvToColor(status);
     if (color == Color::white) {
-      if(white<determinNum){
-        white += 1;
-      }else{
+      if(white < determineNum) {
+        white++;
+      } else {
         return Color::white;
       }
     }
     else if (color == Color::black) {
-      if(black<determinNum){
-        black += 1;
-      }else{
+      if(black < determineNum) {
+        black++;
+      } else {
         return Color::black;
       }
     }
     else if (color == Color::red) {
-      if(red<determinNum){
-        red += 1;
-      }else{
+      if(red < determineNum) {
+        red++;
+      } else {
         return Color::red;
       }
     }
     else if (color == Color::green) {
-      if(green<determinNum){
-        green += 1;
-      }else{
+      if(green < determineNum) {
+        green++;
+      } else {
         return Color::green;
       }
     }
     else if (color == Color::blue) {
-      if(blue<determinNum){
-        blue += 1;
-      }else{
+      if(blue < determineNum) {
+        blue++;
+      } else {
         return Color::blue;
       }
     }
     else if (color == Color::yellow) {
-      if(yellow<determinNum){
-        yellow += 1;
-      }else{
+      if(yellow < determineNum) {
+        yellow++;
+      } else {
         return Color::yellow;
       }
     }
