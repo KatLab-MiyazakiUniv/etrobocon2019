@@ -8,12 +8,12 @@
 Bluetooth::Bluetooth() : bt(nullptr)
 {
   // 通信開始
-  Bluetooth::serialOpen();
+  serialOpen();
 }
 
 Bluetooth::~Bluetooth()
 {
-  Bluetooth::serialClose();
+  serialClose();
 }
 
 void Bluetooth::serialOpen()
