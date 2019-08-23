@@ -55,7 +55,7 @@ void Parking::parkAtAR()
 
 void Parking::stopFor3sec()
 {
-  for(int i = 0; i < 2; i++) {
+  for(int i = 0; i < 3; i++) {
     controller.speakerPlayToneFS6(100);
     controller.tslpTsk(1000);
   }
