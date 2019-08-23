@@ -19,7 +19,8 @@ Bluetooth::~Bluetooth()
 void Bluetooth::serialOpen()
 {
   bt = ev3_serial_open_file(EV3_SERIAL_BT);
-  if(bt == NULL) {
+  // nullptrの場合
+  if(!bt) {
     Display::print(10, "not connected");
   } else {
     Display::print(10, "Bluetooth connected");
