@@ -7,6 +7,7 @@
 #define BLUETOOTH_H
 #include "Controller.h"
 #include "Display.h"
+#include <cstdio>
 
 class Bluetooth {
  public:
@@ -42,7 +43,7 @@ class Bluetooth {
   void serialClose();
 
  private:
-  FILE* bt;
+  std::FILE* bt;
 };
 
 #endif
