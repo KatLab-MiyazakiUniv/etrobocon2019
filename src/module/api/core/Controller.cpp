@@ -152,6 +152,7 @@ Color Controller::determineColor(const HsvStatus& status)
   int white = 0, black = 0, red = 0, green = 0, blue = 0, yellow = 0;
   static const int determineNum = 3;
   while (1) {
+    tslpTsk(4);
     Color color = this->hsvToColor(status);
     if (color == Color::white) {
       if(white < determineNum) {
