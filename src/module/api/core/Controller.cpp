@@ -146,57 +146,34 @@ Color Controller::hsvToColor(const HsvStatus& status)
     return Color::red;
 }
 
-//色検出を繰り返し行い,ある色がdetermineNum(以下だと３)回検出されれば返す関数である
+//7(determine)回色検出を行い、最も検出された回数が多い色を返す関数である
 Color Controller::determineColor(const HsvStatus& status)
 {
-  int white = 0, black = 0, red = 0, green = 0, blue = 0, yellow = 0;
-  static const int determineNum = 3;
-  while (1) {
-    tslpTsk(4);
+  int counter[6] = { 0 };
+  static const int determineNum = 7;
+  for (int i = 0; i < determineNum; i++) {
     Color color = this->hsvToColor(status);
-    if (color == Color::white) {
-      if(white < determineNum) {
-        white++;
-      } else {
-        return Color::white;
-      }
-    }
-    else if (color == Color::black) {
-      if(black < determineNum) {
-        black++;
-      } else {
-        return Color::black;
-      }
-    }
-    else if (color == Color::red) {
-      if(red < determineNum) {
-        red++;
-      } else {
-        return Color::red;
-      }
-    }
-    else if (color == Color::green) {
-      if(green < determineNum) {
-        green++;
-      } else {
-        return Color::green;
-      }
-    }
-    else if (color == Color::blue) {
-      if(blue < determineNum) {
-        blue++;
-      } else {
-        return Color::blue;
-      }
-    }
-    else if (color == Color::yellow) {
-      if(yellow < determineNum) {
-        yellow++;
-      } else {
-        return Color::yellow;
-      }
-    }
+    counter[static_cast<int>(color)]++;
+    this->tslpTsk(4);
   }
+  int max = counter[0];
+  for (int i = 1; i < 6; i++) {
+    if (max < counter[i])
+      max = counter[i];
+  }
+  if (max == counter[0])
+    return Color::white;
+  else if (max == counter[1])
+    return Color::black;
+  else if (max == counter[2])
+    return Color::red;
+  else if (max == counter[3])
+    return Color::green;
+  else if (max == counter[4])
+    return Color::blue;
+  else
+    return Color::yellow;
+
 }
 
 void Controller::tslpTsk(int time)
