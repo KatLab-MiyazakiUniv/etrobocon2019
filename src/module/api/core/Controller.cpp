@@ -161,7 +161,20 @@ Color Controller::determineColor()
     if (max < counter[i])
       max = counter[i];
   }
-    return static_cast<Color>(max);
+
+  if (max == counter[0])
+    return Color::white;
+  else if (max == counter[1])
+    return Color::black;
+  else if (max == counter[2])
+    return Color::red;
+  else if (max == counter[3])
+    return Color::green;
+  else if (max == counter[4])
+    return Color::blue;
+  else
+    return Color::yellow;
+
 }
 
 void Controller::tslpTsk(int time)
