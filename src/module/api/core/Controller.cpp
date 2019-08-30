@@ -161,10 +161,7 @@ Color Controller::determineColor()
     if (max < counter[i])
       max = counter[i];
   }
-  for (int = 0; < 6; i++){
-    if (max = counter[i])
     return static_cast<Color>(max);
-  }
 }
 
 void Controller::tslpTsk(int time)
