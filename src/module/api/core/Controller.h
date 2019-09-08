@@ -62,7 +62,7 @@ class Controller {
   void convertHsv(int& r, int& g, int& b);  // RGBをHSV変換する
   HsvStatus getHsv() const;
   Color hsvToColor(const HsvStatus& status);  // HSVから色を識別する
-  Color determineColor();
+  Color determineColor(int determineNum = 7, int colorNum = 6);
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
