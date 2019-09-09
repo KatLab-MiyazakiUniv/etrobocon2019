@@ -146,6 +146,36 @@ Color Controller::hsvToColor(const HsvStatus& status)
     return Color::red;
 }
 
+//7(determine)回色検出を行い、最も検出された回数が多い色を返す関数である
+Color Controller::determineColor(int determineNum, int colorNum)
+{
+  int counter[colorNum] = { 0 };
+  for (int i = 0; i < determineNum; i++) {
+    Color color = this->hsvToColor(this->getHsv());
+    counter[static_cast<int>(color)]++;
+    this->tslpTsk(4);
+  }
+  int max = counter[0];
+  for (int i = 1; i < colorNum; i++) {
+    if (max < counter[i])
+      max = counter[i];
+  }
+
+  if (max == counter[0])
+    return Color::white;
+  else if (max == counter[1])
+    return Color::black;
+  else if (max == counter[2])
+    return Color::red;
+  else if (max == counter[3])
+    return Color::green;
+  else if (max == counter[4])
+    return Color::blue;
+  else
+    return Color::yellow;
+
+}
+
 void Controller::tslpTsk(int time)
 {
   tslp_tsk(time);
