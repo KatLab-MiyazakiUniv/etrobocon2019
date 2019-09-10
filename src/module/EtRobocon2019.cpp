@@ -4,6 +4,7 @@
 #include "Display.h"
 #include "NormalCourse.h"
 #include "Navigator.h"
+#include "Parking.h"
 
 void EtRobocon2019::start()
 {
@@ -23,4 +24,16 @@ void EtRobocon2019::start()
   NormalCourse normalCourse(controller, isLeftCourse, targetBrightness);
   // NormalCourseを走り出す．
   normalCourse.runNormalCourse();
+
+
+  // ブロックビンゴ
+
+
+  // ガレージ
+  Parking parking(controller);
+  if(isLeftCourse){
+    parking.parkAtAL();
+  }else{
+    parking.parkAtAR();
+  }
 }
