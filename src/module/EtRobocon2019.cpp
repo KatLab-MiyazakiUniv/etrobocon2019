@@ -1,4 +1,5 @@
 #include "EtRobocon2019.h"
+#include "BlockBingo.h"
 #include "Controller.h"
 #include "Calibrator.h"
 #include "Display.h"
@@ -25,15 +26,15 @@ void EtRobocon2019::start()
   // NormalCourseを走り出す．
   normalCourse.runNormalCourse();
 
-
   // ブロックビンゴ
-
+  BlockBingo blockBingo(controller);
+  // ここでビンゴを開始するblockBingoのメンバ関数を呼び出す
 
   // ガレージ
   Parking parking(controller);
-  if(isLeftCourse){
+  if(isLeftCourse) {
     parking.parkAtAL();
-  }else{
+  } else {
     parking.parkAtAR();
   }
 }
