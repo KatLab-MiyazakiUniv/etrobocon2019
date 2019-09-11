@@ -68,14 +68,18 @@ class Controller {
   static void lcdSetFont();
   int getLeftMotorCount();
   int getRightMotorCount();
+  int getArmMotorCount();
   void setLeftMotorPwm(const int pwm);
   void setRightMotorPwm(const int pwm);
+  void setArmMotorPwm(const int pwm);
   void resetMotorCount();
   void stopMotor();
   int getAngleOfRotation();
   int limitAngle(int angle);
+  void moveArm(int count);
+  void resetArmMotorCount();
 
-private:
+ private:
   rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;
