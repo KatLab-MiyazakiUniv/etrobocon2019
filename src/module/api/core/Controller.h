@@ -76,6 +76,12 @@ class Controller {
   void stopMotor();
   int getAngleOfRotation();
   int limitAngle(int angle);
+  /**
+   * アームを動かす
+   * @brief countが正の場合、アームを上げる。countが負の場合、アームを下げる。
+   * @param count [カラーセンサーが地面に対して垂直に向いている状態をcount=0としたとき、countの最大値が約40、最小値が約-20]
+   * @param pwm [モーターパワー]
+   */
   void moveArm(int count, int pwm = 10);
   void resetArmMotorCount();
 
