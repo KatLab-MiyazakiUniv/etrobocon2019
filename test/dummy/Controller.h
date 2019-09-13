@@ -266,10 +266,8 @@ class Controller {
     }
     return angle;
   }
-  void moveArm(int count)
+  void moveArm(int count, int pwm = 10)
   {
-    int pwm = 10;
-
     this->resetArmMotorCount();
 
     if(count >= 0) {

@@ -317,10 +317,8 @@ int Controller::limitAngle(int angle)
   return angle;
 }
 
-void Controller::moveArm(int count)
+void Controller::moveArm(int count, int pwm)
 {
-  int pwm = 10;
-
   this->resetArmMotorCount();
 
   if(count >= 0) {

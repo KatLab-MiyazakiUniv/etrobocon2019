@@ -76,7 +76,7 @@ class Controller {
   void stopMotor();
   int getAngleOfRotation();
   int limitAngle(int angle);
-  void moveArm(int count);
+  void moveArm(int count, int pwm = 10);
   void resetArmMotorCount();
 
  private:
