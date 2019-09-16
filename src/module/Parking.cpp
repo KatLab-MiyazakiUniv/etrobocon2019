@@ -13,12 +13,10 @@ void Parking::parkAtAL()
   Navigator navigator(controller);
 
   navigator.moveToSpecifiedColor(Color::green, 10);
-  controller.speakerPlayToneFS6(100);
   navigator.move(100, 10, 0.6);
   navigator.spin(10.0, false);
   navigator.moveToSpecifiedColor(Color::blue, 10);
   navigator.spin(10.0, true);
-  controller.speakerPlayToneFS6(100);
   navigator.move(300, 10, 0.6);
   navigator.spin(90.0, false);
 
