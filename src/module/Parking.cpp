@@ -2,6 +2,7 @@
  * @file Parking.cpp
  * @brief ガレージ駐車に使用するクラス
  * @author Oiwane
+ * updated by match97
  */
 #include "Parking.h"
 
@@ -14,12 +15,12 @@ void Parking::parkAtAL()
   navigator.moveToSpecifiedColor(Color::green, 10);
   controller.speakerPlayToneFS6(100);
   navigator.move(100, 10, 0.6);
-  controller.speakerPlayToneFS6(100);
+  navigator.spin(10.0, false);
   navigator.moveToSpecifiedColor(Color::blue, 10);
+  navigator.spin(10.0, true);
   controller.speakerPlayToneFS6(100);
   navigator.move(300, 10, 0.6);
-  controller.speakerPlayToneFS6(100);
-  navigator.spin(90.0);
+  navigator.spin(90.0, false);
 
   this->stopFor3sec();
 }
@@ -29,25 +30,14 @@ void Parking::parkAtAR()
   Navigator navigator(controller);
 
   navigator.moveToSpecifiedColor(Color::blue, 10);
-  controller.speakerPlayToneFS6(100);
   navigator.move(250, 10, 0.6);
-  controller.speakerPlayToneFS6(100);
-  navigator.spin(90, false);
-  controller.speakerPlayToneFS6(100);
+  navigator.spin(45, false);
   navigator.moveToSpecifiedColor(Color::black, 10);
-  controller.speakerPlayToneFS6(100);
-  navigator.move(50, 10, 0.6);
-  controller.speakerPlayToneFS6(100);
-  navigator.spin(90);
-  controller.speakerPlayToneFS6(100);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  controller.speakerPlayToneFS6(100);
+  navigator.move(40, 10, 0.6);
+  navigator.spin(45, true);
   navigator.moveToSpecifiedColor(Color::blue, 10);
-  controller.speakerPlayToneFS6(100);
   navigator.move(125, 10, 0.6);
-  controller.speakerPlayToneFS6(100);
   navigator.spin(90, false);
-  controller.speakerPlayToneFS6(100);
   navigator.move(400, 10, 0.6);
 
   this->stopFor3sec();
