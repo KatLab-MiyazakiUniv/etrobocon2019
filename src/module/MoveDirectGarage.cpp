@@ -10,7 +10,7 @@
 
 MoveDirectGarage::MoveDirectGarage(Controller &controller_) : controller(controller_) {}
 
-void MoveDirectGarage::MoveDirectGarageL()
+void MoveDirectGarage::moveDirectGarageL()
 {
     Navigator navigator(controller);
 
@@ -49,7 +49,7 @@ void MoveDirectGarage::MoveDirectGarageL()
 
 }
 
-void MoveDirectGarage::MoveDirectGarageR()
+void MoveDirectGarage::moveDirectGarageR()
 {
     Navigator navigator(controller);
 

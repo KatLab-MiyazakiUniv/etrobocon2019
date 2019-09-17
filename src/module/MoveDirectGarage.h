@@ -21,11 +21,11 @@ class MoveDirectGarage {
       /**
        * Lコースのガレージに直接向かう
        */
-      void MoveDirectGarageL();
+      void moveDirectGarageL();
       /**
        *  Rコースのガレージに直接向かう
        **/
-      void MoveDirectGarageR();
+      void moveDirectGarageR();
 };
 
 #endif
