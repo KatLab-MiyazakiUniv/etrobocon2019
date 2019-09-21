@@ -146,34 +146,32 @@ Color Controller::hsvToColor(const HsvStatus& status)
     return Color::red;
 }
 
-//7(determine)回色検出を行い、最も検出された回数が多い色を返す関数である
+// 7(determine)回色検出を行い、最も検出された回数が多い色を返す関数である
 Color Controller::determineColor(int determineNum, int colorNum)
 {
   int counter[colorNum] = { 0 };
-  for (int i = 0; i < determineNum; i++) {
+  for(int i = 0; i < determineNum; i++) {
     Color color = this->hsvToColor(this->getHsv());
     counter[static_cast<int>(color)]++;
     this->tslpTsk(4);
   }
   int max = counter[0];
-  for (int i = 1; i < colorNum; i++) {
-    if (max < counter[i])
-      max = counter[i];
+  for(int i = 1; i < colorNum; i++) {
+    if(max < counter[i]) max = counter[i];
   }
 
-  if (max == counter[0])
+  if(max == counter[0])
     return Color::white;
-  else if (max == counter[1])
+  else if(max == counter[1])
     return Color::black;
-  else if (max == counter[2])
+  else if(max == counter[2])
     return Color::red;
-  else if (max == counter[3])
+  else if(max == counter[3])
     return Color::green;
-  else if (max == counter[4])
+  else if(max == counter[4])
     return Color::blue;
   else
     return Color::yellow;
-
 }
 
 void Controller::tslpTsk(int time)
@@ -206,6 +204,11 @@ int Controller::getRightMotorCount()
   return rightWheel.getCount();
 }
 
+int Controller::getArmMotorCount()
+{
+  return liftMotor.getCount();
+}
+
 int Controller::suppressPwmValue(const int value)
 {
   if(value > MOTOR_PWM_MAX) {
@@ -224,6 +227,11 @@ void Controller::setLeftMotorPwm(const int pwm)
 void Controller::setRightMotorPwm(const int pwm)
 {
   rightWheel.setPWM(suppressPwmValue(pwm));
+}
+
+void Controller::setArmMotorPwm(const int pwm)
+{
+  liftMotor.setPWM(suppressPwmValue(pwm));
 }
 
 void Controller::convertHsv(int& r, int& g, int& b)
@@ -307,4 +315,28 @@ int Controller::limitAngle(int angle)
     angle = limitAngle(angle);
   }
   return angle;
+}
+
+void Controller::moveArm(int count, int pwm)
+{
+  this->resetArmMotorCount();
+
+  if(count >= 0) {
+    this->setArmMotorPwm(pwm);
+    while(this->getArmMotorCount() < count) {
+      this->tslpTsk(4);
+    }
+  } else {
+    this->setArmMotorPwm(-pwm);
+    while(this->getArmMotorCount() > count) {
+      this->tslpTsk(4);
+    }
+  }
+
+  this->setArmMotorPwm(0);
+}
+
+void Controller::resetArmMotorCount()
+{
+  liftMotor.reset();
 }
