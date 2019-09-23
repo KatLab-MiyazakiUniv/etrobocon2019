@@ -271,12 +271,14 @@ class Controller {
     this->resetArmMotorCount();
 
     if(count >= 0) {
-      this->setArmMotorPwm(pwm);
       while(this->getArmMotorCount() < count) {
+        this->setArmMotorPwm(pwm);
+        this->tslpTsk(4);
       }
     } else {
-      this->setArmMotorPwm(-pwm);
       while(this->getArmMotorCount() > count) {
+        this->setArmMotorPwm(-pwm);
+        this->tslpTsk(4);
       }
     }
 
