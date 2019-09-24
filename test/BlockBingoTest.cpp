@@ -34,7 +34,7 @@ namespace etrobocon2019_test {
   //   blockbingo.execOrder<1>(order);
   // }
 
-  TEST(BlockBingo, execSpinRight90Test)
+  TEST(BlockBingo, execSpinRightTest)
   {
     Controller controller;
     BlockBingo blockbingo(controller);
@@ -43,7 +43,7 @@ namespace etrobocon2019_test {
     blockbingo.execOrder<1>(order);
   }
 
-  TEST(BlockBingo, execSpinLeft90Test)
+  TEST(BlockBingo, execSpinLeftTest)
   {
     Controller controller;
     BlockBingo blockbingo(controller);
@@ -134,7 +134,7 @@ namespace etrobocon2019_test {
   //   blockbingo.execOrder<1>(order);
   // }
 
-  TEST(BlockBingo, execTurnRight180Test)
+  TEST(BlockBingo, execTurn180DetourRightTest)
   {
     Controller controller;
     BlockBingo blockbingo(controller);
@@ -143,7 +143,7 @@ namespace etrobocon2019_test {
     blockbingo.execOrder<1>(order);
   }
 
-  TEST(BlockBingo, execTurnLeft180Test)
+  TEST(BlockBingo, execTurn180DetourLeftTest)
   {
     Controller controller;
     BlockBingo blockbingo(controller);

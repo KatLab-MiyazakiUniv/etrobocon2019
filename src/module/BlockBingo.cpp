@@ -37,14 +37,14 @@ void BlockBingo::moveCircle6OfL()
   navigator.move(length, 10, 0.6);
 }
 
-void BlockBingo::execSpinRight90()
+void BlockBingo::execSpinRight()
 {
   Navigator navigator(controller);
 
   navigator.spin(90.0, true);
 }
 
-void BlockBingo::execSpinLeft90()
+void BlockBingo::execSpinLeft()
 {
   Navigator navigator(controller);
 
@@ -106,7 +106,7 @@ void BlockBingo::execTurnRight90UnexistBlock()
   Navigator navigator(controller);
 
   navigator.move(length, 10, 0.6);
-  this->execSpinRight90();
+  this->execSpinRight();
   navigator.move(length, 10, 0.6);
 }
 
@@ -125,7 +125,7 @@ void BlockBingo::execTurnLeft90UnexistBlock()
   Navigator navigator(controller);
 
   navigator.move(length, 10, 0.6);
-  this->execSpinLeft90();
+  this->execSpinLeft();
   navigator.move(length, 10, 0.6);
 }
 
@@ -135,7 +135,7 @@ void BlockBingo::execTurn180()
   this->execStraight();
 }
 
-void BlockBingo::execTurnRight180()
+void BlockBingo::execTurn180DetourRight()
 {
   Navigator navigator(controller);
 
@@ -143,13 +143,13 @@ void BlockBingo::execTurnRight180()
   navigator.spin(45.0, true);
   navigator.moveToSpecifiedColor(Color::black, 10);
   navigator.move(50.0, 10, 0.6);
-  this->execSpinLeft90();
+  this->execSpinLeft();
   navigator.moveToSpecifiedColor(Color::black, 10);
   navigator.move(50.0, 10, 0.6);
   navigator.spin(45.0, true);
 }
 
-void BlockBingo::execTurnLeft180()
+void BlockBingo::execTurn180DetourLeft()
 {
   Navigator navigator(controller);
 
@@ -157,7 +157,7 @@ void BlockBingo::execTurnLeft180()
   navigator.spin(45.0, false);
   navigator.moveToSpecifiedColor(Color::black, 10);
   navigator.move(50.0, 10, 0.6);
-  this->execSpinRight90();
+  this->execSpinRight();
   navigator.moveToSpecifiedColor(Color::black, 10);
   navigator.move(50.0, 10, 0.6);
   navigator.spin(45.0, false);
@@ -180,8 +180,8 @@ void BlockBingo::initMap()
   mp["a"] = Order::ENTER_BINGO_AREA_L4;
   mp["b"] = Order::ENTER_BINGO_AREA_L6;
   mp["c"] = Order::STRAIGHT;
-  mp["d"] = Order::SPIN_RIGHT90;
-  mp["e"] = Order::SPIN_LEFT90;
+  mp["d"] = Order::SPIN_RIGHT;
+  mp["e"] = Order::SPIN_LEFT;
   mp["f"] = Order::SPIN180;
   mp["g"] = Order::PUT;
 
@@ -192,6 +192,6 @@ void BlockBingo::initMap()
   mp["l"] = Order::TURN_LEFT90_EXIST_BLOCK;
   mp["m"] = Order::TURN_LEFT90_UNEXIST_BLOCK;
   mp["n"] = Order::TURN180;
-  mp["o"] = Order::TURN_RIGHT180;
-  mp["p"] = Order::TURN_LEFT180;
+  mp["o"] = Order::TURN180_DETOUR_RIGHT;
+  mp["p"] = Order::TURN180_DETOUR_LEFT;
 }

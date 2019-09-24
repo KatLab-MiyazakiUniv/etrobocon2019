@@ -14,8 +14,8 @@
 enum class Order {
   ENTER_BINGO_AREA_L4,
   ENTER_BINGO_AREA_L6,
-  SPIN_RIGHT90,
-  SPIN_LEFT90,
+  SPIN_RIGHT,
+  SPIN_LEFT,
   SPIN180,
   STRAIGHT,
   STRAIGHT_DETOUR_RIGHT,
@@ -25,8 +25,8 @@ enum class Order {
   TURN_LEFT90_EXIST_BLOCK,
   TURN_LEFT90_UNEXIST_BLOCK,
   TURN180,
-  TURN_RIGHT180,
-  TURN_LEFT180,
+  TURN180_DETOUR_RIGHT,
+  TURN180_DETOUR_LEFT,
   PUT,
 };
 
@@ -41,15 +41,15 @@ class BlockBingo {
 
   //ここからのprivate関数の詳細はモデルの2.2を参照
   /**
-   * SPIN_RIGHT90の命令を実行する
+   * SPIN_RIGHTの命令を実行する
    * @brief 90度右に回頭する
    */
-  void execSpinRight90();
+  void execSpinRight();
   /**
-   * SPIN_LEFT90の命令を実行する
+   * SPIN_LEFTの命令を実行する
    * @brief 90度左に回頭する
    */
-  void execSpinLeft90();
+  void execSpinLeft();
   /**
    * SPIN180の命令を実行する
    * @brief 180度回頭する
@@ -100,12 +100,12 @@ class BlockBingo {
    * TURN_RIGHT180の命令を実行する
    * @brief ブロックがある場合に使用される。中点で180度旋回してから右に迂回して直進する
    */
-  void execTurnRight180();
+  void execTurn180DetourRight();
   /**
    * TURN_RIGHT180の命令を実行する
    * @brief ブロックがある場合に使用される。中点で180度旋回してから左に迂回して直進する
    */
-  void execTurnLeft180();
+  void execTurn180DetourLeft();
   /**
    * PUTの命令を実行する
    * @brief アームを上げ下げしてブロックをブロックサークルに設置する
@@ -148,10 +148,10 @@ class BlockBingo {
         this->moveCircle4OfL();
       } else if(it->second == Order::ENTER_BINGO_AREA_L6) {
         this->moveCircle6OfL();
-      } else if(it->second == Order::SPIN_RIGHT90) {
-        this->execSpinRight90();
-      } else if(it->second == Order::SPIN_LEFT90) {
-        this->execSpinLeft90();
+      } else if(it->second == Order::SPIN_RIGHT) {
+        this->execSpinRight();
+      } else if(it->second == Order::SPIN_LEFT) {
+        this->execSpinLeft();
       } else if(it->second == Order::SPIN180) {
         this->execSpin180();
       } else if(it->second == Order::STRAIGHT) {
@@ -170,10 +170,10 @@ class BlockBingo {
         this->execTurnLeft90UnexistBlock();
       } else if(it->second == Order::TURN180) {
         this->execTurn180();
-      } else if(it->second == Order::TURN_RIGHT180) {
-        this->execTurnRight180();
-      } else if(it->second == Order::TURN_LEFT180) {
-        this->execTurnLeft180();
+      } else if(it->second == Order::TURN180_DETOUR_RIGHT) {
+        this->execTurn180DetourRight();
+      } else if(it->second == Order::TURN180_DETOUR_LEFT) {
+        this->execTurn180DetourLeft();
       } else if(it->second == Order::PUT) {
         this->execPut();
       }
