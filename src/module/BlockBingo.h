@@ -1,34 +1,15 @@
 /**
  *  @file   BlockBingo.h
- *  @brief  ブロックビンゴに使用するクラス
+ *  @brief  ブロックビンゴで使用する動作をまとめたクラス
  *  @author Oiwane
  */
 #ifndef BLOCKBINGO_H
 #define BLOCKBINGO_H
 
 #include <array>
-#include <map>
 #include "Controller.h"
+#include "Instructions.h"
 #include "Navigator.h"
-
-enum class Order {
-  ENTER_BINGO_AREA_L4,
-  ENTER_BINGO_AREA_L6,
-  SPIN_RIGHT,
-  SPIN_LEFT,
-  SPIN180,
-  STRAIGHT,
-  STRAIGHT_DETOUR_RIGHT,
-  STRAIGHT_DETOUR_LEFT,
-  TURN_RIGHT90_EXIST_BLOCK,
-  TURN_RIGHT90_UNEXIST_BLOCK,
-  TURN_LEFT90_EXIST_BLOCK,
-  TURN_LEFT90_UNEXIST_BLOCK,
-  TURN180,
-  TURN180_DETOUR_RIGHT,
-  TURN180_DETOUR_LEFT,
-  PUT,
-};
 
 class BlockBingo {
  private:
@@ -37,7 +18,6 @@ class BlockBingo {
   const double length;
   // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
   bool isFirstProcess;
-  std::map<std::string, Order> mp;
 
   //ここからのprivate関数の詳細はモデルの2.2を参照
   /**
@@ -132,50 +112,84 @@ class BlockBingo {
    */
   void moveCircle6OfL();
   /**
-   * 命令に使用するマップを初期化する
-   */
-  void initMap();
-  /**
    * パソコンから受け取ったリストの通りに処理を実行する
    * @param orders [命令の情報のリスト]
    */
   template <int N>
-  void execOrder(std::array<std::string, N>& orders)
+  void execOrder(std::array<std::string, N>& orderKeys)
   {
-    for(const auto& orderKey : orders) {
-      decltype(mp)::iterator it = mp.find(orderKey);
-      if(it->second == Order::ENTER_BINGO_AREA_L4) {
-        this->moveCircle4OfL();
-      } else if(it->second == Order::ENTER_BINGO_AREA_L6) {
-        this->moveCircle6OfL();
-      } else if(it->second == Order::SPIN_RIGHT) {
-        this->execSpinRight();
-      } else if(it->second == Order::SPIN_LEFT) {
-        this->execSpinLeft();
-      } else if(it->second == Order::SPIN180) {
-        this->execSpin180();
-      } else if(it->second == Order::STRAIGHT) {
-        this->execStraight();
-      } else if(it->second == Order::STRAIGHT_DETOUR_RIGHT) {
-        this->execStraightDetourRight();
-      } else if(it->second == Order::STRAIGHT_DETOUR_LEFT) {
-        this->execStraightDetourLeft();
-      } else if(it->second == Order::TURN_RIGHT90_EXIST_BLOCK) {
-        this->execTurnRight90ExistBlock();
-      } else if(it->second == Order::TURN_RIGHT90_UNEXIST_BLOCK) {
-        this->execTurnRight90UnexistBlock();
-      } else if(it->second == Order::TURN_LEFT90_EXIST_BLOCK) {
-        this->execTurnLeft90ExistBlock();
-      } else if(it->second == Order::TURN_LEFT90_UNEXIST_BLOCK) {
-        this->execTurnLeft90UnexistBlock();
-      } else if(it->second == Order::TURN180) {
-        this->execTurn180();
-      } else if(it->second == Order::TURN180_DETOUR_RIGHT) {
-        this->execTurn180DetourRight();
-      } else if(it->second == Order::TURN180_DETOUR_LEFT) {
-        this->execTurn180DetourLeft();
-      } else if(it->second == Order::PUT) {
-        this->execPut();
+    Instructions instructions;
+
+    for(const auto& orderKey : orderKeys) {
+      Order order = instructions.translate(orderKey);
+
+      switch(order) {
+        case Order::ENTER_BINGO_AREA_L4:
+          this->moveCircle4OfL();
+          break;
+
+        case Order::ENTER_BINGO_AREA_L6:
+          this->moveCircle6OfL();
+          break;
+
+        case Order::SPIN_RIGHT:
+          this->execSpinRight();
+          break;
+
+        case Order::SPIN_LEFT:
+          this->execSpinLeft();
+          break;
+
+        case Order::SPIN180:
+          this->execSpin180();
+          break;
+
+        case Order::STRAIGHT:
+          this->execStraight();
+          break;
+
+        case Order::STRAIGHT_DETOUR_RIGHT:
+          this->execStraightDetourRight();
+          break;
+
+        case Order::STRAIGHT_DETOUR_LEFT:
+          this->execStraightDetourLeft();
+          break;
+
+        case Order::TURN_RIGHT90_EXIST_BLOCK:
+          this->execTurnRight90ExistBlock();
+          break;
+
+        case Order::TURN_RIGHT90_UNEXIST_BLOCK:
+          this->execTurnRight90UnexistBlock();
+          break;
+
+        case Order::TURN_LEFT90_EXIST_BLOCK:
+          this->execTurnLeft90ExistBlock();
+          break;
+
+        case Order::TURN_LEFT90_UNEXIST_BLOCK:
+          this->execTurnLeft90UnexistBlock();
+          break;
+
+        case Order::TURN180:
+          this->execTurn180();
+          break;
+
+        case Order::TURN180_DETOUR_RIGHT:
+          this->execTurn180DetourRight();
+          break;
+
+        case Order::TURN180_DETOUR_LEFT:
+          this->execTurn180DetourLeft();
+          break;
+
+        case Order::PUT:
+          this->execPut();
+          break;
+
+        default:
+          controller.speakerPlayToneFS6(1000);
       }
     }
   }
