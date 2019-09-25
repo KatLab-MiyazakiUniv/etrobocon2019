@@ -47,10 +47,10 @@ class ColorSensor {
   int brightness = 0;
 };
 
-class GyroSensor{
-  public:
-    int getAngle() { return angle; }
-    int angle = 0;
+class GyroSensor {
+ public:
+  int getAngle() { return angle; }
+  int angle = 0;
 };
 
 class Controller {
@@ -166,10 +166,7 @@ class Controller {
     }
   }
 
-  Color ditermineColor(HsvStatus hsv){
-   return this->hsvToColor(hsv);
-  }
-
+  Color ditermineColor(HsvStatus hsv) { return this->hsvToColor(hsv); }
 
   bool buttonIsPressedUp() { return false; };
   bool buttonIsPressedDown() { return false; };
@@ -231,8 +228,10 @@ class Controller {
 
   int getLeftMotorCount() { return leftWheel.getCount(); };
   int getRightMotorCount() { return rightWheel.getCount(); };
+  int getArmMotorCount() { return liftMotor.getCount(); };
   void setLeftMotorPwm(const int pwm) { leftWheel.setPWM(suppressPwmValue(pwm)); };
   void setRightMotorPwm(const int pwm) { rightWheel.setPWM(suppressPwmValue(pwm)); };
+  void setArmMotorPwm(const int pwm) { liftMotor.setPWM(suppressPwmValue(pwm)); };
   void resetMotorCount()
   {
     leftWheel.reset();
@@ -253,7 +252,7 @@ class Controller {
     return value;
   };
   int getAngleOfRotation()
-  { 
+  {
     int angle = gyroSensor.getAngle();
 
     return limitAngle(angle);
@@ -261,11 +260,28 @@ class Controller {
   int limitAngle(int angle)
   {
     angle = angle % 360;
-      if (angle < 0) {
-        angle = 360 + angle;
-        angle = limitAngle(angle);
-      }
+    if(angle < 0) {
+      angle = 360 + angle;
+      angle = limitAngle(angle);
+    }
     return angle;
   }
+  void moveArm(int count, int pwm = 10)
+  {
+    this->resetArmMotorCount();
+
+    if(count >= 0) {
+      this->setArmMotorPwm(pwm);
+      while(this->getArmMotorCount() < count) {
+      }
+    } else {
+      this->setArmMotorPwm(-pwm);
+      while(this->getArmMotorCount() > count) {
+      }
+    }
+
+    this->setArmMotorPwm(0);
+  }
+  void resetArmMotorCount() { liftMotor.reset(); }
 };
 #endif
