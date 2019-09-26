@@ -15,7 +15,7 @@ unsigned struct HsvStatus {
   double value;
 };
 
-enum class Color { white, black, red, green, blue, yellow };
+enum class Color { black, red, green, blue, yellow, white };
 
 class Motor {
  public:
@@ -145,25 +145,65 @@ class Controller {
 
   Color hsvToColor(HsvStatus hsv)
   {
-    // 白黒の識別
-    if(hsv.value < 13.0) {
-      return Color::black;
-    } else if(hsv.value > 50.0) {
-      return Color::white;
-    }
-
-    // 赤緑青黃の識別
-    if(hsv.hue < 30) {
+    if(status.value <= 17.059) {
+      if(status.saturation <= 79.398) {
+        if(status.value <= 11.765)
+          return Color::black;
+        else if(status.saturation <= 54.688)
+          return Color::blue;
+        else
+          return Color::black;
+      } else
+        return Color::blue;
+    } else if(status.saturation <= 18.792) {
+      if(status.hue <= 76.528)
+        return Color::yellow;
+      else if(status.saturation <= 13.469)
+        return Color::white;
+      else if(status.saturation <= 13.513) {
+        if(status.hue <= 170.625)
+          return Color::white;
+        else
+          return Color::green;
+      } else if(status.hue <= 157.368) {
+        if(status.hue <= 151.215)
+          return Color::white;
+        else
+          return Color::green;
+      } else
+        return Color::white;
+    } else if(status.hue <= 71.434) {
+      if(status.hue <= 38.097)
+        return Color::red;
+      else if(status.hue <= 44.112) {
+        if(status.hue <= 42.224)
+          return Color::yellow;
+        else
+          return Color::red;
+      } else
+        return Color::yellow;
+    } else if(status.hue <= 210.738) {
+      if(status.value <= 64.51) {
+        if(status.hue <= 91.903)
+          return Color::black;
+        else if(status.hue <= 169.465)
+          return Color::green;
+        else if(status.saturation <= 35.261)
+          return Color::green;
+        else
+          return Color::blue;
+      } else
+        return Color::white;
+    } else if(status.hue <= 292.5) {
+      if(status.saturation <= 42.325) {
+        if(status.hue <= 228.833)
+          return Color::blue;
+        else
+          return Color::black;
+      } else
+        return Color::blue;
+    } else
       return Color::red;
-    } else if(hsv.hue < 80.0) {
-      return Color::yellow;
-    } else if(hsv.hue < 160.0) {
-      return Color::green;
-    } else if(hsv.hue < 300.0) {
-      return Color::blue;
-    } else {
-      return Color::red;
-    }
   }
 
   Color ditermineColor(HsvStatus hsv) { return this->hsvToColor(hsv); }
