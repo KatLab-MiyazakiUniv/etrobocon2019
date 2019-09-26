@@ -1,6 +1,5 @@
 
 #include "Controller.h"
-#include "Logger.h"
 
 Controller::Controller()
   : touchSensor(PORT_1),
