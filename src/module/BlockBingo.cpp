@@ -6,7 +6,13 @@
 #include "BlockBingo.h"
 
 BlockBingo::BlockBingo(Controller& controller_)
-  : controller(controller_), length(175.0), isFirstProcess(true)
+  : controller(controller_),
+    length(175.0),
+    isFirstProcess(true),
+    // 10 : 0.823, 20 : 0.29?
+    pGain(0.823),
+    straightPwm(10),
+    spinPwm(10)
 {
 }
 
@@ -14,26 +20,27 @@ void BlockBingo::moveCircle4OfL()
 {
   Navigator navigator(controller);
 
-  navigator.moveToSpecifiedColor(Color::yellow, 10);
-  navigator.move(-65.0, 10, 0.6);
-  navigator.spin(45.0, false, 10);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
-  navigator.spin(45.0, true, 10);
-  navigator.move(length, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::yellow, straightPwm);
+  navigator.move(-65.0, straightPwm, pGain);
+  navigator.spin(45.0, false, spinPwm);
+  navigator.move(20.0, straightPwm, pGain);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
+  navigator.spin(45.0, true, spinPwm);
+  navigator.move(length, straightPwm, pGain);
 }
 
 void BlockBingo::moveCircle6OfL()
 {
   Navigator navigator(controller);
 
-  navigator.moveToSpecifiedColor(Color::yellow, 10);
-  navigator.move(-65.0, 10);
+  navigator.moveToSpecifiedColor(Color::yellow, straightPwm);
+  navigator.move(-65.0, straightPwm);
   navigator.spin(45.0, true);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(45.0, false);
-  navigator.move(length, 10, 0.6);
+  navigator.move(length, straightPwm, pGain);
 }
 
 void BlockBingo::execSpinRight()
@@ -61,7 +68,7 @@ void BlockBingo::execStraight()
 {
   Navigator navigator(controller);
 
-  navigator.move(length * 2, 10, 0.6);
+  navigator.move(length * 2, straightPwm, pGain);
 }
 
 void BlockBingo::execStraightDetourRight()
@@ -69,11 +76,11 @@ void BlockBingo::execStraightDetourRight()
   Navigator navigator(controller);
 
   navigator.spin(45.0, true);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(90.0, false);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(45.0, true);
 }
 
@@ -82,11 +89,11 @@ void BlockBingo::execStraightDetourLeft()
   Navigator navigator(controller);
 
   navigator.spin(45.0, false);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(90.0, true);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(45.0, false);
 }
 
@@ -95,8 +102,8 @@ void BlockBingo::execTurnRight90ExistBlock()
   Navigator navigator(controller);
 
   navigator.spin(45.0, true);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(45.0, true);
 }
 
@@ -104,9 +111,9 @@ void BlockBingo::execTurnRight90UnexistBlock()
 {
   Navigator navigator(controller);
 
-  navigator.move(length, 10, 0.6);
+  navigator.move(length, straightPwm, pGain);
   this->execSpinRight();
-  navigator.move(length, 10, 0.6);
+  navigator.move(length, straightPwm, pGain);
 }
 
 void BlockBingo::execTurnLeft90ExistBlock()
@@ -114,8 +121,8 @@ void BlockBingo::execTurnLeft90ExistBlock()
   Navigator navigator(controller);
 
   navigator.spin(45.0, false);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(45.0, false);
 }
 
@@ -123,9 +130,9 @@ void BlockBingo::execTurnLeft90UnexistBlock()
 {
   Navigator navigator(controller);
 
-  navigator.move(length, 10, 0.6);
+  navigator.move(length, straightPwm, pGain);
   this->execSpinLeft();
-  navigator.move(length, 10, 0.6);
+  navigator.move(length, straightPwm, pGain);
 }
 
 void BlockBingo::execTurn180()
@@ -140,11 +147,11 @@ void BlockBingo::execTurn180DetourRight()
 
   this->execSpin180();
   navigator.spin(45.0, true);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   this->execSpinLeft();
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(45.0, true);
 }
 
@@ -154,11 +161,11 @@ void BlockBingo::execTurn180DetourLeft()
 
   this->execSpin180();
   navigator.spin(45.0, false);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   this->execSpinRight();
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(50.0, 10, 0.6);
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
   navigator.spin(45.0, false);
 }
 
@@ -167,9 +174,9 @@ void BlockBingo::execPut()
   Navigator navigator(controller);
 
   if(isFirstProcess) {
-    navigator.move(length, 10, 0.6);
+    navigator.move(length, straightPwm, pGain);
     isFirstProcess = false;
   }
-  navigator.move(100.0, 10, 0.6);
-  navigator.move(-100.0, 10, 0.6);
+  navigator.move(100.0, straightPwm, pGain);
+  navigator.move(-100.0, straightPwm, pGain);
 }

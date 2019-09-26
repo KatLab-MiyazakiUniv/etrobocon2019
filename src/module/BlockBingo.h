@@ -18,6 +18,9 @@ class BlockBingo {
   const double length;
   // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
   bool isFirstProcess;
+  const double pGain;
+  const int straightPwm;
+  const int spinPwm;
 
   //ここからのprivate関数の詳細はモデルの2.2を参照
   /**
