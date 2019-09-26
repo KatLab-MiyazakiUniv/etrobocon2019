@@ -13,11 +13,11 @@ void Parking::parkAtAL()
   Navigator navigator(controller);
 
   navigator.moveToSpecifiedColor(Color::green, 10);
-  navigator.move(100, 10, 0.6);
+  navigator.move(100, 10, 0.813);
   navigator.spin(10.0, false);
   navigator.moveToSpecifiedColor(Color::blue, 10);
   navigator.spin(10.0, true);
-  navigator.move(300, 10, 0.6);
+  navigator.move(300, 10, 0.813);
   navigator.spin(90.0, false);
 
   this->stopFor3sec();
@@ -28,15 +28,15 @@ void Parking::parkAtAR()
   Navigator navigator(controller);
 
   navigator.moveToSpecifiedColor(Color::blue, 10);
-  navigator.move(250, 10, 0.6);
-  navigator.spin(45, false);
+  navigator.move(250, 10, 0.813);
+  navigator.spin(40, false);
   navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(40, 10, 0.6);
+  navigator.move(40, 10, 0.813);
   navigator.spin(45, true);
   navigator.moveToSpecifiedColor(Color::blue, 10);
-  navigator.move(125, 10, 0.6);
+  navigator.move(150, 10, 0.813);
   navigator.spin(90, false);
-  navigator.move(400, 10, 0.6);
+  navigator.move(400, 10, 0.813);
 
   this->stopFor3sec();
 }
