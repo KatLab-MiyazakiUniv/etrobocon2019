@@ -4,6 +4,8 @@
 #include <array>
 
 // 演習用のユーティリティ
+std::array<char, 256> Bluetooth::commands;
+bool Bluetooth::is_start = false;
 
 /**
  * メインタスク
@@ -27,6 +29,7 @@ void bt_task(intptr_t unused)
   // int debug_count = 0;
   Bluetooth bluetooth;
   int receiveCommand;
+  Controller controller;
 
   while(1) {
     // 受信（PCからコマンドが送られるまで一生ここで止まる）
@@ -38,6 +41,14 @@ void bt_task(intptr_t unused)
     tslp_tsk(4);
   }
   Display::print(12, "success: connect BT");
+
+  // タッチセンサが押されるまで待つ
+  while(!Bluetooth::is_start) {
+    controller.tslpTsk(4);
+  }
+
+  // PCにスタート合図を送る
+  bluetooth.serialSend(2);
 
   // コマンドの受信開始
   //receiveCommand = static_cast<char>(bluetooth.serialRead());

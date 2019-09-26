@@ -8,8 +8,6 @@
 #include "Navigator.h"
 #include "Parking.h"
 
-std::array<char, 256> Bluetooth::commands;
-
 void EtRobocon2019::start()
 {
   Controller controller;
@@ -25,6 +23,7 @@ void EtRobocon2019::start()
   while(!controller.touchSensor.isPressed()) {
     controller.tslpTsk(4);
   }
+  Bluetooth::is_start = true;
 
   NormalCourse normalCourse(controller, isLeftCourse, targetBrightness);
   // NormalCourseを走り出す．
