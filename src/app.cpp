@@ -60,6 +60,6 @@ void bt_task(intptr_t unused)
   }
   Bluetooth::commands = commands;
   command_string[i+1] = '\0';
-  Display::print(10, "Commands: %s", command_string);
+  Display::print(10, "Commands: %-10s", command_string);
   ext_tsk();
 }
