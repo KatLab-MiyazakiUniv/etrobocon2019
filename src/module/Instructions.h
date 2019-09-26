@@ -30,7 +30,7 @@ enum class Order {
 
 class Instructions {
  private:
-  std::map<std::string, Order> mp;
+  std::map<char, Order> mp;
 
  public:
   /**
@@ -41,7 +41,7 @@ class Instructions {
    * @brief 受け取った文字列を命令に変換する
    * @param key [mpの添え字]
    */
-  Order translate(std::string key);
+  Order translate(char key);
 };
 
 #endif
