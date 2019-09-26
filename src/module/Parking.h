@@ -12,6 +12,7 @@
 class Parking {
  private:
   Controller controller;
+  const int targetBrightness;
 
   /**
    * 3秒間停車する
@@ -22,7 +23,7 @@ class Parking {
   /**
    * コンストラクタ
    */
-  Parking(Controller& controller_);
+  Parking(Controller& controller_, int targetBrightness_);
   /**
    * Lコースのガレージ駐車を行う
    */

@@ -5,8 +5,6 @@
 
 // 演習用のユーティリティ
 
-std::array<char, 256> Bluetooth::commands;
-
 /**
  * メインタスク
  */
@@ -53,7 +51,7 @@ void bt_task(intptr_t unused)
     receiveCommand = static_cast<char>(bluetooth.serialRead());
     Display::print(6, "BT: %c", receiveCommand);
 
-    if(receiveCommand == 'a') {
+    if(receiveCommand == '#') {
       break;
     }
     commands[i] = static_cast<char>(receiveCommand);

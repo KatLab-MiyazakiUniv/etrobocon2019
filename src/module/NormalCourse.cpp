@@ -49,8 +49,13 @@ void NormalCourse::runNormalCourse()
           { 1300, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.1, 0.01, 0.07 } },   // 第8区間
           { 2500, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },    // 第9区間
 
+<<<<<<< HEAD
           { 1000, baseSpeed / 2, { 0.1, 0.0, 0.1 }, { 0.9, 0.0, 0.08 } },          //進入ライン
           { 400, baseSpeed / 4, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },
+=======
+          { 1000, baseSpeed / 2, { 0.1, 0.0, 0.1 }, { 0.9, 0.0, 0.08 } },  //進入ライン
+          { 400, baseSpeed / 4, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },   //要調整
+>>>>>>> upstream/master
       } };
   LineTracer lineTracer(controller, targetBrightness, isLeftCourse);
   for(const auto& ncp : normalCourseProperty) {
