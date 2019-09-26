@@ -10,8 +10,9 @@ namespace etrobocon2019_test {
 
   TEST(Parking, ParkingTest_init)
   {
+    int targetBrightness = 70;
     Controller controller;
-    Parking parking(controller);
+    Parking parking(controller, targetBrightness);
   }
 
 }  // namespace etrobocon2019_test
