@@ -32,6 +32,11 @@ int Bluetooth::serialRead()
   return fgetc(bt);
 }
 
+void Bluetooth::serialSend(int c)
+{
+  fputc(c, bt);
+}
+
 void Bluetooth::serialClose()
 {
   fclose(bt);

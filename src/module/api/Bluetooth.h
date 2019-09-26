@@ -8,6 +8,7 @@
 #include "Controller.h"
 #include "Display.h"
 #include <cstdio>
+#include <array>
 
 class Bluetooth {
  public:
@@ -37,10 +38,18 @@ class Bluetooth {
   int serialRead();
 
   /**
+   * PCにデータを送る
+   * @brief fputc関数を用いてデータを読み取る
+   */
+  void serialSend(int c);
+
+  /**
    * シリアル通信を終了する
    * @brief FILEポインタを開放する（デストラクタで呼び出す）
    */
   void serialClose();
+
+  static std::array<char, 256> commands;
 
  private:
   std::FILE* bt;
