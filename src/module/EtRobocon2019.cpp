@@ -1,11 +1,14 @@
 #include "EtRobocon2019.h"
 #include "BlockBingo.h"
+#include "Bluetooth.h"
 #include "Controller.h"
 #include "Calibrator.h"
 #include "Display.h"
 #include "NormalCourse.h"
 #include "Navigator.h"
 #include "Parking.h"
+
+std::array<char, 256> Bluetooth::commands;
 
 void EtRobocon2019::start()
 {
@@ -27,11 +30,12 @@ void EtRobocon2019::start()
   normalCourse.runNormalCourse();
 
   // ブロックビンゴ
-  BlockBingo blockBingo(controller);
+  BlockBingo blockBingo(controller, targetBrightness);
   // ここでビンゴを開始するblockBingoのメンバ関数を呼び出す
+  blockBingo.execOrder<256>(Bluetooth::commands);
 
   // ガレージ
-  Parking parking(controller);
+  Parking parking(controller, targetBrightness);
   if(isLeftCourse) {
     parking.parkAtAL();
   } else {

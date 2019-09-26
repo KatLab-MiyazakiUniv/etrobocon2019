@@ -10,14 +10,16 @@ namespace etrobocon2019_test {
   TEST(Navigator, NavigatorTest_init)
   {
     Controller controller;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
   }
 
   TEST(Navigator, moveForwardTest)
   {
     Controller controller;
     Distance distance;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     double expected = 1000.0;
     double start
@@ -37,7 +39,8 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Distance distance;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     double expected = 1000.0;
     double start
@@ -57,7 +60,8 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Distance distance;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     navigator.setPidGain(0.60, 0.05, 0.04);
 
@@ -79,7 +83,8 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Distance distance;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     double expected = -1000.0;
     double start
@@ -99,7 +104,8 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Distance distance;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     double expected = -1000.0;
     double start
@@ -119,7 +125,8 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Distance distance;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     navigator.setPidGain(0.60, 0.05, 0.04);
 
@@ -141,7 +148,8 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Distance distance;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     double expected = 1000.0;
     double start
@@ -158,7 +166,8 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Distance distance;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     double expected = -1000.0;
     double start
@@ -174,7 +183,8 @@ namespace etrobocon2019_test {
   TEST(Navigator, moveToSpecifiedColorTest)
   {
     Controller controller;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     Color expected = Color::black;
 
@@ -194,7 +204,8 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Rotation rotation;
-    Navigator navigator(controller);
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
 
     double expected = 90;
     navigator.spin(expected);
