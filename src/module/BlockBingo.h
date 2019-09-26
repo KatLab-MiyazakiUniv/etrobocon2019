@@ -116,7 +116,7 @@ class BlockBingo {
    * @param orders [命令の情報のリスト]
    */
   template <int N>
-  void execOrder(std::array<std::string, N>& orderKeys)
+  void execOrder(std::array<char, N>& orderKeys)
   {
     Instructions instructions;
 
