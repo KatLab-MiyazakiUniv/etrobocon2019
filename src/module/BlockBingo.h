@@ -14,8 +14,9 @@
 class BlockBingo {
  private:
   Controller& controller;
-  Navigator navigator;
+  // Navigator navigator;
   //交点サークルから中点までの距離
+  const int targetBrightness;
   const double length;
   // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
   bool isFirstProcess;
@@ -92,9 +93,39 @@ class BlockBingo {
   void execTurn180DetourLeft();
   /**
    * PUTの命令を実行する
-   * @brief アームを上げ下げしてブロックをブロックサークルに設置する
+   * @brief ブロックをブロックサークルに設置する
    */
   void execPut();
+  /**
+   * SPIN_RIGHT45の命令を実行する
+   * @brief 45度右に回頭する
+   */
+  void execSpinRight45();
+  /**
+   * SPIN_LEFT45の命令を実行する
+   * @brief 45度左に回頭する
+   */
+  void execSpinLeft45();
+  /**
+   * SPIN_RIGHT135の命令を実行する
+   * @brief 135度右に回頭する
+   */
+  void execSpinRight135();
+  /**
+   * SPIN_LEFT135の命令を実行する
+   * @brief 135度左に回頭する
+   */
+  void execSpinLeft135();
+  /**
+   * MOVE_NODEの命令を実行する
+   * @brief lengthだけ直進する
+   */
+  void execMoveNode();
+  /**
+   * MOVE_DIAGONALの命令を実行する
+   * @brief 中点から中点まで斜めに移動する
+   */
+  void execMoveDiagonal();
 
  public:
   /**
@@ -190,6 +221,30 @@ class BlockBingo {
 
         case Order::PUT:
           this->execPut();
+          break;
+
+        case Order::SPIN_RIGHT45:
+          this->execSpinRight45();
+          break;
+
+        case Order::SPIN_LEFT45:
+          this->execSpinLeft45();
+          break;
+
+        case Order::SPIN_RIGHT135:
+          this->execSpinRight135();
+          break;
+
+        case Order::SPIN_LEFT135:
+          this->execSpinLeft135();
+          break;
+
+        case Order::MOVE_NODE:
+          this->execMoveNode();
+          break;
+
+        case Order::MOVE_DIAGONAL:
+          this->execMoveDiagonal();
           break;
 
         default:

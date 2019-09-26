@@ -24,6 +24,13 @@ Instructions::Instructions()
   mp['n'] = Order::TURN180;
   mp['o'] = Order::TURN180_DETOUR_RIGHT;
   mp['p'] = Order::TURN180_DETOUR_LEFT;
+
+  mp['q'] = Order::SPIN_RIGHT45;
+  mp['r'] = Order::SPIN_LEFT45;
+  mp['s'] = Order::SPIN_RIGHT135;
+  mp['t'] = Order::SPIN_LEFT135;
+  mp['u'] = Order::MOVE_NODE;
+  mp['v'] = Order::MOVE_DIAGONAL;
 }
 
 Order Instructions::translate(char key)

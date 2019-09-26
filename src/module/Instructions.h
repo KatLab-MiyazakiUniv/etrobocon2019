@@ -26,6 +26,12 @@ enum class Order {
   TURN180_DETOUR_RIGHT,
   TURN180_DETOUR_LEFT,
   PUT,
+  SPIN_RIGHT45,
+  SPIN_LEFT45,
+  SPIN_RIGHT135,
+  SPIN_LEFT135,
+  MOVE_NODE,
+  MOVE_DIAGONAL
 };
 
 class Instructions {
