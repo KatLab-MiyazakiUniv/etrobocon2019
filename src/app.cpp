@@ -44,11 +44,12 @@ void bt_task(intptr_t unused)
   // コマンドの受信開始
   //receiveCommand = static_cast<char>(bluetooth.serialRead());
   //Display::print(9, "BT: %c", receiveCommand);
-  std::array<char, 256> commands;
+  int command_size = 256;
+  std::array<char, command_size> commands;
 
-  char command_string[256];
+  char command_string[command_size];
   int i = 0;
-  for(i = 0; i < 256; i++) {
+  for(i = 0; i < command_size; i++) {
     receiveCommand = static_cast<char>(bluetooth.serialRead());
     Display::print(9, "BT: %c", receiveCommand);
 
