@@ -85,65 +85,216 @@ void Controller::getRawColor(int& r, int& g, int& b)
 
 Color Controller::hsvToColor(const HsvStatus& status)
 {
-  if(status.value <= 17.059) {
-    if(status.saturation <= 79.398) {
-      if(status.value <= 11.765)
-        return Color::black;
-      else if(status.saturation <= 54.688)
-        return Color::blue;
-      else
-        return Color::black;
-    } else
-      return Color::blue;
-  } else if(status.saturation <= 18.792) {
-    if(status.hue <= 76.528)
-      return Color::yellow;
-    else if(status.saturation <= 13.469)
-      return Color::white;
-    else if(status.saturation <= 13.513) {
-      if(status.hue <= 170.625)
-        return Color::white;
-      else
-        return Color::green;
-    } else if(status.hue <= 157.368) {
-      if(status.hue <= 151.215)
-        return Color::white;
-      else
-        return Color::green;
-    } else
-      return Color::white;
-  } else if(status.hue <= 71.434) {
-    if(status.hue <= 38.097)
+  if(status.value <= 34.3137) {
+    if(status.hue <= 119.5) {
+      if(status.value <= 28.0392) {
+        if(status.saturation <= 37.1711) {
+          if(status.hue <= 25.0) {
+            if(status.saturation <= 30.7692) {
+              Display::print(3, "1");
+              return Color::black;
+            } else {
+              if(status.saturation <= 32.0513) {
+                Display::print(3, "2");
+                return Color::green;
+              } else {
+                Display::print(3, "3");
+                return Color::black;
+              }
+            }
+          } else {
+            if(status.value <= 3.5294) {
+              Display::print(3, "4");
+              return Color::black;
+            } else {
+              if(status.saturation <= 36.3456) {
+                Display::print(3, "5");
+                return Color::green;
+              } else {
+                Display::print(3, "6");
+                return Color::black;
+              }
+            }
+          }
+        } else {
+          if(status.saturation <= 84.3137) {
+            if(status.hue <= 96.6207) {
+              if(status.saturation <= 42.8672) {
+                Display::print(3, "7");
+                return Color::green;
+              } else {
+                Display::print(3, "8");
+                return Color::green;
+              }
+            } else {
+              if(status.value <= 18.6275) {
+                Display::print(3, "9");
+                return Color::black;
+              } else {
+                Display::print(3, "10");
+                return Color::green;
+              }
+            }
+          } else {
+            if(status.saturation <= 86.3134) {
+              Display::print(3, "11");
+              return Color::blue;
+            } else {
+              Display::print(3, "12");
+              return Color::yellow;
+            }
+          }
+        }
+      } else {
+        if(status.hue <= 71.2049) {
+          if(status.hue <= 24.375) {
+            if(status.hue <= 0.9091) {
+              Display::print(3, "13");
+              return Color::black;
+            } else {
+              Display::print(3, "14");
+              return Color::red;
+            }
+          } else {
+            if(status.value <= 30.9804) {
+              Display::print(3, "15");
+              return Color::black;
+            } else {
+              Display::print(3, "16");
+              // return Color::yellow;
+              return Color::black;
+            }
+          }
+        } else {
+          if(status.saturation <= 82.5291) {
+            if(status.value <= 31.5686) {
+              if(status.hue <= 115.4357) {
+                Display::print(3, "17");
+                return Color::green;
+              } else {
+                Display::print(3, "18");
+                return Color::blue;
+              }
+            } else {
+              if(status.hue <= 96.2128) {
+                Display::print(3, "19");
+                return Color::green;
+              } else {
+                Display::print(3, "20");
+                return Color::blue;
+              }
+            }
+          } else {
+            Display::print(3, "21");
+            return Color::blue;
+          }
+        }
+      }
+    } else {
+      if(status.hue <= 206.6062) {
+        if(status.value <= 31.1765) {
+          Display::print(3, "22");
+          return Color::black;
+        } else {
+          if(status.hue <= 137.4049) {
+            Display::print(3, "23");
+            return Color::blue;
+          } else {
+            Display::print(3, "24");
+            return Color::black;
+          }
+        }
+      } else {
+        if(status.hue <= 225.7143) {
+          Display::print(3, "25");
+          return Color::blue;
+        } else {
+          if(status.saturation <= 30.625) {
+            Display::print(3, "26");
+            return Color::black;
+          } else {
+            if(status.value <= 9.4118) {
+              if(status.saturation <= 55.7276) {
+                Display::print(3, "27");
+                return Color::green;
+              } else {
+                Display::print(3, "28");
+                return Color::black;
+              }
+            } else {
+              if(status.hue <= 314.6104) {
+                Display::print(3, "29");
+                return Color::black;
+              } else {
+                Display::print(3, "30");
+                return Color::red;
+              }
+            }
+          }
+        }
+      }
+    }
+  } else {
+    if(status.hue <= 35.5714) {
+      Display::print(3, "31");
       return Color::red;
-    else if(status.hue <= 44.112) {
-      if(status.hue <= 42.224)
-        return Color::yellow;
-      else
-        return Color::red;
-    } else
-      return Color::yellow;
-  } else if(status.hue <= 210.738) {
-    if(status.value <= 64.51) {
-      if(status.hue <= 91.903)
-        return Color::black;
-      else if(status.hue <= 169.465)
-        return Color::green;
-      else if(status.saturation <= 35.261)
-        return Color::green;
-      else
-        return Color::blue;
-    } else
-      return Color::white;
-  } else if(status.hue <= 292.5) {
-    if(status.saturation <= 42.325) {
-      if(status.hue <= 228.833)
-        return Color::blue;
-      else
-        return Color::black;
-    } else
-      return Color::blue;
-  } else
-    return Color::red;
+    } else {
+      if(status.hue <= 107.178) {
+        if(status.hue <= 98.2385) {
+          if(status.hue <= 44.8367) {
+            if(status.saturation <= 39.2579) {
+              Display::print(3, "32");
+              return Color::yellow;
+            } else {
+              Display::print(3, "33");
+              return Color::red;
+            }
+          } else {
+            Display::print(3, "34");
+            // return Color::yellow;
+            return Color::white;
+          }
+        } else {
+          if(status.saturation <= 41.3074) {
+            Display::print(3, "35");
+            // return Color::yellow;
+            return Color::blue;
+          } else {
+            if(status.saturation <= 54.1442) {
+              Display::print(3, "36");
+              return Color::black;
+            } else {
+              Display::print(3, "37");
+              return Color::blue;
+            }
+          }
+        }
+      } else {
+        if(status.hue <= 225.7379) {
+          if(status.value <= 43.7255) {
+            if(status.hue <= 130.0737) {
+              if(status.hue <= 123.5839) {
+                Display::print(3, "38");
+                return Color::blue;
+              } else {
+                Display::print(3, "39");
+                return Color::blue;
+              }
+            } else {
+              Display::print(3, "40");
+              return Color::black;
+            }
+          } else {
+            Display::print(3, "41");
+            return Color::black;
+          }
+        } else {
+          Display::print(3, "42");
+          return Color::red;
+        }
+      }
+    }
+  }
 }
 
 // 5(determine)回色検出を行い、最も検出された回数が多い色(白以外)を返す関数である
