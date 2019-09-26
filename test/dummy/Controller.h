@@ -15,7 +15,7 @@ unsigned struct HsvStatus {
   double value;
 };
 
-enum class Color { white, black, red, green, blue, yellow };
+enum class Color { black, red, green, blue, yellow, white };
 
 class Motor {
  public:
