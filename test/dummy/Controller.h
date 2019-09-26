@@ -166,7 +166,10 @@ class Controller {
     }
   }
 
-  Color ditermineColor(HsvStatus hsv) { return this->hsvToColor(hsv); }
+  Color determineColor(int determineNum = 5, int colorNum = 5)
+  {
+    return this->hsvToColor(this->getHsv());
+  }
 
   bool buttonIsPressedUp() { return false; };
   bool buttonIsPressedDown() { return false; };
@@ -271,12 +274,14 @@ class Controller {
     this->resetArmMotorCount();
 
     if(count >= 0) {
-      this->setArmMotorPwm(pwm);
       while(this->getArmMotorCount() < count) {
+        this->setArmMotorPwm(pwm);
+        this->tslpTsk(4);
       }
     } else {
-      this->setArmMotorPwm(-pwm);
       while(this->getArmMotorCount() > count) {
+        this->setArmMotorPwm(-pwm);
+        this->tslpTsk(4);
       }
     }
 

@@ -5,8 +5,6 @@
 
 // 演習用のユーティリティ
 
-std::array<char, 256> Bluetooth::commands;
-
 /**
  * メインタスク
  */

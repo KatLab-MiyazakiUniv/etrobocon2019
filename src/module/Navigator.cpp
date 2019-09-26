@@ -7,8 +7,12 @@
 
 #include "Navigator.h"
 
-Navigator::Navigator(Controller& controller_, double Kp_, double Ki_, double Kd_)
-  : distance(), controller(controller_), pidForSpeed(Kp_, Ki_, Kd_)
+Navigator::Navigator(Controller& controller_, int targetBrightness_, double Kp_, double Ki_,
+                     double Kd_)
+  : distance(),
+    controller(controller_),
+    targetBrightness(targetBrightness_),
+    pidForSpeed(Kp_, Ki_, Kd_)
 {
 }
 
@@ -69,23 +73,30 @@ void Navigator::moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpee
 
 void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
 {
-  int r = 0;
-  int g = 0;
-  int b = 0;
+  if(specifiedColor == Color::black || specifiedColor == Color::white) {
+    while(specifiedColor != recognizeBlack(controller.getBrightness())) {
+      setPwmValue(pwm);
+      controller.tslpTsk(4);
+    }
+  } else {
+    int r = 0;
+    int g = 0;
+    int b = 0;
 
-  // カラーセンサからrgb値を取得
-  controller.getRawColor(r, g, b);
-  // rgb値をhsv値に変換
-  controller.convertHsv(r, g, b);
-
-  // 特定の色まで移動する
-  while(controller.hsvToColor(controller.getHsv()) != specifiedColor) {
-    setPwmValue(pwm);
     // カラーセンサからrgb値を取得
     controller.getRawColor(r, g, b);
     // rgb値をhsv値に変換
     controller.convertHsv(r, g, b);
-    controller.tslpTsk(4);
+
+    // 特定の色まで移動する
+    while(controller.determineColor() != specifiedColor) {
+      setPwmValue(pwm);
+      // カラーセンサからrgb値を取得
+      controller.getRawColor(r, g, b);
+      // rgb値をhsv値に変換
+      controller.convertHsv(r, g, b);
+      controller.tslpTsk(4);
+    }
   }
   controller.stopMotor();
 }
@@ -127,4 +138,9 @@ void Navigator::setPwmValue(int pwm, double alpha)
 {
   controller.setRightMotorPwm(pwm + alpha);
   controller.setLeftMotorPwm(pwm - alpha);
+}
+
+Color Navigator::recognizeBlack(int brightness)
+{
+  return brightness < targetBrightness ? Color::black : Color::white;
 }
