@@ -166,7 +166,10 @@ class Controller {
     }
   }
 
-  Color determineColor(HsvStatus hsv) { return this->hsvToColor(hsv); }
+  Color determineColor(int determineNum = 5, int colorNum = 5)
+  {
+    return this->hsvToColor(this->getHsv());
+  }
 
   bool buttonIsPressedUp() { return false; };
   bool buttonIsPressedDown() { return false; };

@@ -8,6 +8,8 @@
 #include "Navigator.h"
 #include "Parking.h"
 
+std::array<char, 256> Bluetooth::commands;
+
 void EtRobocon2019::start()
 {
   Controller controller;
