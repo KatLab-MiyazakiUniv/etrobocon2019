@@ -29,7 +29,7 @@ struct HsvStatus {
   double value = 0;
 };
 
-enum class Color { white, black, red, green, blue, yellow };
+enum class Color { black, red, green, blue, yellow, white };
 
 using namespace ev3api;
 
@@ -62,19 +62,31 @@ class Controller {
   void convertHsv(int& r, int& g, int& b);  // RGBをHSV変換する
   HsvStatus getHsv() const;
   Color hsvToColor(const HsvStatus& status);  // HSVから色を識別する
+  Color determineColor(int determineNum = 5, int colorNum = 5);
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
   int getLeftMotorCount();
   int getRightMotorCount();
+  int getArmMotorCount();
   void setLeftMotorPwm(const int pwm);
   void setRightMotorPwm(const int pwm);
+  void setArmMotorPwm(const int pwm);
   void resetMotorCount();
   void stopMotor();
   int getAngleOfRotation();
   int limitAngle(int angle);
+  /**
+   * アームを動かす
+   * @brief countが正の場合、アームを上げる。countが負の場合、アームを下げる。
+   * @param count
+   * [カラーセンサーが地面に対して垂直に向いている状態をcount=0としたとき、countの最大値が約40、最小値が約-20]
+   * @param pwm [モーターパワー]
+   */
+  void moveArm(int count, int pwm = 10);
+  void resetArmMotorCount();
 
-private:
+ private:
   rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;

@@ -85,79 +85,87 @@ void Controller::getRawColor(int& r, int& g, int& b)
 
 Color Controller::hsvToColor(const HsvStatus& status)
 {
-  if(status.value <= 33.5294){
-    if(status.value <= 18.4314){
-      return Color::black;
-    }else {
-      if(status.hue <= 159.5357){
-        if(status.hue <= 83.739){
-          if(status.hue <= 40.8904){
-            return Color::black;
-          }else {
-            return Color::yellow;
-          }
-        }else {
-          return Color::green;
-        }
-      }else {
-        if(status.value <= 32.9412){
-          return Color::blue;
-        }else {
-          if(status.hue <= 299.6104){
-            return Color::black;
-          }else {
-            return Color::red;
-          }
-        }
-      }
-    }
-  }else {
-    if(status.value <= 45.2941){
-      if(status.hue <= 263.0811){
-        if(status.hue <= 32.8235){
-          return Color::red;
-        }else {
-          if(status.hue <= 76.7547){
-            if(status.hue <= 44.8367){
-              if(status.hue <= 40.5263){
-                return Color::yellow;
-              }else {
-                return Color::red;
-              }
-            }else {
-              return Color::yellow;
-            }
-          }else {
-            if(status.value <= 40.1961){
-              if(status.value <= 35.4902){
-                return Color::green;
-              }else {
-                return Color::blue;
-              }
-            }else {
-              return Color::white;
-            }
-          }
-        }
-      }else {
+  if(status.value <= 17.059) {
+    if(status.saturation <= 79.398) {
+      if(status.value <= 11.765)
+        return Color::black;
+      else if(status.saturation <= 54.688)
+        return Color::blue;
+      else
+        return Color::black;
+    } else
+      return Color::blue;
+  } else if(status.saturation <= 18.792) {
+    if(status.hue <= 76.528)
+      return Color::yellow;
+    else if(status.saturation <= 13.469)
+      return Color::white;
+    else if(status.saturation <= 13.513) {
+      if(status.hue <= 170.625)
+        return Color::white;
+      else
+        return Color::green;
+    } else if(status.hue <= 157.368) {
+      if(status.hue <= 151.215)
+        return Color::white;
+      else
+        return Color::green;
+    } else
+      return Color::white;
+  } else if(status.hue <= 71.434) {
+    if(status.hue <= 38.097)
+      return Color::red;
+    else if(status.hue <= 44.112) {
+      if(status.hue <= 42.224)
+        return Color::yellow;
+      else
         return Color::red;
-      }
-    }else {
-      if(status.hue <= 283.6016){
-        if(status.hue <= 99.2199){
-          if(status.value <= 51.1765){
-            return Color::yellow;
-          }else {
-            return Color::red;
-          }
-        }else {
-          return Color::white;
-        }
-      }else {
-        return Color::red;
-      }
-    }
+    } else
+      return Color::yellow;
+  } else if(status.hue <= 210.738) {
+    if(status.value <= 64.51) {
+      if(status.hue <= 91.903)
+        return Color::black;
+      else if(status.hue <= 169.465)
+        return Color::green;
+      else if(status.saturation <= 35.261)
+        return Color::green;
+      else
+        return Color::blue;
+    } else
+      return Color::white;
+  } else if(status.hue <= 292.5) {
+    if(status.saturation <= 42.325) {
+      if(status.hue <= 228.833)
+        return Color::blue;
+      else
+        return Color::black;
+    } else
+      return Color::blue;
+  } else
+    return Color::red;
+}
+
+// 5(determine)回色検出を行い、最も検出された回数が多い色(白以外)を返す関数である
+Color Controller::determineColor(int determineNum, int colorNum)
+{
+  int counter[colorNum] = { 0 };
+  int r = 0;
+  int g = 0;
+  int b = 0;
+  for(int i = 0; i < determineNum; i++) {
+    this->getRawColor(r, g, b);
+    this->convertHsv(r, g, b);
+    Color color = this->hsvToColor(this->getHsv());
+    counter[static_cast<int>(color)]++;
+    this->tslpTsk(4);
   }
+  int max = 0;
+  for(int i = 1; i < colorNum; i++) {
+    if(counter[max] < counter[i]) max = i;
+  }
+
+  return static_cast<Color>(max);
 }
 
 void Controller::tslpTsk(int time)
@@ -190,6 +198,11 @@ int Controller::getRightMotorCount()
   return rightWheel.getCount();
 }
 
+int Controller::getArmMotorCount()
+{
+  return liftMotor.getCount();
+}
+
 int Controller::suppressPwmValue(const int value)
 {
   if(value > MOTOR_PWM_MAX) {
@@ -208,6 +221,11 @@ void Controller::setLeftMotorPwm(const int pwm)
 void Controller::setRightMotorPwm(const int pwm)
 {
   rightWheel.setPWM(suppressPwmValue(pwm));
+}
+
+void Controller::setArmMotorPwm(const int pwm)
+{
+  liftMotor.setPWM(suppressPwmValue(pwm));
 }
 
 void Controller::convertHsv(int& r, int& g, int& b)
@@ -291,4 +309,28 @@ int Controller::limitAngle(int angle)
     angle = limitAngle(angle);
   }
   return angle;
+}
+
+void Controller::moveArm(int count, int pwm)
+{
+  this->resetArmMotorCount();
+
+  if(count >= 0) {
+    this->setArmMotorPwm(pwm);
+    while(this->getArmMotorCount() < count) {
+      this->tslpTsk(4);
+    }
+  } else {
+    this->setArmMotorPwm(-pwm);
+    while(this->getArmMotorCount() > count) {
+      this->tslpTsk(4);
+    }
+  }
+
+  this->setArmMotorPwm(0);
+}
+
+void Controller::resetArmMotorCount()
+{
+  liftMotor.reset();
 }

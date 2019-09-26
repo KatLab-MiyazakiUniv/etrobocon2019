@@ -37,7 +37,7 @@ class LineTracer {
    * 構造体を使用し渡す。
    *  @param settings [各種パラメータが入っている NormalCourseProperty 構造体]
    */
-  void run(NormalCourseProperty& settings);
+  void run(const NormalCourseProperty& settings);
 
   /** セッター
    *  @brief カラーセンサーの目標値を再設定する

@@ -14,7 +14,11 @@ APPL_CXXOBJS += \
     NormalCourse.o \
     Navigator.o \
     Logger.o \
-    Rotation.o
+    Rotation.o \
+    Bluetooth.o \
+    BlockBingo.o \
+    Parking.o \
+    Instructions.o
 
 SRCLANG := c++
 
