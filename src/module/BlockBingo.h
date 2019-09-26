@@ -14,6 +14,7 @@
 class BlockBingo {
  private:
   Controller& controller;
+  Navigator navigator;
   //交点サークルから中点までの距離
   const double length;
   // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
@@ -100,7 +101,7 @@ class BlockBingo {
    * コンストラクタ
    * @param controller_ [Controllerの参照]
    */
-  explicit BlockBingo(Controller& controller_);
+  BlockBingo(Controller& controller_, int targetBrightness_);
 
   /**
    * Lコースのブロックビンゴのブロックサークル4に移動する
