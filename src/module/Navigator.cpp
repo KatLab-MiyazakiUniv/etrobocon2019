@@ -11,8 +11,8 @@ Navigator::Navigator(Controller& controller_, int targetBrightness_, double Kp_,
                      double Kd_)
   : distance(),
     controller(controller_),
-    targetBrightness(targetBrightness_),
-    pidForSpeed(Kp_, Ki_, Kd_)
+    pidForSpeed(Kp_, Ki_, Kd_),
+    targetBrightness(targetBrightness_)
 {
 }
 
