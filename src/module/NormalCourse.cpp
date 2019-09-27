@@ -64,7 +64,7 @@ void NormalCourse::runNormalCourse()
          { 1900, 600, { 0.1, 0.0, 0.1 }, { 1.1, 0.01, 0.08 } },   // 第11区間
 
          { 1500, baseSpeed / 2, { 0.1, 0.0, 0.1 }, { 0.8, 0.0, 0.08 } },          //進入ライン
-         { 350, baseSpeed / 4, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },
+         { 350, baseSpeed / 4, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },           //本番で要調整
 
       } };
   LineTracer lineTracer(controller, targetBrightness, isLeftCourse);
