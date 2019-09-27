@@ -17,6 +17,7 @@ namespace etrobocon2019_test {
 
   TEST(MoveDirectGarage, MoveDirectGarageRTest)
   {
+    int targetBrightness = 70;
     Controller controller;
     MoveDirectGarage moveDirectGarage(controller, targetBrightness);
 
@@ -25,6 +26,7 @@ namespace etrobocon2019_test {
 
   TEST(MoveDirectGarage, MoveDirectGarageLTest)
   {
+    int targetBrightness = 70;
     Controller controller;
     MoveDirectGarage moveDirectGarage(controller, targetBrightness);
 
