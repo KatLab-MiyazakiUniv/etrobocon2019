@@ -41,3 +41,8 @@ void Bluetooth::serialClose()
 {
   fclose(bt);
 }
+
+void Bluetooth::flush()
+{
+  fflush(bt);
+}

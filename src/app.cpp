@@ -41,6 +41,7 @@ void bt_task(intptr_t unused)
     tslp_tsk(4);
   }
   Display::print(12, "success: connect BT");
+  bluetooth.flush();
 
   // タッチセンサが押されるまで待つ
   while(!Bluetooth::is_start) {
@@ -51,8 +52,8 @@ void bt_task(intptr_t unused)
   bluetooth.serialSend(2);
 
   // コマンドの受信開始
-  //receiveCommand = static_cast<char>(bluetooth.serialRead());
-  //Display::print(9, "BT: %c", receiveCommand);
+  // receiveCommand = static_cast<char>(bluetooth.serialRead());
+  // Display::print(9, "BT: %c", receiveCommand);
   constexpr int max_command_size = 256;
   std::array<char, max_command_size> commands;
 
@@ -69,7 +70,7 @@ void bt_task(intptr_t unused)
     tslp_tsk(4);
   }
   Bluetooth::commands = commands;
-  command_string[i+1] = '\0';
+  command_string[i + 1] = '\0';
   Display::print(10, "Commands: %-10s", command_string);
   ext_tsk();
 }
