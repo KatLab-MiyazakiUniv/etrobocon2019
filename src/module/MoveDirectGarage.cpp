@@ -56,7 +56,6 @@ void MoveDirectGarage::moveDirectGarageR()
     navigator.moveToSpecifiedColor(Color::yellow, 10);
     //5のとこ
     navigator.move(120, 10, 0.813);
-    navigator.moveToSpecifiedColor(Color::black, 10);
     navigator.moveToSpecifiedColor(Color::yellow, 10);
     navigator.move(-60, 10, 0.813);
     navigator.spin(45.0,true);
@@ -78,7 +77,7 @@ void MoveDirectGarage::moveDirectGarageR()
     navigator.moveToSpecifiedColor(Color::black, 10);
     navigator.moveToSpecifiedColor(Color::white, 10);
     navigator.move(30, 10, 0.813);
-    navigator.spin(40.0,false);
+    navigator.spin(45.0,false);
     //以下はparkingクラスを使用
 
 }
