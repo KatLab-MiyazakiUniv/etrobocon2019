@@ -85,171 +85,52 @@ void Controller::getRawColor(int& r, int& g, int& b)
 
 Color Controller::hsvToColor(const HsvStatus& status)
 {
-  if(status.value <= 34.3137) {
-    if(status.hue <= 119.5) {
-      if(status.value <= 28.0392) {
-        if(status.saturation <= 37.1711) {
-          if(status.hue <= 25.0) {
-            if(status.saturation <= 30.7692) {
-              return Color::black;
-            } else {
-              if(status.saturation <= 32.0513) {
-                return Color::green;
-              } else {
-                return Color::black;
-              }
-            }
-          } else {
-            if(status.value <= 3.5294) {
-              return Color::black;
-            } else {
-              if(status.saturation <= 36.3456) {
-                return Color::green;
-              } else {
-                return Color::black;
-              }
-            }
-          }
-        } else {
-          if(status.saturation <= 84.3137) {
-            if(status.hue <= 96.6207) {
-              if(status.saturation <= 42.8672) {
-                return Color::green;
-              } else {
-                return Color::green;
-              }
-            } else {
-              if(status.value <= 18.6275) {
-                return Color::black;
-              } else {
-                return Color::green;
-              }
-            }
-          } else {
-            if(status.saturation <= 86.3134) {
-              return Color::blue;
-            } else {
-              return Color::yellow;
-            }
-          }
-        }
-      } else {
-        if(status.hue <= 71.2049) {
-          if(status.hue <= 24.375) {
-            if(status.hue <= 0.9091) {
-              return Color::black;
-            } else {
-              return Color::red;
-            }
-          } else {
-            if(status.value <= 30.9804) {
-              return Color::black;
-            } else {
-              // return Color::yellow;
-              return Color::black;
-            }
-          }
-        } else {
-          if(status.saturation <= 82.5291) {
-            if(status.value <= 31.5686) {
-              if(status.hue <= 115.4357) {
-                return Color::green;
-              } else {
-                return Color::blue;
-              }
-            } else {
-              if(status.hue <= 96.2128) {
-                return Color::green;
-              } else {
-                return Color::blue;
-              }
-            }
-          } else {
-            return Color::blue;
-          }
-        }
-      }
+  if(status.hue <= 87.2984) {
+    if(status.value <= 22.9412) {
+      return Color::black;
     } else {
-      if(status.hue <= 206.6062) {
-        if(status.value <= 31.1765) {
-          return Color::black;
-        } else {
-          if(status.hue <= 137.4049) {
-            return Color::blue;
-          } else {
-            return Color::black;
-          }
-        }
+      if(status.hue <= 44.0) {
+        return Color::red;
       } else {
-        if(status.hue <= 225.7143) {
-          return Color::blue;
-        } else {
-          if(status.saturation <= 30.625) {
-            return Color::black;
+        if(status.saturation <= 64.1667) {
+          if(status.saturation <= 46.6505) {
+            return Color::white;
           } else {
-            if(status.value <= 9.4118) {
-              if(status.saturation <= 55.7276) {
-                return Color::green;
-              } else {
-                return Color::black;
-              }
-            } else {
-              if(status.hue <= 314.6104) {
-                return Color::black;
-              } else {
-                return Color::red;
-              }
-            }
+            return Color::yellow;
           }
+        } else {
+          return Color::yellow;
         }
       }
     }
   } else {
-    if(status.hue <= 35.5714) {
-      return Color::red;
-    } else {
-      if(status.hue <= 107.178) {
-        if(status.hue <= 98.2385) {
-          if(status.hue <= 44.8367) {
-            if(status.saturation <= 39.2579) {
-              return Color::yellow;
-            } else {
-              return Color::red;
-            }
+    if(status.hue <= 130.5115) {
+      if(status.saturation <= 51.9111) {
+        if(status.hue <= 107.178) {
+          if(status.value <= 28.8235) {
+            return Color::black;
           } else {
-            // return Color::yellow;
             return Color::white;
           }
         } else {
-          if(status.saturation <= 41.3074) {
-            // return Color::yellow;
-            return Color::blue;
+          if(status.value <= 43.7255) {
+            return Color::green;
           } else {
-            if(status.saturation <= 54.1442) {
-              return Color::black;
-            } else {
-              return Color::blue;
-            }
+            return Color::blue;
           }
         }
       } else {
-        if(status.hue <= 225.7379) {
-          if(status.value <= 43.7255) {
-            if(status.hue <= 130.0737) {
-              if(status.hue <= 123.5839) {
-                return Color::blue;
-              } else {
-                return Color::blue;
-              }
-            } else {
-              return Color::black;
-            }
-          } else {
-            return Color::black;
-          }
+        if(status.hue <= 95.8667) {
+          return Color::black;
         } else {
-          return Color::red;
+          return Color::green;
         }
+      }
+    } else {
+      if(status.value <= 11.5686) {
+        return Color::black;
+      } else {
+        return Color::blue;
       }
     }
   }
