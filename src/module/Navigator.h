@@ -77,8 +77,9 @@ class Navigator {
    */
   void spin(double angle, bool clockwise = true, int pwm = 10);
   /**
-   * 指定職までライントレースする
-   * @param specifiedColor [指定色]
+   * 指定した色までライントレースする
+   * @brief 黒と白以外の色までOn Off制御でライントレースをする
+   * @param specifiedColor [指定する色]
    */
   void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, bool isLeft = true);
 
