@@ -19,6 +19,7 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
+    Navigator navigator(controller, targetBrightness);
     Parking parking(controller, targetBrightness);
 
     Parking parkAtAL();
@@ -28,6 +29,7 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
+    Navigator navigator(controller, targetBrightness);
     Parking parking(controller, targetBrightness);
 
     Parking parkAtAR();
