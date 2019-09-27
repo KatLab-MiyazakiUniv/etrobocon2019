@@ -18,11 +18,8 @@ APPL_CXXOBJS += \
     Bluetooth.o \
     BlockBingo.o \
     Parking.o \
-<<<<<<< HEAD
+    Instructions.o \
     MoveDirectGarage.o
-=======
-    Instructions.o
->>>>>>> upstream/master
 
 SRCLANG := c++
 

@@ -10,22 +10,23 @@
 #include "Navigator.h"
 
 class MoveDirectGarage {
-    private:
-      Controller controller;
+  private:
+    Controller controller;
+    const int targetBrightness;
 
-    public:
-      /**
-       * コンストラクタ
-       */
-      MoveDirectGarage(Controller &controller_);
-      /**
-       * Lコースのガレージに直接向かう
-       */
-      void moveDirectGarageL();
-      /**
-       *  Rコースのガレージに直接向かう
-       **/
-      void moveDirectGarageR();
+  public:
+    /**
+     * コンストラクタ
+     */
+    MoveDirectGarage(Controller &controller_, int targetBrightness_);
+    /**
+     * Lコースのガレージに直接向かう
+     */
+    void moveDirectGarageL();
+    /**
+     *  Rコースのガレージに直接向かう
+     **/
+    void moveDirectGarageR();
 };
 
 #endif

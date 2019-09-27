@@ -8,11 +8,11 @@
 
 #include "MoveDirectGarage.h"
 
-MoveDirectGarage::MoveDirectGarage(Controller &controller_) : controller(controller_) {}
+MoveDirectGarage::MoveDirectGarage(Controller &controller_, int targetBrightness_) : controller(controller_), targetBrightness(targetBrightness_) {}
 
 void MoveDirectGarage::moveDirectGarageL()
 {
-    Navigator navigator(controller);
+    Navigator navigator(controller ,targetBrightness);
 
     //ブロックを押す
     navigator.moveToSpecifiedColor(Color::yellow, 10);   
@@ -51,7 +51,7 @@ void MoveDirectGarage::moveDirectGarageL()
 
 void MoveDirectGarage::moveDirectGarageR()
 {
-    Navigator navigator(controller);
+    Navigator navigator(controller, targetBrightness);
 
     navigator.moveToSpecifiedColor(Color::yellow, 10);
     //5のとこ

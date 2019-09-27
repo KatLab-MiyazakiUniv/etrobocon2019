@@ -36,7 +36,7 @@ void EtRobocon2019::start()
   blockBingo.execOrder<256>(Bluetooth::commands);
 
   //直接ガレージに移動する
-  MoveDirectGarage moveDirectGarage(controller);
+  MoveDirectGarage moveDirectGarage(controller ,targetBrightness);
   if(isLeftCourse) {
   //ブロックビンゴを実行する処理を記述
   }else{
