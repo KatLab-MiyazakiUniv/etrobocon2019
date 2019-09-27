@@ -144,3 +144,27 @@ Color Navigator::recognizeBlack(int brightness)
 {
   return brightness < targetBrightness ? Color::black : Color::white;
 }
+
+void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, bool isLeft)
+{
+  int r = 0;
+  int g = 0;
+  int b = 0;
+
+  // カラーセンサからrgb値を取得
+  controller.getRawColor(r, g, b);
+  // rgb値をhsv値に変換
+  controller.convertHsv(r, g, b);
+
+  // 特定の色まで移動する
+  while(controller.determineColor() != specifiedColor) {
+    int alpha = (targetBrightness < controller.getBrightness() ? -1 : 1);
+    controller.setRightMotorPwm(pwm + (isLeft ? alpha : -alpha));
+    controller.setLeftMotorPwm(pwm + (isLeft ? -alpha : alpha));
+    // カラーセンサからrgb値を取得
+    controller.getRawColor(r, g, b);
+    // rgb値をhsv値に変換
+    controller.convertHsv(r, g, b);
+    controller.tslpTsk(4);
+  }
+}
