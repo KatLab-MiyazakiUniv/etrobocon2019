@@ -163,6 +163,7 @@ Color Controller::hsvToColor(const HsvStatus& status)
         }
       } else {
         return Color::black;
+        
       }
     }
   }
