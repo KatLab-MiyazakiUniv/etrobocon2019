@@ -85,65 +85,174 @@ void Controller::getRawColor(int& r, int& g, int& b)
 
 Color Controller::hsvToColor(const HsvStatus& status)
 {
-  if(status.value <= 17.059) {
-    if(status.saturation <= 79.398) {
-      if(status.value <= 11.765)
-        return Color::black;
-      else if(status.saturation <= 54.688)
-        return Color::blue;
-      else
-        return Color::black;
-    } else
-      return Color::blue;
-  } else if(status.saturation <= 18.792) {
-    if(status.hue <= 76.528)
-      return Color::yellow;
-    else if(status.saturation <= 13.469)
-      return Color::white;
-    else if(status.saturation <= 13.513) {
-      if(status.hue <= 170.625)
-        return Color::white;
-      else
-        return Color::green;
-    } else if(status.hue <= 157.368) {
-      if(status.hue <= 151.215)
-        return Color::white;
-      else
-        return Color::green;
-    } else
-      return Color::white;
-  } else if(status.hue <= 71.434) {
-    if(status.hue <= 38.097)
+  if(status.value <= 34.3137) {
+    if(status.hue <= 119.5) {
+      if(status.value <= 28.0392) {
+        if(status.saturation <= 37.1711) {
+          if(status.hue <= 25.0) {
+            if(status.saturation <= 30.7692) {
+              return Color::black;
+            } else {
+              if(status.saturation <= 32.0513) {
+                return Color::green;
+              } else {
+                return Color::black;
+              }
+            }
+          } else {
+            if(status.value <= 3.5294) {
+              return Color::black;
+            } else {
+              if(status.saturation <= 36.3456) {
+                return Color::green;
+              } else {
+                return Color::black;
+              }
+            }
+          }
+        } else {
+          if(status.saturation <= 84.3137) {
+            if(status.hue <= 96.6207) {
+              if(status.saturation <= 42.8672) {
+                return Color::green;
+              } else {
+                return Color::green;
+              }
+            } else {
+              if(status.value <= 18.6275) {
+                return Color::black;
+              } else {
+                return Color::green;
+              }
+            }
+          } else {
+            if(status.saturation <= 86.3134) {
+              return Color::blue;
+            } else {
+              return Color::yellow;
+            }
+          }
+        }
+      } else {
+        if(status.hue <= 71.2049) {
+          if(status.hue <= 24.375) {
+            if(status.hue <= 0.9091) {
+              return Color::black;
+            } else {
+              return Color::red;
+            }
+          } else {
+            if(status.value <= 30.9804) {
+              return Color::black;
+            } else {
+              // return Color::yellow;
+              return Color::black;
+            }
+          }
+        } else {
+          if(status.saturation <= 82.5291) {
+            if(status.value <= 31.5686) {
+              if(status.hue <= 115.4357) {
+                return Color::green;
+              } else {
+                return Color::blue;
+              }
+            } else {
+              if(status.hue <= 96.2128) {
+                return Color::green;
+              } else {
+                return Color::blue;
+              }
+            }
+          } else {
+            return Color::blue;
+          }
+        }
+      }
+    } else {
+      if(status.hue <= 206.6062) {
+        if(status.value <= 31.1765) {
+          return Color::black;
+        } else {
+          if(status.hue <= 137.4049) {
+            return Color::blue;
+          } else {
+            return Color::black;
+          }
+        }
+      } else {
+        if(status.hue <= 225.7143) {
+          return Color::blue;
+        } else {
+          if(status.saturation <= 30.625) {
+            return Color::black;
+          } else {
+            if(status.value <= 9.4118) {
+              if(status.saturation <= 55.7276) {
+                return Color::green;
+              } else {
+                return Color::black;
+              }
+            } else {
+              if(status.hue <= 314.6104) {
+                return Color::black;
+              } else {
+                return Color::red;
+              }
+            }
+          }
+        }
+      }
+    }
+  } else {
+    if(status.hue <= 35.5714) {
       return Color::red;
-    else if(status.hue <= 44.112) {
-      if(status.hue <= 42.224)
-        return Color::yellow;
-      else
-        return Color::red;
-    } else
-      return Color::yellow;
-  } else if(status.hue <= 210.738) {
-    if(status.value <= 64.51) {
-      if(status.hue <= 91.903)
-        return Color::black;
-      else if(status.hue <= 169.465)
-        return Color::green;
-      else if(status.saturation <= 35.261)
-        return Color::green;
-      else
-        return Color::blue;
-    } else
-      return Color::white;
-  } else if(status.hue <= 292.5) {
-    if(status.saturation <= 42.325) {
-      if(status.hue <= 228.833)
-        return Color::blue;
-      else
-        return Color::black;
-    } else
-      return Color::blue;
-  } else
-    return Color::red;
+    } else {
+      if(status.hue <= 107.178) {
+        if(status.hue <= 98.2385) {
+          if(status.hue <= 44.8367) {
+            if(status.saturation <= 39.2579) {
+              return Color::yellow;
+            } else {
+              return Color::red;
+            }
+          } else {
+            // return Color::yellow;
+            return Color::white;
+          }
+        } else {
+          if(status.saturation <= 41.3074) {
+            // return Color::yellow;
+            return Color::blue;
+          } else {
+            if(status.saturation <= 54.1442) {
+              return Color::black;
+            } else {
+              return Color::blue;
+            }
+          }
+        }
+      } else {
+        if(status.hue <= 225.7379) {
+          if(status.value <= 43.7255) {
+            if(status.hue <= 130.0737) {
+              if(status.hue <= 123.5839) {
+                return Color::blue;
+              } else {
+                return Color::blue;
+              }
+            } else {
+              return Color::black;
+            }
+          } else {
+            return Color::black;
+          }
+        } else {
+          return Color::red;
+        }
+      }
+    }
+  }
 }
 
 // 5(determine)回色検出を行い、最も検出された回数が多い色(白以外)を返す関数である
