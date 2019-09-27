@@ -44,6 +44,11 @@ class Bluetooth {
   void serialSend(int c);
 
   /**
+   * バッファをフラッシュする
+   */
+  void flush();
+
+  /**
    * シリアル通信を終了する
    * @brief FILEポインタを開放する（デストラクタで呼び出す）
    */

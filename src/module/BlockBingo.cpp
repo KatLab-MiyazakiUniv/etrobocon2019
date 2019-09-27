@@ -174,12 +174,13 @@ void BlockBingo::execPut()
 {
   Navigator navigator(controller, targetBrightness);
 
-  if(isFirstProcess) {
-    navigator.move(length, straightPwm, pGain);
-    isFirstProcess = false;
-  }
-  navigator.move(100.0, straightPwm, pGain);
-  navigator.move(-100.0, straightPwm, pGain);
+  // if(isFirstProcess) {
+  //   navigator.move(length, straightPwm, pGain);
+  //   isFirstProcess = false;
+  // }
+  // navigator.move(100.0, straightPwm, pGain);
+  // navigator.move(-100.0, straightPwm, pGain);
+  navigator.move(-length, straightPwm, pGain);
 }
 
 void BlockBingo::execSpinRight45()
