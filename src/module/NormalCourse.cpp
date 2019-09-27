@@ -31,7 +31,7 @@ void NormalCourse::setIsLeftCourse(bool isLeftCourse_)
 void NormalCourse::runNormalCourse()
 {
   // 配列の個数
-  constexpr int arraySize = 9;
+  constexpr int arraySize = 11;
   int baseSpeed = 640;
   std::array<NormalCourseProperty, arraySize> normalCourseProperty
       /**
@@ -47,7 +47,10 @@ void NormalCourse::runNormalCourse()
           { 1200, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.0, 0.01, 0.06 } },   // 第6区間
           { 1000, baseSpeed, { 2.0, 0.0, 0.1 }, { 0.9, 0.01, 0.06 } },   // 第7区間
           { 1300, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.1, 0.01, 0.07 } },   // 第8区間
-          { 1500, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },    // 第9区間
+          { 2500, baseSpeed, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },    // 第9区間
+
+          { 1000, baseSpeed / 2, { 0.1, 0.0, 0.1 }, { 0.9, 0.0, 0.08 } },  //進入ライン
+          { 400, baseSpeed / 4, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },   //要調整
       } };
   LineTracer lineTracer(controller, targetBrightness, isLeftCourse);
   for(const auto& ncp : normalCourseProperty) {

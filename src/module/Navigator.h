@@ -22,12 +22,13 @@ class Navigator {
    *
    * @brief Navigatorクラスのコンストラクタ
    * @param &controller_ [Controllerインスタンスの参照]
+   * @param targetBrightness [黒と白の閾値]
    * @param Kp_ [SpeedControl用のPゲイン]
    * @param Ki_ [SpeedControl用のIゲイン]
    * @param Kd_ [SpeedControl用のDゲイン]
    */
-  explicit Navigator(Controller& controller_, double Kp_ = 0.60, double Ki_ = 0.0,
-                     double Kd_ = 0.0);
+  explicit Navigator(Controller& controller_, int targetBrightness_, double Kp_ = 0.60,
+                     double Ki_ = 0.0, double Kd_ = 0.0);
 
   /**
    * @brief SpeedControl用のPidゲインのセッター
@@ -75,11 +76,18 @@ class Navigator {
    * @param pwm [モーターパワー]
    */
   void spin(double angle, bool clockwise = true, int pwm = 10);
+  /**
+   * 指定した色までライントレースする
+   * @brief 黒と白以外の色までOn Off制御でライントレースをする
+   * @param specifiedColor [指定する色]
+   */
+  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, bool isLeft = true);
 
  private:
   Distance distance;
   Controller& controller;
   PidGain pidForSpeed;
+  const int targetBrightness;
   /**
    * 指定した距離動いたか判定する
    * @brief 現在値とgoalDistanceを比較し、resultに"true"か"false"を格納する
@@ -95,6 +103,12 @@ class Navigator {
    * @return なし
    */
   void setPwmValue(int pwm, double alpha = 0.0);
+  /**
+   * 現在とっている色が黒かを判断する
+   * @param brightness [現在のカラーセンサーの取得値]
+   * @return 黒ならtrue、白ならfalseを返す
+   */
+  Color recognizeBlack(int brightness);
 };
 
 #endif

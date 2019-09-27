@@ -4,8 +4,8 @@
 #include <array>
 
 // 演習用のユーティリティ
-
 std::array<char, 256> Bluetooth::commands;
+bool Bluetooth::is_start = false;
 
 /**
  * メインタスク
@@ -29,35 +29,47 @@ void bt_task(intptr_t unused)
   // int debug_count = 0;
   Bluetooth bluetooth;
   int receiveCommand;
+  Controller controller;
 
   while(1) {
     // 受信（PCからコマンドが送られるまで一生ここで止まる）
     receiveCommand = bluetooth.serialRead();
-    Display::print(6, "BT: %d", receiveCommand);
     if(receiveCommand == 0) {
       bluetooth.serialSend(1);
       break;
     }
-    // Display::print(12, "%d", debug_count);
-    // debug_count += 1;
     tslp_tsk(4);
   }
-  Display::print(6, "success: connect BT");
+  Display::print(12, "success: connect BT");
+
+  // タッチセンサが押されるまで待つ
+  while(!Bluetooth::is_start) {
+    controller.tslpTsk(4);
+  }
+
+  // PCにスタート合図を送る
+  bluetooth.serialSend(2);
 
   // コマンドの受信開始
-  receiveCommand = static_cast<char>(bluetooth.serialRead());
-  Display::print(6, "BT: %c", receiveCommand);
-  std::array<char, 256> commands;
+  //receiveCommand = static_cast<char>(bluetooth.serialRead());
+  //Display::print(9, "BT: %c", receiveCommand);
+  constexpr int max_command_size = 256;
+  std::array<char, max_command_size> commands;
 
-  for(int i = 0; i < 256; i++) {
+  char command_string[max_command_size];
+  int i = 0;
+  for(i = 0; i < max_command_size; i++) {
     receiveCommand = static_cast<char>(bluetooth.serialRead());
-    Display::print(6, "BT: %c", receiveCommand);
+    Display::print(9, "BT: %c", receiveCommand);
 
-    if(receiveCommand == 'a') {
+    if(receiveCommand == '#') {
       break;
     }
-    commands[i] = static_cast<char>(receiveCommand);
+    command_string[i] = commands[i] = receiveCommand;
     tslp_tsk(4);
   }
   Bluetooth::commands = commands;
+  command_string[i+1] = '\0';
+  Display::print(10, "Commands: %-10s", command_string);
+  ext_tsk();
 }

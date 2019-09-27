@@ -50,6 +50,7 @@ class Bluetooth {
   void serialClose();
 
   static std::array<char, 256> commands;
+  static bool is_start;
 
  private:
   std::FILE* bt;
