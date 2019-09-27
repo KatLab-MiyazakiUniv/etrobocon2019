@@ -22,7 +22,7 @@ void BlockBingo::moveCircle4OfL()
 {
   Navigator navigator(controller, targetBrightness);
 
-  navigator.traceBlackLineToSpecifiedColor(Color::yellow, straightPwm, true);
+  navigator.traceBlackLineToSpecifiedColor(Color::yellow, straightPwm, 0.08);
   navigator.move(-65.0, straightPwm, pGain);
   navigator.spin(45.0, false, spinPwm);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
@@ -35,7 +35,7 @@ void BlockBingo::moveCircle6OfL()
 {
   Navigator navigator(controller, targetBrightness);
 
-  navigator.traceBlackLineToSpecifiedColor(Color::yellow, straightPwm, true);
+  navigator.traceBlackLineToSpecifiedColor(Color::yellow, straightPwm, 0.08);
   navigator.move(-85.0, straightPwm);
   navigator.spin(45.0, true);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);

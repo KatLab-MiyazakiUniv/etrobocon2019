@@ -80,8 +80,11 @@ class Navigator {
    * 指定した色までライントレースする
    * @brief 黒と白以外の色までOn Off制御でライントレースをする
    * @param specifiedColor [指定する色]
+   * @param pwm [モーターパワー]
+   * @param pGain
    */
-  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, bool isLeft = true);
+  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, double pGain = 0.6,
+                                      bool isLeft = true);
 
  private:
   Distance distance;

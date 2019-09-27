@@ -145,11 +145,13 @@ Color Navigator::recognizeBlack(int brightness)
   return brightness < targetBrightness ? Color::black : Color::white;
 }
 
-void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, bool isLeft)
+void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, double pGain,
+                                               bool isLeft)
 {
   int r = 0;
   int g = 0;
   int b = 0;
+  Pid pid(targetBrightness, pGain);
 
   // カラーセンサからrgb値を取得
   controller.getRawColor(r, g, b);
@@ -158,13 +160,20 @@ void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, bo
 
   // 特定の色まで移動する
   while(controller.determineColor() != specifiedColor) {
-    int alpha = (targetBrightness < controller.getBrightness() ? -1 : 1);
-    controller.setRightMotorPwm(pwm + (isLeft ? alpha : -alpha));
-    controller.setLeftMotorPwm(pwm + (isLeft ? -alpha : alpha));
+    double pidValue = pid.control(controller.getBrightness());
+    if(isLeft) {
+      controller.setLeftMotorPwm(static_cast<int>(pwm - pidValue));
+      controller.setRightMotorPwm(static_cast<int>(pwm + pidValue));
+    } else {
+      controller.setLeftMotorPwm(static_cast<int>(pwm + pidValue));
+      controller.setRightMotorPwm(static_cast<int>(pwm - pidValue));
+    }
+
     // カラーセンサからrgb値を取得
     controller.getRawColor(r, g, b);
     // rgb値をhsv値に変換
     controller.convertHsv(r, g, b);
     controller.tslpTsk(4);
   }
+  controller.stopMotor();
 }
