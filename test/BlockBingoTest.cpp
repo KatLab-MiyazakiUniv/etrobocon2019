@@ -187,4 +187,64 @@ namespace etrobocon2019_test {
   //   blockbingo.execOrder<1>(order2);
   // }
 
+  TEST(BlockBingo, execSpinRight45Test)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 'q' };
+    blockbingo.execOrder<1>(order);
+  }
+
+  TEST(BlockBingo, execSpinLeft45Test)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 'r' };
+    blockbingo.execOrder<1>(order);
+  }
+
+  TEST(BlockBingo, execSpinRight135Test)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 's' };
+    blockbingo.execOrder<1>(order);
+  }
+
+  TEST(BlockBingo, execSpinLeft135Test)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 't' };
+    blockbingo.execOrder<1>(order);
+  }
+
+  TEST(BlockBingo, execMoveNodeTest)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 'u' };
+    blockbingo.execOrder<1>(order);
+  }
+
+  TEST(BlockBingo, execMoveDiagonalTest)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 'v' };
+    blockbingo.execOrder<1>(order);
+  }
+
 }  // namespace etrobocon2019_test
