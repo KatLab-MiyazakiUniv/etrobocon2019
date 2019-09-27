@@ -11,13 +11,13 @@ namespace etrobocon2019_test {
   TEST(MoveDirectGarage, MoveDirectGarageTest_init)
   {
     Controller controller;
-    MoveDirectGarage moveDirectGarage(controller);
+    MoveDirectGarage moveDirectGarage(controller, targetBrightness);
   }
 
   TEST(MoveDirectGarage, MoveDirectGarageRTest)
   {
     Controller controller;
-    MoveDirectGarage moveDirectGarage(controller);
+    MoveDirectGarage moveDirectGarage(controller, targetBrightness);
 
     MoveDirectGarage moveDirectGarageR();
   }
@@ -25,7 +25,7 @@ namespace etrobocon2019_test {
   TEST(MoveDirectGarage, MoveDirectGarageLTest)
   {
     Controller controller;
-    MoveDirectGarage moveDirectGarage(controller);
+    MoveDirectGarage moveDirectGarage(controller, targetBrightness);
 
     MoveDirectGarage moveDirectGarageL();
   }
