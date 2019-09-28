@@ -13,8 +13,7 @@ BlockBingo::BlockBingo(Controller& controller_, int targetBrightness_)
     isFirstProcess(true),
     // 10 : 0.823, 20 : 0.29?
     pGain(0.823),
-    straightPwm(10),
-    spinPwm(10)
+    straightPwm(10)
 {
 }
 
@@ -22,12 +21,15 @@ void BlockBingo::moveCircle4OfL()
 {
   Navigator navigator(controller, targetBrightness);
 
-  navigator.traceBlackLineToSpecifiedColor(Color::yellow, straightPwm, 0.08);
+  navigator.traceBlackLineToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(-65.0, straightPwm, pGain);
-  navigator.spin(45.0, false, spinPwm);
+  navigator.spin(45.0, false);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(50.0, straightPwm, pGain);
-  navigator.spin(45.0, true, spinPwm);
+  navigator.spin(45.0, false);
+  navigator.moveToSpecifiedColor(Color::red, straightPwm);
+  navigator.move(-72.5, straightPwm, pGain);
+  navigator.spin(90.0, true);
   navigator.move(length, straightPwm, pGain);
 }
 
@@ -35,12 +37,15 @@ void BlockBingo::moveCircle6OfL()
 {
   Navigator navigator(controller, targetBrightness);
 
-  navigator.traceBlackLineToSpecifiedColor(Color::yellow, straightPwm, 0.08);
-  navigator.move(-85.0, straightPwm);
+  navigator.traceBlackLineToSpecifiedColor(Color::yellow, 5, 0.10);
+  navigator.move(-70.0, straightPwm);
   navigator.spin(45.0, true);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(50.0, straightPwm, pGain);
-  navigator.spin(45.0, false);
+  navigator.spin(45.0, true);
+  navigator.moveToSpecifiedColor(Color::yellow, straightPwm);
+  navigator.move(-72.5, straightPwm, pGain);
+  navigator.spin(90.0, false);
   navigator.move(length, straightPwm, pGain);
 }
 

@@ -22,7 +22,6 @@ class BlockBingo {
   bool isFirstProcess;
   const double pGain;
   const int straightPwm;
-  const int spinPwm;
 
   //ここからのprivate関数の詳細はモデルの2.2を参照
   /**
