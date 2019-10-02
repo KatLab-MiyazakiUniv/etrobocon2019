@@ -18,7 +18,8 @@ APPL_CXXOBJS += \
     Bluetooth.o \
     BlockBingo.o \
     Parking.o \
-    Instructions.o
+    Instructions.o \
+    MoveDirectGarage.o
 
 SRCLANG := c++
 

@@ -7,6 +7,7 @@
 #include "NormalCourse.h"
 #include "Navigator.h"
 #include "Parking.h"
+#include "MoveDirectGarage.h"
 
 void EtRobocon2019::start()
 {
@@ -33,6 +34,14 @@ void EtRobocon2019::start()
   BlockBingo blockBingo(controller, targetBrightness);
   // ここでビンゴを開始するblockBingoのメンバ関数を呼び出す
   blockBingo.execOrder<256>(Bluetooth::commands);
+
+  //直接ガレージに移動する
+  MoveDirectGarage moveDirectGarage(controller ,targetBrightness);
+  if(isLeftCourse) {
+  //ブロックビンゴを実行する処理を記述
+  }else{
+    moveDirectGarage.moveDirectGarageR();//Rコースの場合はビンゴを行わずにガレージ駐車を行う
+  }
 
   // ガレージ
   Parking parking(controller, targetBrightness);
