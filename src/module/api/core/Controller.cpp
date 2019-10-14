@@ -169,18 +169,28 @@ Color Controller::hsvToColor(const HsvStatus& status)
   }
 }
 
+Color Controller::getColor(){
+  int r, g, b;
+  r = g = b = 0;
+  this->getRawColor(r, g, b);
+  this->convertHsv(r, g, b);
+  return this->hsvToColor(this->getHsv());
+}
+
+void Controller::registerColor(){
+  color_buffer[color_buffer_counter] = getColor();
+  color_buffer_counter++;
+  if(color_buffer_size <= color_buffer_counter){
+    color_buffer_counter = 0;
+  }
+}
+
 // 5(determine)回色検出を行い、最も検出された回数が多い色(白以外)を返す関数である
-Color Controller::determineColor(int determineNum, int colorNum)
+Color Controller::determineColor(int colorNum)
 {
-  int counter[colorNum] = { 0 };
-  int r = 0;
-  int g = 0;
-  int b = 0;
-  for(int i = 0; i < determineNum; i++) {
-    this->getRawColor(r, g, b);
-    this->convertHsv(r, g, b);
-    Color color = this->hsvToColor(this->getHsv());
-    counter[static_cast<int>(color)]++;
+  int counter[color_buffer_size] = { 0 };
+  for(int i = 0; i < color_buffer_size; i++) {
+    counter[static_cast<int>(color_buffer[i])]++;
     this->tslpTsk(4);
   }
   int max = 0;

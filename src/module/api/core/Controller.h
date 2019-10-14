@@ -8,6 +8,7 @@
 #include "Motor.h"
 #include "TouchSensor.h"
 #include "GyroSensor.h"
+#include <array>
 /*
  * touch_sensor = EV3_PORT_1;
  * sonar_sensor = EV3_PORT_2;
@@ -62,7 +63,7 @@ class Controller {
   void convertHsv(int& r, int& g, int& b);  // RGBをHSV変換する
   HsvStatus getHsv() const;
   Color hsvToColor(const HsvStatus& status);  // HSVから色を識別する
-  Color determineColor(int determineNum = 5, int colorNum = 6);
+  Color determineColor(int colorNum = 6);
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
@@ -76,6 +77,12 @@ class Controller {
   void stopMotor();
   int getAngleOfRotation();
   int limitAngle(int angle);
+  Color getColor();
+  void registerColor();
+  static constexpr int color_buffer_size = 10;
+  static std::array<Color, color_buffer_size> color_buffer;
+  static int color_buffer_counter;
+
   /**
    * アームを動かす
    * @brief countが正の場合、アームを上げる。countが負の場合、アームを下げる。

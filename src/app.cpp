@@ -1,11 +1,14 @@
 #include "app.h"
 #include "EtRobocon2019.h"
 #include "Bluetooth.h"
+#include "Controller.h"
 #include <array>
 
 // 演習用のユーティリティ
 std::array<char, 256> Bluetooth::commands;
 bool Bluetooth::is_start = false;
+std::array<Color, 10> Controller::color_buffer;
+int Controller::color_buffer_counter = 0;
 
 /**
  * メインタスク
@@ -38,7 +41,7 @@ void bt_task(intptr_t unused)
       bluetooth.serialSend(1);
       break;
     }
-    tslp_tsk(4);
+    controller.tslpTsk(4);
   }
   Display::print(12, "success: connect BT");
   bluetooth.flush();
@@ -67,10 +70,16 @@ void bt_task(intptr_t unused)
       break;
     }
     command_string[i] = commands[i] = receiveCommand;
-    tslp_tsk(4);
+    controller.tslpTsk(4);
   }
   Bluetooth::commands = commands;
   command_string[i + 1] = '\0';
   Display::print(10, "Commands: %-10s", command_string);
+
+  while(true){
+    controller.registerColor();
+    controller.tslpTsk(4);
+  }
+
   ext_tsk();
 }
