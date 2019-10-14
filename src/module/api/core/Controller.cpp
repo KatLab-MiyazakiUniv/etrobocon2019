@@ -188,7 +188,7 @@ void Controller::registerColor(){
 // 5(determine)回色検出を行い、最も検出された回数が多い色(白以外)を返す関数である
 Color Controller::determineColor(int colorNum)
 {
-  int counter[color_buffer_size] = { 0 };
+  int counter[colorNum] = { 0 };
   for(int i = 0; i < color_buffer_size; i++) {
     counter[static_cast<int>(color_buffer[i])]++;
     this->tslpTsk(4);

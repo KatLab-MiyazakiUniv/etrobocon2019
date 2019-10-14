@@ -7,7 +7,7 @@
 // 演習用のユーティリティ
 std::array<char, 256> Bluetooth::commands;
 bool Bluetooth::is_start = false;
-std::array<Color, 10> Controller::color_buffer;
+std::array<Color, 10> Controller::color_buffer = { Color::black };
 int Controller::color_buffer_counter = 0;
 
 /**
@@ -26,6 +26,16 @@ void main_task(intptr_t unused)
   ext_tsk();
 }
 // end::main_task_2[]
+
+void color_task(intptr_t unused)
+{
+  Controller controller;
+  while(true) {
+    controller.registerColor();
+    controller.tslpTsk(4);
+  }
+  ext_tsk();
+}
 
 void bt_task(intptr_t unused)
 {
@@ -75,11 +85,6 @@ void bt_task(intptr_t unused)
   Bluetooth::commands = commands;
   command_string[i + 1] = '\0';
   Display::print(10, "Commands: %-10s", command_string);
-
-  while(true){
-    controller.registerColor();
-    controller.tslpTsk(4);
-  }
 
   ext_tsk();
 }
