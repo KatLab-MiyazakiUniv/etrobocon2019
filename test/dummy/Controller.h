@@ -170,7 +170,7 @@ class Controller {
     }
   }
 
-  // 5(determine)回色検出を行い、最も検出された回数が多い色(白以外)を返す関数である
+// 循環バッファ内の色を集計し、もっとも多い色を返す。
   Color determineColor(int colorNum=6)
   {
     int counter[color_buffer_size] = { 0 };
