@@ -178,10 +178,10 @@ Color Controller::getColor(){
 }
 
 void Controller::registerColor(){
-  color_buffer[color_buffer_counter] = getColor();
-  color_buffer_counter++;
-  if(color_buffer_size <= color_buffer_counter){
-    color_buffer_counter = 0;
+  colorBuffer[colorBufferCounter] = getColor();
+  colorBufferCounter++;
+  if(colorBufferSize <= colorBufferCounter){
+    colorBufferCounter = 0;
   }
 }
 
@@ -189,8 +189,8 @@ void Controller::registerColor(){
 Color Controller::determineColor(int colorNum)
 {
   int counter[colorNum] = { 0 };
-  for(int i = 0; i < color_buffer_size; i++) {
-    counter[static_cast<int>(color_buffer[i])]++;
+  for(int i = 0; i < colorBufferSize; i++) {
+    counter[static_cast<int>(colorBuffer[i])]++;
     this->tslpTsk(4);
   }
   int max = 0;

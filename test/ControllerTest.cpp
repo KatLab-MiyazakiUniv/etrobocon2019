@@ -7,24 +7,24 @@
 #include <gtest/gtest.h>
 
 namespace etrobocon2019_test {
-  TEST(Controller, color_buffer_only_black)
+  TEST(Controller, colorBuffer_only_black)
   {
     Controller controller;
 
-    for(int i = 0; i < controller.color_buffer_size; i++) {
+    for(int i = 0; i < controller.colorBufferSize; i++) {
       controller.setMockRgb(0, 0, 0);
       controller.registerColor();
     }
 
-    for(const auto& color : controller.color_buffer){
+    for(const auto& color : controller.colorBuffer){
       ASSERT_EQ(color, Color::black);
     }
   }
-  TEST(Controller, color_buffer_black3_white7)
+  TEST(Controller, colorBuffer_black3_white7)
   {
     Controller controller;
 
-    for(int i = 0; i < controller.color_buffer_size; i++) {
+    for(int i = 0; i < controller.colorBufferSize; i++) {
       controller.setMockRgb(0, 0, 0);
       controller.registerColor();
     }

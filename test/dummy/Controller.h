@@ -71,9 +71,9 @@ class Controller {
   static constexpr int MOTOR_PWM_MAX = 100;
   // モータ入力電圧の最小値
   static constexpr int MOTOR_PWM_MIN = -100;
-  static constexpr int color_buffer_size = 10;
-  static std::array<Color, color_buffer_size> color_buffer;
-  static int color_buffer_counter;
+  static constexpr int colorBufferSize = 10;
+  static std::array<Color, colorBufferSize> colorBuffer;
+  static int colorBufferCounter;
 
   int noteFs6 = 0;
   int noteFs4 = 0;
@@ -173,9 +173,9 @@ class Controller {
 // 循環バッファ内の色を集計し、もっとも多い色を返す。
   Color determineColor(int colorNum=6)
   {
-    int counter[color_buffer_size] = { 0 };
-    for(int i = 0; i < color_buffer_size; i++) {
-      counter[static_cast<int>(color_buffer[i])]++;
+    int counter[colorBufferSize] = { 0 };
+    for(int i = 0; i < colorBufferSize; i++) {
+      counter[static_cast<int>(colorBuffer[i])]++;
       this->tslpTsk(4);
     }
     int max = 0;
@@ -315,10 +315,10 @@ class Controller {
 
   void registerColor()
   {
-    color_buffer[color_buffer_counter] = getColor();
-    color_buffer_counter++;
-    if(color_buffer_size <= color_buffer_counter) {
-      color_buffer_counter = 0;
+    colorBuffer[colorBufferCounter] = getColor();
+    colorBufferCounter++;
+    if(colorBufferSize <= colorBufferCounter) {
+      colorBufferCounter = 0;
     }
   }
 };

@@ -7,8 +7,8 @@
 // 演習用のユーティリティ
 std::array<char, 256> Bluetooth::commands;
 bool Bluetooth::is_start = false;
-std::array<Color, 10> Controller::color_buffer = { Color::black };
-int Controller::color_buffer_counter = 0;
+std::array<Color, 10> Controller::colorBuffer = { Color::black };
+int Controller::colorBufferCounter = 0;
 
 /**
  * メインタスク

@@ -79,9 +79,9 @@ class Controller {
   int limitAngle(int angle);
   Color getColor();
   void registerColor();
-  static constexpr int color_buffer_size = 10;
-  static std::array<Color, color_buffer_size> color_buffer;
-  static int color_buffer_counter;
+  static constexpr int colorBufferSize = 10;
+  static std::array<Color, colorBufferSize> colorBuffer;
+  static int colorBufferCounter;
 
   /**
    * アームを動かす
