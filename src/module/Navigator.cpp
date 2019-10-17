@@ -123,8 +123,8 @@ bool Navigator::hasArrived(double goalDistance, bool isForward)
 
 void Navigator::setPwmValue(int pwm, double alpha)
 {
-  controller.setRightMotorPwm(pwm + alpha);
-  controller.setLeftMotorPwm(pwm - alpha);
+  controller.setRightMotorPwm(pwm + static_cast<int>(alpha));
+  controller.setLeftMotorPwm(pwm - static_cast<int>(alpha));
 }
 
 Color Navigator::recognizeBlack(int brightness)
