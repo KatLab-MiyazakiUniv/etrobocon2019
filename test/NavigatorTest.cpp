@@ -186,6 +186,11 @@ namespace etrobocon2019_test {
     int targetBrightness = 70;
     Navigator navigator(controller, targetBrightness);
 
+    for(int i = 0; i < controller.colorBufferSize; i++) {
+      controller.setMockRgb(0, 0, 0);
+      controller.registerColor();
+    }
+
     Color expected = Color::black;
 
     navigator.moveToSpecifiedColor(expected);
@@ -201,6 +206,11 @@ namespace etrobocon2019_test {
   //   Controller controller;
   //   int targetBrightness = 70;
   //   Navigator navigator(controller, targetBrightness);
+
+  //   for(int i = 0; i < controller.colorBufferSize; i++) {
+  //     controller.setMockRgb(255, 255, 255);
+  //     controller.registerColor();
+  //   }
 
   //   Color expected = Color::white;
 
