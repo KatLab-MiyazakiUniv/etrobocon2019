@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <array>
 
 unsigned struct HsvStatus {
   //色相 範囲(0~360)
@@ -70,6 +71,9 @@ class Controller {
   static constexpr int MOTOR_PWM_MAX = 100;
   // モータ入力電圧の最小値
   static constexpr int MOTOR_PWM_MIN = -100;
+  static constexpr int colorBufferSize = 10;
+  static std::array<Color, colorBufferSize> colorBuffer;
+  static int colorBufferCounter;
 
   int noteFs6 = 0;
   int noteFs4 = 0;
@@ -166,9 +170,20 @@ class Controller {
     }
   }
 
-  Color determineColor(int determineNum = 5, int colorNum = 5)
+// 循環バッファ内の色を集計し、もっとも多い色を返す。
+  Color determineColor(int colorNum=6)
   {
-    return this->hsvToColor(this->getHsv());
+    int counter[colorBufferSize] = { 0 };
+    for(int i = 0; i < colorBufferSize; i++) {
+      counter[static_cast<int>(colorBuffer[i])]++;
+      this->tslpTsk(4);
+    }
+    int max = 0;
+    for(int i = 1; i < colorNum; i++) {
+      if(counter[max] < counter[i]) max = i;
+    }
+
+    return static_cast<Color>(max);
   }
 
   bool buttonIsPressedUp() { return false; };
@@ -288,5 +303,23 @@ class Controller {
     this->setArmMotorPwm(0);
   }
   void resetArmMotorCount() { liftMotor.reset(); }
+
+  Color getColor()
+  {
+    int r, g, b;
+    r = g = b = 0;
+    this->getRawColor(r, g, b);
+    this->convertHsv(r, g, b);
+    return this->hsvToColor(this->getHsv());
+  }
+
+  void registerColor()
+  {
+    colorBuffer[colorBufferCounter] = getColor();
+    colorBufferCounter++;
+    if(colorBufferSize <= colorBufferCounter) {
+      colorBufferCounter = 0;
+    }
+  }
 };
 #endif
