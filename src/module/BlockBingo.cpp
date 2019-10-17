@@ -7,20 +7,17 @@
 
 BlockBingo::BlockBingo(Controller& controller_, int targetBrightness_)
   : controller(controller_),
+    navigator(controller_, targetBrightness),
     targetBrightness(targetBrightness_),
-    // navigator(controller_, targetBrightness, 0.0, 0.0, 0.0),
     length(175.0),
     isFirstProcess(true),
-    // 10 : 0.823, 20 : 0.29?
-    pGain(0.823),
+    pGain(0.823), // 10 : 0.823, 20 : 0.29?
     straightPwm(10)
 {
 }
 
 void BlockBingo::moveCircle4OfL()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.traceBlackLineToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(-65.0, straightPwm, pGain);
   navigator.spin(45.0, false);
@@ -35,8 +32,6 @@ void BlockBingo::moveCircle4OfL()
 
 void BlockBingo::moveCircle6OfL()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.traceBlackLineToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(-70.0, straightPwm);
   navigator.spin(45.0, true);
@@ -51,36 +46,26 @@ void BlockBingo::moveCircle6OfL()
 
 void BlockBingo::execSpinRight()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.spin(90.0, true);
 }
 
 void BlockBingo::execSpinLeft()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.spin(90.0, false);
 }
 
 void BlockBingo::execSpin180()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.spin(180, true);
 }
 
 void BlockBingo::execStraight()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.move(length * 2, straightPwm, pGain);
 }
 
 void BlockBingo::execStraightDetourRight()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.spin(45.0, true);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(50.0, straightPwm, pGain);
@@ -92,8 +77,6 @@ void BlockBingo::execStraightDetourRight()
 
 void BlockBingo::execStraightDetourLeft()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.spin(45.0, false);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(50.0, straightPwm, pGain);
@@ -105,8 +88,6 @@ void BlockBingo::execStraightDetourLeft()
 
 void BlockBingo::execTurnRight90ExistBlock()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.spin(45.0, true);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(50.0, straightPwm, pGain);
@@ -115,8 +96,6 @@ void BlockBingo::execTurnRight90ExistBlock()
 
 void BlockBingo::execTurnRight90UnexistBlock()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.move(length, straightPwm, pGain);
   this->execSpinRight();
   navigator.move(length, straightPwm, pGain);
@@ -124,8 +103,6 @@ void BlockBingo::execTurnRight90UnexistBlock()
 
 void BlockBingo::execTurnLeft90ExistBlock()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.spin(45.0, false);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(50.0, straightPwm, pGain);
@@ -134,8 +111,6 @@ void BlockBingo::execTurnLeft90ExistBlock()
 
 void BlockBingo::execTurnLeft90UnexistBlock()
 {
-  Navigator navigator(controller, targetBrightness);
-
   navigator.move(length, straightPwm, pGain);
   this->execSpinLeft();
   navigator.move(length, straightPwm, pGain);
@@ -149,8 +124,6 @@ void BlockBingo::execTurn180()
 
 void BlockBingo::execTurn180DetourRight()
 {
-  Navigator navigator(controller, targetBrightness);
-
   this->execSpin180();
   navigator.spin(45.0, true);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
@@ -163,8 +136,6 @@ void BlockBingo::execTurn180DetourRight()
 
 void BlockBingo::execTurn180DetourLeft()
 {
-  Navigator navigator(controller, targetBrightness);
-
   this->execSpin180();
   navigator.spin(45.0, false);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
@@ -177,8 +148,6 @@ void BlockBingo::execTurn180DetourLeft()
 
 void BlockBingo::execPut()
 {
-  Navigator navigator(controller, targetBrightness);
-
   // if(isFirstProcess) {
   //   navigator.move(length, straightPwm, pGain);
   //   isFirstProcess = false;

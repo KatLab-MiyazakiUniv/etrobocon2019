@@ -14,7 +14,7 @@
 class BlockBingo {
  private:
   Controller& controller;
-  // Navigator navigator;
+  Navigator navigator;
   //交点サークルから中点までの距離
   const int targetBrightness;
   const double length;
