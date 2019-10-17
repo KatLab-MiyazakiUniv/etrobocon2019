@@ -180,7 +180,7 @@ namespace etrobocon2019_test {
     ASSERT_LE(end - start, expected);
   }
 
-  TEST(Navigator, moveToSpecifiedColorTest)
+  TEST(Navigator, moveToBlackTest)
   {
     Controller controller;
     int targetBrightness = 70;
@@ -190,15 +190,42 @@ namespace etrobocon2019_test {
 
     navigator.moveToSpecifiedColor(expected);
 
-    int r = 0;
-    int g = 0;
-    int b = 0;
-    controller.getRawColor(r, g, b);
-    controller.convertHsv(r, g, b);
-    Color actual = controller.hsvToColor(controller.getHsv());
+    Color actual = controller.determineColor();
 
     ASSERT_EQ(expected, actual);
   }
+
+  // 黒以外の識別はテストできない
+  // TEST(Navigator, moveToWhiteTest)
+  // {
+  //   Controller controller;
+  //   int targetBrightness = 70;
+  //   Navigator navigator(controller, targetBrightness);
+
+  //   Color expected = Color::white;
+
+  //   navigator.moveToSpecifiedColor(expected);
+
+  //   Color actual = controller.determineColor();
+
+  //   ASSERT_EQ(expected, actual);
+  // }
+
+  // 黒以外の識別はテストできない
+  // TEST(Navigator, moveToSpecifiedColorTest)
+  // {
+  //   Controller controller;
+  //   int targetBrightness = 70;
+  //   Navigator navigator(controller, targetBrightness);
+
+  //   Color expected = Color::yellow;
+
+  //   navigator.moveToSpecifiedColor(expected);
+
+  //   Color actual = controller.determineColor();
+
+  //   ASSERT_EQ(expected, actual);
+  // }
 
   TEST(Navigator, spin)
   {
@@ -217,4 +244,13 @@ namespace etrobocon2019_test {
     ASSERT_LE(expected, actual);
     ASSERT_GE(expected + 5, actual);
   }
+
+  // 黒以外の識別はテストできない
+  // TEST(Navigator, traceBlackLineToSpecifiedColorTest) {
+  //   Controller controller;
+  //   int targetBrightness = 70;
+  //   Navigator navigator(controller, targetBrightness);
+
+  //   navigator.traceBlackLineToSpecifiedColor(Color::yellow);
+  // }
 }  // namespace etrobocon2019_test
