@@ -179,8 +179,8 @@ void BlockBingo::execPut()
 {
   Navigator navigator(controller, targetBrightness);
 
-  navigator.move(-50.0, straightPwm, pGain);
-  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(-120.0, straightPwm, pGain);
+  navigator.moveToSpecifiedColor(Color::black, -straightPwm);
   navigator.move(50.0, straightPwm, pGain);
 }
 
