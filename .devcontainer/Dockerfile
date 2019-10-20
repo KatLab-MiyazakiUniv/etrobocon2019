@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     graphviz \
     astyle \ 
     vim \   
+    gdb \
     && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 USER etrobo

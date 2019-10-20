@@ -13,7 +13,7 @@
  *  @param  Kd                [Dゲイン]
  */
 TurnControl::TurnControl(int targetBrightness, double Kp, double Ki, double Kd)
-  : pid(static_cast<double>(targetBrightness), Kp, Ki, Kd)
+  : filter(), pid(static_cast<double>(targetBrightness), Kp, Ki, Kd)
 {
 }
 
@@ -27,11 +27,16 @@ TurnControl::TurnControl(int targetBrightness, double Kp, double Ki, double Kd)
  *  @param  Kd                [Dゲイン]
  *  @return                   [旋回値]
  */
-double TurnControl::calculateTurn(int currentBrightness, int targetBrightness, double Kp, double Ki,
-                                  double Kd)
+double TurnControl::calculateTurn(int forward, int currentBrightness, int targetBrightness,
+                                  double Kp, double Ki, double Kd)
 {
+  double filteredBrightness = filter.lowPassFilter(currentBrightness);
+
   // pidの値を更新(パラメータに変更がなくても更新する)
   pid.setParameter(static_cast<double>(targetBrightness), Kp, Ki, Kd);
 
-  return pid.control(static_cast<double>(currentBrightness));
+  auto pidValue = pid.control(filteredBrightness);
+
+  double forwardPercent = forward / 100.0;
+  return pidValue * forwardPercent;
 }

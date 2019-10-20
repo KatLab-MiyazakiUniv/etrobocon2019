@@ -18,15 +18,6 @@ SpeedControl::SpeedControl(Controller& controller_, int targetSpeed, double Kp, 
   prevDistance = dist.getDistance(leftAngle, rightAngle);
 }
 
-/**
- *  [SpeedControl::calculateSpeed]
- *  @param  targetSpeed [目標の速度] [mm/s]
- *  @param  Kp          [Pゲイン]
- *  @param  Ki          [Iゲイン]
- *  @param  Kd          [Dゲイン]
- *  @return             [PWM値]
- */
-
 double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, double Kd)
 {
   // pidの値を更新(パラメータに変更がなくても更新する)
@@ -40,7 +31,10 @@ double SpeedControl::calculateSpeed(int targetSpeed, double Kp, double Ki, doubl
   double nextDistance = dist.getDistance(leftAngle, rightAngle);
 
   //現在の速度を求める
-  double currentSpeed = (nextDistance - prevDistance) / 0.004;
+  double currentSpeed = nextDistance - prevDistance;
+
+  // prevDistanceの更新
+  prevDistance = dist.getDistance(leftAngle, rightAngle);
 
   //prevDistanceの更新
   prevDistance = dist.getDistance(leftAngle, rightAngle);

@@ -7,7 +7,8 @@
 #include "ColorSensor.h"
 #include "Motor.h"
 #include "TouchSensor.h"
-
+#include "GyroSensor.h"
+#include <array>
 /*
  * touch_sensor = EV3_PORT_1;
  * sonar_sensor = EV3_PORT_2;
@@ -20,14 +21,16 @@
  * tail_motor   = EV3_PORT_D;
  */
 
-unsigned struct HsvStatus {
+struct HsvStatus {
   //色相 範囲(0~360)
-  double hue;
+  double hue = 0;
   //彩度 範囲(0~100)
-  double saturation;
+  double saturation = 0;
   //明度 範囲(0~100)
-  double value;
+  double value = 0;
 };
+
+enum class Color { black, red, green, blue, yellow, white };
 
 using namespace ev3api;
 
@@ -37,6 +40,7 @@ class Controller {
   TouchSensor touchSensor;
   ColorSensor colorSensor;
   Clock clock;
+  GyroSensor gyroSensor;
   // モータ入力電圧の最大値
   static constexpr int MOTOR_PWM_MAX = 100;
   // モータ入力電圧の最小値
@@ -56,15 +60,38 @@ class Controller {
   static float getBatteryVoltage();
   static void tslpTsk(int time);  // 4msec周期起動
   void getRawColor(int& r, int& g, int& b);
-  void convertHsv(int &r, int &g, int &b); // RGBをHSV変換する
-  HsvStatus getHsv();
+  void convertHsv(int& r, int& g, int& b);  // RGBをHSV変換する
+  HsvStatus getHsv() const;
+  Color hsvToColor(const HsvStatus& status);  // HSVから色を識別する
+  Color determineColor(int colorNum = 6);  // 多数決によって色を決定する
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
   int getLeftMotorCount();
   int getRightMotorCount();
+  int getArmMotorCount();
   void setLeftMotorPwm(const int pwm);
   void setRightMotorPwm(const int pwm);
+  void setArmMotorPwm(const int pwm);
+  void resetMotorCount();
+  void stopMotor();
+  int getAngleOfRotation();
+  int limitAngle(int angle);
+  Color getColor();
+  void registerColor();
+  static constexpr int colorBufferSize = 10;
+  static std::array<Color, colorBufferSize> colorBuffer;
+  static int colorBufferCounter;
+
+  /**
+   * アームを動かす
+   * @brief countが正の場合、アームを上げる。countが負の場合、アームを下げる。
+   * @param count
+   * [カラーセンサーが地面に対して垂直に向いている状態をcount=0としたとき、countの最大値が約40、最小値が約-20]
+   * @param pwm [モーターパワー]
+   */
+  void moveArm(int count, int pwm = 10);
+  void resetArmMotorCount();
 
  private:
   rgb_raw_t rgb;

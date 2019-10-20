@@ -1,0 +1,48 @@
+/**
+ *  @file   Bluetooth.cpp
+ *  @brief  PCとEV3がBluetooth通信する（使う時は別タスクにしたほうがいい）
+ *  @author Tatsumi0000
+ */
+#include "Bluetooth.h"
+
+Bluetooth::Bluetooth() : bt(nullptr)
+{
+  // 通信開始
+  serialOpen();
+}
+
+Bluetooth::~Bluetooth()
+{
+  serialClose();
+}
+
+void Bluetooth::serialOpen()
+{
+  bt = ev3_serial_open_file(EV3_SERIAL_BT);
+  // nullptrの場合
+  if(!bt) {
+    Display::print(12, "not connected");
+  } else {
+    Display::print(12, "Bluetooth connected");
+  }
+}
+
+int Bluetooth::serialRead()
+{
+  return fgetc(bt);
+}
+
+void Bluetooth::serialSend(int c)
+{
+  fputc(c, bt);
+}
+
+void Bluetooth::serialClose()
+{
+  fclose(bt);
+}
+
+void Bluetooth::flush()
+{
+  fflush(bt);
+}

@@ -14,7 +14,7 @@ enum class Brightness { WHITE, BLACK };
 
 class Calibrator {
  public:
-  explicit Calibrator(Controller &controller_);
+  explicit Calibrator(Controller& controller_);
 
   /** キャリブレーションを行う。
    * @brief
@@ -23,10 +23,15 @@ class Calibrator {
    */
   bool calibration();
 
+  /** カメラシステムを使用するかどうかを判断する。
+   * @return Lカメラシステムを使用するかどうかの真偽値（Trueなら使用する）
+   */
+  bool getCameraMode() const;
+
   /** Leftコースであるかどうかを判断する。
    * @return Leftコースであるかどうかの真偽値（TrueならLeftコース）
    */
-  bool isLeftCource() const;
+  bool isLeftCourse() const;
 
   /** 白色の値を取得する。
    * @return 明るさ
@@ -38,10 +43,15 @@ class Calibrator {
    */
   int getBlackBrightness() const;
 
+  /** カメラシステムを使用するかどうかを設定する
+   * @return 正常終了したかどうかの真偽値(Trueなら正常終了)
+   */
+  bool setCameraMode();
+
   /** LコースかRコースかを設定する。
    * @return 正常終了したかどうかの真偽値（Trueなら正常終了）
    */
-  bool setLRCource();
+  bool setLRCourse();
 
   /** 明るさを設定する。
    * @param brightness 白か黒かの明るさ
@@ -50,8 +60,9 @@ class Calibrator {
   bool setBrightness(Brightness brightness);
 
  private:
-  Controller &controller;
-  bool isLeft;  // Leftコースであるかどうかの真偽値（TrueならLeftコース）
+  Controller& controller;
+  bool isCameraMode;  // カメラシステムを使用するかどうか(Trueなら使用する)
+  bool isLeft;        // Leftコースであるかどうかの真偽値（TrueならLeftコース）
   unsigned int brightnessOfWhite;  // 白色の明るさ
   unsigned int brightnessOfBlack;  // 黒色の明るさ
 

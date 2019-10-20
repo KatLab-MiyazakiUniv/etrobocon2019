@@ -5,6 +5,18 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <array>
+
+unsigned struct HsvStatus {
+  //色相 範囲(0~360)
+  double hue;
+  //彩度 範囲(0~100)
+  double saturation;
+  //明度 範囲(0~100)
+  double value;
+};
+
+enum class Color { black, red, green, blue, yellow, white };
 
 class Motor {
  public:
@@ -36,6 +48,12 @@ class ColorSensor {
   int brightness = 0;
 };
 
+class GyroSensor {
+ public:
+  int getAngle() { return angle; }
+  int angle = 0;
+};
+
 class Controller {
  private:
   Motor rightWheel;
@@ -43,14 +61,19 @@ class Controller {
   Motor liftMotor;
 
  public:
+  HsvStatus hsv;
   Clock clock;
   TouchSensor touchSensor;
   ColorSensor colorSensor;
+  GyroSensor gyroSensor;
 
   // モータ入力電圧の最大値
   static constexpr int MOTOR_PWM_MAX = 100;
   // モータ入力電圧の最小値
   static constexpr int MOTOR_PWM_MIN = -100;
+  static constexpr int colorBufferSize = 10;
+  static std::array<Color, colorBufferSize> colorBuffer;
+  static int colorBufferCounter;
 
   int noteFs6 = 0;
   int noteFs4 = 0;
@@ -68,7 +91,7 @@ class Controller {
     }
     return false;
   };
-  void getRawColor(std::uint16_t& r, std::uint16_t& g, std::uint16_t& b)
+  void getRawColor(int& r, int& g, int& b)
   {
     r = mock_r;
     g = mock_g;
@@ -76,6 +99,93 @@ class Controller {
 
     return;
   };
+
+  void convertHsv(int& r, int& g, int& b)
+  {
+    double max = r;
+    if(max < g) {
+      max = g;
+    }
+    if(max < b) {
+      max = b;
+    }
+    double min = r;
+    if(min > g) {
+      min = g;
+    }
+    if(min > b) {
+      min = b;
+    }
+
+    // 色相(hue)を求める
+    if(r == g && r == b) {
+      hsv.hue = 0;
+    }
+
+    else if(max == r) {
+      hsv.hue = 60 * ((g - b) / (max - min));
+    }
+
+    else if(max == g) {
+      hsv.hue = 60 * ((b - r) / (max - min)) + 120;
+    }
+
+    else if(max == b) {
+      hsv.hue = 60 * ((r - g) / (max - min)) + 240;
+    }
+
+    if(hsv.hue < 0) {
+      hsv.hue += 360;
+    }
+
+    // 彩度(saturation)を求める
+    hsv.saturation = (max - min) / max * 100;
+
+    // 明度(value)を求める
+    hsv.value = max / 255 * 100;
+  }
+
+  HsvStatus getHsv() { return hsv; }  // hsv値を返す
+
+  Color hsvToColor(HsvStatus hsv)
+  {
+    // 白黒の識別
+    if(hsv.value < 13.0) {
+      return Color::black;
+    } else if(hsv.value > 50.0) {
+      return Color::white;
+    }
+
+    // 赤緑青黃の識別
+    if(hsv.hue < 30) {
+      return Color::red;
+    } else if(hsv.hue < 80.0) {
+      return Color::yellow;
+    } else if(hsv.hue < 160.0) {
+      return Color::green;
+    } else if(hsv.hue < 300.0) {
+      return Color::blue;
+    } else {
+      return Color::red;
+    }
+  }
+
+// 循環バッファ内の色を集計し、もっとも多い色を返す。
+  Color determineColor(int colorNum=6)
+  {
+    int counter[colorBufferSize] = { 0 };
+    for(int i = 0; i < colorBufferSize; i++) {
+      counter[static_cast<int>(colorBuffer[i])]++;
+      this->tslpTsk(4);
+    }
+    int max = 0;
+    for(int i = 1; i < colorNum; i++) {
+      if(counter[max] < counter[i]) max = i;
+    }
+
+    return static_cast<Color>(max);
+  }
+
   bool buttonIsPressedUp() { return false; };
   bool buttonIsPressedDown() { return false; };
 
@@ -136,8 +246,10 @@ class Controller {
 
   int getLeftMotorCount() { return leftWheel.getCount(); };
   int getRightMotorCount() { return rightWheel.getCount(); };
+  int getArmMotorCount() { return liftMotor.getCount(); };
   void setLeftMotorPwm(const int pwm) { leftWheel.setPWM(suppressPwmValue(pwm)); };
   void setRightMotorPwm(const int pwm) { rightWheel.setPWM(suppressPwmValue(pwm)); };
+  void setArmMotorPwm(const int pwm) { liftMotor.setPWM(suppressPwmValue(pwm)); };
   void resetMotorCount()
   {
     leftWheel.reset();
@@ -157,5 +269,57 @@ class Controller {
     }
     return value;
   };
+  int getAngleOfRotation()
+  {
+    int angle = gyroSensor.getAngle();
+
+    return limitAngle(angle);
+  }
+  int limitAngle(int angle)
+  {
+    angle = angle % 360;
+    if(angle < 0) {
+      angle = 360 + angle;
+      angle = limitAngle(angle);
+    }
+    return angle;
+  }
+  void moveArm(int count, int pwm = 10)
+  {
+    this->resetArmMotorCount();
+
+    if(count >= 0) {
+      while(this->getArmMotorCount() < count) {
+        this->setArmMotorPwm(pwm);
+        this->tslpTsk(4);
+      }
+    } else {
+      while(this->getArmMotorCount() > count) {
+        this->setArmMotorPwm(-pwm);
+        this->tslpTsk(4);
+      }
+    }
+
+    this->setArmMotorPwm(0);
+  }
+  void resetArmMotorCount() { liftMotor.reset(); }
+
+  Color getColor()
+  {
+    int r, g, b;
+    r = g = b = 0;
+    this->getRawColor(r, g, b);
+    this->convertHsv(r, g, b);
+    return this->hsvToColor(this->getHsv());
+  }
+
+  void registerColor()
+  {
+    colorBuffer[colorBufferCounter] = getColor();
+    colorBufferCounter++;
+    if(colorBufferSize <= colorBufferCounter) {
+      colorBufferCounter = 0;
+    }
+  }
 };
 #endif

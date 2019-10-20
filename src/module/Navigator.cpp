@@ -7,62 +7,116 @@
 
 #include "Navigator.h"
 
-Navigator::Navigator(Controller& controller_) : distance(), controller(controller_) {}
-
-void Navigator::move(double specifiedValue, int pwm)
+Navigator::Navigator(Controller& controller_, int targetBrightness_, double Kp_, double Ki_,
+                     double Kd_)
+  : distance(),
+    controller(controller_),
+    pidForSpeed(Kp_, Ki_, Kd_),
+    targetBrightness(targetBrightness_)
 {
-  int leftAngle = controller.getLeftMotorCount();
-  int rightAngle = controller.getRightMotorCount();
-  double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
-
-  if(specifiedValue < 0) {
-    backward(specifiedValue, goalDistance, -std::abs(pwm));
-  } else {
-    forward(specifiedValue, goalDistance, std::abs(pwm));
-  }
-
-  controller.setRightMotorPwm(0);
-  controller.setLeftMotorPwm(0);
 }
 
-void Navigator::moveByPid(double specifiedValue, int pwm, const double pGain, const double iGain,
-                          const double dGain)
+void Navigator::setPidGain(double Kp, double Ki, double Kd)
 {
-  int leftAngle = controller.getLeftMotorCount();
-  int rightAngle = controller.getRightMotorCount();
-  double goalDistance = specifiedValue + distance.getDistance(leftAngle, rightAngle);
-
-  // 右車輪の回転量 - 左車輪の回転量
-  // 右車輪の方が多く回転していれば、alphaは正となり左車輪にPWM + alphaの操作量が加えられる
-  Pid pid(pGain, iGain, dGain);
-  double alpha = pid.control(rightAngle - leftAngle);
-
-  if(specifiedValue < 0) {
-    backward(specifiedValue, goalDistance, -std::abs(pwm), alpha);
-  } else {
-    forward(specifiedValue, goalDistance, std::abs(pwm), alpha);
-  }
-
-  controller.setRightMotorPwm(0);
-  controller.setLeftMotorPwm(0);
+  pidForSpeed.setPidGain(Kp, Ki, Kd);
 }
 
-void Navigator::forward(double specifiedValue, double goalDistance, int pwm, double alpha)
+void Navigator::move(double specifiedDistance, int pwm, const double pGain)
 {
-  while(hasArrived(goalDistance, true)) {
-    controller.setRightMotorPwm(pwm + alpha);
-    controller.setLeftMotorPwm(pwm - alpha);
+  controller.resetMotorCount();
+
+  // 左車輪の回転量 - 右車輪の回転量
+  // 左車輪の方が多く回転していれば、alphaは正となり右車輪にPWM + alphaの操作量が加えられる
+  Pid pid(0, pGain);
+
+  if(specifiedDistance < 0) {
+    while(hasArrived(specifiedDistance, false)) {
+      double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
+      setPwmValue(-std::abs(pwm), -alpha);
+      controller.tslpTsk(4);
+    }
+  } else {
+    while(hasArrived(specifiedDistance, true)) {
+      double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
+      setPwmValue(std::abs(pwm), -alpha);
+      controller.tslpTsk(4);
+    }
+  }
+
+  controller.stopMotor();
+}
+
+void Navigator::moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed)
+{
+  controller.resetMotorCount();
+
+  SpeedControl speedControl(controller, specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki,
+                            pidForSpeed.Kd);
+
+  if(specifiedDistance < 0) {
+    while(hasArrived(specifiedDistance, false)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki,
+                                               pidForSpeed.Kd);
+      setPwmValue(static_cast<int>(-std::abs(pwm)));
+      controller.tslpTsk(4);
+    }
+  } else {
+    while(hasArrived(specifiedDistance, true)) {
+      double pwm = speedControl.calculateSpeed(specifiedSpeed, pidForSpeed.Kp, pidForSpeed.Ki,
+                                               pidForSpeed.Kd);
+      setPwmValue(static_cast<int>(std::abs(pwm)));
+      controller.tslpTsk(4);
+    }
+  }
+  controller.stopMotor();
+}
+
+void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
+{
+  if(specifiedColor == Color::black || specifiedColor == Color::white) {
+    while(specifiedColor != recognizeBlack(controller.getBrightness())) {
+      setPwmValue(pwm);
+      controller.tslpTsk(4);
+    }
+  } else {
+    int r = 0;
+    int g = 0;
+    int b = 0;
+
+    // カラーセンサからrgb値を取得
+    controller.getRawColor(r, g, b);
+    // rgb値をhsv値に変換
+    controller.convertHsv(r, g, b);
+
+    // 特定の色まで移動する
+    while(controller.determineColor() != specifiedColor) {
+      setPwmValue(pwm);
+      // カラーセンサからrgb値を取得
+      controller.getRawColor(r, g, b);
+      // rgb値をhsv値に変換
+      controller.convertHsv(r, g, b);
+      controller.tslpTsk(4);
+    }
+  }
+  controller.stopMotor();
+}
+
+void Navigator::spin(double angle, bool clockwise, int pwm)
+{
+  // angleの絶対値を取る
+  angle = std::abs(angle);
+  Rotation rotation;
+
+  controller.resetMotorCount();
+
+  while(rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount())
+        < angle) {
+    controller.setLeftMotorPwm(clockwise ? pwm : -pwm);
+    controller.setRightMotorPwm(clockwise ? -pwm : pwm);
     controller.tslpTsk(4);
   }
-}
 
-void Navigator::backward(double specifiedValue, double goalDistance, int pwm, double alpha)
-{
-  while(hasArrived(goalDistance, false)) {
-    controller.setRightMotorPwm(pwm + alpha);
-    controller.setLeftMotorPwm(pwm - alpha);
-    controller.tslpTsk(4);
-  }
+  controller.stopMotor();
 }
 
 bool Navigator::hasArrived(double goalDistance, bool isForward)
@@ -78,4 +132,48 @@ bool Navigator::hasArrived(double goalDistance, bool isForward)
   } else {
     return currentDistance >= goalDistance;
   }
+}
+
+void Navigator::setPwmValue(int pwm, double alpha)
+{
+  controller.setRightMotorPwm(pwm + alpha);
+  controller.setLeftMotorPwm(pwm - alpha);
+}
+
+Color Navigator::recognizeBlack(int brightness)
+{
+  return brightness < targetBrightness ? Color::black : Color::white;
+}
+
+void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, double pGain,
+                                               bool isLeft)
+{
+  int r = 0;
+  int g = 0;
+  int b = 0;
+  Pid pid(targetBrightness, pGain);
+
+  // カラーセンサからrgb値を取得
+  controller.getRawColor(r, g, b);
+  // rgb値をhsv値に変換
+  controller.convertHsv(r, g, b);
+
+  // 特定の色まで移動する
+  while(controller.determineColor() != specifiedColor) {
+    double pidValue = pid.control(controller.getBrightness());
+    if(isLeft) {
+      controller.setLeftMotorPwm(static_cast<int>(pwm - pidValue));
+      controller.setRightMotorPwm(static_cast<int>(pwm + pidValue));
+    } else {
+      controller.setLeftMotorPwm(static_cast<int>(pwm + pidValue));
+      controller.setRightMotorPwm(static_cast<int>(pwm - pidValue));
+    }
+
+    // カラーセンサからrgb値を取得
+    controller.getRawColor(r, g, b);
+    // rgb値をhsv値に変換
+    controller.convertHsv(r, g, b);
+    controller.tslpTsk(4);
+  }
+  controller.stopMotor();
 }
