@@ -224,3 +224,23 @@ void BlockBingo::execMoveDiagonal()
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(50.0, straightPwm);
 }
+
+void BlockBingo::execQuicPutR()
+{
+  controller.setLeftMotorPwm(static_cast<int>(50));
+  controller.setRightMotorPwm(static_cast<int>(10));
+
+  controller.setLeftMotorPwm(static_cast<int>(-50));
+  controller.setRightMotorPwm(static_cast<int>(-10));
+
+}
+
+void BlockBingo::execQuicPutL()
+{
+  controller.setLeftMotorPwm(static_cast<int>(10));
+  controller.setRightMotorPwm(static_cast<int>(50));
+
+  controller.setLeftMotorPwm(static_cast<int>(-10));
+  controller.setRightMotorPwm(static_cast<int>(-50));
+
+}

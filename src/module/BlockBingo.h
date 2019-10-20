@@ -126,7 +126,11 @@ class BlockBingo {
    */
   void execMoveDiagonal();
 
- public:
+  void execQuicPutR();
+
+  void execQuicPutL();
+
+public:
   /**
    * コンストラクタ
    * @param controller_ [Controllerの参照]
