@@ -160,10 +160,6 @@ public:
    * パソコンから受け取ったリストの通りに処理を実行する
    * @param orders [命令の情報のリスト]
    */
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
   template <int N>
   void execOrder(std::array<char, N>& orderKeys)
   {
