@@ -150,11 +150,9 @@ public:
    * パソコンから受け取ったリストの通りに処理を実行する
    * @param orders [命令の情報のリスト]
    */
-  void execQuicPutR();
+  void execQuickPutR();
 
-  void execQuicReverseR();
-
-  void execQuicPutL();
+  void execQuickPutL();
 
   template <int N>
   void execOrder(std::array<char, N>& orderKeys)

@@ -225,7 +225,7 @@ void BlockBingo::execMoveDiagonal()
   navigator.move(50.0, straightPwm);
 }
 
-void BlockBingo::execQuicPutR()
+void BlockBingo::execQuickPutR()
 {
   Navigator navigator(controller, targetBrightness);
   navigator.move(10.0, straightPwm);
@@ -247,7 +247,7 @@ void BlockBingo::execQuicPutR()
   controller.stopMotor();
 }
 
-void BlockBingo::execQuicPutL()
+void BlockBingo::execQuickPutL()
 {
   Navigator navigator(controller, targetBrightness);
   navigator.move(10.0, straightPwm);

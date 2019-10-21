@@ -31,6 +31,9 @@ Instructions::Instructions()
   mp['t'] = Order::SPIN_LEFT135;
   mp['u'] = Order::MOVE_NODE;
   mp['v'] = Order::MOVE_DIAGONAL;
+
+  mp['y'] = Order::QUICK_PUT_R;
+  mp['z'] = Order::QUICK_PUT_L;
 }
 
 Order Instructions::translate(char key)
