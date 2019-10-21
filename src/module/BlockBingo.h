@@ -126,6 +126,16 @@ class BlockBingo {
    */
   void execMoveDiagonal();
 
+  void execQuickPutR();
+  /**
+   * QUICK_PUT_Rの命令を実行する
+   * @brief ブロックを持った状態で交点サークルから右向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
+   */  
+  void execQuickPutL();
+  /**
+   * QUICK_PUT_Lの命令を実行する
+   * @brief ブロックを持った状態で交点サークルから左向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
+   */  
 
 public:
   /**
@@ -150,9 +160,6 @@ public:
    * パソコンから受け取ったリストの通りに処理を実行する
    * @param orders [命令の情報のリスト]
    */
-  void execQuickPutR();
-
-  void execQuickPutL();
 
   template <int N>
   void execOrder(std::array<char, N>& orderKeys)
