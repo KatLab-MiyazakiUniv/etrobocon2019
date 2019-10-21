@@ -148,48 +148,38 @@ void BlockBingo::execTurn180DetourLeft()
 
 void BlockBingo::execPut()
 {
-  // if(isFirstProcess) {
-  //   navigator.move(length, straightPwm, pGain);
-  //   isFirstProcess = false;
-  // }
-  // navigator.move(100.0, straightPwm, pGain);
-  // navigator.move(-100.0, straightPwm, pGain);
-  navigator.move(-length, straightPwm, pGain);
+  navigator.move(-120.0, straightPwm, pGain);
+  navigator.moveToSpecifiedColor(Color::black, -straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
 }
 
 void BlockBingo::execSpinRight45()
 {
-  Navigator navigator(controller, targetBrightness);
   navigator.spin(45.0, true);
 }
 
 void BlockBingo::execSpinLeft45()
 {
-  Navigator navigator(controller, targetBrightness);
   navigator.spin(45.0, false);
 }
 
 void BlockBingo::execSpinRight135()
 {
-  Navigator navigator(controller, targetBrightness);
   navigator.spin(135.0, true);
 }
 
 void BlockBingo::execSpinLeft135()
 {
-  Navigator navigator(controller, targetBrightness);
   navigator.spin(135.0, false);
 }
 
 void BlockBingo::execMoveNode()
 {
-  Navigator navigator(controller, targetBrightness);
   navigator.move(length, straightPwm, pGain);
 }
 
 void BlockBingo::execMoveDiagonal()
 {
-  Navigator navigator(controller, targetBrightness);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(50.0, straightPwm);
 }
