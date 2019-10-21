@@ -182,3 +182,45 @@ void BlockBingo::execMoveDiagonal()
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
   navigator.move(lengthColorSensorAxis, straightPwm);
 }
+
+void BlockBingo::execQuickPutR()
+{
+  navigator.move(10.0, straightPwm);
+  controller.setLeftMotorPwm(30);
+  controller.setRightMotorPwm(8);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(500);
+  navigator.move(150.0, straightPwm);
+
+  controller.stopMotor();
+  controller.tslpTsk(300);
+
+  navigator.move(-150.0, straightPwm);
+  controller.setLeftMotorPwm(-20);
+  controller.setRightMotorPwm(-7);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(720);
+
+  controller.stopMotor();
+}
+
+void BlockBingo::execQuickPutL()
+{
+  navigator.move(10.0, straightPwm);
+  controller.setLeftMotorPwm(8);
+  controller.setRightMotorPwm(30);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(500);
+  navigator.move(150.0, straightPwm);
+
+  controller.stopMotor();
+  controller.tslpTsk(300);
+
+  navigator.move(-150.0, straightPwm);
+  controller.setLeftMotorPwm(-7);
+  controller.setRightMotorPwm(-20);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(720);
+
+  controller.stopMotor();
+}
