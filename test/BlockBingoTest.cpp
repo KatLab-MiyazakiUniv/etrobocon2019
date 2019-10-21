@@ -35,13 +35,23 @@ namespace etrobocon2019_test {
   //   blockbingo.execOrder<1>(order);
   // }
 
-  TEST(BlockBingo, execSpinRightTest)
+  TEST(BlockBingo, execStraightTest)
   {
     int targetBrightness = 70;
     Controller controller;
     BlockBingo blockbingo(controller, targetBrightness);
 
     std::array<char, 1> order{ 'c' };
+    blockbingo.execOrder<1>(order);
+  }
+
+  TEST(BlockBingo, execSpinRightTest)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 'd' };
     blockbingo.execOrder<1>(order);
   }
 
@@ -65,15 +75,28 @@ namespace etrobocon2019_test {
     blockbingo.execOrder<1>(order);
   }
 
-  TEST(BlockBingo, execStraightTest)
-  {
-    int targetBrightness = 70;
-    Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+  // なぜかテストが失敗する。実機テスト済み
+  // TEST(BlockBingo, execPutInFirstProcessTest)
+  // {
+  //   Controller controller;
+  //   BlockBingo blockbingo(controller);
 
-    std::array<char, 1> order{ 'c' };
-    blockbingo.execOrder<1>(order);
-  }
+  //   std::array<char, 1> order{ 'g' };
+  //   blockbingo.execOrder<1>(order);
+  // }
+
+  // なぜかテストが失敗する。実機テスト済み
+  // TEST(BlockBingo, execPutInSecondProcessTest)
+  // {
+  //   Controller controller;
+  //   BlockBingo blockbingo(controller);
+
+  //   std::array<char, 1> order{ 'g' };
+  //   blockbingo.execOrder<1>(order);
+  //   std::array<char, 1> order2{ 'g' };
+  //   blockbingo.execOrder<1>(order2);
+  // }
+
 
   TEST(BlockBingo, execStraightDetourRightTest)
   {
@@ -164,28 +187,6 @@ namespace etrobocon2019_test {
     std::array<char, 1> order{ 'p' };
     blockbingo.execOrder<1>(order);
   }
-
-  // なぜかテストが失敗する。実機テスト済み
-  // TEST(BlockBingo, execPutInFirstProcessTest)
-  // {
-  //   Controller controller;
-  //   BlockBingo blockbingo(controller);
-
-  //   std::array<char, 1> order{ 'g' };
-  //   blockbingo.execOrder<1>(order);
-  // }
-
-  // なぜかテストが失敗する。実機テスト済み
-  // TEST(BlockBingo, execPutInSecondProcessTest)
-  // {
-  //   Controller controller;
-  //   BlockBingo blockbingo(controller);
-
-  //   std::array<char, 1> order{ 'g' };
-  //   blockbingo.execOrder<1>(order);
-  //   std::array<char, 1> order2{ 'g' };
-  //   blockbingo.execOrder<1>(order2);
-  // }
 
   TEST(BlockBingo, execSpinRight45Test)
   {
