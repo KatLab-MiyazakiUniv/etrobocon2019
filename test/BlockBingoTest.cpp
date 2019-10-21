@@ -178,15 +178,15 @@ namespace etrobocon2019_test {
   //   blockbingo.execOrder<1>(order);
   // }
 
-  TEST(BlockBingo, execTurn180DetourLeftTest)
-  {
-    int targetBrightness = 70;
-    Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+  // TEST(BlockBingo, execTurn180DetourLeftTest)
+  // {
+  //   int targetBrightness = 70;
+  //   Controller controller;
+  //   BlockBingo blockbingo(controller, targetBrightness);
 
-    std::array<char, 1> order{ 'p' };
-    blockbingo.execOrder<1>(order);
-  }
+  //   std::array<char, 1> order{ 'p' };
+  //   blockbingo.execOrder<1>(order);
+  // }
 
   TEST(BlockBingo, execSpinRight45Test)
   {
