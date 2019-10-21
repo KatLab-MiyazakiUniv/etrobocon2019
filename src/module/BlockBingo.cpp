@@ -179,13 +179,9 @@ void BlockBingo::execPut()
 {
   Navigator navigator(controller, targetBrightness);
 
-  // if(isFirstProcess) {
-  //   navigator.move(length, straightPwm, pGain);
-  //   isFirstProcess = false;
-  // }
-  // navigator.move(100.0, straightPwm, pGain);
-  // navigator.move(-100.0, straightPwm, pGain);
-  navigator.move(-length, straightPwm, pGain);
+  navigator.move(-120.0, straightPwm, pGain);
+  navigator.moveToSpecifiedColor(Color::black, -straightPwm);
+  navigator.move(50.0, straightPwm, pGain);
 }
 
 void BlockBingo::execSpinRight45()
