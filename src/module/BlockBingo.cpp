@@ -9,8 +9,6 @@ BlockBingo::BlockBingo(Controller& controller_, int targetBrightness_)
   : controller(controller_),
     navigator(controller_, targetBrightness),
     targetBrightness(targetBrightness_),
-    lengthCrossCircleCenter(175.0),
-    lengthColorSensorAxis(50.0),
     isFirstProcess(true),
     pGain(0.823), // 10 : 0.823, 20 : 0.29?
     straightPwm(10)
