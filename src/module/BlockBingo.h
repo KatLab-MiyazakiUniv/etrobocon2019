@@ -17,7 +17,8 @@ class BlockBingo {
   Navigator navigator;
   //交点サークルから中点までの距離
   const int targetBrightness;
-  const double length;
+  const double lengthCrossCircleCenter;
+  const double lenghtColorSensorAxis;
   // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
   bool isFirstProcess;
   const double pGain;
