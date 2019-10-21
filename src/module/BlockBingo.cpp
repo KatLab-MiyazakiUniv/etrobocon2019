@@ -126,13 +126,23 @@ void BlockBingo::execTurn180()
 void BlockBingo::execTurn180DetourRight()
 {
   this->execSpin180();
-  this->execStraightDetourRight();
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(lenghtColorSensorAxis, straightPwm, pGain);
+  this->execSpinRight();
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(lenghtColorSensorAxis, straightPwm, pGain);
+  navigator.spin(45.0, true);
 }
 
 void BlockBingo::execTurn180DetourLeft()
 {
   this->execSpin180();
-  this->execStraightDetourLeft();
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(lenghtColorSensorAxis, straightPwm, pGain);
+  this->execSpinRight();
+  navigator.moveToSpecifiedColor(Color::black, straightPwm);
+  navigator.move(lenghtColorSensorAxis, straightPwm, pGain);
+  navigator.spin(45.0, false);
 }
 
 void BlockBingo::execPut()
