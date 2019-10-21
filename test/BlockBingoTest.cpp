@@ -248,4 +248,23 @@ namespace etrobocon2019_test {
     blockbingo.execOrder<1>(order);
   }
 
+  TEST(BlockBingo, execQuickPutRTest)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 'y' };
+    blockbingo.execOrder<1>(order);
+  }
+
+  TEST(BlockBingo, execQuickPutLTest)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 'z' };
+    blockbingo.execOrder<1>(order);
+  }
 }  // namespace etrobocon2019_test
