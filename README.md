@@ -11,7 +11,7 @@ This repository contains the programs that Team KatLab uses for advanced course 
 We have the following goals and enthusiasm for the contest:
  - We will participate in a championship!
  - We aim at the running time is less than **20 seconds**.
- - We aim at the bonus time is **18 seconds** or more.
+ - We aim at the bonus time is **24 seconds** or more.
  - We use AI and image processing technologies in our strategy.
  - We develop fast and flexible using Agile (eXtreme-Programming) and Ticket-Driven Development (TiDD).
 
