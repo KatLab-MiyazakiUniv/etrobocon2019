@@ -227,20 +227,44 @@ void BlockBingo::execMoveDiagonal()
 
 void BlockBingo::execQuicPutR()
 {
-  controller.setLeftMotorPwm(static_cast<int>(50));
-  controller.setRightMotorPwm(static_cast<int>(10));
+  Navigator navigator(controller, targetBrightness);
+  navigator.move(10.0, straightPwm);
+  controller.setLeftMotorPwm(30);
+  controller.setRightMotorPwm(8);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(500);
+  navigator.move(150.0, straightPwm);
 
-  controller.setLeftMotorPwm(static_cast<int>(-50));
-  controller.setRightMotorPwm(static_cast<int>(-10));
+  controller.stopMotor();
+  controller.tslpTsk(300);
 
+  navigator.move(-150.0, straightPwm);
+  controller.setLeftMotorPwm(-20);
+  controller.setRightMotorPwm(-7);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(720);
+
+  controller.stopMotor();
 }
 
 void BlockBingo::execQuicPutL()
 {
-  controller.setLeftMotorPwm(static_cast<int>(10));
-  controller.setRightMotorPwm(static_cast<int>(50));
+  Navigator navigator(controller, targetBrightness);
+  navigator.move(10.0, straightPwm);
+  controller.setLeftMotorPwm(8);
+  controller.setRightMotorPwm(30);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(500);
+  navigator.move(150.0, straightPwm);
 
-  controller.setLeftMotorPwm(static_cast<int>(-10));
-  controller.setRightMotorPwm(static_cast<int>(-50));
+  controller.stopMotor();
+  controller.tslpTsk(300);
 
+  navigator.move(-150.0, straightPwm);
+  controller.setLeftMotorPwm(-7);
+  controller.setRightMotorPwm(-20);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(720);
+
+  controller.stopMotor();
 }
