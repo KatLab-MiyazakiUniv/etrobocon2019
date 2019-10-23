@@ -357,6 +357,6 @@ void Controller::resetArmMotorCount()
 
 void Controller::resetGyroSensor()
 {
-  gyroSensor.reset();
-  if(gyroSensor.getAngle() != 0) this->resetGyroSensor();
+  // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
+  while(gyroSensor.getAngle() != 0) gyroSensor.reset();
 }
