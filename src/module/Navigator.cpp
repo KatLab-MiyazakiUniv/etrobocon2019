@@ -106,18 +106,21 @@ void Navigator::spin(double angle, bool clockwise, int pwm, double weight)
   // angleの絶対値を取る
   angle = std::abs(angle);
   Rotation rotation;
+  Filter<> filter;
 
   controller.resetMotorCount();
   controller.resetGyroSensor();
 
-  double bodyAngle
-      = weight * rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount()) + (1.0 - weight) * std::abs(static_cast<double>(controller.getAngleOfRotation()));
+  double motorAngle = rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount());
+  double gyroAngle = std::abs(static_cast<double>(controller.getAngleOfRotation()));
 
-  while(bodyAngle < angle) {
+  while(filter.complementaryFilter(motorAngle, gyroAngle) < angle) {
     controller.setLeftMotorPwm(clockwise ? pwm : -pwm);
     controller.setRightMotorPwm(clockwise ? -pwm : pwm);
     controller.tslpTsk(4);
-    bodyAngle = weight * rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount()) + (1.0 - weight) * std::abs(static_cast<double>(controller.getAngleOfRotation()));  
+
+    motorAngle = rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount());
+    gyroAngle = std::abs(static_cast<double>(controller.getAngleOfRotation()));
   }
 
   controller.stopMotor();

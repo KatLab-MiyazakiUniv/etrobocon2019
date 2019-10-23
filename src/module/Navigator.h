@@ -10,6 +10,7 @@
 
 #include "Controller.h"
 #include "Distance.h"
+#include "Filter.h"
 #include "Pid.h"
 #include "SpeedControl.h"
 #include "Rotation.h"
