@@ -74,8 +74,9 @@ class Navigator {
    * @param angle [回頭角度(正の値)]
    * @param clockwise [時計回りに回転するかどうか(デフォルトで時計回り)]
    * @param pwm [モーターパワー]
+   * @param weight [重み]
    */
-  void spin(double angle, bool clockwise = true, int pwm = 10);
+  void spin(double angle, bool clockwise = true, int pwm = 10, double weight = 0.93);
   /**
    * 指定した色までライントレースする
    * @brief 黒と白以外の色までOn Off制御でライントレースをする
