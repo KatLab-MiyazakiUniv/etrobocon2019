@@ -14,10 +14,11 @@
 class BlockBingo {
  private:
   Controller& controller;
-  // Navigator navigator;
+  Navigator navigator;
   //交点サークルから中点までの距離
   const int targetBrightness;
-  const double length;
+  static constexpr double lengthCrossCircleCenter = 175.0;
+  static constexpr double lengthColorSensorAxis = 50.0;
   // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
   bool isFirstProcess;
   const double pGain;
@@ -135,8 +136,8 @@ class BlockBingo {
    * @brief ブロックを持った状態で交点サークルから左向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
    */  
   void execQuickPutL();
-
-public:
+  
+ public:
   /**
    * コンストラクタ
    * @param controller_ [Controllerの参照]
