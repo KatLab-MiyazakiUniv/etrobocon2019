@@ -76,7 +76,6 @@ class Controller {
   void resetMotorCount();
   void stopMotor();
   int getAngleOfRotation();
-  int limitAngle(int angle);
   Color getColor();
   void registerColor();
   void resetGyroSensor();
