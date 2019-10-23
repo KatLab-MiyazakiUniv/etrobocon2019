@@ -367,3 +367,9 @@ void Controller::resetArmMotorCount()
 {
   liftMotor.reset();
 }
+
+void Controller::resetGyroSensor()
+{
+  gyroSensor.reset();
+  if(gyroSensor.getAngle() != 0) this->resetGyroSensor();
+}
