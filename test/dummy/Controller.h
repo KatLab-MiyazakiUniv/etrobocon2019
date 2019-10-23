@@ -272,18 +272,7 @@ class Controller {
   };
   int getAngleOfRotation()
   {
-    int angle = gyroSensor.getAngle();
-
-    return limitAngle(angle);
-  }
-  int limitAngle(int angle)
-  {
-    angle = angle % 360;
-    if(angle < 0) {
-      angle = 360 + angle;
-      angle = limitAngle(angle);
-    }
-    return angle;
+    return gyroSensor.getAngle();
   }
   void moveArm(int count, int pwm = 10)
   {
