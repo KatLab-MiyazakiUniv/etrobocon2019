@@ -15,7 +15,7 @@ class Filter {
   Filter();
   void reset();
   double lowPassFilter(T value, double rate = 0.9);
-  double complementaryFilter(T heavyValue, T lightValue, double rate = 0.93);
+  double complementaryFilter(T heavyValue, T lightValue, double rate = 0.94);
 };
 
 #endif
