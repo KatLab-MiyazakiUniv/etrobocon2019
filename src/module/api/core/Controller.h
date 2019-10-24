@@ -90,10 +90,11 @@ class Controller {
    * [カラーセンサーが地面に対して垂直に向いている状態をcount=0としたとき、countの最大値が約40、最小値が約-20]
    * @param pwm [モーターパワー]
    */
-  void moveArm(int count, int pwm = 10);
+  void moveArm(int count, int pwm = 45);
   void resetArmMotorCount();
+  void stopLiftMotor();
 
- private:
+private:
   rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;

@@ -59,7 +59,10 @@ class Calibrator {
    */
   bool setBrightness(Brightness brightness);
 
- private:
+  /** アーム位置の自動調整 */
+  void setArm();
+
+private:
   Controller& controller;
   bool isCameraMode;  // カメラシステムを使用するかどうか(Trueなら使用する)
   bool isLeft;        // Leftコースであるかどうかの真偽値（TrueならLeftコース）
