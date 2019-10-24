@@ -32,7 +32,7 @@ void NormalCourse::runNormalCourse()
 {
   // 配列の個数
   constexpr int arraySize = 13;
-  int baseSpeed = 75;
+  int baseSpeed = 70;
   std::array<NormalCourseProperty, arraySize> normalCourseProperty
       /**
        * 詳しく見たいならLineTracer.hを見てね．
