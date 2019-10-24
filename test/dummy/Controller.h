@@ -318,7 +318,7 @@ class Controller {
     while(gyroSensor.getAngle() != 0) gyroSensor.reset();
   }
 
-  void Controller::stopLiftMotor()
+  void stopLiftMotor()
   {
   this->resetArmMotorCount();
   }
