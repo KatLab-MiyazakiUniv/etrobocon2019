@@ -24,6 +24,30 @@ class BlockBingo {
   const double pGain;
   const int straightPwm;
 
+  /**
+   * Lコースのブロックビンゴのブロックサークル4に移動する
+   * @brief Lコースのブロックビンゴ開始点からブロックサークル4の手前の
+   * 黒線の中点まで斜めに移動し、ブロックサークル4の中央まで移動する。
+   */
+  void execEnterBingoAreaL4();
+  /**
+   * Lコースのブロックビンゴのブロックサークル6に移動する
+   * @brief Lコースのブロックビンゴ開始点からブロックサークル6の手前の
+   * 黒線の中点まで斜めに移動し、ブロックサークル6の中央まで移動する。
+   */
+  void execEnterBingoAreaL6();
+  /**
+   * Rコースのブロックビンゴのブロックサークル5に移動する
+   * @brief Lコースのブロックビンゴ開始点からブロックサークル5の手前の
+   * 黒線の中点まで斜めに移動し、ブロックサークル5の中央まで移動する。
+   */
+  void execEnterBingoAreaR5();
+  /**
+   * Rコースのブロックビンゴのブロックサークル8に移動する
+   * @brief Lコースのブロックビンゴ開始点からブロックサークル8の手前の
+   * 黒線の中点まで斜めに移動し、ブロックサークル8の中央まで移動する。
+   */
+  void execEnterBingoAreaR8();
   //ここからのprivate関数の詳細はモデルの2.2を参照
   /**
    * SPIN_RIGHTの命令を実行する
@@ -145,18 +169,6 @@ class BlockBingo {
   BlockBingo(Controller& controller_, int targetBrightness_);
 
   /**
-   * Lコースのブロックビンゴのブロックサークル4に移動する
-   * @brief Lコースのブロックビンゴ開始点からブロックサークル4の手前の
-   * 黒線の中点まで斜めに移動し、ブロックサークル4の中央まで移動する。
-   */
-  void moveCircle4OfL();
-  /**
-   * Lコースのブロックビンゴのブロックサークル6に移動する
-   * @brief Lコースのブロックビンゴ開始点からブロックサークル6の手前の
-   * 黒線の中点まで斜めに移動し、ブロックサークル6の中央まで移動する。
-   */
-  void moveCircle6OfL();
-  /**
    * パソコンから受け取ったリストの通りに処理を実行する
    * @param orders [命令の情報のリスト]
    */
@@ -170,11 +182,11 @@ class BlockBingo {
 
       switch(order) {
         case Order::ENTER_BINGO_AREA_L4:
-          this->moveCircle4OfL();
+          this->execEnterBingoAreaL4();
           break;
 
         case Order::ENTER_BINGO_AREA_L6:
-          this->moveCircle6OfL();
+          this->execEnterBingoAreaL6();
           break;
 
         case Order::SPIN_RIGHT:
@@ -255,6 +267,22 @@ class BlockBingo {
 
         case Order::MOVE_DIAGONAL:
           this->execMoveDiagonal();
+          break;
+
+        case Order::ENTER_BINGO_AREA_R5:
+          this->execEnterBingoAreaR5();
+          break;
+
+        case Order::ENTER_BINGO_AREA_R8:
+          this->execEnterBingoAreaR8();
+          break;
+
+        case Order::QUICK_PUT_R:
+          this->execQuickPutR();
+          break;
+
+        case Order::QUICK_PUT_L:
+          this->execQuickPutL();
           break;
 
         default:
