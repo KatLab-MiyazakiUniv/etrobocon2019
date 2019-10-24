@@ -15,10 +15,7 @@ struct ConstPidGain {
 };
 
 // PID制御のみで用いる定数をまとめた構造体
-struct PidGain {
-  double Kp;  // Pゲイン
-  double Ki;  // Iゲイン
-  double Kd;  // Dゲイン
+struct PidGain: ConstPidGain {
   PidGain(double Kp_, double Ki_, double Kd_);
   void setPidGain(double Kp_, double Ki_, double Kd_);
 };
