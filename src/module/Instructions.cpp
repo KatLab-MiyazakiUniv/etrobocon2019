@@ -32,6 +32,9 @@ Instructions::Instructions()
   mp['u'] = Order::MOVE_NODE;
   mp['v'] = Order::MOVE_DIAGONAL;
 
+  mp['w'] = Order::ENTER_BINGO_AREA_R5;
+  mp['x'] = Order::ENTER_BINGO_AREA_R8;
+
   mp['y'] = Order::QUICK_PUT_R;
   mp['z'] = Order::QUICK_PUT_L;
 }
