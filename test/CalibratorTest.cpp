@@ -163,6 +163,7 @@ namespace etrobocon2019_test {
 
     Calibrator calibrator(con);
     con.pushLeft = true;
+    con.pushRight = true;
     calibrator.setArm();
   }
 
@@ -172,6 +173,7 @@ namespace etrobocon2019_test {
 
     Calibrator calibrator(con);
     con.pushLeft = true;
+    con.pushRight = true;
     calibrator.calibration();
   }
 
