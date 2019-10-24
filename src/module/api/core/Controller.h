@@ -76,9 +76,9 @@ class Controller {
   void resetMotorCount();
   void stopMotor();
   int getAngleOfRotation();
-  int limitAngle(int angle);
   Color getColor();
   void registerColor();
+  void resetGyroSensor();
   static constexpr int colorBufferSize = 10;
   static std::array<Color, colorBufferSize> colorBuffer;
   static int colorBufferCounter;
