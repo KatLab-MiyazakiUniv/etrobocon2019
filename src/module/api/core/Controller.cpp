@@ -328,20 +328,7 @@ void Controller::stopMotor()
 
 int Controller::getAngleOfRotation()
 {
-  int angle = gyroSensor.getAngle();
-  //角度を[0-360]の範囲で表す,
-  //右手系(反時計回り)が正である
-  return Controller::limitAngle(angle);
-}
-
-int Controller::limitAngle(int angle)
-{
-  angle = angle % 360;
-  if(angle < 0) {
-    angle = 360 + angle;
-    angle = limitAngle(angle);
-  }
-  return angle;
+  return gyroSensor.getAngle();
 }
 
 void Controller::moveArm(int count, int pwm)
@@ -366,4 +353,10 @@ void Controller::moveArm(int count, int pwm)
 void Controller::resetArmMotorCount()
 {
   liftMotor.reset();
+}
+
+void Controller::resetGyroSensor()
+{
+  // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
+  while(gyroSensor.getAngle() != 0) gyroSensor.reset();
 }

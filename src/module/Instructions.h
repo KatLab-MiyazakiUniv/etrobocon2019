@@ -31,7 +31,9 @@ enum class Order {
   SPIN_RIGHT135,
   SPIN_LEFT135,
   MOVE_NODE,
-  MOVE_DIAGONAL
+  MOVE_DIAGONAL,
+  QUICK_PUT_R,
+  QUICK_PUT_L
 };
 
 class Instructions {

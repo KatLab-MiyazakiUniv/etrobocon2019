@@ -241,6 +241,7 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Rotation rotation;
+    Filter<> filter;
     int targetBrightness = 70;
     Navigator navigator(controller, targetBrightness);
 
@@ -248,7 +249,8 @@ namespace etrobocon2019_test {
     navigator.spin(expected);
 
     double actual
-        = rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount());
+        = filter.complementaryFilter(rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount()),
+                                    std::abs(static_cast<double>(controller.getAngleOfRotation())));
 
     // 回頭角度の精度は、期待出力 + 5度まで許容する
     ASSERT_LE(expected, actual);
