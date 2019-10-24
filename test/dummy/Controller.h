@@ -321,7 +321,6 @@ class Controller {
   void Controller::stopLiftMotor()
   {
   this->resetArmMotorCount();
-  this->tslpTsk(1500);
   }
 };
 #endif
