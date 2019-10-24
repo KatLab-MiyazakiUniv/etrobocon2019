@@ -317,5 +317,11 @@ class Controller {
     // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
     while(gyroSensor.getAngle() != 0) gyroSensor.reset();
   }
+
+  void Controller::stopLiftMotor()
+  {
+  this->resetArmMotorCount();
+  this->tslpTsk(1500);
+  }
 };
 #endif

@@ -165,4 +165,11 @@ namespace etrobocon2019_test {
     calibrator.calibration();
   }
 
+  TEST(Calibrator, setArmTest)
+  {
+    Controller con;
+
+    Calibrator calibrator(con);
+    calibrator.setArm();
+  }
 }  // namespace etrobocon2019_test
