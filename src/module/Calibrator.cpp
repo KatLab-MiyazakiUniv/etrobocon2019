@@ -16,6 +16,7 @@ Calibrator::Calibrator(Controller& controller_)
 
 bool Calibrator::calibration()
 {
+  Display::print(2, "Please push left button(^-^)");
   this->setArm();
   Display::print(2, "now calibration...");
 
