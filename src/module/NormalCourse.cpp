@@ -33,7 +33,7 @@ void NormalCourse::runNormalCourse()
   // 配列の個数
   constexpr int arraySize = 13;
   constexpr int baseSpeed = 640;
-  const std::array<NormalCourseProperty, arraySize> normalCoursePropertyL
+  constexpr std::array<NormalCourseProperty, arraySize> normalCoursePropertyL
       /**
        * 詳しく見たいならLineTracer.hを見てね．
        * 進む距離，目標スピード，スピードpid，ターンpid
@@ -55,7 +55,7 @@ void NormalCourse::runNormalCourse()
           { 350, baseSpeed / 4, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },   //本番で要調整
 
       } };
-  const std::array<NormalCourseProperty, arraySize> normalCoursePropertyR
+  constexpr std::array<NormalCourseProperty, arraySize> normalCoursePropertyR
       /**
        * 詳しく見たいならLineTracer.hを見てね．
        * 進む距離，目標スピード，スピードpid，ターンpid
