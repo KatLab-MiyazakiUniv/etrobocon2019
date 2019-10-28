@@ -6,11 +6,16 @@
 #ifndef PID_H
 #define PID_H
 
-// PID制御のみで用いる定数をまとめた構造体
-struct PidGain {
+// constexprなPID制御のみで用いる定数をまとめた構造体
+struct ConstPidGain {
   double Kp;  // Pゲイン
   double Ki;  // Iゲイン
   double Kd;  // Dゲイン
+  constexpr ConstPidGain(double Kp_, double Ki_, double Kd_): Kp(Kp_), Ki(Ki_), Kd(Kd_){}
+};
+
+// PID制御のみで用いる定数をまとめた構造体
+struct PidGain: ConstPidGain {
   PidGain(double Kp_, double Ki_, double Kd_);
   void setPidGain(double Kp_, double Ki_, double Kd_);
 };

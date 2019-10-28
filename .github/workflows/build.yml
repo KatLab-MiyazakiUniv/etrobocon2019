@@ -1,0 +1,21 @@
+name: Build and Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: docker://korosuke613/etrobo-docker:latest
+    - name: copy
+      run: |
+        cp -r src /home/hrp2/sdk/workspace/
+        mv -T /home/hrp2/sdk/workspace/src/ /home/hrp2/sdk/workspace/product/ 
+        cp -r src /home/hrp2/sdk/workspace/product
+    - name: build
+      run: |
+        cd /home/hrp2/sdk/workspace/
+        make_src
