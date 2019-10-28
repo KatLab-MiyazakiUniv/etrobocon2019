@@ -77,6 +77,7 @@ void NormalCourse::runNormalCourse()
           { 350, baseSpeed / 4, { 0.1, 0.0, 0.1 }, { 1.1, 0.0, 0.08 } },   //本番で要調整
 
       } };
+  // LコースならLコースのPID値を採用する。RコースならRコースのPID値を採用する。
   const std::array<NormalCourseProperty, arraySize>& normalCourseProperty
       = isLeftCourse ? normalCoursePropertyL : normalCoursePropertyR;
   LineTracer lineTracer(controller, targetBrightness, isLeftCourse);
