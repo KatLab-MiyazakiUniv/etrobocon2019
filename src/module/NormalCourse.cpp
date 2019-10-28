@@ -78,7 +78,7 @@ void NormalCourse::runNormalCourse()
 
       } };
   // LコースならLコースのPID値を採用する。RコースならRコースのPID値を採用する。
-  const std::array<NormalCourseProperty, arraySize>& normalCourseProperty
+  const std::array<NormalCourseProperty, arraySize> normalCourseProperty
       = isLeftCourse ? normalCoursePropertyL : normalCoursePropertyR;
   LineTracer lineTracer(controller, targetBrightness, isLeftCourse);
   for(const auto& ncp : normalCourseProperty) {
