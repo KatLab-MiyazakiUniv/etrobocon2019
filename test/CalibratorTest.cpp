@@ -157,12 +157,24 @@ namespace etrobocon2019_test {
     ASSERT_EQ(calibrator.getBlackBrightness(), 30);
   }
 
-  TEST(Calibrator, calibrationTest)
-  {
-    Controller con;
+  // TEST(Calibrator, setArmTest)
+  // {
+  //   Controller con;
 
-    Calibrator calibrator(con);
-    calibrator.calibration();
-  }
+  //   Calibrator calibrator(con);
+  //   con.pushLeft = true;
+  //   con.pushRight = true;
+  //   calibrator.setArm();
+  // }
+
+  // TEST(Calibrator, calibrationTest)
+  // {
+  //   Controller con;
+
+  //   Calibrator calibrator(con);
+  //   con.pushLeft = true;
+  //   con.pushRight = true;
+  //   calibrator.calibration();
+  // }
 
 }  // namespace etrobocon2019_test
