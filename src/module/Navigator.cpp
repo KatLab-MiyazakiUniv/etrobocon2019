@@ -150,10 +150,14 @@ void Navigator::traceBlackLine(double specifiedDistance, int pwm, double encoder
   Pid pidForLineTrace(targetBrightness, lineTracePGain);
 
   if(specifiedDistance < 0) {
+    // 指定した距離に到達するまでTrue
     while(hasArrived(specifiedDistance, false)) {
+      // エンコーダーの値をp制御
       double encoderPidValue = pidForEncoder.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
+      // ライントレース用のp制御
       double lineTracePidValue = pidForLineTrace.control(controller.getBrightness());
 
+      // 後進するため、pwmは負の値
       int rightPwm = -std::abs(pwm) + static_cast<int>(isLeft ? lineTracePidValue : -lineTracePidValue) - static_cast<int>(encoderPidValue);
       int leftPwm = -std::abs(pwm) + static_cast<int>(isLeft ? -lineTracePidValue : lineTracePidValue) + static_cast<int>(encoderPidValue);
 
@@ -163,10 +167,12 @@ void Navigator::traceBlackLine(double specifiedDistance, int pwm, double encoder
       controller.tslpTsk(4);
     }
   } else {
+    // 上記のwhile文の中の処理とほぼ同じ
     while(hasArrived(specifiedDistance, true)) {
       double encoderPidValue = pidForEncoder.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
       double lineTracePidValue = pidForLineTrace.control(controller.getBrightness());
 
+      // 前進するため、pwmは正の値
       int rightPwm = std::abs(pwm) + static_cast<int>(isLeft ? lineTracePidValue : -lineTracePidValue) - static_cast<int>(encoderPidValue);
       int leftPwm = std::abs(pwm) + static_cast<int>(isLeft ? -lineTracePidValue : lineTracePidValue) + static_cast<int>(encoderPidValue);
 

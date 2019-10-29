@@ -80,8 +80,8 @@ class Navigator {
   void spin(double angle, bool clockwise = true, int pwm = 10, double weight = 0.94);
   /**
    * 指定した距離までライントレースする
-   * @param specifiedDistance [指定した距離]
-   * @param pwm [モーターパワー]
+   * @param specifiedDistance [指定した距離(mm)。正なら前進、負なら後進。]
+   * @param pwm [モーターパワー(正の値)]
    * @param encoderPGain [エンコーダーの値をP制御する際に使用するPゲイン]
    * @param lineTracePGain [ライントレースに使用するPゲイン]
    * @param isLeft [左エッジならtrue]
