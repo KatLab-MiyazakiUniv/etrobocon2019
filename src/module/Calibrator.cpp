@@ -16,6 +16,8 @@ Calibrator::Calibrator(Controller& controller_)
 
 bool Calibrator::calibration()
 {
+  Display::print(2, "Please push left touch sensor...");
+  this->setArm();
   Display::print(2, "now calibration...");
 
   if(!setCameraMode()) {
@@ -166,3 +168,13 @@ int Calibrator::getBlackBrightness() const
 {
   return brightnessOfBlack;
 };
+
+void Calibrator::setArm()
+{
+  while(!controller.touchSensor.isPressed()) {
+    controller.tslpTsk(4);
+  }
+  controller.moveArm(50);
+  controller.stopLiftMotor();
+  controller.moveArm(-20);
+}
