@@ -35,8 +35,7 @@ void LineTracer::run(const NormalCourseProperty& settings)
   // 目標距離を走り終えるまでループ
   while(currentDistance - initialDistance < settings.targetDistance) {
     // 前進値の計算
-    speedValue = speedControl.calculateSpeed(settings.targetSpeed, settings.speedPid.Kp,
-                                             settings.speedPid.Ki, settings.speedPid.Kd);
+    speedValue = settings.targetSpeed;
 
     // 旋回値の計算
     turnValue
