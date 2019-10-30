@@ -127,11 +127,6 @@ void Navigator::setPwmValue(int pwm, double alpha)
   controller.setLeftMotorPwm(pwm - static_cast<int>(alpha));
 }
 
-Color Navigator::recognizeBlack(int brightness)
-{
-  return brightness < targetBrightness ? Color::black : Color::white;
-}
-
 void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, double pGain,
                                                bool isLeft)
 {
