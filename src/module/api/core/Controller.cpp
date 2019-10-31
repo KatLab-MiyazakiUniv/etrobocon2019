@@ -70,17 +70,36 @@ float Controller::getBatteryVoltage()
 
 int Controller::getBrightness()
 {
-  colorSensor.getRawColor(rgb);
-  int luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;
+  int r, g, b;
+  getRawColor(r, g, b);
+  int luminance = 0.298912 * r + 0.586611 * g + 0.114478 * b;
   return luminance;
+}
+
+int limit_max_min(const int value){
+  constexpr int max = 255;
+  constexpr int min = 0;
+  if(value > max){
+    return max;
+  }else if (value < min){
+    return min;
+  }
+  return value;
 }
 
 void Controller::getRawColor(int& r, int& g, int& b)
 {
+  constexpr int R_MIN = 9;
+  constexpr int G_MIN = 6;
+  constexpr int B_MIN = 5;
+  constexpr int R_MAX = 92;
+  constexpr int G_MAX = 100;
+  constexpr int B_MAX = 72;
+
   colorSensor.getRawColor(rgb);
-  r = rgb.r;
-  g = rgb.g;
-  b = rgb.b;
+  r = limit_max_min(static_cast<double>((rgb.r - R_MIN)) * 255 / (R_MAX - R_MIN));
+  g = limit_max_min(static_cast<double>((rgb.g - G_MIN)) * 255 / (G_MAX - G_MIN));
+  b = limit_max_min(static_cast<double>((rgb.b - B_MIN)) * 255 / (B_MAX - B_MIN));
 }
 
 Color Controller::hsvToColor(const HsvStatus& status)
