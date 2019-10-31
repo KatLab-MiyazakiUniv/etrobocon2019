@@ -76,12 +76,13 @@ int Controller::getBrightness()
   return luminance;
 }
 
-int limit_max_min(const int value){
+int limit_max_min(const int value)
+{
   constexpr int max = 255;
   constexpr int min = 0;
-  if(value > max){
+  if(value >= max) {
     return max;
-  }else if (value < min){
+  } else if(value <= min) {
     return min;
   }
   return value;
@@ -182,13 +183,13 @@ Color Controller::hsvToColor(const HsvStatus& status)
         }
       } else {
         return Color::black;
-        
       }
     }
   }
 }
 
-Color Controller::getColor(){
+Color Controller::getColor()
+{
   int r, g, b;
   r = g = b = 0;
   this->getRawColor(r, g, b);
@@ -196,10 +197,11 @@ Color Controller::getColor(){
   return this->hsvToColor(this->getHsv());
 }
 
-void Controller::registerColor(){
+void Controller::registerColor()
+{
   colorBuffer[colorBufferCounter] = getColor();
   colorBufferCounter++;
-  if(colorBufferSize <= colorBufferCounter){
+  if(colorBufferSize <= colorBufferCounter) {
     colorBufferCounter = 0;
   }
 }

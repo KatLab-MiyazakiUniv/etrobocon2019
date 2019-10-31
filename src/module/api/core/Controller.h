@@ -63,7 +63,7 @@ class Controller {
   void convertHsv(int& r, int& g, int& b);  // RGBをHSV変換する
   HsvStatus getHsv() const;
   Color hsvToColor(const HsvStatus& status);  // HSVから色を識別する
-  Color determineColor(int colorNum = 6);  // 多数決によって色を決定する
+  Color determineColor(int colorNum = 6);     // 多数決によって色を決定する
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
@@ -94,7 +94,7 @@ class Controller {
   void resetArmMotorCount();
   void stopLiftMotor();
 
-private:
+ private:
   rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;
