@@ -58,6 +58,9 @@ bool Calibrator::setCameraMode()
       std::strcpy(cameraMode, "OFF");
     }
     Display::print(3, "camera system: %s ?", cameraMode);
+    int r, g, b;
+    controller.getRawColor(r, g, b);
+    Display::print(4, "R:%3d, G:%3d, B:%3d", r, g, b);
 
     if(controller.buttonIsPressedLeft() || controller.buttonIsPressedRight()) {
       isCameraMode = !isCameraMode;
