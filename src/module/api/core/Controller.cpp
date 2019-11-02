@@ -76,7 +76,7 @@ int Controller::getBrightness()
   return luminance;
 }
 
-int limit_max_min(const int value)
+int limitRgbValue(const int value)
 {
   constexpr int max = 255;
   constexpr int min = 0;
@@ -98,9 +98,9 @@ void Controller::getRawColor(int& r, int& g, int& b)
   constexpr int B_MAX = 72;
 
   colorSensor.getRawColor(rgb);
-  r = limit_max_min(static_cast<double>((rgb.r - R_MIN)) * 255 / (R_MAX - R_MIN));
-  g = limit_max_min(static_cast<double>((rgb.g - G_MIN)) * 255 / (G_MAX - G_MIN));
-  b = limit_max_min(static_cast<double>((rgb.b - B_MIN)) * 255 / (B_MAX - B_MIN));
+  r = limitRgbValue(static_cast<double>((rgb.r - R_MIN)) * 255 / (R_MAX - R_MIN));
+  g = limitRgbValue(static_cast<double>((rgb.g - G_MIN)) * 255 / (G_MAX - G_MIN));
+  b = limitRgbValue(static_cast<double>((rgb.b - B_MIN)) * 255 / (B_MAX - B_MIN));
 }
 
 Color Controller::hsvToColor(const HsvStatus& status)
