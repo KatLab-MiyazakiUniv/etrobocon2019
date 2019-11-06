@@ -36,8 +36,8 @@ void localization_task(intptr_t unused)
   Logger log("local.csv");
   Distance distance;
 
-  int left_old = 0;
-  int right_old = 0;
+  int leftOld = 0;
+  int rightOld = 0;
   double x = 0.0;
   double y = 0.0;
   double theta = 0.0;
@@ -47,9 +47,9 @@ void localization_task(intptr_t unused)
     int left = controller.getLeftMotorCount();
     int right = controller.getRightMotorCount();
     // 走行体の速度を算出
-    double velocity = distance.getDistance(left - left_old, right - right_old);
+    double velocity = distance.getDistance(left - leftOld, right - rightOld);
     // 走行体の旋回角度を算出
-    double omega = ((right - right_old) - (left - left_old)) / Tread;
+    double omega = ((right - rightOld) - (left - leftOld)) / Tread;
 
     x += velocity * std::cos(theta + (omega / 2.0));  // x座標
     y += velocity * std::sin(theta + (omega / 2.0));  // y座標
@@ -61,8 +61,8 @@ void localization_task(intptr_t unused)
         << y       // y座標
         << theta;  // 姿勢（角度）
 
-    left_old = left;
-    right_old = right;
+    leftOld = left;
+    rightOld = right;
     controller.tslpTsk(4);
   }
   ext_tsk();
