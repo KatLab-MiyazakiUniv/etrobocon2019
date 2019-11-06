@@ -63,7 +63,7 @@ class Controller {
   void convertHsv(int& r, int& g, int& b);  // RGBをHSV変換する
   HsvStatus getHsv() const;
   Color hsvToColor(const HsvStatus& status);  // HSVから色を識別する
-  Color determineColor(int colorNum = 6);  // 多数決によって色を決定する
+  Color determineColor(int colorNum = 6);     // 多数決によって色を決定する
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
@@ -90,8 +90,9 @@ class Controller {
    * [カラーセンサーが地面に対して垂直に向いている状態をcount=0としたとき、countの最大値が約40、最小値が約-20]
    * @param pwm [モーターパワー]
    */
-  void moveArm(int count, int pwm = 10);
+  void moveArm(int count, int pwm = 45);
   void resetArmMotorCount();
+  void stopLiftMotor();
 
  private:
   rgb_raw_t rgb;

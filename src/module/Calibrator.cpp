@@ -16,6 +16,8 @@ Calibrator::Calibrator(Controller& controller_)
 
 bool Calibrator::calibration()
 {
+  Display::print(2, "Please push left touch sensor...");
+  this->setArm();
   Display::print(2, "now calibration...");
 
   if(!setCameraMode()) {
@@ -56,6 +58,9 @@ bool Calibrator::setCameraMode()
       std::strcpy(cameraMode, "OFF");
     }
     Display::print(3, "camera system: %s ?", cameraMode);
+    int r, g, b;
+    controller.getRawColor(r, g, b);
+    Display::print(4, "R:%3d, G:%3d, B:%3d", r, g, b);
 
     if(controller.buttonIsPressedLeft() || controller.buttonIsPressedRight()) {
       isCameraMode = !isCameraMode;
@@ -166,3 +171,13 @@ int Calibrator::getBlackBrightness() const
 {
   return brightnessOfBlack;
 };
+
+void Calibrator::setArm()
+{
+  while(!controller.touchSensor.isPressed()) {
+    controller.tslpTsk(4);
+  }
+  controller.moveArm(50);
+  controller.stopLiftMotor();
+  controller.moveArm(-20);
+}
