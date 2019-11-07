@@ -194,6 +194,14 @@ class BlockBingo {
           this->execMoveNode();
           break;
 
+        case Order::QUICK_PUT_R:
+          this->execQuickPutR();
+          break;
+
+        case Order::QUICK_PUT_L:
+          this->execQuickPutL();
+          break;
+
         default:
           controller.speakerPlayToneFS6(1000);
       }
