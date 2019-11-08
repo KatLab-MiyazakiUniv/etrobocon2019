@@ -33,16 +33,6 @@ class Calibrator {
    */
   bool isLeftCourse() const;
 
-  /** 白色の値を取得する。
-   * @return 明るさ
-   */
-  int getWhiteBrightness() const;
-
-  /** 黒色の値を取得する。
-   * @return 明るさ
-   */
-  int getBlackBrightness() const;
-
   /** カメラシステムを使用するかどうかを設定する
    * @return 正常終了したかどうかの真偽値(Trueなら正常終了)
    */
@@ -66,10 +56,8 @@ private:
   Controller& controller;
   bool isCameraMode;  // カメラシステムを使用するかどうか(Trueなら使用する)
   bool isLeft;        // Leftコースであるかどうかの真偽値（TrueならLeftコース）
-  unsigned int brightnessOfWhite;  // 白色の明るさ
-  unsigned int brightnessOfBlack;  // 黒色の明るさ
-
-  int averageBrightness();
+  rgb_raw_t standardWhite;  // 白色の基準値
+  rgb_raw_t standardBlack;  // 黒色の基準値
 };
 
 #endif
