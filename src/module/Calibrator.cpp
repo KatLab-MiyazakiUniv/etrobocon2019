@@ -8,11 +8,7 @@
 Calibrator::Calibrator(Controller& controller_)
   : controller(controller_),
     isCameraMode(true),
-    isLeft(true),
-    standardWhite(),
-    standardBlack()
-{
-}
+    isLeft(true){}
 
 bool Calibrator::calibration()
 {
@@ -128,9 +124,13 @@ bool Calibrator::setBrightness(Brightness brightness)
   controller.speakerPlayToneFS6(200);
 
   if(brightness == Brightness::WHITE) {
+    rgb_raw_t standardWhite;
     controller.colorSensor.getRawColor(standardWhite);
+    controller.setStandardWhite(standardWhite);
   } else {
+    rgb_raw_t standardBlack;
     controller.colorSensor.getRawColor(standardBlack);
+    controller.setStandardBlack(standardBlack);
   }
 
   return true;

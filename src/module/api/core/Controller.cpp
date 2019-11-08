@@ -10,7 +10,8 @@ Controller::Controller()
     leftWheel(PORT_C),
     tailMotor(PORT_D)
 {
-  colorSensor.getRawColor(rgb);
+  colorSensor.getRawColor(standardWhite);
+  colorSensor.getRawColor(standardBlack);
 }
 
 void Controller::speakerSetVolume(int volume)
@@ -90,17 +91,11 @@ int limitRgbValue(const int value)
 
 void Controller::getRawColor(int& r, int& g, int& b)
 {
-  constexpr int R_MIN = 9;
-  constexpr int G_MIN = 6;
-  constexpr int B_MIN = 5;
-  constexpr int R_MAX = 92;
-  constexpr int G_MAX = 100;
-  constexpr int B_MAX = 72;
-
+  rgb_raw_t rgb;
   colorSensor.getRawColor(rgb);
-  r = limitRgbValue(static_cast<double>((rgb.r - R_MIN)) * 255 / (R_MAX - R_MIN));
-  g = limitRgbValue(static_cast<double>((rgb.g - G_MIN)) * 255 / (G_MAX - G_MIN));
-  b = limitRgbValue(static_cast<double>((rgb.b - B_MIN)) * 255 / (B_MAX - B_MIN));
+  r = limitRgbValue(static_cast<double>((rgb.r - standardBlack.r)) * 255 / (standardWhite.r - standardBlack.r));
+  g = limitRgbValue(static_cast<double>((rgb.g - standardBlack.g)) * 255 / (standardWhite.g - standardBlack.g));
+  b = limitRgbValue(static_cast<double>((rgb.b - standardBlack.b)) * 255 / (standardWhite.b - standardBlack.b));
 }
 
 Color Controller::hsvToColor(const HsvStatus& status)
@@ -281,6 +276,17 @@ void Controller::setArmMotorPwm(const int pwm)
 {
   liftMotor.setPWM(suppressPwmValue(pwm));
 }
+
+void Controller::setStandardWhite(const rgb_raw_t& rgb)
+{
+  standardWhite = rgb;
+}
+
+void Controller::setStandardBlack(const rgb_raw_t& rgb)
+{
+  standardBlack = rgb;
+}
+
 
 void Controller::convertHsv(int& r, int& g, int& b)
 {

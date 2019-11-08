@@ -56,8 +56,6 @@ private:
   Controller& controller;
   bool isCameraMode;  // カメラシステムを使用するかどうか(Trueなら使用する)
   bool isLeft;        // Leftコースであるかどうかの真偽値（TrueならLeftコース）
-  rgb_raw_t standardWhite;  // 白色の基準値
-  rgb_raw_t standardBlack;  // 黒色の基準値
 };
 
 #endif
