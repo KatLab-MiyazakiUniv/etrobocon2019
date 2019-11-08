@@ -12,9 +12,9 @@ Calibrator::Calibrator(Controller& controller_)
 
 bool Calibrator::calibration()
 {
-  Display::print(2, "adjust the arm position...");
+  Display::print(2, "Adjust the arm position...");
   this->setArm();
-  Display::print(2, "now calibration...");
+  Display::print(2, "Calibration...");
 
   if(!setCameraMode()) {
     Display::print(2, "Error setCameraMode!");
