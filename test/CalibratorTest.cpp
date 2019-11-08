@@ -23,8 +23,6 @@ namespace etrobocon2019_test {
 
     ASSERT_EQ(calibrator.getCameraMode(), true);
     ASSERT_EQ(calibrator.isLeftCourse(), true);
-    ASSERT_EQ(calibrator.getWhiteBrightness(), 0);
-    ASSERT_EQ(calibrator.getBlackBrightness(), 0);
   }
 
   TEST(Calibrator, setCameraModeTest1)
@@ -128,9 +126,13 @@ namespace etrobocon2019_test {
 
     Calibrator calibrator(con);
 
-    con.brightness = 100;
     calibrator.setBrightness(Brightness::WHITE);
-    ASSERT_EQ(calibrator.getWhiteBrightness(), 100);
+    ASSERT_EQ(con.standardWhite.r, 1);
+    ASSERT_EQ(con.standardWhite.g, 1);
+    ASSERT_EQ(con.standardWhite.b, 1);
+    ASSERT_EQ(con.standardBlack.r, 0);
+    ASSERT_EQ(con.standardBlack.g, 0);
+    ASSERT_EQ(con.standardBlack.b, 0);
   }
 
   TEST(Calibrator, setBrightnessTest2)
@@ -141,7 +143,13 @@ namespace etrobocon2019_test {
 
     con.brightness = 200;
     calibrator.setBrightness(Brightness::BLACK);
-    ASSERT_EQ(calibrator.getBlackBrightness(), 200);
+    ASSERT_EQ(con.standardWhite.r, 0);
+    ASSERT_EQ(con.standardWhite.g, 0);
+    ASSERT_EQ(con.standardWhite.b, 0);
+    ASSERT_EQ(con.standardBlack.r, 1);
+    ASSERT_EQ(con.standardBlack.g, 1);
+    ASSERT_EQ(con.standardBlack.b, 1);
+
   }
 
   TEST(Calibrator, setBrightnessTest3)
@@ -149,12 +157,17 @@ namespace etrobocon2019_test {
     Controller con;
 
     Calibrator calibrator(con);
-    con.brightness = 120;
+
+    con.brightness = 200;
     calibrator.setBrightness(Brightness::WHITE);
-    ASSERT_EQ(calibrator.getWhiteBrightness(), 120);
-    con.brightness = 30;
     calibrator.setBrightness(Brightness::BLACK);
-    ASSERT_EQ(calibrator.getBlackBrightness(), 30);
+    ASSERT_EQ(con.standardWhite.r, 1);
+    ASSERT_EQ(con.standardWhite.g, 1);
+    ASSERT_EQ(con.standardWhite.b, 1);
+    ASSERT_EQ(con.standardBlack.r, 1);
+    ASSERT_EQ(con.standardBlack.g, 1);
+    ASSERT_EQ(con.standardBlack.b, 1);
+
   }
 
   // TEST(Calibrator, setArmTest)
