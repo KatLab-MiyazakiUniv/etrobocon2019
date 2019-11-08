@@ -16,7 +16,7 @@ Calibrator::Calibrator(Controller& controller_)
 
 bool Calibrator::calibration()
 {
-  Display::print(2, "Please push left touch sensor...");
+  Display::print(2, "adjust the arm position...");
   this->setArm();
   Display::print(2, "now calibration...");
 
