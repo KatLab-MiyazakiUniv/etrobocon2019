@@ -1,6 +1,7 @@
 #include "Display.h"
 
-void Display::print(int row, const char* format, ...) {
+void Display::print(int row, const char* format, ...)
+{
   va_list arg;
   char msg[32];
 
