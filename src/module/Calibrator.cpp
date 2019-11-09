@@ -8,17 +8,13 @@
 Calibrator::Calibrator(Controller& controller_)
   : controller(controller_),
     isCameraMode(true),
-    isLeft(true),
-    brightnessOfWhite(0),
-    brightnessOfBlack(0)
-{
-}
+    isLeft(true){}
 
 bool Calibrator::calibration()
 {
-  Display::print(2, "adjust the arm position...");
+  Display::print(2, "Adjust the arm position...");
   this->setArm();
-  Display::print(2, "now calibration...");
+  Display::print(2, "Calibration...");
 
   if(!setCameraMode()) {
     Display::print(2, "Error setCameraMode!");
@@ -40,8 +36,7 @@ bool Calibrator::calibration()
     return false;
   }
 
-  Display::print(5, "White: %3d", brightnessOfWhite);
-  Display::print(6, "Black: %3d", brightnessOfBlack);
+  Display::print(5, "Calibration was completed!");
 
   return true;
 }
@@ -58,9 +53,6 @@ bool Calibrator::setCameraMode()
       std::strcpy(cameraMode, "OFF");
     }
     Display::print(3, "camera system: %s ?", cameraMode);
-    int r, g, b;
-    controller.getRawColor(r, g, b);
-    Display::print(4, "R:%3d, G:%3d, B:%3d", r, g, b);
 
     if(controller.buttonIsPressedLeft() || controller.buttonIsPressedRight()) {
       isCameraMode = !isCameraMode;
@@ -122,8 +114,9 @@ bool Calibrator::setBrightness(Brightness brightness)
       break;
     }
 
-    int tmpColor = controller.getBrightness();
-    Display::print(5, "Set brightness of %s: %3d ?", name, tmpColor);
+    int r, g, b;
+    controller.getRawColor(r, g, b);
+    Display::print(4, "R:%3d, G:%3d, B:%3d", r, g, b);
 
     controller.tslpTsk(4);
   }
@@ -131,25 +124,16 @@ bool Calibrator::setBrightness(Brightness brightness)
   controller.speakerPlayToneFS6(200);
 
   if(brightness == Brightness::WHITE) {
-    brightnessOfWhite = averageBrightness();
+    rgb_raw_t standardWhite;
+    controller.colorSensor.getRawColor(standardWhite);
+    controller.setStandardWhite(standardWhite);
   } else {
-    brightnessOfBlack = averageBrightness();
+    rgb_raw_t standardBlack;
+    controller.colorSensor.getRawColor(standardBlack);
+    controller.setStandardBlack(standardBlack);
   }
 
   return true;
-}
-
-int Calibrator::averageBrightness()
-{
-  // 4ms毎に10回明るさを取得して、その平均値をメンバ変数に代入する処理
-  int meanBrightness = 0;
-  int times = 10;
-  for(int i = 0; i < times; i++) {
-    meanBrightness += controller.getBrightness();
-    controller.tslpTsk(4);
-  }
-
-  return meanBrightness / times;
 }
 
 bool Calibrator::getCameraMode() const
@@ -161,16 +145,6 @@ bool Calibrator::isLeftCourse() const
 {
   return isLeft;
 }
-
-int Calibrator::getWhiteBrightness() const
-{
-  return brightnessOfWhite;
-};
-
-int Calibrator::getBlackBrightness() const
-{
-  return brightnessOfBlack;
-};
 
 void Calibrator::setArm()
 {

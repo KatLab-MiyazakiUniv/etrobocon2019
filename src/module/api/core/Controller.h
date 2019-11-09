@@ -73,6 +73,8 @@ class Controller {
   void setLeftMotorPwm(const int pwm);
   void setRightMotorPwm(const int pwm);
   void setArmMotorPwm(const int pwm);
+  void setStandardWhite(const rgb_raw_t& rgb);
+  void setStandardBlack(const rgb_raw_t& rgb);
   void resetMotorCount();
   void stopMotor();
   int getAngleOfRotation();
@@ -95,12 +97,13 @@ class Controller {
   void stopLiftMotor();
 
  private:
-  rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;
   Motor rightWheel;
   Motor leftWheel;
   Motor tailMotor;
+  rgb_raw_t standardWhite;
+  rgb_raw_t standardBlack;
 
   static int suppressPwmValue(const int value);
 };
