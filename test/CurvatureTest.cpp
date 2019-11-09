@@ -8,10 +8,10 @@
 
 namespace etrobocon2019_test
 {
-  TEST(Curvature, Curvature_init)
+	TEST(Curvature, Curvature_init)
 	{
-    double target = 0.010;
-    Curvature curvature(target, 1.0, 0.0, 0.0);
+		double target = 0.010;
+		Curvature curvature(target, 1.0, 0.0, 0.0);
 	}
 
 	TEST(Curvature, controlTest)
@@ -21,7 +21,7 @@ namespace etrobocon2019_test
 		Curvature curvature(target, 1.0, 0.0, 0.0);
 
 		double pidValue
-				= curvature.control(controller.getLeftMotorCount(), controller.getRightMotorCount());
+			= curvature.control(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
 		ASSERT_DOUBLE_EQ(0.0, pidValue);
 	}
