@@ -46,4 +46,4 @@ namespace etrobocon2019_test
 		ASSERT_LE(0.0, pidValue);
 		ASSERT_LE(pidValue, 1.0);
 	}
-} // namespace etrobocon2019_test
+}// namespace etrobocon2019_test
