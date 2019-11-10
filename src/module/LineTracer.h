@@ -17,8 +17,6 @@ struct NormalCourseProperty {
   int targetDistance;
   // 目標スピード
   int targetSpeed;
-  // speedPid
-  ConstPidGain speedPid;
   // turnPid
   ConstPidGain turnPid;
 };
