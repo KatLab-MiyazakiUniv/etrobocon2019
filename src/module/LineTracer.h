@@ -17,6 +17,8 @@ struct NormalCourseProperty {
   int targetDistance;
   // 目標スピード
   int targetSpeed;
+  // 曲率
+  double curvature;
   // turnPid
   ConstPidGain turnPid;
 };
