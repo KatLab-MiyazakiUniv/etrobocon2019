@@ -29,7 +29,7 @@ void LineTracer::run(const NormalCourseProperty& settings)
   int speedValue = 0;                                      // 直進値
   int leftPWM = 0;                                         // 左モータの出力
   int rightPWM = 0;                                        // 右モータの出力
-  Curvature curvature(settings.curvature, 0.6, 0.1, 0.0);  // 曲率PID制御
+  Curvature curvature(settings.curvature, 1.0, 1.8, 0.0);  // 曲率PID制御
   constexpr int baseSpeedRate = 640 / 70;  // PWM70で640mm/secとしたときの速度比
   // Logger logger{ "a" };
 
