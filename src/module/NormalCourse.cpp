@@ -59,7 +59,8 @@ void NormalCourse::runNormalCourse()
   constexpr std::array<NormalCourseProperty, arraySize> normalCoursePropertyR
       /**
        * 詳しく見たいならLineTracer.hを見てね．
-       * 進む距離，目標スピード，スピードpid，ターンpid
+       * 進む距離，目標スピード，曲率，ターンpid
+       * 曲率は、直進のとき0.0を指定する
        */
       = { {
           { 750, baseSpeed, 0.0, { 0.4, 0.005, 0.02 } },           // 第1区間

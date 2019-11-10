@@ -10,6 +10,7 @@
 #include "Distance.h"
 #include "TurnControl.h"
 #include "Pid.h"
+#include "Curvature.h"
 
 struct NormalCourseProperty {
   // 目標距離
