@@ -6,9 +6,9 @@
 #include "Calibrator.h"
 
 Calibrator::Calibrator(Controller& controller_)
-  : controller(controller_),
-    isCameraMode(true),
-    isLeft(true){}
+  : controller(controller_), isCameraMode(true), isLeft(true)
+{
+}
 
 bool Calibrator::calibration()
 {
@@ -114,9 +114,9 @@ bool Calibrator::setBrightness(Brightness brightness)
       break;
     }
 
-    int r, g, b;
-    controller.getRawColor(r, g, b);
-    Display::print(4, "R:%3d, G:%3d, B:%3d", r, g, b);
+    rgb_raw_t rgb;
+    controller.colorSensor.getRawColor(rgb);
+    Display::print(4, "R:%3d, G:%3d, B:%3d", rgb.r, rgb.g, rgb.b);
 
     controller.tslpTsk(4);
   }
