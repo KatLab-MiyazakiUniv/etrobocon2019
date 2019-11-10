@@ -16,11 +16,13 @@ class Curvature
   Pid pid;
   double targetCurvature;
   PidGain pidGain;
-  static constexpr double Tread = 140.0;
+  double preDistance;
+  double preTheta;
+  static constexpr double Tread = 130.0;
 
  public:
-	Curvature(double targetCurvature, double Kp, double Ki, double Kd);
-	double control(int leftAngle, int rightAngle);
+  Curvature(double targetCurvature, double Kp, double Ki, double Kd);
+  double control(int leftAngle, int rightAngle, int velocity = 600);
 
 };
 
