@@ -31,7 +31,7 @@ void NormalCourse::setIsLeftCourse(bool isLeftCourse_)
 void NormalCourse::runNormalCourse()
 {
   // 配列の個数
-  constexpr int arraySize = 13;
+  constexpr int arraySize = 15;
   constexpr int baseSpeed = 70;
   constexpr std::array<NormalCourseProperty, arraySize> normalCoursePropertyL
       /**
@@ -39,21 +39,21 @@ void NormalCourse::runNormalCourse()
        * 進む距離，目標スピード，スピードpid，ターンpid
        */
       = { {
-          { 600, baseSpeed, { 0.4, 0.005, 0.02 } },       // 第1区間
-          { 800, baseSpeed, { 0.4, 0.0, 0.02 } },         // 第2区間
-          { 1300, baseSpeed, { 0.4, 0.0, 0.02 } },        // 第3区間
-          { 760, baseSpeed - 10, { 0.4, 0.005, 0.03 } },  // 第4区間
-          { 740, baseSpeed - 14, { 0.4, 0.005, 0.03 } },  // 第5区間
-          { 470, baseSpeed - 10, { 0.4, 0.005, 0.03 } },  // 第6区間
-          { 1280, baseSpeed, { 0.4, 0.005, 0.025 } },     // 第7区間
-          { 700, baseSpeed, { 0.4, 0.005, 0.025 } },      // 第8区間
-          { 950, baseSpeed - 11, { 0.4, 0.005, 0.03 } },  // 第9区間
-          { 750, baseSpeed - 11, { 0.5, 0.0, 0.03 } },    // 第10区間
-          { 1400, baseSpeed - 2, { 0.5, 0.0, 0.03 } },    // 第11区間
-
-          { 1500, baseSpeed / 3, { 0.4, 0.0, 0.04 } },  //進入ライン
-          { 350, baseSpeed / 4, { 0.55, 0.0, 0.04 } },  //本番で要調整
-
+          { 750, baseSpeed, { 0.4, 0.005, 0.02 } },       // 第1区間
+          { 305, baseSpeed, { 0.4, 0.0, 0.02 } },         // 第2区間
+          { 580, baseSpeed, { 0.4, 0.0, 0.02 } },         // 第3区間
+          { 405, baseSpeed - 10, { 0.4, 0.005, 0.03 } },  // 第4区間
+          { 354, baseSpeed - 14, { 0.4, 0.005, 0.03 } },  // 第5区間
+          { 534, baseSpeed - 10, { 0.4, 0.005, 0.03 } },  // 第6区間
+          { 250, baseSpeed, { 0.4, 0.005, 0.025 } },      // 第7区間
+          { 353, baseSpeed, { 0.4, 0.005, 0.025 } },      // 第8区間
+          { 900, baseSpeed - 11, { 0.4, 0.005, 0.03 } },  // 第9区間
+          { 302, baseSpeed - 11, { 0.5, 0.0, 0.03 } },    // 第10区間
+          { 170, baseSpeed - 2, { 0.5, 0.0, 0.03 } },     // 第11区間
+          { 153, baseSpeed, { 0.5, 0.0, 0.03 } },         // 第12区間
+          { 583, baseSpeed, { 0.5, 0.0, 0.03 } },         // 第13区間
+          { 2085, baseSpeed / 3, { 0.4, 0.0, 0.04 } },    //進入ライン
+          { 233, baseSpeed / 4, { 0.55, 0.0, 0.04 } },    //本番で要調整
       } };
   constexpr std::array<NormalCourseProperty, arraySize> normalCoursePropertyR
       /**
@@ -61,21 +61,21 @@ void NormalCourse::runNormalCourse()
        * 進む距離，目標スピード，スピードpid，ターンpid
        */
       = { {
-          { 600, baseSpeed, { 0.4, 0.005, 0.02 } },       // 第1区間
-          { 800, baseSpeed, { 0.4, 0.0, 0.02 } },         // 第2区間
-          { 1300, baseSpeed, { 0.4, 0.0, 0.02 } },        // 第3区間
-          { 760, baseSpeed - 10, { 0.4, 0.005, 0.03 } },  // 第4区間
-          { 740, baseSpeed - 14, { 0.4, 0.005, 0.03 } },  // 第5区間
-          { 470, baseSpeed - 10, { 0.4, 0.005, 0.03 } },  // 第6区間
-          { 1280, baseSpeed, { 0.4, 0.005, 0.025 } },     // 第7区間
-          { 700, baseSpeed, { 0.4, 0.005, 0.025 } },      // 第8区間
-          { 950, baseSpeed - 11, { 0.4, 0.005, 0.03 } },  // 第9区間
-          { 750, baseSpeed - 11, { 0.5, 0.0, 0.03 } },    // 第10区間
-          { 1400, baseSpeed - 2, { 0.5, 0.0, 0.03 } },    // 第11区間
-
-          { 1500, baseSpeed / 3, { 0.4, 0.0, 0.04 } },  //進入ライン
-          { 350, baseSpeed / 4, { 0.55, 0.0, 0.04 } },  //本番で要調整
-
+          { 750, baseSpeed, { 0.4, 0.005, 0.02 } },       // 第1区間
+          { 305, baseSpeed, { 0.4, 0.0, 0.02 } },         // 第2区間
+          { 580, baseSpeed, { 0.4, 0.0, 0.02 } },         // 第3区間
+          { 405, baseSpeed - 10, { 0.4, 0.005, 0.03 } },  // 第4区間
+          { 354, baseSpeed - 14, { 0.4, 0.005, 0.03 } },  // 第5区間
+          { 534, baseSpeed - 10, { 0.4, 0.005, 0.03 } },  // 第6区間
+          { 250, baseSpeed, { 0.4, 0.005, 0.025 } },      // 第7区間
+          { 353, baseSpeed, { 0.4, 0.005, 0.025 } },      // 第8区間
+          { 900, baseSpeed - 11, { 0.4, 0.005, 0.03 } },  // 第9区間
+          { 302, baseSpeed - 11, { 0.5, 0.0, 0.03 } },    // 第10区間
+          { 170, baseSpeed - 2, { 0.5, 0.0, 0.03 } },     // 第11区間
+          { 153, baseSpeed, { 0.5, 0.0, 0.03 } },         // 第12区間
+          { 583, baseSpeed, { 0.5, 0.0, 0.03 } },         // 第13区間
+          { 2085, baseSpeed / 3, { 0.4, 0.0, 0.04 } },    //進入ライン
+          { 233, baseSpeed / 4, { 0.55, 0.0, 0.04 } },    //本番で要調整
       } };
   // LコースならLコースのPID値を採用する。RコースならRコースのPID値を採用する。
   const std::array<NormalCourseProperty, arraySize> normalCourseProperty
