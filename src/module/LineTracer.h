@@ -8,7 +8,6 @@
 
 #include "Controller.h"
 #include "Distance.h"
-#include "SpeedControl.h"
 #include "TurnControl.h"
 #include "Pid.h"
 
@@ -50,8 +49,6 @@ class LineTracer {
   int targetBrightness;
   bool isLeftCourse;
   Distance distance;
-
-  SpeedControl speedControl;
   TurnControl turnControl;
 };
 

@@ -12,7 +12,6 @@ LineTracer::LineTracer(Controller& controller_, int targetBrightness_, bool isLe
     targetBrightness(targetBrightness_),
     isLeftCourse(isLeftCourse_),
     distance(),
-    speedControl(controller, 0.0, 0.0, 0.0, 0.0),
     turnControl(targetBrightness_, 0.0, 0.0, 0.0)
 {
   //  Logger logger{ "dataw.csv" };
