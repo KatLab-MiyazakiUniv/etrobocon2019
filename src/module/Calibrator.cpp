@@ -13,8 +13,12 @@ Calibrator::Calibrator(Controller& controller_)
 bool Calibrator::calibration()
 {
   Display::print(2, "Adjust the arm position...");
+  Display::print(3, "  Auto: Touch Button");
+  Display::print(4, "  Manual: Enter Button");
   this->setArm();
   Display::print(2, "Calibration...");
+  Display::print(3, "");
+  Display::print(4, "");
 
   if(!setCameraMode()) {
     Display::print(2, "Error setCameraMode!");
@@ -153,6 +157,10 @@ void Calibrator::setArm()
 {
   while(!controller.touchSensor.isPressed()) {
     controller.tslpTsk(4);
+
+    if(controller.buttonIsPressedEnter()){
+      return;
+    }
   }
   controller.moveArm(50);
   controller.stopLiftMotor();
