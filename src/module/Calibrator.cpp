@@ -121,9 +121,9 @@ bool Calibrator::setBrightness(Brightness brightness)
       break;
     }
 
-    int r, g, b;
-     controller.colorSensor.getRawColor(rgb);
-    Display::print(6, "R:%3d, G:%3d, B:%3d", r, g, b);
+    rgb_raw_t rgb;
+    controller.colorSensor.getRawColor(rgb);
+    Display::print(6, "R:%3d, G:%3d, B:%3d", rgb.r, rgb.g, rgb.b);
 
     controller.tslpTsk(4);
   }
