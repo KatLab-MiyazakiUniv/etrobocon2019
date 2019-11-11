@@ -35,8 +35,10 @@ bool Calibrator::calibration()
     Display::print(2, "Error setBrightness Black!");
     return false;
   }
+  Display::print(5, "White: %3d %3d %3d", controller.standardWhite.r, controller.standardWhite.g, controller.standardWhite.b);
+  Display::print(6, "Black: %3d %3d %3d", controller.standardBlack.r, controller.standardBlack.g, controller.standardBlack.b);
 
-  Display::print(5, "Calibration was completed!");
+  Display::print(7, "Calibration was completed!");
 
   return true;
 }
@@ -104,6 +106,7 @@ bool Calibrator::setBrightness(Brightness brightness)
   } else {
     return false;
   }
+  Display::print(5, "Set Brightness: %s ?", name);
 
   controller.tslpTsk(500);
 
@@ -116,7 +119,7 @@ bool Calibrator::setBrightness(Brightness brightness)
 
     int r, g, b;
     controller.getRawColor(r, g, b);
-    Display::print(4, "R:%3d, G:%3d, B:%3d", r, g, b);
+    Display::print(6, "R:%3d, G:%3d, B:%3d", r, g, b);
 
     controller.tslpTsk(4);
   }
