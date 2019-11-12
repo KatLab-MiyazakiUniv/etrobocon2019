@@ -52,6 +52,9 @@ class Calibrator {
   /** アーム位置の自動調整 */
   void setArm();
 
+  /** ディスプレイに表示されているものを消す */
+  void deleteDisplayedText(int startTarget = 1,int endTarget = 11);
+
 private:
   Controller& controller;
   bool isCameraMode;  // カメラシステムを使用するかどうか(Trueなら使用する)
