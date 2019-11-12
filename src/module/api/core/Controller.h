@@ -46,6 +46,11 @@ class Controller {
   // モータ入力電圧の最小値
   static constexpr int MOTOR_PWM_MIN = -100;
 
+  // 白色のデフォルト値
+  rgb_raw_t standardWhite;
+  // 黒色のデフォルト値
+  rgb_raw_t standardBlack;
+
   void speakerSetVolume(int volume);
   void ledSetColorOrange();
   void ledSetColorGreen();
@@ -102,8 +107,6 @@ class Controller {
   Motor rightWheel;
   Motor leftWheel;
   Motor tailMotor;
-  rgb_raw_t standardWhite;
-  rgb_raw_t standardBlack;
 
   static int suppressPwmValue(const int value);
 };
