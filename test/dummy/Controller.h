@@ -16,6 +16,13 @@ unsigned struct HsvStatus {
   double value;
 };
 
+struct rgb_raw_t {
+  unsigned int r;
+  unsigned int g;
+  unsigned int b;
+  rgb_raw_t() : r(0), g(0), b(0){}
+};
+
 enum class Color { black, red, green, blue, yellow, white };
 
 class Motor {
@@ -45,12 +52,19 @@ class TouchSensor {
 class ColorSensor {
  public:
   int getBrightness() { return brightness; }
+  void getRawColor(rgb_raw_t& rgb)
+  {
+    rgb.r = 1;
+    rgb.g = 1;
+    rgb.b = 1;
+  }
   int brightness = 0;
 };
 
 class GyroSensor {
  public:
   int getAngle() { return angle; }
+  void reset(){};
   int angle = 0;
 };
 
@@ -271,18 +285,7 @@ class Controller {
   };
   int getAngleOfRotation()
   {
-    int angle = gyroSensor.getAngle();
-
-    return limitAngle(angle);
-  }
-  int limitAngle(int angle)
-  {
-    angle = angle % 360;
-    if(angle < 0) {
-      angle = 360 + angle;
-      angle = limitAngle(angle);
-    }
-    return angle;
+    return gyroSensor.getAngle();
   }
   void moveArm(int count, int pwm = 10)
   {
@@ -320,6 +323,29 @@ class Controller {
     if(colorBufferSize <= colorBufferCounter) {
       colorBufferCounter = 0;
     }
+  }
+
+  void resetGyroSensor()
+  {
+    // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
+    while(gyroSensor.getAngle() != 0) gyroSensor.reset();
+  }
+
+  void stopLiftMotor()
+  {
+  this->resetArmMotorCount();
+  }
+
+  rgb_raw_t standardWhite;
+  void setStandardWhite(const rgb_raw_t& rgb)
+  {
+    standardWhite = rgb;
+  }
+
+  rgb_raw_t standardBlack;
+  void setStandardBlack(const rgb_raw_t& rgb)
+  {
+    standardBlack = rgb;
   }
 };
 #endif

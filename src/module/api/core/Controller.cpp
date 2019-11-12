@@ -1,4 +1,3 @@
-
 #include "Controller.h"
 
 Controller::Controller()
@@ -10,7 +9,8 @@ Controller::Controller()
     leftWheel(PORT_C),
     tailMotor(PORT_D)
 {
-  colorSensor.getRawColor(rgb);
+  colorSensor.getRawColor(standardWhite);
+  colorSensor.getRawColor(standardBlack);
 }
 
 void Controller::speakerSetVolume(int volume)
@@ -70,17 +70,31 @@ float Controller::getBatteryVoltage()
 
 int Controller::getBrightness()
 {
-  colorSensor.getRawColor(rgb);
-  int luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;
+  int r, g, b;
+  getRawColor(r, g, b);
+  int luminance = 0.298912 * r + 0.586611 * g + 0.114478 * b;
   return luminance;
+}
+
+int limitRgbValue(const int value)
+{
+  constexpr int max = 255;
+  constexpr int min = 0;
+  if(value >= max) {
+    return max;
+  } else if(value <= min) {
+    return min;
+  }
+  return value;
 }
 
 void Controller::getRawColor(int& r, int& g, int& b)
 {
+  rgb_raw_t rgb;
   colorSensor.getRawColor(rgb);
-  r = rgb.r;
-  g = rgb.g;
-  b = rgb.b;
+  r = limitRgbValue(static_cast<double>((rgb.r - standardBlack.r)) * 255 / (standardWhite.r - standardBlack.r));
+  g = limitRgbValue(static_cast<double>((rgb.g - standardBlack.g)) * 255 / (standardWhite.g - standardBlack.g));
+  b = limitRgbValue(static_cast<double>((rgb.b - standardBlack.b)) * 255 / (standardWhite.b - standardBlack.b));
 }
 
 Color Controller::hsvToColor(const HsvStatus& status)
@@ -163,13 +177,13 @@ Color Controller::hsvToColor(const HsvStatus& status)
         }
       } else {
         return Color::black;
-        
       }
     }
   }
 }
 
-Color Controller::getColor(){
+Color Controller::getColor()
+{
   int r, g, b;
   r = g = b = 0;
   this->getRawColor(r, g, b);
@@ -177,10 +191,11 @@ Color Controller::getColor(){
   return this->hsvToColor(this->getHsv());
 }
 
-void Controller::registerColor(){
+void Controller::registerColor()
+{
   colorBuffer[colorBufferCounter] = getColor();
   colorBufferCounter++;
-  if(colorBufferSize <= colorBufferCounter){
+  if(colorBufferSize <= colorBufferCounter) {
     colorBufferCounter = 0;
   }
 }
@@ -261,6 +276,17 @@ void Controller::setArmMotorPwm(const int pwm)
   liftMotor.setPWM(suppressPwmValue(pwm));
 }
 
+void Controller::setStandardWhite(const rgb_raw_t& rgb)
+{
+  standardWhite = rgb;
+}
+
+void Controller::setStandardBlack(const rgb_raw_t& rgb)
+{
+  standardBlack = rgb;
+}
+
+
 void Controller::convertHsv(int& r, int& g, int& b)
 {
   // r,g,bの最大値を求める
@@ -328,20 +354,7 @@ void Controller::stopMotor()
 
 int Controller::getAngleOfRotation()
 {
-  int angle = gyroSensor.getAngle();
-  //角度を[0-360]の範囲で表す,
-  //右手系(反時計回り)が正である
-  return Controller::limitAngle(angle);
-}
-
-int Controller::limitAngle(int angle)
-{
-  angle = angle % 360;
-  if(angle < 0) {
-    angle = 360 + angle;
-    angle = limitAngle(angle);
-  }
-  return angle;
+  return gyroSensor.getAngle();
 }
 
 void Controller::moveArm(int count, int pwm)
@@ -366,4 +379,16 @@ void Controller::moveArm(int count, int pwm)
 void Controller::resetArmMotorCount()
 {
   liftMotor.reset();
+}
+
+void Controller::resetGyroSensor()
+{
+  // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
+  while(gyroSensor.getAngle() != 0) gyroSensor.reset();
+}
+
+void Controller::stopLiftMotor()
+{
+  this->resetArmMotorCount();
+  this->tslpTsk(1500);
 }

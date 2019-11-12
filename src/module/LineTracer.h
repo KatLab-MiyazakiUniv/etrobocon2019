@@ -18,9 +18,9 @@ struct NormalCourseProperty {
   // 目標スピード
   int targetSpeed;
   // speedPid
-  PidGain speedPid;
+  ConstPidGain speedPid;
   // turnPid
-  PidGain turnPid;
+  ConstPidGain turnPid;
 };
 
 class LineTracer {

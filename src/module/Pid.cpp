@@ -5,7 +5,10 @@
  */
 #include "Pid.h"
 
-PidGain::PidGain(double Kp_, double Ki_, double Kd_) : Kp(Kp_), Ki(Ki_), Kd(Kd_) {}
+PidGain::PidGain(double Kp_, double Ki_, double Kd_)
+  : ConstPidGain(Kp_, Ki_, Kd_)//, Kp(Kp_), Ki(Ki_), Kd(Kd_)
+{
+}
 
 Pid::Pid(double target_, double Kp_, double Ki_, double Kd_)
   : target(target_), gain(Kp_, Ki_, Kd_), integral(0.0f), preError(0.0f)
