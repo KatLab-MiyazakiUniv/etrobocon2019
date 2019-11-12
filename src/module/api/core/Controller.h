@@ -46,6 +46,11 @@ class Controller {
   // モータ入力電圧の最小値
   static constexpr int MOTOR_PWM_MIN = -100;
 
+  // 白色のデフォルト値
+  rgb_raw_t standardWhite;
+  // 黒色のデフォルト値
+  rgb_raw_t standardBlack;
+
   void speakerSetVolume(int volume);
   void ledSetColorOrange();
   void ledSetColorGreen();
@@ -73,6 +78,8 @@ class Controller {
   void setLeftMotorPwm(const int pwm);
   void setRightMotorPwm(const int pwm);
   void setArmMotorPwm(const int pwm);
+  void setStandardWhite(const rgb_raw_t& rgb);
+  void setStandardBlack(const rgb_raw_t& rgb);
   void resetMotorCount();
   void stopMotor();
   int getAngleOfRotation();
@@ -95,7 +102,6 @@ class Controller {
   void stopLiftMotor();
 
  private:
-  rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;
   Motor rightWheel;

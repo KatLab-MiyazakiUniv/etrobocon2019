@@ -16,6 +16,13 @@ unsigned struct HsvStatus {
   double value;
 };
 
+struct rgb_raw_t {
+  unsigned int r;
+  unsigned int g;
+  unsigned int b;
+  rgb_raw_t() : r(0), g(0), b(0){}
+};
+
 enum class Color { black, red, green, blue, yellow, white };
 
 class Motor {
@@ -45,6 +52,12 @@ class TouchSensor {
 class ColorSensor {
  public:
   int getBrightness() { return brightness; }
+  void getRawColor(rgb_raw_t& rgb)
+  {
+    rgb.r = 1;
+    rgb.g = 1;
+    rgb.b = 1;
+  }
   int brightness = 0;
 };
 
@@ -321,6 +334,18 @@ class Controller {
   void stopLiftMotor()
   {
   this->resetArmMotorCount();
+  }
+
+  rgb_raw_t standardWhite;
+  void setStandardWhite(const rgb_raw_t& rgb)
+  {
+    standardWhite = rgb;
+  }
+
+  rgb_raw_t standardBlack;
+  void setStandardBlack(const rgb_raw_t& rgb)
+  {
+    standardBlack = rgb;
   }
 };
 #endif
