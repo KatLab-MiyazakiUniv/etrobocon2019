@@ -116,47 +116,38 @@ class Controller {
 
   void convertHsv(int& r, int& g, int& b)
   {
+    // r,g,bの最大値を求める
     double max = r;
-    if(max < g) {
-      max = g;
-    }
-    if(max < b) {
-      max = b;
-    }
-    double min = r;
-    if(min > g) {
-      min = g;
-    }
-    if(min > b) {
-      min = b;
-    }
-
-    // 色相(hue)を求める
-    if(r == g && r == b) {
-      hsv.hue = 0;
-    }
-
-    else if(max == r) {
-      hsv.hue = 60 * ((g - b) / (max - min));
-    }
-
-    else if(max == g) {
-      hsv.hue = 60 * ((b - r) / (max - min)) + 120;
-    }
-
-    else if(max == b) {
-      hsv.hue = 60 * ((r - g) / (max - min)) + 240;
-    }
-
-    if(hsv.hue < 0) {
-      hsv.hue += 360;
-    }
-
-    // 彩度(saturation)を求める
-    hsv.saturation = (max - min) / max * 100;
+    if(max < g) max = g;
+    if(max < b) max = b;
 
     // 明度(value)を求める
     hsv.value = max / 255 * 100;
+
+    if (hsv.value == 0)
+    {
+      hsv.hue = 0;
+      hsv.saturation = 0;
+      return;
+    }
+
+    // r,g,bの最小値を求める
+    double min = r;
+    if(min > g) min = g;
+    if(min > b) min = b;
+
+    double diff = max - min;
+
+    // 彩度(saturation)を求める
+    hsv.saturation = diff / max * 100.0;
+
+    // 色相(hue)を求める
+    if(r == g && r == b) hsv.hue = 0;
+    else if(max == r) hsv.hue = 60.0 * ((g - b) / diff);
+    else if(max == g) hsv.hue = 60.0 * ((b - r) / diff) + 120.0;
+    else if(max == b) hsv.hue = 60.0 * ((r - g) / diff) + 240.0;
+
+    if(hsv.hue < 0.0) hsv.hue += 360.0;
   }
 
   HsvStatus getHsv() { return hsv; }  // hsv値を返す
