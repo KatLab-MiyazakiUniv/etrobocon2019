@@ -10,6 +10,7 @@
 
 #include "Controller.h"
 #include "Distance.h"
+#include "Filter.h"
 #include "Pid.h"
 #include "SpeedControl.h"
 #include "Rotation.h"
@@ -74,8 +75,19 @@ class Navigator {
    * @param angle [回頭角度(正の値)]
    * @param clockwise [時計回りに回転するかどうか(デフォルトで時計回り)]
    * @param pwm [モーターパワー]
+   * @param weight [重み]
    */
-  void spin(double angle, bool clockwise = true, int pwm = 10);
+  void spin(double angle, bool clockwise = true, int pwm = 10, double weight = 0.94);
+  /**
+   * 指定した距離までライントレースする
+   * @param specifiedDistance [指定した距離(mm)。正なら前進、負なら後進。]
+   * @param pwm [モーターパワー(正の値)]
+   * @param encoderPGain [エンコーダーの値をP制御する際に使用するPゲイン]
+   * @param lineTracePGain [ライントレースに使用するPゲイン]
+   * @param isLeft [左エッジならtrue]
+   */
+  void traceBlackLine(double specifiedDistance, int pwm = 10, double encoderPGain = 0.6,
+                      double lineTracePGain = 0.6, bool isLeft = true);
   /**
    * 指定した色までライントレースする
    * @brief 黒と白以外の色までOn Off制御でライントレースをする

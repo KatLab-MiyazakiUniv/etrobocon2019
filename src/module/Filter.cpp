@@ -40,6 +40,12 @@ double Filter<T>::lowPassFilter(T value, double rate)
   return filtered;
 }
 
+template <typename T>
+double Filter<T>::complementaryFilter(T heavyValue, T lightValue, double rate)
+{
+  return rate * heavyValue + (1 - rate) * lightValue;
+}
+
 // 明示的なインスタンス化
 template class Filter<int>;
 template class Filter<float>;

@@ -46,6 +46,11 @@ class Controller {
   // モータ入力電圧の最小値
   static constexpr int MOTOR_PWM_MIN = -100;
 
+  // 白色のデフォルト値
+  rgb_raw_t standardWhite;
+  // 黒色のデフォルト値
+  rgb_raw_t standardBlack;
+
   void speakerSetVolume(int volume);
   void ledSetColorOrange();
   void ledSetColorGreen();
@@ -63,7 +68,7 @@ class Controller {
   void convertHsv(int& r, int& g, int& b);  // RGBをHSV変換する
   HsvStatus getHsv() const;
   Color hsvToColor(const HsvStatus& status);  // HSVから色を識別する
-  Color determineColor(int colorNum = 6);  // 多数決によって色を決定する
+  Color determineColor(int colorNum = 6);     // 多数決によって色を決定する
   static void lcdFillRect(int x, int y, int h);
   static void lcdDrawString(const char* str, int x, int y);
   static void lcdSetFont();
@@ -73,12 +78,14 @@ class Controller {
   void setLeftMotorPwm(const int pwm);
   void setRightMotorPwm(const int pwm);
   void setArmMotorPwm(const int pwm);
+  void setStandardWhite(const rgb_raw_t& rgb);
+  void setStandardBlack(const rgb_raw_t& rgb);
   void resetMotorCount();
   void stopMotor();
   int getAngleOfRotation();
-  int limitAngle(int angle);
   Color getColor();
   void registerColor();
+  void resetGyroSensor();
   static constexpr int colorBufferSize = 10;
   static std::array<Color, colorBufferSize> colorBuffer;
   static int colorBufferCounter;
@@ -90,11 +97,11 @@ class Controller {
    * [カラーセンサーが地面に対して垂直に向いている状態をcount=0としたとき、countの最大値が約40、最小値が約-20]
    * @param pwm [モーターパワー]
    */
-  void moveArm(int count, int pwm = 10);
+  void moveArm(int count, int pwm = 45);
   void resetArmMotorCount();
+  void stopLiftMotor();
 
  private:
-  rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;
   Motor rightWheel;

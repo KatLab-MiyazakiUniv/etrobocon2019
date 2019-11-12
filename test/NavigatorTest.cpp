@@ -241,6 +241,7 @@ namespace etrobocon2019_test {
   {
     Controller controller;
     Rotation rotation;
+    Filter<> filter;
     int targetBrightness = 70;
     Navigator navigator(controller, targetBrightness);
 
@@ -248,11 +249,32 @@ namespace etrobocon2019_test {
     navigator.spin(expected);
 
     double actual
-        = rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount());
+        = filter.complementaryFilter(rotation.calculate(controller.getLeftMotorCount(), controller.getRightMotorCount()),
+                                    std::abs(static_cast<double>(controller.getAngleOfRotation())));
 
     // 回頭角度の精度は、期待出力 + 5度まで許容する
     ASSERT_LE(expected, actual);
     ASSERT_GE(expected + 5, actual);
+  }
+
+  TEST(Navigator, traceBlackLineTest)
+  {
+    Controller controller;
+    int targetBrightness = 70;
+    Navigator navigator(controller, targetBrightness);
+    Distance distance;
+
+    double expected = 100.0;
+    double start
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
+
+    navigator.traceBlackLine(expected, 15, 0.70, 0.10);
+    double end
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
+    double actual = end - start;
+
+    ASSERT_LE(expected, actual);
+    ASSERT_LE(actual, expected + 5.0);
   }
 
   // 黒以外の識別はテストできない
