@@ -13,7 +13,7 @@ Calibrator::Calibrator(Controller& controller_)
 bool Calibrator::calibration()
 {
   this->setArm();
-  this->deleteDisplayedText();
+  this->deleteDisplayedText(5);
   Display::print(2, "Calibration...");
   if(!setCameraMode()) {
     Display::print(2, "Error setCameraMode!");
@@ -173,14 +173,9 @@ void Calibrator::setArm()
   }
 }
 
-void Calibrator::deleteDisplayedText()
+void Calibrator::deleteDisplayedText(int target)
 {
-  Display::print(1, "");
-  Display::print(2, "");
-  Display::print(3, "");
-  Display::print(4, "");
-  Display::print(5, "");
-  Display::print(6, "");
-  Display::print(7, "");
-  Display::print(8, "");
+  for (int i = 1; i <= target; i++){
+    Display::print(i, "");
+  }
 }

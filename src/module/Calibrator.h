@@ -53,7 +53,7 @@ class Calibrator {
   void setArm();
 
   /** ディスプレイに表示されているものを消す */
-  void deleteDisplayedText();
+  void deleteDisplayedText(int target = 8);
 
 private:
   Controller& controller;
