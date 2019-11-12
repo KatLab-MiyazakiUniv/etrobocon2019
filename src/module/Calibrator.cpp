@@ -173,9 +173,9 @@ void Calibrator::setArm()
   }
 }
 
-void Calibrator::deleteDisplayedText(int target)
+void Calibrator::deleteDisplayedText(int startTarget,int endTarget)
 {
-  for (int i = 1; i <= target; i++){
+  for (int i = startTarget; i <= endTarget; i++){
     Display::print(i, "");
   }
 }
