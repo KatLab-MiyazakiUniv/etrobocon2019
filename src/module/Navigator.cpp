@@ -39,17 +39,10 @@ void Navigator::move(double specifiedDistance, int pwm, const double pGain)
 
 void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
 {
-  if(specifiedColor == Color::black || specifiedColor == Color::white) {
-    while(specifiedColor != recognizeBlack(controller.getBrightness())) {
-      setPwmValue(pwm);
-      controller.tslpTsk(4);
-    }
-  } else {
-    // 特定の色まで移動する
-    while(controller.determineColor() != specifiedColor) {
-      setPwmValue(pwm);
-      controller.tslpTsk(4);
-    }
+  // 特定の色まで移動する
+  while(controller.determineColor() != specifiedColor) {
+    setPwmValue(pwm);
+    controller.tslpTsk(4);
   }
   controller.stopMotor();
 }
@@ -100,11 +93,6 @@ void Navigator::setPwmValue(int pwm, double alpha)
 {
   controller.setRightMotorPwm(pwm + static_cast<int>(alpha));
   controller.setLeftMotorPwm(pwm - static_cast<int>(alpha));
-}
-
-Color Navigator::recognizeBlack(int brightness)
-{
-  return brightness < targetBrightness ? Color::black : Color::white;
 }
 
 void Navigator::traceBlackLine(double specifiedDistance, int pwm, double encoderPGain,

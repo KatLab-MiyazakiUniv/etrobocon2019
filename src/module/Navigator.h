@@ -105,12 +105,6 @@ class Navigator {
    * @return なし
    */
   void setPwmValue(int pwm, double alpha = 0.0);
-  /**
-   * 現在とっている色が黒かを判断する
-   * @param brightness [現在のカラーセンサーの取得値]
-   * @return 黒ならtrue、白ならfalseを返す
-   */
-  Color recognizeBlack(int brightness);
 };
 
 #endif
