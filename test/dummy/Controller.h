@@ -152,26 +152,48 @@ class Controller {
 
   HsvStatus getHsv() { return hsv; }  // hsv値を返す
 
-  Color hsvToColor(HsvStatus hsv)
+  Color hsvToColor(const HsvStatus& status)
   {
-    // 白黒の識別
-    if(hsv.value < 13.0) {
-      return Color::black;
-    } else if(hsv.value > 50.0) {
-      return Color::white;
-    }
-
-    // 赤緑青黃の識別
-    if(hsv.hue < 30) {
-      return Color::red;
-    } else if(hsv.hue < 80.0) {
-      return Color::yellow;
-    } else if(hsv.hue < 160.0) {
-      return Color::green;
-    } else if(hsv.hue < 300.0) {
-      return Color::blue;
+    if(status.saturation <= 25.388) {
+      if(status.value <= 69.841) {
+        return Color::black;
+      } else {
+        return Color::white;
+      }
     } else {
-      return Color::red;
+      if(status.value <= 29.037) {
+        return Color::black;
+      } else {
+        if(status.hue <= 125.776) {
+          if(status.hue <= 63.737) {
+            if(status.hue <= 49.617) {
+              if(status.hue <= 22.134) {
+                return Color::red;
+              } else {
+                return Color::yellow;
+              }
+            } else {
+              return Color::yellow;
+            }
+          } else {
+            return Color::green;
+          }
+        } else {
+          if(status.hue <= 312.573) {
+            if(status.saturation <= 79.553) {
+              if(status.value <= 57.333) {
+                return Color::green;
+              } else {
+                return Color::blue;
+              }
+            } else {
+              return Color::blue;
+            }
+          } else {
+            return Color::red;
+          }
+        }
+      }
     }
   }
 

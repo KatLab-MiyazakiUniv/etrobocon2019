@@ -99,84 +99,44 @@ void Controller::getRawColor(int& r, int& g, int& b)
 
 Color Controller::hsvToColor(const HsvStatus& status)
 {
-  if(status.hue <= 87.2984) {
-    if(status.value <= 22.9412) {
+  if(status.saturation <= 25.388) {
+    if(status.value <= 69.841) {
       return Color::black;
     } else {
-      if(status.hue <= 44.0) {
-        return Color::red;
-      } else {
-        if(status.saturation <= 46.6505) {
-          return Color::white;
-        } else {
-          if(status.hue <= 80.6818) {
-            return Color::yellow;
-          } else {
-            return Color::black;
-          }
-        }
-      }
+      return Color::white;
     }
   } else {
-    if(status.hue <= 127.9044) {
-      if(status.hue <= 104.1311) {
-        if(status.saturation <= 52.2948) {
-          if(status.value <= 28.8235) {
-            return Color::black;
-          } else {
-            if(status.value <= 64.7059) {
-              return Color::white;
+    if(status.value <= 29.037) {
+      return Color::black;
+    } else {
+      if(status.hue <= 125.776) {
+        if(status.hue <= 63.737) {
+          if(status.hue <= 49.617) {
+            if(status.hue <= 22.134) {
+              return Color::red;
             } else {
-              if(status.hue <= 99.8571) {
-                return Color::white;
-              } else {
-                return Color::blue;
-              }
+              return Color::yellow;
             }
+          } else {
+            return Color::yellow;
           }
         } else {
-          if(status.hue <= 95.8667) {
-            return Color::black;
-          } else {
-            return Color::green;
-          }
+          return Color::green;
         }
       } else {
-        if(status.value <= 43.5294) {
-          if(status.saturation <= 44.7262) {
-            if(status.hue <= 123.5839) {
+        if(status.hue <= 312.573) {
+          if(status.saturation <= 79.553) {
+            if(status.value <= 57.333) {
               return Color::green;
             } else {
-              if(status.hue <= 126.2567) {
-                return Color::blue;
-              } else {
-                return Color::green;
-              }
+              return Color::blue;
             }
           } else {
-            return Color::green;
-          }
-        } else {
-          if(status.saturation <= 40.9765) {
-            return Color::white;
-          } else {
             return Color::blue;
           }
-        }
-      }
-    } else {
-      if(status.hue <= 226.8605) {
-        if(status.hue <= 130.5115) {
-          if(status.hue <= 129.5924) {
-            return Color::blue;
-          } else {
-            return Color::green;
-          }
         } else {
-          return Color::blue;
+          return Color::red;
         }
-      } else {
-        return Color::black;
       }
     }
   }
