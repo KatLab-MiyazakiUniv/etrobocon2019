@@ -8,17 +8,17 @@
 
 #include "Controller.h"
 #include "Distance.h"
+#include "SpeedControl.h"
 #include "TurnControl.h"
 #include "Pid.h"
-#include "Curvature.h"
 
 struct NormalCourseProperty {
   // 目標距離
   int targetDistance;
   // 目標スピード
   int targetSpeed;
-  // 曲率
-  double curvature;
+  // speedPid
+  ConstPidGain speedPid;
   // turnPid
   ConstPidGain turnPid;
 };
@@ -50,6 +50,8 @@ class LineTracer {
   int targetBrightness;
   bool isLeftCourse;
   Distance distance;
+
+  SpeedControl speedControl;
   TurnControl turnControl;
 };
 
