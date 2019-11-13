@@ -26,7 +26,7 @@ namespace etrobocon2019_test {
     LineTracer lineTracer(controller, targetBrightness, isRight);
 
     // 走行用の設定
-    NormalCourseProperty settings = { 100, 100, 0.0, { 0.6, 0.001, 0.0 } };
+    NormalCourseProperty settings = { 100, 100, { 0.1, 0.001, 0.0 }, { 0.6, 0.001, 0.0 } };
 
     // 走行する
     lineTracer.run(settings);

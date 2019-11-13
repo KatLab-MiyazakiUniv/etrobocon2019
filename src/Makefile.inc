@@ -9,6 +9,7 @@ APPL_CXXOBJS += \
     Calibrator.o \
     Pid.o \
     LineTracer.o \
+    SpeedControl.o \
     TurnControl.o \
     NormalCourse.o \
     Navigator.o \
