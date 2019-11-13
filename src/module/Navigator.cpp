@@ -40,7 +40,7 @@ void Navigator::move(double specifiedDistance, int pwm, const double pGain)
 void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
 {
   // 特定の色まで移動する
-  while(controller.determineColor() != specifiedColor) {
+  while(controller.getColor() != specifiedColor) {
     setPwmValue(pwm);
     controller.tslpTsk(4);
   }
