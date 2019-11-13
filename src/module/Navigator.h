@@ -12,6 +12,7 @@
 #include "Distance.h"
 #include "Filter.h"
 #include "Pid.h"
+#include "SpeedControl.h"
 #include "Rotation.h"
 #include <cmath>
 
@@ -23,8 +24,21 @@ class Navigator {
    * @brief Navigatorクラスのコンストラクタ
    * @param &controller_ [Controllerインスタンスの参照]
    * @param targetBrightness [黒と白の閾値]
+   * @param Kp_ [SpeedControl用のPゲイン]
+   * @param Ki_ [SpeedControl用のIゲイン]
+   * @param Kd_ [SpeedControl用のDゲイン]
    */
-  explicit Navigator(Controller& controller_, int targetBrightness_);
+  explicit Navigator(Controller& controller_, int targetBrightness_, double Kp_ = 0.60,
+                     double Ki_ = 0.0, double Kd_ = 0.0);
+
+  /**
+   * @brief SpeedControl用のPidゲインのセッター
+   * @param Kp_ [SpeedControl用のPゲイン]
+   * @param Ki_ [SpeedControl用のIゲイン]
+   * @param Kd_ [SpeedControl用のDゲイン]
+   * @return なし
+   */
+  void setPidGain(double Kp, double Ki, double Kd);
 
   /**
    * 前進と後進をする
@@ -87,6 +101,7 @@ class Navigator {
  private:
   Distance distance;
   Controller& controller;
+  PidGain pidForSpeed;
   const int targetBrightness;
   /**
    * 指定した距離動いたか判定する
