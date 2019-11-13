@@ -165,14 +165,15 @@ void Navigator::traceBlackLine(double specifiedDistance, int pwm, double encoder
   controller.stopMotor();
 }
 
-void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, double pGain,
+void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, double lineTracePGain,
                                                bool isLeft)
 {
-  Pid pid(targetBrightness, pGain);
+  TurnControl turnControl(targetBrightness, 0.0, 0.0, 0.0);
 
   // 特定の色まで移動する
-  while(controller.determineColor() != specifiedColor) {
-    double pidValue = pid.control(controller.getBrightness());
+  while(controller.getColor() != specifiedColor) {
+    double pidValue = turnControl.calculateTurn(pwm, controller.getBrightness(), targetBrightness,
+                                                lineTracePGain, 0.0, 0.0);
     this->setPwmValue(pwm, (isLeft ? pidValue : -pidValue));
     controller.tslpTsk(4);
   }
