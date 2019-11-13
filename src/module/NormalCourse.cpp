@@ -77,7 +77,7 @@ void NormalCourse::runNormalCourse()
           { 410, baseSpeed, -0.00256, { 0.5, 0.0, 0.03 } },     // 第12区間
           { 1380, baseSpeed, 0.00287, { 0.5, 0.005, 0.03 } },   // 第13区間
           { 2085, baseSpeed + 10, 0.0, { 0.4, 0.005, 0.04 } },  //進入ライン
-          { 580, baseSpeed, 0.00331, { 0.55, 0.0, 0.04 } },     //本番で要調整
+          { 580, baseSpeed, -0.00331, { 0.55, 0.0, 0.04 } },    //本番で要調整
       } };
   // LコースならLコースのPID値を採用する。RコースならRコースのPID値を採用する。
   const std::array<NormalCourseProperty, arraySize> normalCourseProperty
