@@ -6,9 +6,9 @@
 #include "Calibrator.h"
 
 Calibrator::Calibrator(Controller& controller_)
-  : controller(controller_), isCameraMode(true), isLeft(true)
-{
-}
+  : controller(controller_),
+    isCameraMode(true),
+    isLeft(true){}
 
 bool Calibrator::calibration()
 {
@@ -34,10 +34,8 @@ bool Calibrator::calibration()
     Display::print(2, "Error setBrightness Black!");
     return false;
   }
-  Display::print(5, "White: %3d %3d %3d", controller.standardWhite.r, controller.standardWhite.g,
-                 controller.standardWhite.b);
-  Display::print(6, "Black: %3d %3d %3d", controller.standardBlack.r, controller.standardBlack.g,
-                 controller.standardBlack.b);
+  Display::print(5, "White: %3d %3d %3d", controller.standardWhite.r, controller.standardWhite.g, controller.standardWhite.b);
+  Display::print(6, "Black: %3d %3d %3d", controller.standardBlack.r, controller.standardBlack.g, controller.standardBlack.b);
 
   Display::print(7, "Calibration was completed!");
 
