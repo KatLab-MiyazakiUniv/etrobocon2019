@@ -30,7 +30,7 @@ struct HsvStatus {
   double value = 0;
 };
 
-enum class Color { black, red, green, blue, yellow, white };
+enum class Color { black, red, green, blue, yellow, white, none };
 
 using namespace ev3api;
 
