@@ -177,3 +177,43 @@ void Navigator::lineTraceToSpecifiedColor(Color specifiedColor, int pwm, double 
 
   controller.stopMotor();
 }
+
+void Navigator::lineTraceExcludingMonochrome(int pwm, double lineTracePGain, bool isLeft)
+{
+  constexpr int resolution = 3;
+  LineTracer lineTracer(controller, targetBrightness, isLeft);
+  // 循環バッファーを作成する(最初は、noneで埋めておく)
+  constexpr int bufferSize = 2 * resolution + 1;
+  std::array<Color, bufferSize> circulation;
+  circulation.fill(Color::none);
+  unsigned int index = 0;
+  int count = 0;
+  Color preColor = Color::none;
+
+  while(count < resolution) {
+    count = 1;
+
+    // 循環バッファーに色情報を格納する
+    if(circulation.size() <= index) index = 0;
+    circulation[index] = controller.getColor();
+    ++index;
+
+    for(const auto& color : circulation) {
+      if(color != Color::black && color != Color::white && color != Color::none
+         && color == preColor) {
+        count++;
+      } else {
+        preColor = color;
+        count = 1;
+      }
+    }
+
+    // ライントレースする
+    int turnValue = lineTracer.calculateTurnValue(pwm, 0.0, lineTracePGain, 0.0, 0.0);
+    setPwmValue(pwm, (isLeft ? turnValue : -turnValue));
+
+    controller.tslpTsk(4);
+  }
+
+  controller.stopMotor();
+}
