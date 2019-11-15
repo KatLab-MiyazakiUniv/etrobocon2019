@@ -88,13 +88,21 @@ class Navigator {
   void lineTraceToSpecifiedColor(Color specifiedColor, int pwm = 10, double lineTracePGain = 0.6,
                                  bool isLeft = true);
   /**
+   * 黒と白以外のいづれかの色までライントレースする
+   * @param pwm [モーターパワー]
+   * @param lineTracePGain [ライントレースに使用するPゲイン]
+   * @param isLeft [左エッジならture]
+   */
+  void lineTraceExcludingMonochrome(int pwm = 10, double lineTracePGain = 0.6, bool isLeft = true);
+  /**
    * 循環バッファー内にある指定色の個数を計算する
    * @param circulation [循環バッファー]
    * @param index [循環バッファーのインデックス]
    * @param specifiedColor [指定色]
    */
   template <int N>
-  int countColorInBuffer(std::array<Color, N>& circulation, unsigned int& index, Color specifiedColor)
+  int countColorInBuffer(std::array<Color, N>& circulation, unsigned int& index,
+                         Color specifiedColor)
   {
     int count = 0;  // 指定色が循環バッファに存在する個数
 
