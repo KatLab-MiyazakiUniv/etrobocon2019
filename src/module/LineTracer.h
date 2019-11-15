@@ -45,6 +45,17 @@ class LineTracer {
    */
   void setTargetBrightness(int targetBrightness_);
 
+  /** 旋回値を計算する。
+   *  @brief カラーセンサーの値を用いたPID制御と曲率PID制御を組み合わせて計算した旋回値を返す
+   *  @param speedValue [前進値]
+   *  @param curvatureValue [曲率(直進時は、0.0)]
+   *  @param pGain [カラーセンサーの値を用いたPID制御のPゲイン]
+   *  @param iGain [カラーセンサーの値を用いたPID制御のIゲイン]
+   *  @param dGain [カラーセンサーの値を用いたPID制御のDゲイン]
+   */
+  int calculateTurnValue(int speedValue, double curvatureValue, double pGain, double iGain,
+                         double dGain);
+
  private:
   Controller& controller;
   int targetBrightness;
