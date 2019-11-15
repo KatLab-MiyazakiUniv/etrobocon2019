@@ -95,8 +95,8 @@ void Navigator::setPwmValue(int pwm, double alpha)
   controller.setLeftMotorPwm(pwm - static_cast<int>(alpha));
 }
 
-void Navigator::traceBlackLine(double specifiedDistance, int pwm, double encoderPGain,
-                               double lineTracePGain, bool isLeft)
+void Navigator::lineTrace(double specifiedDistance, int pwm, double encoderPGain,
+                          double lineTracePGain, bool isLeft)
 {
   controller.resetMotorCount();
 
@@ -153,17 +153,37 @@ void Navigator::traceBlackLine(double specifiedDistance, int pwm, double encoder
   controller.stopMotor();
 }
 
-void Navigator::traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm, double lineTracePGain,
-                                               bool isLeft)
+void Navigator::lineTraceToSpecifiedColor(Color specifiedColor, int pwm, double lineTracePGain,
+                                          bool isLeft)
 {
-  TurnControl turnControl(targetBrightness, 0.0, 0.0, 0.0);
+  constexpr int resolution = 3;
+  LineTracer lineTracer(controller, targetBrightness, isLeft);
+  // 循環バッファーを作成する(最初は、noneで埋めておく)
+  std::array<Color, 2 * resolution + 1> circulation;
+  circulation.fill(Color::none);
+  unsigned int index = 0;
+  int count = 0;  // 指定色が循環バッファに存在する個数
 
-  // 特定の色まで移動する
-  while(controller.getColor() != specifiedColor) {
-    double pidValue = turnControl.calculateTurn(pwm, controller.getBrightness(), targetBrightness,
-                                                lineTracePGain, 0.0, 0.0);
-    this->setPwmValue(pwm, (isLeft ? pidValue : -pidValue));
+  while(count < resolution) {
+    // 循環バッファーにある指定色の個数をリセットする
+    count = 0;
+
+    // 循環バッファーに色情報を格納する
+    if(circulation.size() <= index) index = 0;
+    circulation[index] = controller.getColor();
+    ++index;
+
+    // 循環バッファー内にある指定色の個数を計算する
+    for(const auto& color : circulation) {
+      if(color == specifiedColor) ++count;
+    }
+
+    // ライントレースする
+    int turnValue = lineTracer.calculateTurnValue(pwm, 0.0, lineTracePGain, 0.0, 0.0);
+    setPwmValue(pwm, (isLeft ? turnValue : -turnValue));
+
     controller.tslpTsk(4);
   }
+
   controller.stopMotor();
 }
