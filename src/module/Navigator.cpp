@@ -159,24 +159,14 @@ void Navigator::lineTraceToSpecifiedColor(Color specifiedColor, int pwm, double 
   constexpr int resolution = 3;
   LineTracer lineTracer(controller, targetBrightness, isLeft);
   // 循環バッファーを作成する(最初は、noneで埋めておく)
-  std::array<Color, 2 * resolution + 1> circulation;
+  constexpr int bufferSize = 2 * resolution + 1;
+  std::array<Color, bufferSize> circulation;
   circulation.fill(Color::none);
   unsigned int index = 0;
   int count = 0;  // 指定色が循環バッファに存在する個数
 
   while(count < resolution) {
-    // 循環バッファーにある指定色の個数をリセットする
-    count = 0;
-
-    // 循環バッファーに色情報を格納する
-    if(circulation.size() <= index) index = 0;
-    circulation[index] = controller.getColor();
-    ++index;
-
-    // 循環バッファー内にある指定色の個数を計算する
-    for(const auto& color : circulation) {
-      if(color == specifiedColor) ++count;
-    }
+    count = this->countColorInBuffer<bufferSize>(circulation, index, specifiedColor);
 
     // ライントレースする
     int turnValue = lineTracer.calculateTurnValue(pwm, 0.0, lineTracePGain, 0.0, 0.0);
