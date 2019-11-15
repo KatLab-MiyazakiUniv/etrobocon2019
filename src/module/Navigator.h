@@ -13,6 +13,7 @@
 #include "Filter.h"
 #include "Pid.h"
 #include "Rotation.h"
+#include "TurnControl.h"
 #include <cmath>
 
 class Navigator {
@@ -76,14 +77,15 @@ class Navigator {
                       double lineTracePGain = 0.6, bool isLeft = true);
   /**
    * 指定した色までライントレースする
-   * @brief 黒と白以外の色までOn Off制御でライントレースをする
+   * @brief 黒と白以外の色までP制御でライントレースをする
    * @param specifiedColor [指定する色]
    * @param pwm [モーターパワー]
-   * @param pGain
+   * @param lineTracePGain [ライントレースに使用するPゲイン]
+   * @param isLeft [左エッジならtrue]
    */
-  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, double pGain = 0.6,
-                                      bool isLeft = true);
-
+  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, double lineTracePGain = 0.6,
+                                          bool isLeft = true);
+                                          
  private:
   Distance distance;
   Controller& controller;
@@ -103,12 +105,6 @@ class Navigator {
    * @return なし
    */
   void setPwmValue(int pwm, double alpha = 0.0);
-  /**
-   * 現在とっている色が黒かを判断する
-   * @param brightness [現在のカラーセンサーの取得値]
-   * @return 黒ならtrue、白ならfalseを返す
-   */
-  Color recognizeBlack(int brightness);
 };
 
 #endif
