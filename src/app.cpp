@@ -68,16 +68,6 @@ void localization_task(intptr_t unused)
   ext_tsk();
 }
 
-void color_task(intptr_t unused)
-{
-  Controller controller;
-  while(true) {
-    controller.registerColor();
-    controller.tslpTsk(4);
-  }
-  ext_tsk();
-}
-
 void bt_task(intptr_t unused)
 {
   // int debug_count = 0;

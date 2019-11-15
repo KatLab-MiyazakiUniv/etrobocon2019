@@ -134,26 +134,6 @@ namespace etrobocon2019_test {
     ASSERT_LE(end - start, expected);
   }
 
-  TEST(Navigator, moveToBlackTest)
-  {
-    Controller controller;
-    int targetBrightness = 70;
-    Navigator navigator(controller, targetBrightness);
-
-    for(int i = 0; i < controller.colorBufferSize; i++) {
-      controller.setMockRgb(0, 0, 0);
-      controller.registerColor();
-    }
-
-    Color expected = Color::black;
-
-    navigator.moveToSpecifiedColor(expected);
-
-    Color actual = controller.getColor();
-
-    ASSERT_EQ(expected, actual);
-  }
-
   // 黒以外の識別はテストできない
   // TEST(Navigator, moveToSpecifiedColorTest)
   // {

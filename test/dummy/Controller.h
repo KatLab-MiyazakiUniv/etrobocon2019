@@ -20,10 +20,10 @@ struct rgb_raw_t {
   unsigned int r;
   unsigned int g;
   unsigned int b;
-  rgb_raw_t() : r(0), g(0), b(0){}
+  rgb_raw_t() : r(0), g(0), b(0) {}
 };
 
-enum class Color { black, red, green, blue, yellow, white };
+enum class Color { black, red, green, blue, yellow, white, none };
 
 class Motor {
  public:
@@ -124,8 +124,7 @@ class Controller {
     // 明度(value)を求める
     hsv.value = max / 255 * 100;
 
-    if (hsv.value == 0)
-    {
+    if(hsv.value == 0) {
       hsv.hue = 0;
       hsv.saturation = 0;
       return;
@@ -142,10 +141,14 @@ class Controller {
     hsv.saturation = diff / max * 100.0;
 
     // 色相(hue)を求める
-    if(r == g && r == b) hsv.hue = 0;
-    else if(max == r) hsv.hue = 60.0 * ((g - b) / diff);
-    else if(max == g) hsv.hue = 60.0 * ((b - r) / diff) + 120.0;
-    else if(max == b) hsv.hue = 60.0 * ((r - g) / diff) + 240.0;
+    if(r == g && r == b)
+      hsv.hue = 0;
+    else if(max == r)
+      hsv.hue = 60.0 * ((g - b) / diff);
+    else if(max == g)
+      hsv.hue = 60.0 * ((b - r) / diff) + 120.0;
+    else if(max == b)
+      hsv.hue = 60.0 * ((r - g) / diff) + 240.0;
 
     if(hsv.hue < 0.0) hsv.hue += 360.0;
   }
@@ -195,22 +198,6 @@ class Controller {
         }
       }
     }
-  }
-
-// 循環バッファ内の色を集計し、もっとも多い色を返す。
-  Color determineColor(int colorNum=6)
-  {
-    int counter[colorBufferSize] = { 0 };
-    for(int i = 0; i < colorBufferSize; i++) {
-      counter[static_cast<int>(colorBuffer[i])]++;
-      this->tslpTsk(4);
-    }
-    int max = 0;
-    for(int i = 1; i < colorNum; i++) {
-      if(counter[max] < counter[i]) max = i;
-    }
-
-    return static_cast<Color>(max);
   }
 
   bool buttonIsPressedUp() { return false; };
@@ -296,10 +283,7 @@ class Controller {
     }
     return value;
   };
-  int getAngleOfRotation()
-  {
-    return gyroSensor.getAngle();
-  }
+  int getAngleOfRotation() { return gyroSensor.getAngle(); }
   void moveArm(int count, int pwm = 10)
   {
     this->resetArmMotorCount();
@@ -344,21 +328,12 @@ class Controller {
     while(gyroSensor.getAngle() != 0) gyroSensor.reset();
   }
 
-  void stopLiftMotor()
-  {
-  this->resetArmMotorCount();
-  }
+  void stopLiftMotor() { this->resetArmMotorCount(); }
 
   rgb_raw_t standardWhite;
-  void setStandardWhite(const rgb_raw_t& rgb)
-  {
-    standardWhite = rgb;
-  }
+  void setStandardWhite(const rgb_raw_t& rgb) { standardWhite = rgb; }
 
   rgb_raw_t standardBlack;
-  void setStandardBlack(const rgb_raw_t& rgb)
-  {
-    standardBlack = rgb;
-  }
+  void setStandardBlack(const rgb_raw_t& rgb) { standardBlack = rgb; }
 };
 #endif
