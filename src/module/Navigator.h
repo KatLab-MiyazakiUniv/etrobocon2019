@@ -14,7 +14,9 @@
 #include "Pid.h"
 #include "Rotation.h"
 #include "TurnControl.h"
+#include "LineTracer.h"
 #include <cmath>
+#include <array>
 
 class Navigator {
  public:
@@ -73,8 +75,8 @@ class Navigator {
    * @param lineTracePGain [ライントレースに使用するPゲイン]
    * @param isLeft [左エッジならtrue]
    */
-  void traceBlackLine(double specifiedDistance, int pwm = 10, double encoderPGain = 0.6,
-                      double lineTracePGain = 0.6, bool isLeft = true);
+  void lineTrace(double specifiedDistance, int pwm = 10, double encoderPGain = 0.6,
+                 double lineTracePGain = 0.6, bool isLeft = true);
   /**
    * 指定した色までライントレースする
    * @brief 黒と白以外の色までP制御でライントレースをする
@@ -83,9 +85,9 @@ class Navigator {
    * @param lineTracePGain [ライントレースに使用するPゲイン]
    * @param isLeft [左エッジならtrue]
    */
-  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, double lineTracePGain = 0.6,
-                                          bool isLeft = true);
-                                          
+  void lineTraceToSpecifiedColor(Color specifiedColor, int pwm = 10, double lineTracePGain = 0.6,
+                                 bool isLeft = true);
+
  private:
   Distance distance;
   Controller& controller;

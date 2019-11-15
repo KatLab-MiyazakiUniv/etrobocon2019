@@ -190,7 +190,7 @@ namespace etrobocon2019_test {
     ASSERT_GE(expected + 5, actual);
   }
 
-  TEST(Navigator, traceBlackLineTest)
+  TEST(Navigator, lineTraceTest)
   {
     Controller controller;
     int targetBrightness = 70;
@@ -201,7 +201,7 @@ namespace etrobocon2019_test {
     double start
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
-    navigator.traceBlackLine(expected, 15, 0.70, 0.10);
+    navigator.lineTrace(expected, 15, 0.70, 0.10);
     double end
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     double actual = end - start;
@@ -211,11 +211,11 @@ namespace etrobocon2019_test {
   }
 
   // 黒以外の識別はテストできない
-  // TEST(Navigator, traceBlackLineToSpecifiedColorTest) {
+  // TEST(Navigator, lineTraceToSpecifiedColorTest) {
   //   Controller controller;
   //   int targetBrightness = 70;
   //   Navigator navigator(controller, targetBrightness);
 
-  //   navigator.traceBlackLineToSpecifiedColor(Color::yellow);
+  //   navigator.lineTraceToSpecifiedColor(Color::yellow);
   // }
 }  // namespace etrobocon2019_test

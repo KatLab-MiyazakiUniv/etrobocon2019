@@ -10,14 +10,14 @@ BlockBingo::BlockBingo(Controller& controller_, int targetBrightness_)
     navigator(controller_, targetBrightness),
     targetBrightness(targetBrightness_),
     isFirstProcess(true),
-    pGain(0.823), // 10 : 0.823, 20 : 0.29?
+    pGain(0.823),  // 10 : 0.823, 20 : 0.29?
     straightPwm(10)
 {
 }
 
 void BlockBingo::moveCircle4OfL()
 {
-  navigator.traceBlackLineToSpecifiedColor(Color::yellow, 5, 0.10);
+  navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(-65.0, straightPwm, pGain);
   navigator.spin(45.0, false);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
@@ -31,7 +31,7 @@ void BlockBingo::moveCircle4OfL()
 
 void BlockBingo::moveCircle6OfL()
 {
-  navigator.traceBlackLineToSpecifiedColor(Color::yellow, 5, 0.10);
+  navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(-70.0, straightPwm);
   navigator.spin(45.0, true);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);

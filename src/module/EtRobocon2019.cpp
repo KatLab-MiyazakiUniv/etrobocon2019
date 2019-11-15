@@ -5,12 +5,8 @@
 #include "Calibrator.h"
 #include "Display.h"
 #include "NormalCourse.h"
-#include "Navigator.h"
 #include "Parking.h"
 #include "MoveDirectGarage.h"
-#include "Distance.h"
-#include "Curvature.h"
-#include "Logger.h"
 
 void EtRobocon2019::start()
 {
