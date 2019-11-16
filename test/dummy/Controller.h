@@ -335,5 +335,8 @@ class Controller {
 
   rgb_raw_t standardBlack;
   void setStandardBlack(const rgb_raw_t& rgb) { standardBlack = rgb; }
+
+  int getVolt() { return 3; }
+  int getAmp() { return 3; }
 };
 #endif

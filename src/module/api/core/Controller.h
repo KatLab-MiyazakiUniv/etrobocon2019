@@ -84,6 +84,8 @@ class Controller {
   int getAngleOfRotation();
   Color getColor();
   void resetGyroSensor();
+  int getAmp();
+  int getVolt();
 
   /**
    * アームを動かす
