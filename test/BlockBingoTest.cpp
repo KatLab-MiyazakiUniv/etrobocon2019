@@ -168,6 +168,16 @@ namespace etrobocon2019_test {
   //   blockbingo.execOrder<1>(order);
   // }
 
+  TEST(BlockBingo, execPrepareToPutTest)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness);
+
+    std::array<char, 1> order{ 'o' };
+    blockbingo.execOrder<1>(order);
+  }
+
   TEST(BlockBingo, execMoveNodeTest)
   {
     int targetBrightness = 70;

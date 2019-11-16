@@ -31,6 +31,7 @@ namespace etrobocon2019_test {
     ASSERT_EQ(Order::TURN_LEFT90_UNEXIST_BLOCK, instructions.translate('m'));
     ASSERT_EQ(Order::TURN180, instructions.translate('n'));
 
+    ASSERT_EQ(Order::PREPARE_TO_PUT, instructions.translate('o'));
     ASSERT_EQ(Order::MOVE_NODE, instructions.translate('u'));
 
     ASSERT_EQ(Order::QUICK_PUT_R, instructions.translate('y'));
