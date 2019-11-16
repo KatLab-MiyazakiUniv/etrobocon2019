@@ -92,8 +92,9 @@ class Controller {
    */
   void moveArm(int count, int pwm = 10);
   void resetArmMotorCount();
+  void steer(int power, int turnRatio);
 
- private:
+private:
   rgb_raw_t rgb;
   HsvStatus hsv;
   Motor liftMotor;
