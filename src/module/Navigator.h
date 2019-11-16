@@ -10,12 +10,6 @@
 
 #include "Controller.h"
 #include "Distance.h"
-<<<<<<< HEAD
-#include "Pid.h"
-#include "SpeedControl.h"
-#include "Rotation.h"
-#include <cmath>
-=======
 #include "Filter.h"
 #include "Pid.h"
 #include "Rotation.h"
@@ -23,7 +17,6 @@
 #include "LineTracer.h"
 #include <cmath>
 #include <array>
->>>>>>> upstream/master
 
 class Navigator {
  public:
@@ -33,26 +26,8 @@ class Navigator {
    * @brief Navigatorクラスのコンストラクタ
    * @param &controller_ [Controllerインスタンスの参照]
    * @param targetBrightness [黒と白の閾値]
-<<<<<<< HEAD
-   * @param Kp_ [SpeedControl用のPゲイン]
-   * @param Ki_ [SpeedControl用のIゲイン]
-   * @param Kd_ [SpeedControl用のDゲイン]
-   */
-  explicit Navigator(Controller& controller_, int targetBrightness_, double Kp_ = 0.60,
-                     double Ki_ = 0.0, double Kd_ = 0.0);
-
-  /**
-   * @brief SpeedControl用のPidゲインのセッター
-   * @param Kp_ [SpeedControl用のPゲイン]
-   * @param Ki_ [SpeedControl用のIゲイン]
-   * @param Kd_ [SpeedControl用のDゲイン]
-   * @return なし
-   */
-  void setPidGain(double Kp, double Ki, double Kd);
-=======
    */
   explicit Navigator(Controller& controller_, int targetBrightness_);
->>>>>>> upstream/master
 
   /**
    * 前進と後進をする
@@ -89,19 +64,6 @@ class Navigator {
    * @param angle [回頭角度(正の値)]
    * @param clockwise [時計回りに回転するかどうか(デフォルトで時計回り)]
    * @param pwm [モーターパワー]
-<<<<<<< HEAD
-   */
-  void spin(double angle, bool clockwise = true, int pwm = 10);
-  /**
-   * 指定した色までライントレースする
-   * @brief 黒と白以外の色までOn Off制御でライントレースをする
-   * @param specifiedColor [指定する色]
-   * @param pwm [モーターパワー]
-   * @param pGain
-   */
-  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, double pGain = 0.6,
-                                      bool isLeft = true);
-=======
    * @param weight [重み]
    */
   void spin(double angle, bool clockwise = true, int pwm = 10, double weight = 0.94);
@@ -156,15 +118,10 @@ class Navigator {
 
     return count;
   }
->>>>>>> upstream/master
 
  private:
   Distance distance;
   Controller& controller;
-<<<<<<< HEAD
-  PidGain pidForSpeed;
-=======
->>>>>>> upstream/master
   const int targetBrightness;
   /**
    * 指定した距離動いたか判定する
@@ -181,15 +138,6 @@ class Navigator {
    * @return なし
    */
   void setPwmValue(int pwm, double alpha = 0.0);
-<<<<<<< HEAD
-  /**
-   * 現在とっている色が黒かを判断する
-   * @param brightness [現在のカラーセンサーの取得値]
-   * @return 黒ならtrue、白ならfalseを返す
-   */
-  Color recognizeBlack(int brightness);
-=======
->>>>>>> upstream/master
 };
 
 #endif
