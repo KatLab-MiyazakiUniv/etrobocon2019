@@ -1,4 +1,3 @@
-
 #include "Controller.h"
 
 Controller::Controller()
@@ -10,7 +9,8 @@ Controller::Controller()
     leftWheel(PORT_C),
     tailMotor(PORT_D)
 {
-  colorSensor.getRawColor(rgb);
+  colorSensor.getRawColor(standardWhite);
+  colorSensor.getRawColor(standardBlack);
 }
 
 void Controller::speakerSetVolume(int volume)
@@ -70,135 +70,88 @@ float Controller::getBatteryVoltage()
 
 int Controller::getBrightness()
 {
-  colorSensor.getRawColor(rgb);
-  int luminance = 0.298912 * rgb.r + 0.586611 * rgb.g + 0.114478 * rgb.b;
+  int r, g, b;
+  getRawColor(r, g, b);
+  int luminance = 0.298912 * r + 0.586611 * g + 0.114478 * b;
   return luminance;
+}
+
+int limitRgbValue(const int value)
+{
+  constexpr int max = 255;
+  constexpr int min = 0;
+  if(value >= max) {
+    return max;
+  } else if(value <= min) {
+    return min;
+  }
+  return value;
 }
 
 void Controller::getRawColor(int& r, int& g, int& b)
 {
+  rgb_raw_t rgb;
   colorSensor.getRawColor(rgb);
-  r = rgb.r;
-  g = rgb.g;
-  b = rgb.b;
+  r = limitRgbValue(static_cast<double>((rgb.r - standardBlack.r)) * 255
+                    / (standardWhite.r - standardBlack.r));
+  g = limitRgbValue(static_cast<double>((rgb.g - standardBlack.g)) * 255
+                    / (standardWhite.g - standardBlack.g));
+  b = limitRgbValue(static_cast<double>((rgb.b - standardBlack.b)) * 255
+                    / (standardWhite.b - standardBlack.b));
 }
 
 Color Controller::hsvToColor(const HsvStatus& status)
 {
-  if(status.hue <= 87.2984) {
-    if(status.value <= 22.9412) {
+  if(status.saturation <= 25.388) {
+    if(status.value <= 69.841) {
       return Color::black;
     } else {
-      if(status.hue <= 44.0) {
-        return Color::red;
-      } else {
-        if(status.saturation <= 46.6505) {
-          return Color::white;
-        } else {
-          if(status.hue <= 80.6818) {
-            return Color::yellow;
-          } else {
-            return Color::black;
-          }
-        }
-      }
+      return Color::white;
     }
   } else {
-    if(status.hue <= 127.9044) {
-      if(status.hue <= 104.1311) {
-        if(status.saturation <= 52.2948) {
-          if(status.value <= 28.8235) {
-            return Color::black;
-          } else {
-            if(status.value <= 64.7059) {
-              return Color::white;
+    if(status.value <= 29.037) {
+      return Color::black;
+    } else {
+      if(status.hue <= 125.776) {
+        if(status.hue <= 63.737) {
+          if(status.hue <= 49.617) {
+            if(status.hue <= 22.134) {
+              return Color::red;
             } else {
-              if(status.hue <= 99.8571) {
-                return Color::white;
-              } else {
-                return Color::blue;
-              }
+              return Color::yellow;
             }
+          } else {
+            return Color::yellow;
           }
         } else {
-          if(status.hue <= 95.8667) {
-            return Color::black;
-          } else {
-            return Color::green;
-          }
+          return Color::green;
         }
       } else {
-        if(status.value <= 43.5294) {
-          if(status.saturation <= 44.7262) {
-            if(status.hue <= 123.5839) {
+        if(status.hue <= 312.573) {
+          if(status.saturation <= 79.553) {
+            if(status.value <= 57.333) {
               return Color::green;
             } else {
-              if(status.hue <= 126.2567) {
-                return Color::blue;
-              } else {
-                return Color::green;
-              }
+              return Color::blue;
             }
           } else {
-            return Color::green;
-          }
-        } else {
-          if(status.saturation <= 40.9765) {
-            return Color::white;
-          } else {
             return Color::blue;
           }
-        }
-      }
-    } else {
-      if(status.hue <= 226.8605) {
-        if(status.hue <= 130.5115) {
-          if(status.hue <= 129.5924) {
-            return Color::blue;
-          } else {
-            return Color::green;
-          }
         } else {
-          return Color::blue;
+          return Color::red;
         }
-      } else {
-        return Color::black;
-        
       }
     }
   }
 }
 
-Color Controller::getColor(){
+Color Controller::getColor()
+{
   int r, g, b;
   r = g = b = 0;
   this->getRawColor(r, g, b);
   this->convertHsv(r, g, b);
   return this->hsvToColor(this->getHsv());
-}
-
-void Controller::registerColor(){
-  colorBuffer[colorBufferCounter] = getColor();
-  colorBufferCounter++;
-  if(colorBufferSize <= colorBufferCounter){
-    colorBufferCounter = 0;
-  }
-}
-
-// 循環バッファ内の色を集計し、もっとも多い色を返す。
-Color Controller::determineColor(int colorNum)
-{
-  int counter[colorNum] = { 0 };
-  for(int i = 0; i < colorBufferSize; i++) {
-    counter[static_cast<int>(colorBuffer[i])]++;
-    this->tslpTsk(4);
-  }
-  int max = 0;
-  for(int i = 1; i < colorNum; i++) {
-    if(counter[max] < counter[i]) max = i;
-  }
-
-  return static_cast<Color>(max);
 }
 
 void Controller::tslpTsk(int time)
@@ -261,6 +214,16 @@ void Controller::setArmMotorPwm(const int pwm)
   liftMotor.setPWM(suppressPwmValue(pwm));
 }
 
+void Controller::setStandardWhite(const rgb_raw_t& rgb)
+{
+  standardWhite = rgb;
+}
+
+void Controller::setStandardBlack(const rgb_raw_t& rgb)
+{
+  standardBlack = rgb;
+}
+
 void Controller::convertHsv(int& r, int& g, int& b)
 {
   // r,g,bの最大値を求める
@@ -268,45 +231,36 @@ void Controller::convertHsv(int& r, int& g, int& b)
   if(max < g) max = g;
   if(max < b) max = b;
 
+  // 明度(value)を求める
+  hsv.value = max / 255 * 100;
+
+  if(hsv.value == 0) {
+    hsv.hue = 0;
+    hsv.saturation = 0;
+    return;
+  }
+
   // r,g,bの最小値を求める
   double min = r;
   if(min > g) min = g;
   if(min > b) min = b;
 
-  // 色相(hue)を求める
-
-  // 3つが同値の時は色相(hue)は０
-  if(r == g && r == b) hsv.hue = 0;
-
-  // rが最大値の場合
-  else if(max == r) {
-    // 0除算を防ぐ処理
-    if(max - min != 0) max += 1;
-    hsv.hue = 60 * ((g - b) / (max - min));
-  }
-  // gが最大値の場合
-  else if(max == g) {
-    // 0除算を防ぐ処理
-    if(max - min != 0) max += 1;
-    hsv.hue = 60 * ((b - r) / (max - min)) + 120;
-  }
-  // bが最大値の場合
-  else if(max == b) {
-    // 0除算を防ぐ処理
-    if(max - min != 0) max += 1;
-    hsv.hue = 60 * ((r - g) / (max - min)) + 240;
-  }
-  //求められた色彩(hue)がマイナス値だった場合は360を加算して0～360の範囲に収める
-  if(hsv.hue < 0) hsv.hue += 360;
-
-  // 0除算を防ぐ処理
-  if(max - min != 0) max += 1;
+  double diff = max - min;
 
   // 彩度(saturation)を求める
-  hsv.saturation = (max - min) / max * 100;
+  hsv.saturation = diff / max * 100.0;
 
-  // 明度(value)を求める
-  hsv.value = max / 255 * 100;
+  // 色相(hue)を求める
+  if(r == g && r == b)
+    hsv.hue = 0;
+  else if(max == r)
+    hsv.hue = 60.0 * ((g - b) / diff);
+  else if(max == g)
+    hsv.hue = 60.0 * ((b - r) / diff) + 120.0;
+  else if(max == b)
+    hsv.hue = 60.0 * ((r - g) / diff) + 240.0;
+
+  if(hsv.hue < 0.0) hsv.hue += 360.0;
 }
 
 HsvStatus Controller::getHsv() const
@@ -328,20 +282,7 @@ void Controller::stopMotor()
 
 int Controller::getAngleOfRotation()
 {
-  int angle = gyroSensor.getAngle();
-  //角度を[0-360]の範囲で表す,
-  //右手系(反時計回り)が正である
-  return Controller::limitAngle(angle);
-}
-
-int Controller::limitAngle(int angle)
-{
-  angle = angle % 360;
-  if(angle < 0) {
-    angle = 360 + angle;
-    angle = limitAngle(angle);
-  }
-  return angle;
+  return gyroSensor.getAngle();
 }
 
 void Controller::moveArm(int count, int pwm)
@@ -366,4 +307,16 @@ void Controller::moveArm(int count, int pwm)
 void Controller::resetArmMotorCount()
 {
   liftMotor.reset();
+}
+
+void Controller::resetGyroSensor()
+{
+  // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
+  while(gyroSensor.getAngle() != 0) gyroSensor.reset();
+}
+
+void Controller::stopLiftMotor()
+{
+  this->resetArmMotorCount();
+  this->tslpTsk(1500);
 }

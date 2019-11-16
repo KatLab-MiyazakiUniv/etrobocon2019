@@ -16,7 +16,14 @@ unsigned struct HsvStatus {
   double value;
 };
 
-enum class Color { black, red, green, blue, yellow, white };
+struct rgb_raw_t {
+  unsigned int r;
+  unsigned int g;
+  unsigned int b;
+  rgb_raw_t() : r(0), g(0), b(0) {}
+};
+
+enum class Color { black, red, green, blue, yellow, white, none };
 
 class Motor {
  public:
@@ -45,12 +52,19 @@ class TouchSensor {
 class ColorSensor {
  public:
   int getBrightness() { return brightness; }
+  void getRawColor(rgb_raw_t& rgb)
+  {
+    rgb.r = 1;
+    rgb.g = 1;
+    rgb.b = 1;
+  }
   int brightness = 0;
 };
 
 class GyroSensor {
  public:
   int getAngle() { return angle; }
+  void reset(){};
   int angle = 0;
 };
 
@@ -102,88 +116,88 @@ class Controller {
 
   void convertHsv(int& r, int& g, int& b)
   {
+    // r,g,bの最大値を求める
     double max = r;
-    if(max < g) {
-      max = g;
-    }
-    if(max < b) {
-      max = b;
-    }
-    double min = r;
-    if(min > g) {
-      min = g;
-    }
-    if(min > b) {
-      min = b;
-    }
-
-    // 色相(hue)を求める
-    if(r == g && r == b) {
-      hsv.hue = 0;
-    }
-
-    else if(max == r) {
-      hsv.hue = 60 * ((g - b) / (max - min));
-    }
-
-    else if(max == g) {
-      hsv.hue = 60 * ((b - r) / (max - min)) + 120;
-    }
-
-    else if(max == b) {
-      hsv.hue = 60 * ((r - g) / (max - min)) + 240;
-    }
-
-    if(hsv.hue < 0) {
-      hsv.hue += 360;
-    }
-
-    // 彩度(saturation)を求める
-    hsv.saturation = (max - min) / max * 100;
+    if(max < g) max = g;
+    if(max < b) max = b;
 
     // 明度(value)を求める
     hsv.value = max / 255 * 100;
+
+    if(hsv.value == 0) {
+      hsv.hue = 0;
+      hsv.saturation = 0;
+      return;
+    }
+
+    // r,g,bの最小値を求める
+    double min = r;
+    if(min > g) min = g;
+    if(min > b) min = b;
+
+    double diff = max - min;
+
+    // 彩度(saturation)を求める
+    hsv.saturation = diff / max * 100.0;
+
+    // 色相(hue)を求める
+    if(r == g && r == b)
+      hsv.hue = 0;
+    else if(max == r)
+      hsv.hue = 60.0 * ((g - b) / diff);
+    else if(max == g)
+      hsv.hue = 60.0 * ((b - r) / diff) + 120.0;
+    else if(max == b)
+      hsv.hue = 60.0 * ((r - g) / diff) + 240.0;
+
+    if(hsv.hue < 0.0) hsv.hue += 360.0;
   }
 
   HsvStatus getHsv() { return hsv; }  // hsv値を返す
 
-  Color hsvToColor(HsvStatus hsv)
+  Color hsvToColor(const HsvStatus& status)
   {
-    // 白黒の識別
-    if(hsv.value < 13.0) {
-      return Color::black;
-    } else if(hsv.value > 50.0) {
-      return Color::white;
-    }
-
-    // 赤緑青黃の識別
-    if(hsv.hue < 30) {
-      return Color::red;
-    } else if(hsv.hue < 80.0) {
-      return Color::yellow;
-    } else if(hsv.hue < 160.0) {
-      return Color::green;
-    } else if(hsv.hue < 300.0) {
-      return Color::blue;
+    if(status.saturation <= 25.388) {
+      if(status.value <= 69.841) {
+        return Color::black;
+      } else {
+        return Color::white;
+      }
     } else {
-      return Color::red;
+      if(status.value <= 29.037) {
+        return Color::black;
+      } else {
+        if(status.hue <= 125.776) {
+          if(status.hue <= 63.737) {
+            if(status.hue <= 49.617) {
+              if(status.hue <= 22.134) {
+                return Color::red;
+              } else {
+                return Color::yellow;
+              }
+            } else {
+              return Color::yellow;
+            }
+          } else {
+            return Color::green;
+          }
+        } else {
+          if(status.hue <= 312.573) {
+            if(status.saturation <= 79.553) {
+              if(status.value <= 57.333) {
+                return Color::green;
+              } else {
+                return Color::blue;
+              }
+            } else {
+              return Color::blue;
+            }
+          } else {
+            return Color::red;
+          }
+        }
+      }
     }
-  }
-
-// 循環バッファ内の色を集計し、もっとも多い色を返す。
-  Color determineColor(int colorNum=6)
-  {
-    int counter[colorBufferSize] = { 0 };
-    for(int i = 0; i < colorBufferSize; i++) {
-      counter[static_cast<int>(colorBuffer[i])]++;
-      this->tslpTsk(4);
-    }
-    int max = 0;
-    for(int i = 1; i < colorNum; i++) {
-      if(counter[max] < counter[i]) max = i;
-    }
-
-    return static_cast<Color>(max);
   }
 
   bool buttonIsPressedUp() { return false; };
@@ -269,21 +283,7 @@ class Controller {
     }
     return value;
   };
-  int getAngleOfRotation()
-  {
-    int angle = gyroSensor.getAngle();
-
-    return limitAngle(angle);
-  }
-  int limitAngle(int angle)
-  {
-    angle = angle % 360;
-    if(angle < 0) {
-      angle = 360 + angle;
-      angle = limitAngle(angle);
-    }
-    return angle;
-  }
+  int getAngleOfRotation() { return gyroSensor.getAngle(); }
   void moveArm(int count, int pwm = 10)
   {
     this->resetArmMotorCount();
@@ -321,5 +321,19 @@ class Controller {
       colorBufferCounter = 0;
     }
   }
+
+  void resetGyroSensor()
+  {
+    // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
+    while(gyroSensor.getAngle() != 0) gyroSensor.reset();
+  }
+
+  void stopLiftMotor() { this->resetArmMotorCount(); }
+
+  rgb_raw_t standardWhite;
+  void setStandardWhite(const rgb_raw_t& rgb) { standardWhite = rgb; }
+
+  rgb_raw_t standardBlack;
+  void setStandardBlack(const rgb_raw_t& rgb) { standardBlack = rgb; }
 };
 #endif

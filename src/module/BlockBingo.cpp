@@ -10,14 +10,14 @@ BlockBingo::BlockBingo(Controller& controller_, int targetBrightness_)
     navigator(controller_, targetBrightness),
     targetBrightness(targetBrightness_),
     isFirstProcess(true),
-    pGain(0.823), // 10 : 0.823, 20 : 0.29?
+    pGain(0.823),  // 10 : 0.823, 20 : 0.29?
     straightPwm(10)
 {
 }
 
 void BlockBingo::moveCircle4OfL()
 {
-  navigator.traceBlackLineToSpecifiedColor(Color::yellow, 5, 0.10);
+  navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(-65.0, straightPwm, pGain);
   navigator.spin(45.0, false);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
@@ -31,7 +31,7 @@ void BlockBingo::moveCircle4OfL()
 
 void BlockBingo::moveCircle6OfL()
 {
-  navigator.traceBlackLineToSpecifiedColor(Color::yellow, 5, 0.10);
+  navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(-70.0, straightPwm);
   navigator.spin(45.0, true);
   navigator.moveToSpecifiedColor(Color::black, straightPwm);
@@ -121,28 +121,6 @@ void BlockBingo::execTurn180()
   this->execStraight();
 }
 
-void BlockBingo::execTurn180DetourRight()
-{
-  this->execSpin180();
-  navigator.moveToSpecifiedColor(Color::black, straightPwm);
-  navigator.move(lengthColorSensorAxis, straightPwm, pGain);
-  this->execSpinRight();
-  navigator.moveToSpecifiedColor(Color::black, straightPwm);
-  navigator.move(lengthColorSensorAxis, straightPwm, pGain);
-  navigator.spin(45.0, true);
-}
-
-void BlockBingo::execTurn180DetourLeft()
-{
-  this->execSpin180();
-  navigator.moveToSpecifiedColor(Color::black, straightPwm);
-  navigator.move(lengthColorSensorAxis, straightPwm, pGain);
-  this->execSpinRight();
-  navigator.moveToSpecifiedColor(Color::black, straightPwm);
-  navigator.move(lengthColorSensorAxis, straightPwm, pGain);
-  navigator.spin(45.0, false);
-}
-
 void BlockBingo::execPut()
 {
   navigator.move(-120.0, straightPwm, pGain);
@@ -150,35 +128,9 @@ void BlockBingo::execPut()
   navigator.move(lengthColorSensorAxis, straightPwm, pGain);
 }
 
-void BlockBingo::execSpinRight45()
-{
-  navigator.spin(45.0, true);
-}
-
-void BlockBingo::execSpinLeft45()
-{
-  navigator.spin(45.0, false);
-}
-
-void BlockBingo::execSpinRight135()
-{
-  navigator.spin(135.0, true);
-}
-
-void BlockBingo::execSpinLeft135()
-{
-  navigator.spin(135.0, false);
-}
-
 void BlockBingo::execMoveNode()
 {
   navigator.move(lengthCrossCircleCenter, straightPwm, pGain);
-}
-
-void BlockBingo::execMoveDiagonal()
-{
-  navigator.moveToSpecifiedColor(Color::black, straightPwm);
-  navigator.move(lengthColorSensorAxis, straightPwm);
 }
 
 void BlockBingo::execQuickPutR()
@@ -221,4 +173,9 @@ void BlockBingo::execQuickPutL()
   controller.tslpTsk(720);
 
   controller.stopMotor();
+}
+
+void BlockBingo::execPrepareToPut()
+{
+  navigator.move(lengthCrossCircleCenter, straightPwm, pGain);
 }

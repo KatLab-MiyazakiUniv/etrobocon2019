@@ -82,61 +82,33 @@ class BlockBingo {
    */
   void execTurn180();
   /**
-   * TURN_RIGHT180の命令を実行する
-   * @brief ブロックがある場合に使用される。中点で180度旋回してから右に迂回して直進する
-   */
-  void execTurn180DetourRight();
-  /**
-   * TURN_RIGHT180の命令を実行する
-   * @brief ブロックがある場合に使用される。中点で180度旋回してから左に迂回して直進する
-   */
-  void execTurn180DetourLeft();
-  /**
    * PUTの命令を実行する
    * @brief ブロックをブロックサークルに設置する
    */
   void execPut();
-  /**
-   * SPIN_RIGHT45の命令を実行する
-   * @brief 45度右に回頭する
-   */
-  void execSpinRight45();
-  /**
-   * SPIN_LEFT45の命令を実行する
-   * @brief 45度左に回頭する
-   */
-  void execSpinLeft45();
-  /**
-   * SPIN_RIGHT135の命令を実行する
-   * @brief 135度右に回頭する
-   */
-  void execSpinRight135();
-  /**
-   * SPIN_LEFT135の命令を実行する
-   * @brief 135度左に回頭する
-   */
-  void execSpinLeft135();
   /**
    * MOVE_NODEの命令を実行する
    * @brief lengthだけ直進する
    */
   void execMoveNode();
   /**
-   * MOVE_DIAGONALの命令を実行する
-   * @brief 中点から中点まで斜めに移動する
-   */
-  void execMoveDiagonal();
-  /**
    * QUICK_PUT_Rの命令を実行する
-   * @brief ブロックを持った状態で交点サークルから右向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
-   */  
+   * @brief
+   * ブロックを持った状態で交点サークルから右向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
+   */
   void execQuickPutR();
   /**
    * QUICK_PUT_Lの命令を実行する
-   * @brief ブロックを持った状態で交点サークルから左向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
-   */  
+   * @brief
+   * ブロックを持った状態で交点サークルから左向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
+   */
   void execQuickPutL();
-  
+  /**
+   * PREPARE_TO_PUTの命令を実行する
+   * @brief ブロックサークルの中心から黒線まで移動する
+   */
+  void execPrepareToPut();
+
  public:
   /**
    * コンストラクタ
@@ -221,40 +193,24 @@ class BlockBingo {
           this->execTurn180();
           break;
 
-        case Order::TURN180_DETOUR_RIGHT:
-          this->execTurn180DetourRight();
-          break;
-
-        case Order::TURN180_DETOUR_LEFT:
-          this->execTurn180DetourLeft();
-          break;
-
         case Order::PUT:
           this->execPut();
-          break;
-
-        case Order::SPIN_RIGHT45:
-          this->execSpinRight45();
-          break;
-
-        case Order::SPIN_LEFT45:
-          this->execSpinLeft45();
-          break;
-
-        case Order::SPIN_RIGHT135:
-          this->execSpinRight135();
-          break;
-
-        case Order::SPIN_LEFT135:
-          this->execSpinLeft135();
           break;
 
         case Order::MOVE_NODE:
           this->execMoveNode();
           break;
 
-        case Order::MOVE_DIAGONAL:
-          this->execMoveDiagonal();
+        case Order::QUICK_PUT_R:
+          this->execQuickPutR();
+          break;
+
+        case Order::QUICK_PUT_L:
+          this->execQuickPutL();
+          break;
+
+        case Order::PREPARE_TO_PUT:
+          this->execPrepareToPut();
           break;
 
         default:
