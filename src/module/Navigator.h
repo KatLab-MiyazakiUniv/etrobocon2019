@@ -10,10 +10,13 @@
 
 #include "Controller.h"
 #include "Distance.h"
+#include "Filter.h"
 #include "Pid.h"
-#include "SpeedControl.h"
 #include "Rotation.h"
+#include "TurnControl.h"
+#include "LineTracer.h"
 #include <cmath>
+#include <array>
 
 class Navigator {
  public:
@@ -23,21 +26,8 @@ class Navigator {
    * @brief Navigatorクラスのコンストラクタ
    * @param &controller_ [Controllerインスタンスの参照]
    * @param targetBrightness [黒と白の閾値]
-   * @param Kp_ [SpeedControl用のPゲイン]
-   * @param Ki_ [SpeedControl用のIゲイン]
-   * @param Kd_ [SpeedControl用のDゲイン]
    */
-  explicit Navigator(Controller& controller_, int targetBrightness_, double Kp_ = 0.60,
-                     double Ki_ = 0.0, double Kd_ = 0.0);
-
-  /**
-   * @brief SpeedControl用のPidゲインのセッター
-   * @param Kp_ [SpeedControl用のPゲイン]
-   * @param Ki_ [SpeedControl用のIゲイン]
-   * @param Kd_ [SpeedControl用のDゲイン]
-   * @return なし
-   */
-  void setPidGain(double Kp, double Ki, double Kd);
+  explicit Navigator(Controller& controller_, int targetBrightness_);
 
   /**
    * 前進と後進をする
@@ -74,22 +64,64 @@ class Navigator {
    * @param angle [回頭角度(正の値)]
    * @param clockwise [時計回りに回転するかどうか(デフォルトで時計回り)]
    * @param pwm [モーターパワー]
+   * @param weight [重み]
    */
-  void spin(double angle, bool clockwise = true, int pwm = 10);
+  void spin(double angle, bool clockwise = true, int pwm = 10, double weight = 0.94);
+  /**
+   * 指定した距離までライントレースする
+   * @param specifiedDistance [指定した距離(mm)。正なら前進、負なら後進。]
+   * @param pwm [モーターパワー(正の値)]
+   * @param encoderPGain [エンコーダーの値をP制御する際に使用するPゲイン]
+   * @param lineTracePGain [ライントレースに使用するPゲイン]
+   * @param isLeft [左エッジならtrue]
+   */
+  void lineTrace(double specifiedDistance, int pwm = 10, double encoderPGain = 0.6,
+                 double lineTracePGain = 0.6, bool isLeft = true);
   /**
    * 指定した色までライントレースする
-   * @brief 黒と白以外の色までOn Off制御でライントレースをする
+   * @brief 黒と白以外の指定した色までP制御でライントレースをする
    * @param specifiedColor [指定する色]
    * @param pwm [モーターパワー]
-   * @param pGain
+   * @param lineTracePGain [ライントレースに使用するPゲイン]
+   * @param isLeft [左エッジならtrue]
    */
-  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, double pGain = 0.6,
-                                      bool isLeft = true);
+  void lineTraceToSpecifiedColor(Color specifiedColor, int pwm = 10, double lineTracePGain = 0.6,
+                                 bool isLeft = true);
+  /**
+   * 黒と白以外のいづれかの色までライントレースする
+   * @param pwm [モーターパワー]
+   * @param lineTracePGain [ライントレースに使用するPゲイン]
+   * @param isLeft [左エッジならture]
+   */
+  void lineTraceExcludingMonochrome(int pwm = 10, double lineTracePGain = 0.6, bool isLeft = true);
+  /**
+   * 循環バッファー内にある指定色の個数を計算する
+   * @param circulation [循環バッファー]
+   * @param index [循環バッファーのインデックス]
+   * @param specifiedColor [指定色]
+   */
+  template <int N>
+  int countColorInBuffer(std::array<Color, N>& circulation, unsigned int& index,
+                         Color specifiedColor)
+  {
+    int count = 0;  // 指定色が循環バッファに存在する個数
+
+    // 循環バッファーに色情報を格納する
+    if(circulation.size() <= index) index = 0;
+    circulation[index] = controller.getColor();
+    ++index;
+
+    // 循環バッファー内にある指定色の個数を計算する
+    for(const auto& color : circulation) {
+      if(color == specifiedColor) ++count;
+    }
+
+    return count;
+  }
 
  private:
   Distance distance;
   Controller& controller;
-  PidGain pidForSpeed;
   const int targetBrightness;
   /**
    * 指定した距離動いたか判定する
@@ -106,12 +138,6 @@ class Navigator {
    * @return なし
    */
   void setPwmValue(int pwm, double alpha = 0.0);
-  /**
-   * 現在とっている色が黒かを判断する
-   * @param brightness [現在のカラーセンサーの取得値]
-   * @return 黒ならtrue、白ならfalseを返す
-   */
-  Color recognizeBlack(int brightness);
 };
 
 #endif

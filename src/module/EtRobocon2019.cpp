@@ -5,13 +5,13 @@
 #include "Calibrator.h"
 #include "Display.h"
 #include "NormalCourse.h"
-#include "Navigator.h"
 #include "Parking.h"
 #include "MoveDirectGarage.h"
 
 void EtRobocon2019::start()
 {
   Controller controller;
+  controller.speakerSetVolume(100);
   Calibrator calibrator(controller);
   // キャリブレーションする．
   calibrator.calibration();
@@ -19,7 +19,7 @@ void EtRobocon2019::start()
   // コースと、カラーセンサー目標値の設定
   bool isLeftCourse = calibrator.isLeftCourse();
   // 黒と白を足して2で割る．
-  int targetBrightness = (calibrator.getWhiteBrightness() + calibrator.getBlackBrightness()) / 2;
+  constexpr double targetBrightness = (255 - 0) / 2.0;
   // タッチセンサーが押されるまで待つ（これを書かないと自動で走り出す．）
   while(!controller.touchSensor.isPressed()) {
     controller.tslpTsk(4);
@@ -36,11 +36,11 @@ void EtRobocon2019::start()
   blockBingo.execOrder<256>(Bluetooth::commands);
 
   //直接ガレージに移動する
-  MoveDirectGarage moveDirectGarage(controller ,targetBrightness);
+  MoveDirectGarage moveDirectGarage(controller, targetBrightness);
   if(isLeftCourse) {
-  //ブロックビンゴを実行する処理を記述
-  }else{
-    moveDirectGarage.moveDirectGarageR();//Rコースの場合はビンゴを行わずにガレージ駐車を行う
+    //ブロックビンゴを実行する処理を記述
+  } else {
+    moveDirectGarage.moveDirectGarageR();  // Rコースの場合はビンゴを行わずにガレージ駐車を行う
   }
 
   // ガレージ
