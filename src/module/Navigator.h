@@ -14,7 +14,9 @@
 #include "Pid.h"
 #include "Rotation.h"
 #include "TurnControl.h"
+#include "LineTracer.h"
 #include <cmath>
+#include <array>
 
 class Navigator {
  public:
@@ -73,19 +75,50 @@ class Navigator {
    * @param lineTracePGain [ライントレースに使用するPゲイン]
    * @param isLeft [左エッジならtrue]
    */
-  void traceBlackLine(double specifiedDistance, int pwm = 10, double encoderPGain = 0.6,
-                      double lineTracePGain = 0.6, bool isLeft = true);
+  void lineTrace(double specifiedDistance, int pwm = 10, double encoderPGain = 0.6,
+                 double lineTracePGain = 0.6, bool isLeft = true);
   /**
    * 指定した色までライントレースする
-   * @brief 黒と白以外の色までP制御でライントレースをする
+   * @brief 黒と白以外の指定した色までP制御でライントレースをする
    * @param specifiedColor [指定する色]
    * @param pwm [モーターパワー]
    * @param lineTracePGain [ライントレースに使用するPゲイン]
    * @param isLeft [左エッジならtrue]
    */
-  void traceBlackLineToSpecifiedColor(Color specifiedColor, int pwm = 10, double lineTracePGain = 0.6,
-                                          bool isLeft = true);
-                                          
+  void lineTraceToSpecifiedColor(Color specifiedColor, int pwm = 10, double lineTracePGain = 0.6,
+                                 bool isLeft = true);
+  /**
+   * 黒と白以外のいづれかの色までライントレースする
+   * @param pwm [モーターパワー]
+   * @param lineTracePGain [ライントレースに使用するPゲイン]
+   * @param isLeft [左エッジならture]
+   */
+  void lineTraceExcludingMonochrome(int pwm = 10, double lineTracePGain = 0.6, bool isLeft = true);
+  /**
+   * 循環バッファー内にある指定色の個数を計算する
+   * @param circulation [循環バッファー]
+   * @param index [循環バッファーのインデックス]
+   * @param specifiedColor [指定色]
+   */
+  template <int N>
+  int countColorInBuffer(std::array<Color, N>& circulation, unsigned int& index,
+                         Color specifiedColor)
+  {
+    int count = 0;  // 指定色が循環バッファに存在する個数
+
+    // 循環バッファーに色情報を格納する
+    if(circulation.size() <= index) index = 0;
+    circulation[index] = controller.getColor();
+    ++index;
+
+    // 循環バッファー内にある指定色の個数を計算する
+    for(const auto& color : circulation) {
+      if(color == specifiedColor) ++count;
+    }
+
+    return count;
+  }
+
  private:
   Distance distance;
   Controller& controller;

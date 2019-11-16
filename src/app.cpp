@@ -10,8 +10,6 @@
 // 演習用のユーティリティ
 std::array<char, 256> Bluetooth::commands;
 bool Bluetooth::is_start = false;
-std::array<Color, 10> Controller::colorBuffer = { Color::black };
-int Controller::colorBufferCounter = 0;
 
 /**
  * メインタスク
@@ -63,16 +61,6 @@ void localization_task(intptr_t unused)
 
     leftOld = left;
     rightOld = right;
-    controller.tslpTsk(4);
-  }
-  ext_tsk();
-}
-
-void color_task(intptr_t unused)
-{
-  Controller controller;
-  while(true) {
-    controller.registerColor();
     controller.tslpTsk(4);
   }
   ext_tsk();
