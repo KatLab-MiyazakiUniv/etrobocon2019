@@ -324,9 +324,9 @@ class Controller {
 
   void steer(int power = 10, int turnRatio = 10)
   {
-    this->steer(int power, int turnRatio);
+    this->steer(power, turnRatio);
   }
-  
+
   void resetGyroSensor()
   {
     // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
