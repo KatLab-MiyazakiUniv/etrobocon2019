@@ -92,9 +92,12 @@ void Controller::getRawColor(int& r, int& g, int& b)
 {
   rgb_raw_t rgb;
   colorSensor.getRawColor(rgb);
-  r = limitRgbValue(static_cast<double>((rgb.r - standardBlack.r)) * 255 / (standardWhite.r - standardBlack.r));
-  g = limitRgbValue(static_cast<double>((rgb.g - standardBlack.g)) * 255 / (standardWhite.g - standardBlack.g));
-  b = limitRgbValue(static_cast<double>((rgb.b - standardBlack.b)) * 255 / (standardWhite.b - standardBlack.b));
+  r = limitRgbValue(static_cast<double>((rgb.r - standardBlack.r)) * 255
+                    / (standardWhite.r - standardBlack.r));
+  g = limitRgbValue(static_cast<double>((rgb.g - standardBlack.g)) * 255
+                    / (standardWhite.g - standardBlack.g));
+  b = limitRgbValue(static_cast<double>((rgb.b - standardBlack.b)) * 255
+                    / (standardWhite.b - standardBlack.b));
 }
 
 Color Controller::hsvToColor(const HsvStatus& status)
@@ -149,31 +152,6 @@ Color Controller::getColor()
   this->getRawColor(r, g, b);
   this->convertHsv(r, g, b);
   return this->hsvToColor(this->getHsv());
-}
-
-void Controller::registerColor()
-{
-  colorBuffer[colorBufferCounter] = getColor();
-  colorBufferCounter++;
-  if(colorBufferSize <= colorBufferCounter) {
-    colorBufferCounter = 0;
-  }
-}
-
-// 循環バッファ内の色を集計し、もっとも多い色を返す。
-Color Controller::determineColor(int colorNum)
-{
-  int counter[colorNum] = { 0 };
-  for(int i = 0; i < colorBufferSize; i++) {
-    counter[static_cast<int>(colorBuffer[i])]++;
-    this->tslpTsk(4);
-  }
-  int max = 0;
-  for(int i = 1; i < colorNum; i++) {
-    if(counter[max] < counter[i]) max = i;
-  }
-
-  return static_cast<Color>(max);
 }
 
 void Controller::tslpTsk(int time)
@@ -246,7 +224,6 @@ void Controller::setStandardBlack(const rgb_raw_t& rgb)
   standardBlack = rgb;
 }
 
-
 void Controller::convertHsv(int& r, int& g, int& b)
 {
   // r,g,bの最大値を求める
@@ -257,8 +234,7 @@ void Controller::convertHsv(int& r, int& g, int& b)
   // 明度(value)を求める
   hsv.value = max / 255 * 100;
 
-  if (hsv.value == 0)
-  {
+  if(hsv.value == 0) {
     hsv.hue = 0;
     hsv.saturation = 0;
     return;
@@ -275,10 +251,14 @@ void Controller::convertHsv(int& r, int& g, int& b)
   hsv.saturation = diff / max * 100.0;
 
   // 色相(hue)を求める
-  if(r == g && r == b) hsv.hue = 0;
-  else if(max == r) hsv.hue = 60.0 * ((g - b) / diff);
-  else if(max == g) hsv.hue = 60.0 * ((b - r) / diff) + 120.0;
-  else if(max == b) hsv.hue = 60.0 * ((r - g) / diff) + 240.0;
+  if(r == g && r == b)
+    hsv.hue = 0;
+  else if(max == r)
+    hsv.hue = 60.0 * ((g - b) / diff);
+  else if(max == g)
+    hsv.hue = 60.0 * ((b - r) / diff) + 120.0;
+  else if(max == b)
+    hsv.hue = 60.0 * ((r - g) / diff) + 240.0;
 
   if(hsv.hue < 0.0) hsv.hue += 360.0;
 }
