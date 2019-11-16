@@ -93,15 +93,22 @@ class BlockBingo {
   void execMoveNode();
   /**
    * QUICK_PUT_Rの命令を実行する
-   * @brief ブロックを持った状態で交点サークルから右向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
-   */  
+   * @brief
+   * ブロックを持った状態で交点サークルから右向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
+   */
   void execQuickPutR();
   /**
    * QUICK_PUT_Lの命令を実行する
-   * @brief ブロックを持った状態で交点サークルから左向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
-   */  
+   * @brief
+   * ブロックを持った状態で交点サークルから左向きにブロックサークルの中心に設置して出発した元の交点サークルまで戻る
+   */
   void execQuickPutL();
-  
+  /**
+   * PREPARE_TO_PUTの命令を実行する
+   * @brief ブロックサークルの中心から黒線まで移動する
+   */
+  void execPrepareToPut();
+
  public:
   /**
    * コンストラクタ
@@ -200,6 +207,10 @@ class BlockBingo {
 
         case Order::QUICK_PUT_L:
           this->execQuickPutL();
+          break;
+
+        case Order::PREPARE_TO_PUT:
+          this->execPrepareToPut();
           break;
 
         default:

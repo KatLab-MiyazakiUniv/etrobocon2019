@@ -28,7 +28,8 @@ enum class Order {
   ENTER_BINGO_AREA_R5,
   ENTER_BINGO_AREA_R8,
   QUICK_PUT_R,
-  QUICK_PUT_L
+  QUICK_PUT_L,
+  PREPARE_TO_PUT
 };
 
 class Instructions {
