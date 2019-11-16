@@ -161,9 +161,7 @@ void Calibrator::setArm()
     Display::print(3, "Touch Button : Arm set start!");
   }
 
-  controller.moveArm(50);
   controller.stopLiftMotor();
-  controller.moveArm(-20);
 
   while(!controller.touchSensor.isPressed()){
     controller.tslpTsk(4);
