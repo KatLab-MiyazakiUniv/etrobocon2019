@@ -11,7 +11,7 @@ BlockBingo::BlockBingo(Controller& controller_, int targetBrightness_)
     targetBrightness(targetBrightness_),
     isFirstProcess(true),
     pGain(0.823), // 10 : 0.823, 20 : 0.29?
-    straightPwm(10)
+    straightPwm(15)
 {
 }
 
@@ -173,4 +173,9 @@ void BlockBingo::execQuickPutL()
   controller.tslpTsk(720);
 
   controller.stopMotor();
+}
+
+void BlockBingo::execPrepareToPut()
+{
+  navigator.move(lengthCrossCircleCenter, straightPwm, pGain);
 }
