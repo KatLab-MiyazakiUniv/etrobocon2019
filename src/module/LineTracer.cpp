@@ -21,13 +21,11 @@ void LineTracer::run(const NormalCourseProperty& settings)
   int initialDistance
       = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
-  int currentDistance = initialDistance;                   // 現在の走行距離
-  int turnValue = 0;                                       // 旋回値
-  int speedValue = 0;                                      // 直進値
-  int leftPWM = 0;                                         // 左モータの出力
-  int rightPWM = 0;                                        // 右モータの出力
-  Curvature curvature(settings.curvature, 1.2, 1.8, 0.0);  // 曲率PID制御
-  constexpr int baseSpeedRate = 640 / 70;  // PWM70で640mm/secとしたときの速度比
+  int currentDistance = initialDistance;  // 現在の走行距離
+  int turnValue = 0;                      // 旋回値
+  int speedValue = 0;                     // 直進値
+  int leftPWM = 0;                        // 左モータの出力
+  int rightPWM = 0;                       // 右モータの出力
 
   // 目標距離を走り終えるまでループ
   while(currentDistance - initialDistance < settings.targetDistance) {
@@ -35,12 +33,8 @@ void LineTracer::run(const NormalCourseProperty& settings)
     speedValue = settings.targetSpeed;
 
     // 旋回値の計算
-    turnValue
-        = turnControl.calculateTurn(speedValue, controller.getBrightness(), targetBrightness,
-                                    settings.turnPid.Kp, settings.turnPid.Ki, settings.turnPid.Kd);
-    // 曲率PID制御による旋回値の計算
-    turnValue += curvature.control(controller.getLeftMotorCount(), controller.getRightMotorCount(),
-                                   baseSpeedRate * settings.targetSpeed);
+    turnValue = calculateTurnValue(speedValue, settings.curvature, settings.turnPid.Kp,
+                                   settings.turnPid.Ki, settings.turnPid.Kd);
     // モータ出力の計算
     if(isLeftCourse) {
       // Leftコースの場合
@@ -58,8 +52,7 @@ void LineTracer::run(const NormalCourseProperty& settings)
     // 現在の走行距離の取得
     currentDistance
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
-    //  Logger logger{"dataw.csv","a"};
-    //  logger << currentDistance << speedValue;
+
     controller.tslpTsk(4);
   }
 }
@@ -67,4 +60,22 @@ void LineTracer::run(const NormalCourseProperty& settings)
 void LineTracer::setTargetBrightness(int targetBrightness_)
 {
   targetBrightness = targetBrightness_;
+}
+
+int LineTracer::calculateTurnValue(int speedValue, double curvatureValue, double pGain,
+                                   double iGain, double dGain)
+{
+  int turnValue = 0;                                   // 旋回値
+  Curvature curvature(curvatureValue, 1.2, 1.8, 0.0);  // 曲率PID制御
+  constexpr int baseSpeedRate = 640 / 70;  // PWM70で640mm/secとしたときの速度比
+
+  // カラーセンサー値を用いたPID制御
+  turnValue = turnControl.calculateTurn(speedValue, controller.getBrightness(), targetBrightness,
+                                        pGain, iGain, dGain);
+
+  // 曲率PID制御による旋回値の計算
+  turnValue += curvature.control(controller.getLeftMotorCount(), controller.getRightMotorCount(),
+                                 baseSpeedRate * speedValue);
+
+  return turnValue;
 }
