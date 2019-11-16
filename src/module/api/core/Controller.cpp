@@ -309,6 +309,11 @@ void Controller::resetArmMotorCount()
   liftMotor.reset();
 }
 
+void Controller::steer(int power,int turnRatio)
+{
+  ev3_motor_steer(EV3_PORT_C, EV3_PORT_B, power, turnRatio);
+}
+
 void Controller::resetGyroSensor()
 {
   // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
