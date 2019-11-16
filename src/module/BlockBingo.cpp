@@ -202,3 +202,8 @@ void BlockBingo::execQuickPutL()
 
   controller.stopMotor();
 }
+
+void BlockBingo::execPrepareToPut()
+{
+  navigator.move(lengthCrossCircleCenter, straightPwm, pGain);
+}

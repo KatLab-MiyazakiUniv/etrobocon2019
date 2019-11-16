@@ -24,6 +24,7 @@ Instructions::Instructions()
   mp['m'] = Order::TURN_LEFT90_UNEXIST_BLOCK;
   mp['n'] = Order::TURN180;
 
+  mp['o'] = Order::PREPARE_TO_PUT;
   mp['u'] = Order::MOVE_NODE;
 
   mp['w'] = Order::ENTER_BINGO_AREA_R5;
