@@ -321,5 +321,10 @@ class Controller {
       colorBufferCounter = 0;
     }
   }
+
+  void steer(int power = 10, int turnRatio = 10)
+  {
+    this->steer(int power, int turnRatio);
+  }
 };
 #endif
