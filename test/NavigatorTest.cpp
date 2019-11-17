@@ -109,7 +109,7 @@ namespace etrobocon2019_test {
     double start
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
-    navigator.move(expected, 30, 0.3);
+    navigator.move(expected, 30);
 
     double end
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
@@ -127,7 +127,7 @@ namespace etrobocon2019_test {
     double start
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
-    navigator.move(expected, 30, 0.3);
+    navigator.move(expected, 30);
 
     double end
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
