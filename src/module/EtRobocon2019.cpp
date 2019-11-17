@@ -47,7 +47,6 @@ void EtRobocon2019::start()
     } else {
       moveDirectGarage.moveDirectGarageR();
     }
-    return 0;
   }
   // ガレージ
   Parking parking(controller, targetBrightness);
