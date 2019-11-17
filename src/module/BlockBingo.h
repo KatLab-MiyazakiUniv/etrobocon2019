@@ -160,6 +160,7 @@ class BlockBingo {
           break;
 
         case Order::SPIN_RIGHT:
+
           this->execSpinRight();
           break;
 

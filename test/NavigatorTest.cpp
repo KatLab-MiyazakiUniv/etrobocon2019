@@ -98,42 +98,6 @@ namespace etrobocon2019_test {
     ASSERT_LE(mileage, expected);
   }
 
-  TEST(Navigator, moveByPidForward)
-  {
-    Controller controller;
-    Distance distance;
-    int targetBrightness = 70;
-    Navigator navigator(controller, targetBrightness);
-
-    double expected = 1000.0;
-    double start
-        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
-
-    navigator.move(expected, 30);
-
-    double end
-        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
-    ASSERT_LE(expected, end - start);
-  }
-
-  TEST(Navigator, moveByPidBackward)
-  {
-    Controller controller;
-    Distance distance;
-    int targetBrightness = 70;
-    Navigator navigator(controller, targetBrightness);
-
-    double expected = -1000.0;
-    double start
-        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
-
-    navigator.move(expected, 30);
-
-    double end
-        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
-    ASSERT_LE(end - start, expected);
-  }
-
   // 黒以外の識別はテストできない
   // TEST(Navigator, moveToSpecifiedColorTest)
   // {
@@ -181,7 +145,7 @@ namespace etrobocon2019_test {
     double start
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
 
-    navigator.lineTrace(expected, 15, 0.70, 0.10);
+    navigator.lineTrace(expected, 15, 0.10);
     double end
         = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
     double actual = end - start;

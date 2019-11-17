@@ -134,7 +134,7 @@ class Navigator {
    * @param step [pwmを上げる回数]
    * @retrun 実際にセットするpwm値
    */
-  int accelerate(int& counter, int pwm, int step = 5);
+  int accelerate(int& counter, int pwm, int step);
 };
 
 #endif
