@@ -40,16 +40,6 @@ class Navigator {
   void move(double specifiedDistance, int pwm = 30);
 
   /**
-   * 指定した速度で前進と後進をする
-   *
-   * @brief specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す
-   * @param specifiedDistance [移動したい距離(mm)]
-   * @param specifiedSpeed [移動したい速度]
-   * @return なし
-   */
-  void moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed);
-
-  /**
    * 指定した色まで前進と後進をする
    *
    * @param specifiedColor [指定する色]
