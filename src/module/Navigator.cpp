@@ -24,7 +24,7 @@ void Navigator::move(double specifiedDistance, int pwm)
 
   if(specifiedDistance < 0) {
     while(hasArrived(specifiedDistance, false)) {
-      int actualPwm = this->decideSetValue(counter, pwm, 30);
+      int actualPwm = this->accelerate(counter, pwm, 30);
       double alpha = lineTracer.calculateTurnValue(-std::abs(actualPwm), 0.0, 0.0, 0.0, 0.0, pGain,
                                                    iGain, dGain);
       setPwmValue(-std::abs(actualPwm), -alpha);
@@ -33,7 +33,7 @@ void Navigator::move(double specifiedDistance, int pwm)
     }
   } else {
     while(hasArrived(specifiedDistance, true)) {
-      int actualPwm = this->decideSetValue(counter, pwm, 30);
+      int actualPwm = this->accelerate(counter, pwm, 30);
       double alpha = lineTracer.calculateTurnValue(std::abs(actualPwm), 0.0, 0.0, 0.0, 0.0, pGain,
                                                    iGain, dGain);
       setPwmValue(std::abs(actualPwm), -alpha);
@@ -186,7 +186,7 @@ void Navigator::lineTraceExcludingMonochrome(int pwm, double lineTracePGain, boo
   controller.stopMotor();
 }
 
-int Navigator::decideSetValue(int& counter, int pwm, int step)
+int Navigator::accelerate(int& counter, int pwm, int step)
 {
   return (counter <= step) ? static_cast<int>(pwm / step * counter) : pwm;
 }
