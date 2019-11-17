@@ -43,6 +43,16 @@ void BlockBingo::moveCircle6OfL()
   navigator.move(lengthCrossCircleCenter, straightPwm, pGain);
 }
 
+void BlockBingo::moveCircle5OfR()
+{
+  navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
+}
+
+void BlockBingo::moveCircle8OfR()
+{
+  navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
+}
+
 void BlockBingo::execSpinRight()
 {
   navigator.spin(90.0, true);
