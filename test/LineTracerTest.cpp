@@ -44,4 +44,18 @@ namespace etrobocon2019_test {
     lineTracer.setTargetBrightness(100);
   }
 
+  TEST(LineTracer, calculateTurnValueTest)
+  {
+    Controller controller;
+    int targetBrightness = 50;  //カラーセンサーの目標値
+    bool isLeft = true;         // Left コースであるか、否か
+
+    LineTracer lineTracer(controller, targetBrightness, isLeft);
+
+    int actual = lineTracer.calculateTurnValue(10, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+    int expected = 0;
+
+    ASSERT_EQ(expected, actual);
+  }
+
 }  // namespace etrobocon2019_test
