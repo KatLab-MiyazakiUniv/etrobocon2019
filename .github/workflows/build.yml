@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     container: docker://korosuke613/etrobo-docker:latest
     steps:
     - uses: actions/checkout@v1
