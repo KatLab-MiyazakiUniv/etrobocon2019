@@ -4,19 +4,15 @@ on: [push, pull_request]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-    
+    container: docker://korosuke613/etrobo-docker:latest
     steps:
     - uses: actions/checkout@v1
     - name: copy
-      uses: docker://korosuke613/etrobo-docker:latest
       run: |
         cp -r src /home/hrp2/sdk/workspace/
         mv -T /home/hrp2/sdk/workspace/src/ /home/hrp2/sdk/workspace/product/ 
         cp -r src /home/hrp2/sdk/workspace/product
     - name: build
-      uses: docker://korosuke613/etrobo-docker:latest
       run: |
         cd /home/hrp2/sdk/workspace/
         make_src
