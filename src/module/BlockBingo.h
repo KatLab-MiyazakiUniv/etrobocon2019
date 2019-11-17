@@ -10,6 +10,7 @@
 #include "Controller.h"
 #include "Instructions.h"
 #include "Navigator.h"
+#include "LineTracer.h"
 
 class BlockBingo {
  private:
@@ -17,9 +18,10 @@ class BlockBingo {
   Navigator navigator;
   //交点サークルから中点までの距離
   const int targetBrightness;
-  static constexpr double lengthCrossCircleCenter = 175.0;
+  const bool isLeft;
+  static constexpr double lengthCrossCircleMidpoint = 175.0;
   static constexpr double lengthColorSensorAxis = 50.0;
-  // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
+  const double lineTracePGain;
   const int straightPwm;
 
   /**
@@ -36,14 +38,12 @@ class BlockBingo {
   void execEnterBingoAreaL6();
   /**
    * Rコースのブロックビンゴのブロックサークル5に移動する
-   * @brief Lコースのブロックビンゴ開始点からブロックサークル5の手前の
-   * 黒線の中点まで斜めに移動し、ブロックサークル5の中央まで移動する。
+   * @brief Rコースのブロックサークル8の中心に移動する
    */
   void execEnterBingoAreaR5();
   /**
    * Rコースのブロックビンゴのブロックサークル8に移動する
-   * @brief Lコースのブロックビンゴ開始点からブロックサークル8の手前の
-   * 黒線の中点まで斜めに移動し、ブロックサークル8の中央まで移動する。
+   * @brief Rコースのブロックサークル8の中心に移動する
    */
   void execEnterBingoAreaR8();
   //ここからのprivate関数の詳細はモデルの2.2を参照
@@ -130,13 +130,28 @@ class BlockBingo {
    * @brief ブロックサークルの中心から黒線まで移動する
    */
   void execPrepareToPut();
+  /**
+   * STRAIGHT_STRAIGHTの命令を実行する
+   * @brief execStraight2回分動く。PIDの関係上こうなった
+   */
+  void execStraightStraight();
+  /**
+   * MOVE_TO_MIDPOINTの命令を実行する
+   * @brief 交点サークルから中点まで移動する。execPrepareToPutに類似
+   */
+  void execMoveToMidpoint();
+  /**
+   * 交点サークル上に移動する
+   * @brief 交点サークル上で回頭を行うときに使う
+   */
+  void moveCrossCircle();
 
  public:
   /**
    * コンストラクタ
    * @param controller_ [Controllerの参照]
    */
-  BlockBingo(Controller& controller_, int targetBrightness_);
+  BlockBingo(Controller& controller_, int targetBrightness_, bool isLeft_);
 
   /**
    * パソコンから受け取ったリストの通りに処理を実行する
@@ -212,14 +227,6 @@ class BlockBingo {
           this->execMoveNode();
           break;
 
-        case Order::QUICK_PUT_R:
-          this->execQuickPutR();
-          break;
-
-        case Order::QUICK_PUT_L:
-          this->execQuickPutL();
-          break;
-
         case Order::ENTER_BINGO_AREA_R5:
           this->execEnterBingoAreaR5();
           break;
@@ -232,9 +239,19 @@ class BlockBingo {
           this->execPrepareToPut();
           break;
 
+        case Order::STRAIGHT_STRAIGHT:
+          this->execStraightStraight();
+          break;
+
+        case Order::MOVE_TO_MIDPOINT:
+          this->execMoveToMidpoint();
+          break;
+
         default:
           controller.speakerPlayToneFS6(1000);
       }
+
+      controller.tslpTsk(100);
     }
   }
 };
