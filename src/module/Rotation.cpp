@@ -5,7 +5,7 @@
  */
 #include "Rotation.h"
 
-Rotation::Rotation() : Radius(50.0), Tread(130.0) {}
+Rotation::Rotation() : Radius(50.0), Tread(128.0) {}
 
 double Rotation::calculate(const int leftAngle, const int rightAngle)
 {
