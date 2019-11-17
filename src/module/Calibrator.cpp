@@ -17,7 +17,6 @@ bool Calibrator::calibration()
   Display::print(1, "Calibration, mV:%d, mA:%d", volt, amp);
   this->setArm();
   this->deleteDisplayedText(2, 11);
-  Display::print(1, "Calibration, mV:%d, mA:%d", volt, amp);
   if(!setCameraMode()) {
     Display::print(2, "Error setCameraMode!");
     return false;
