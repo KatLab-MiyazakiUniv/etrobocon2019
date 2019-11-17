@@ -38,7 +38,7 @@ class BlockBingo {
   void execEnterBingoAreaL6();
   /**
    * Rコースのブロックビンゴのブロックサークル5に移動する
-   * @brief Rコースのブロックサークル8の中心に移動する
+   * @brief Rコースのブロックサークル5の中心に移動する
    */
   void execEnterBingoAreaR5();
   /**
@@ -233,6 +233,14 @@ class BlockBingo {
 
         case Order::ENTER_BINGO_AREA_R8:
           this->execEnterBingoAreaR8();
+          break;
+
+        case Order::QUICK_PUT_R:
+          this->execQuickPutR();
+          break;
+
+        case Order::QUICK_PUT_L:
+          this->execQuickPutL();
           break;
 
         case Order::PREPARE_TO_PUT:
