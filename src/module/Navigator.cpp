@@ -12,24 +12,32 @@ Navigator::Navigator(Controller& controller_, int targetBrightness_)
 {
 }
 
-void Navigator::move(double specifiedDistance, int pwm, const double pGain)
+void Navigator::move(double specifiedDistance, int pwm)
 {
   controller.resetMotorCount();
 
-  // 左車輪の回転量 - 右車輪の回転量
-  // 左車輪の方が多く回転していれば、alphaは正となり右車輪にPWM + alphaの操作量が加えられる
-  Pid pid(0, pGain);
+  LineTracer lineTracer(controller, targetBrightness, true);
+  double pGain = 1.9;
+  double iGain = 5.0;
+  double dGain = 0.0;
+  int counter = 0;
 
   if(specifiedDistance < 0) {
     while(hasArrived(specifiedDistance, false)) {
-      double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
-      setPwmValue(-std::abs(pwm), -alpha);
+      int actualPwm = this->accelerate(counter, pwm, 30);
+      double alpha = lineTracer.calculateTurnValue(-std::abs(actualPwm), 0.0, 0.0, 0.0, 0.0, pGain,
+                                                   iGain, dGain);
+      setPwmValue(-std::abs(actualPwm), -alpha);
+      ++counter;
       controller.tslpTsk(4);
     }
   } else {
     while(hasArrived(specifiedDistance, true)) {
-      double alpha = pid.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
-      setPwmValue(std::abs(pwm), -alpha);
+      int actualPwm = this->accelerate(counter, pwm, 30);
+      double alpha = lineTracer.calculateTurnValue(std::abs(actualPwm), 0.0, 0.0, 0.0, 0.0, pGain,
+                                                   iGain, dGain);
+      setPwmValue(std::abs(actualPwm), -alpha);
+      ++counter;
       controller.tslpTsk(4);
     }
   }
@@ -39,12 +47,7 @@ void Navigator::move(double specifiedDistance, int pwm, const double pGain)
 
 void Navigator::moveToSpecifiedColor(Color specifiedColor, int pwm)
 {
-  // 特定の色まで移動する
-  while(controller.getColor() != specifiedColor) {
-    setPwmValue(pwm);
-    controller.tslpTsk(4);
-  }
-  controller.stopMotor();
+  this->lineTraceToSpecifiedColor(specifiedColor, pwm, 0.0);
 }
 
 void Navigator::spin(double angle, bool clockwise, int pwm, double weight)
@@ -95,59 +98,22 @@ void Navigator::setPwmValue(int pwm, double alpha)
   controller.setLeftMotorPwm(pwm - static_cast<int>(alpha));
 }
 
-void Navigator::lineTrace(double specifiedDistance, int pwm, double encoderPGain,
-                          double lineTracePGain, bool isLeft)
+void Navigator::lineTrace(double specifiedDistance, int pwm, double lineTracePGain, bool isLeft)
 {
   controller.resetMotorCount();
 
   // 左車輪の回転量 - 右車輪の回転量
   // 左車輪の方が多く回転していれば、alphaは正となり右車輪にPWM + alphaの操作量が加えられる
-  Pid pidForEncoder(0, lineTracePGain);
-
-  Pid pidForLineTrace(targetBrightness, lineTracePGain);
+  LineTracer lineTracer(controller, targetBrightness, isLeft);
 
   if(specifiedDistance < 0) {
-    // 指定した距離に到達するまでTrue
-    while(hasArrived(specifiedDistance, false)) {
-      // エンコーダーの値をp制御
-      double encoderPidValue
-          = pidForEncoder.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
-      // ライントレース用のp制御
-      double lineTracePidValue = pidForLineTrace.control(controller.getBrightness());
-
-      // 後進するため、pwmは負の値
-      int rightPwm = -std::abs(pwm)
-                     + static_cast<int>(isLeft ? lineTracePidValue : -lineTracePidValue)
-                     - static_cast<int>(encoderPidValue);
-      int leftPwm = -std::abs(pwm)
-                    + static_cast<int>(isLeft ? -lineTracePidValue : lineTracePidValue)
-                    + static_cast<int>(encoderPidValue);
-
-      controller.setRightMotorPwm(rightPwm);
-      controller.setLeftMotorPwm(leftPwm);
-
-      controller.tslpTsk(4);
-    }
+    NormalCourseProperty property
+        = { static_cast<int>(specifiedDistance), -pwm, 0.0, { lineTracePGain, 0.0, 0.0 } };
+    lineTracer.run(property);
   } else {
-    // 上記のwhile文の中の処理とほぼ同じ
-    while(hasArrived(specifiedDistance, true)) {
-      double encoderPidValue
-          = pidForEncoder.control(controller.getLeftMotorCount() - controller.getRightMotorCount());
-      double lineTracePidValue = pidForLineTrace.control(controller.getBrightness());
-
-      // 前進するため、pwmは正の値
-      int rightPwm = std::abs(pwm)
-                     + static_cast<int>(isLeft ? lineTracePidValue : -lineTracePidValue)
-                     - static_cast<int>(encoderPidValue);
-      int leftPwm = std::abs(pwm)
-                    + static_cast<int>(isLeft ? -lineTracePidValue : lineTracePidValue)
-                    + static_cast<int>(encoderPidValue);
-
-      controller.setRightMotorPwm(rightPwm);
-      controller.setLeftMotorPwm(leftPwm);
-
-      controller.tslpTsk(4);
-    }
+    NormalCourseProperty property
+        = { static_cast<int>(specifiedDistance), pwm, 0.0, { lineTracePGain, 0.0, 0.0 } };
+    lineTracer.run(property);
   }
 
   controller.stopMotor();
@@ -156,7 +122,7 @@ void Navigator::lineTrace(double specifiedDistance, int pwm, double encoderPGain
 void Navigator::lineTraceToSpecifiedColor(Color specifiedColor, int pwm, double lineTracePGain,
                                           bool isLeft)
 {
-  constexpr int resolution = 3;
+  constexpr int resolution = 6;
   LineTracer lineTracer(controller, targetBrightness, isLeft);
   // 循環バッファーを作成する(最初は、noneで埋めておく)
   constexpr int bufferSize = 2 * resolution + 1;
@@ -164,6 +130,8 @@ void Navigator::lineTraceToSpecifiedColor(Color specifiedColor, int pwm, double 
   circulation.fill(Color::none);
   unsigned int index = 0;
   int count = 0;  // 指定色が循環バッファに存在する個数
+
+  controller.resetMotorCount();
 
   while(count < resolution) {
     count = this->countColorInBuffer<bufferSize>(circulation, index, specifiedColor);
@@ -216,4 +184,9 @@ void Navigator::lineTraceExcludingMonochrome(int pwm, double lineTracePGain, boo
   }
 
   controller.stopMotor();
+}
+
+int Navigator::accelerate(int& counter, int pwm, int step)
+{
+  return (counter <= step) ? static_cast<int>(pwm / step * counter) : pwm;
 }
