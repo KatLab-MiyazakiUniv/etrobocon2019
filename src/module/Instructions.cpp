@@ -9,8 +9,6 @@ Instructions::Instructions()
 {
   mp['a'] = Order::ENTER_BINGO_AREA_L4;
   mp['b'] = Order::ENTER_BINGO_AREA_L6;
-  mp['w'] = Order::ENTER_BINGO_AREA_R5;
-  mp['x'] = Order::ENTER_BINGO_AREA_R8;
   mp['c'] = Order::STRAIGHT;
   mp['d'] = Order::SPIN_RIGHT;
   mp['e'] = Order::SPIN_LEFT;
