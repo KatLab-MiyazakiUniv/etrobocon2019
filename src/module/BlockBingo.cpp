@@ -41,6 +41,30 @@ void BlockBingo::moveCircle6OfL()
   navigator.move(lengthCrossCircleCenter, straightPwm);
 }
 
+void BlockBingo::moveCircle5OfR()
+{
+  navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
+  navigator.move(10.0, straightPwm);
+  controller.setLeftMotorPwm(30);
+  controller.setRightMotorPwm(8);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(500);
+  navigator.move(240.0, straightPwm);
+  navigator.spin(45,false);
+}
+
+void BlockBingo::moveCircle8OfR()
+{
+  navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
+  navigator.move(10.0, straightPwm);
+  controller.setLeftMotorPwm(8);
+  controller.setRightMotorPwm(30);
+  controller.speakerPlayToneFS6(100);
+  controller.tslpTsk(500);
+  navigator.move(250.0, straightPwm);
+  navigator.spin(45);
+}
+
 void BlockBingo::execSpinRight()
 {
   navigator.spin(90.0, true);
