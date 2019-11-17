@@ -63,10 +63,12 @@ void LineTracer::setTargetBrightness(int targetBrightness_)
 }
 
 int LineTracer::calculateTurnValue(int speedValue, double curvatureValue, double pGain,
-                                   double iGain, double dGain)
+                                   double iGain, double dGain, double curvaturePGain,
+                                   double curvatureIGain, double curvatureDGain)
 {
-  int turnValue = 0;                                   // 旋回値
-  Curvature curvature(curvatureValue, 1.2, 1.8, 0.0);  // 曲率PID制御
+  int turnValue = 0;  // 旋回値
+  Curvature curvature(curvatureValue, curvaturePGain, curvatureIGain,
+                      curvatureDGain);     // 曲率PID制御
   constexpr int baseSpeedRate = 640 / 70;  // PWM70で640mm/secとしたときの速度比
 
   // カラーセンサー値を用いたPID制御
