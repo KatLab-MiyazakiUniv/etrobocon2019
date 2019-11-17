@@ -97,8 +97,9 @@ class Controller {
   void moveArm(int count, int pwm = 45);
   void resetArmMotorCount();
   void stopLiftMotor();
+  void steer(int power, int turnRatio);
 
- private:
+private:
   HsvStatus hsv;
   Motor liftMotor;
   Motor rightWheel;
