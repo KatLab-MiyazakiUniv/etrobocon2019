@@ -10,7 +10,8 @@ Curvature::Curvature(double targetCurvature_, double Kp_, double Ki_, double Kd_
    targetCurvature(targetCurvature_),
    pidGain(Kp_, Ki_, Kd_),
    preDistance(0.0),
-   preTheta(0.0)
+   preTheta(0.0),
+   Tread(128.0)
 {
 }
 

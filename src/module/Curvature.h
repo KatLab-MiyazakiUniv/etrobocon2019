@@ -18,7 +18,7 @@ class Curvature
   PidGain pidGain;
   double preDistance;
   double preTheta;
-  static constexpr double Tread = 128.0;
+  const double Tread;
 
  public:
   Curvature(double targetCurvature, double Kp, double Ki, double Kd);
