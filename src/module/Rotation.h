@@ -11,7 +11,7 @@
 class Rotation {
  private:
   const double Radius;  //  走行体の車輪の半径 [mm]
-  const double Tread;   // 走行体のトレッド幅（両輪の間の距離） [mm]
+  static constexpr double Tread = 128.0;   // 走行体のトレッド幅（両輪の間の距離） [mm]
   Distance distance;
 
  public:
