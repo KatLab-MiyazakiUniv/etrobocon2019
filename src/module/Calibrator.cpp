@@ -12,9 +12,11 @@ Calibrator::Calibrator(Controller& controller_)
 
 bool Calibrator::calibration()
 {
+  auto volt = controller.getVolt();
+  auto amp = controller.getAmp();
+  Display::print(1, "Calibration, mV:%d, mA:%d", volt, amp);
   this->setArm();
-  this->deleteDisplayedText(5);
-  Display::print(2, "Calibration...");
+  this->deleteDisplayedText(2, 11);
   if(!setCameraMode()) {
     Display::print(2, "Error setCameraMode!");
     return false;
@@ -158,9 +160,7 @@ void Calibrator::setArm()
     Display::print(3, "Touch Button : Arm set start!");
   }
 
-  controller.moveArm(50);
   controller.stopLiftMotor();
-  controller.moveArm(-20);
 
   while(!controller.touchSensor.isPressed()){
     controller.tslpTsk(4);

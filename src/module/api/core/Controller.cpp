@@ -13,6 +13,14 @@ Controller::Controller()
   colorSensor.getRawColor(standardBlack);
 }
 
+int Controller::getVolt(){
+  return ev3_battery_voltage_mV();
+}
+
+int Controller::getAmp(){
+  return ev3_battery_current_mA();
+}
+
 void Controller::speakerSetVolume(int volume)
 {
   ev3_speaker_set_volume(volume);
@@ -307,6 +315,11 @@ void Controller::moveArm(int count, int pwm)
 void Controller::resetArmMotorCount()
 {
   liftMotor.reset();
+}
+
+void Controller::steer(int power,int turnRatio)
+{
+  ev3_motor_steer(EV3_PORT_C, EV3_PORT_B, power, turnRatio);
 }
 
 void Controller::resetGyroSensor()

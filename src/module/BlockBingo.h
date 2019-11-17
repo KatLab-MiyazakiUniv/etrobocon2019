@@ -20,8 +20,6 @@ class BlockBingo {
   static constexpr double lengthCrossCircleCenter = 175.0;
   static constexpr double lengthColorSensorAxis = 50.0;
   // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
-  bool isFirstProcess;
-  const double pGain;
   const int straightPwm;
 
   /**

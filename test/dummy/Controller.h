@@ -322,6 +322,11 @@ class Controller {
     }
   }
 
+  void steer(int power = 10, int turnRatio = 10)
+  {
+    this->steer(power, turnRatio);
+  }
+
   void resetGyroSensor()
   {
     // なぜかジャイロセンサーの値が訳の分からない値になることがあるので、0になるまでリセットする
@@ -335,5 +340,8 @@ class Controller {
 
   rgb_raw_t standardBlack;
   void setStandardBlack(const rgb_raw_t& rgb) { standardBlack = rgb; }
+
+  int getVolt() { return 3; }
+  int getAmp() { return 3; }
 };
 #endif

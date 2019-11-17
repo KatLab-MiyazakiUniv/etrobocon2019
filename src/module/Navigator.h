@@ -35,20 +35,9 @@ class Navigator {
    * @brief specifiedDistanceの値でbackwardかforwardを呼び出す。
    * @param specifiedDistance [移動したい距離(mm)。正なら前進、負なら後進。]
    * @param pwm [モータの強さ]
-   * @param pGain [PID制御におけるPゲイン (デフォルトは0.0なので指定しなければP制御は実行されない)]
    * @return なし
    */
-  void move(double specifiedDistance, int pwm = 30, const double pGain = 0.0);
-
-  /**
-   * 指定した速度で前進と後進をする
-   *
-   * @brief specifiedDistanceとSpeedControl.calculateSpeedから戻ってきたPWMをmoveに渡す
-   * @param specifiedDistance [移動したい距離(mm)]
-   * @param specifiedSpeed [移動したい速度]
-   * @return なし
-   */
-  void moveAtSpecifiedSpeed(double specifiedDistance, int specifiedSpeed);
+  void move(double specifiedDistance, int pwm = 30);
 
   /**
    * 指定した色まで前進と後進をする
@@ -66,17 +55,16 @@ class Navigator {
    * @param pwm [モーターパワー]
    * @param weight [重み]
    */
-  void spin(double angle, bool clockwise = true, int pwm = 10, double weight = 0.94);
+  void spin(double angle, bool clockwise = true, int pwm = 7, double weight = 0.90);
   /**
    * 指定した距離までライントレースする
    * @param specifiedDistance [指定した距離(mm)。正なら前進、負なら後進。]
    * @param pwm [モーターパワー(正の値)]
-   * @param encoderPGain [エンコーダーの値をP制御する際に使用するPゲイン]
    * @param lineTracePGain [ライントレースに使用するPゲイン]
    * @param isLeft [左エッジならtrue]
    */
-  void lineTrace(double specifiedDistance, int pwm = 10, double encoderPGain = 0.6,
-                 double lineTracePGain = 0.6, bool isLeft = true);
+  void lineTrace(double specifiedDistance, int pwm = 10, double lineTracePGain = 0.6,
+                 bool isLeft = true);
   /**
    * 指定した色までライントレースする
    * @brief 黒と白以外の指定した色までP制御でライントレースをする
@@ -138,6 +126,15 @@ class Navigator {
    * @return なし
    */
   void setPwmValue(int pwm, double alpha = 0.0);
+  /**
+   * スムーズに走り出すためにセットするpwmを決める
+   * @param 最初の何回かを小さめのpwmにする
+   * @param counter [カウンター]
+   * @param pwm [モーターパワー]
+   * @param step [pwmを上げる回数]
+   * @retrun 実際にセットするpwm値
+   */
+  int accelerate(int& counter, int pwm, int step = 5);
 };
 
 #endif
