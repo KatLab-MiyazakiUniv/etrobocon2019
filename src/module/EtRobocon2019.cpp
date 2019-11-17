@@ -45,7 +45,7 @@ void EtRobocon2019::start()
       //ブロックビンゴを実行する処理を記述
       moveDirectGarage.moveDirectGarageL();
     } else {
-      moveDirectGarage.moveDirectGarageR();  // Rコースの場合はビンゴを行わずにガレージ駐車を行う
+      moveDirectGarage.moveDirectGarageR();
     }
   }
   // ガレージ
