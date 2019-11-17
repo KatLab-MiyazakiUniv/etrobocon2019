@@ -9,16 +9,14 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: docker pull
-      uses: docker://korosuke613/etrobo-docker:latest
-      with:
-        entrypoint: bash
     - name: copy
+      uses: docker://korosuke613/etrobo-docker:latest
       run: |
         cp -r src /home/hrp2/sdk/workspace/
         mv -T /home/hrp2/sdk/workspace/src/ /home/hrp2/sdk/workspace/product/ 
         cp -r src /home/hrp2/sdk/workspace/product
     - name: build
+      uses: docker://korosuke613/etrobo-docker:latest
       run: |
         cd /home/hrp2/sdk/workspace/
         make_src
