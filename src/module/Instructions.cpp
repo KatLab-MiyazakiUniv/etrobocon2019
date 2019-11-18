@@ -9,8 +9,6 @@ Instructions::Instructions()
 {
   mp['a'] = Order::ENTER_BINGO_AREA_L4;
   mp['b'] = Order::ENTER_BINGO_AREA_L6;
-  mp['w'] = Order::ENTER_BINGO_AREA_R5;
-  mp['x'] = Order::ENTER_BINGO_AREA_R8;
   mp['c'] = Order::STRAIGHT;
   mp['d'] = Order::SPIN_RIGHT;
   mp['e'] = Order::SPIN_LEFT;
@@ -25,7 +23,12 @@ Instructions::Instructions()
   mp['n'] = Order::TURN180;
 
   mp['o'] = Order::PREPARE_TO_PUT;
+  mp['p'] = Order::STRAIGHT_STRAIGHT;
+  mp['q'] = Order::MOVE_TO_MIDPOINT;
   mp['u'] = Order::MOVE_NODE;
+
+  mp['w'] = Order::ENTER_BINGO_AREA_R5;
+  mp['x'] = Order::ENTER_BINGO_AREA_R8;
 
   mp['y'] = Order::QUICK_PUT_R;
   mp['z'] = Order::QUICK_PUT_L;

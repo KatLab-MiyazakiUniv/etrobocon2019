@@ -12,24 +12,26 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+    BlockBingo blockbingo(controller, targetBrightness, true);
   }
 
   // 黄色まで進む処理があるのでテストができない
-  // TEST(BlockBingo, moveCircle4OfLTest)
+  // TEST(BlockBingo, execEnterBingoAreaL4Test)
   // {
+  //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'a' };
   //   blockbingo.execOrder<1>(order);
   // }
 
   // 黄色まで進む処理があるのでテストができない
-  // TEST(BlockBingo, moveCircle6OfLTest)
+  // TEST(BlockBingo, execEnterBingoAreaL6Test)
   // {
+  //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'b' };
   //   blockbingo.execOrder<1>(order);
@@ -39,7 +41,7 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+    BlockBingo blockbingo(controller, targetBrightness, true);
 
     std::array<char, 1> order{ 'c' };
     blockbingo.execOrder<1>(order);
@@ -49,7 +51,7 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+    BlockBingo blockbingo(controller, targetBrightness, true);
 
     std::array<char, 1> order{ 'd' };
     blockbingo.execOrder<1>(order);
@@ -59,7 +61,7 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+    BlockBingo blockbingo(controller, targetBrightness, true);
 
     std::array<char, 1> order{ 'e' };
     blockbingo.execOrder<1>(order);
@@ -69,7 +71,7 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+    BlockBingo blockbingo(controller, targetBrightness, true);
 
     std::array<char, 1> order{ 'f' };
     blockbingo.execOrder<1>(order);
@@ -78,8 +80,9 @@ namespace etrobocon2019_test {
   // なぜかテストが失敗する。実機テスト済み
   // TEST(BlockBingo, execPutInFirstProcessTest)
   // {
+  //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'g' };
   //   blockbingo.execOrder<1>(order);
@@ -88,8 +91,9 @@ namespace etrobocon2019_test {
   // なぜかテストが失敗する。実機テスト済み
   // TEST(BlockBingo, execPutInSecondProcessTest)
   // {
+  //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'g' };
   //   blockbingo.execOrder<1>(order);
@@ -102,7 +106,7 @@ namespace etrobocon2019_test {
   // {
   //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller, targetBrightness);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'h' };
   //   blockbingo.execOrder<1>(order);
@@ -112,7 +116,7 @@ namespace etrobocon2019_test {
   // {
   //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller, targetBrightness);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'i' };
   //   blockbingo.execOrder<1>(order);
@@ -122,7 +126,7 @@ namespace etrobocon2019_test {
   // {
   //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller, targetBrightness);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'j' };
   //   blockbingo.execOrder<1>(order);
@@ -132,7 +136,7 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+    BlockBingo blockbingo(controller, targetBrightness, true);
 
     std::array<char, 1> order{ 'k' };
     blockbingo.execOrder<1>(order);
@@ -142,7 +146,7 @@ namespace etrobocon2019_test {
   // {
   //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller, targetBrightness);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'l' };
   //   blockbingo.execOrder<1>(order);
@@ -152,7 +156,7 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+    BlockBingo blockbingo(controller, targetBrightness, true);
 
     std::array<char, 1> order{ 'm' };
     blockbingo.execOrder<1>(order);
@@ -161,8 +165,9 @@ namespace etrobocon2019_test {
   // なぜかテストが失敗する。実機テスト済み
   // TEST(BlockBingo, execTurn180Test)
   // {
+  //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'n' };
   //   blockbingo.execOrder<1>(order);
@@ -172,27 +177,27 @@ namespace etrobocon2019_test {
   {
     int targetBrightness = 70;
     Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+    BlockBingo blockbingo(controller, targetBrightness, true);
 
     std::array<char, 1> order{ 'o' };
     blockbingo.execOrder<1>(order);
   }
 
-  TEST(BlockBingo, execMoveNodeTest)
-  {
-    int targetBrightness = 70;
-    Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness);
+  // TEST(BlockBingo, execMoveNodeTest)
+  // {
+  //   int targetBrightness = 70;
+  //   Controller controller;
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
-    std::array<char, 1> order{ 'u' };
-    blockbingo.execOrder<1>(order);
-  }
+  //   std::array<char, 1> order{ 'u' };
+  //   blockbingo.execOrder<1>(order);
+  // }
 
   // TEST(BlockBingo, execMoveDiagonalTest)
   // {
   //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller, targetBrightness);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'v' };
   //   blockbingo.execOrder<1>(order);
@@ -202,7 +207,7 @@ namespace etrobocon2019_test {
   // {
   //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller, targetBrightness);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'y' };
   //   blockbingo.execOrder<1>(order);
@@ -212,9 +217,29 @@ namespace etrobocon2019_test {
   // {
   //   int targetBrightness = 70;
   //   Controller controller;
-  //   BlockBingo blockbingo(controller, targetBrightness);
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
 
   //   std::array<char, 1> order{ 'z' };
   //   blockbingo.execOrder<1>(order);
   // }
+
+  // TEST(BlockBingo, execStraightStraightTest)
+  // {
+  //   int targetBrightness = 70;
+  //   Controller controller;
+  //   BlockBingo blockbingo(controller, targetBrightness, true);
+
+  //   std::array<char, 1> order{ 'p' };
+  //   blockbingo.execOrder<1>(order);
+  // }
+
+  TEST(BlockBingo, execMoveToMidpointTest)
+  {
+    int targetBrightness = 70;
+    Controller controller;
+    BlockBingo blockbingo(controller, targetBrightness, true);
+
+    std::array<char, 1> order{ 'q' };
+    blockbingo.execOrder<1>(order);
+  }
 }  // namespace etrobocon2019_test
