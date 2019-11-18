@@ -256,6 +256,9 @@ class BlockBingo {
           this->execMoveToMidpoint();
           break;
 
+        case Order::QUIT*
+          return;
+
         default:
           controller.speakerPlayToneFS6(1000);
       }
