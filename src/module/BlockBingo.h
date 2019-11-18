@@ -23,6 +23,7 @@ class BlockBingo {
   static constexpr double lengthColorSensorAxis = 50.0;
   const double lineTracePGain;
   const int straightPwm;
+  bool isFirstProcess;
 
   /**
    * Lコースのブロックビンゴのブロックサークル4に移動する
