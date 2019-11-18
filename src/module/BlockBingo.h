@@ -256,7 +256,7 @@ class BlockBingo {
           this->execMoveToMidpoint();
           break;
 
-        case Order::QUIT*
+        case Order::QUIT:
           return;
 
         default:
