@@ -30,16 +30,18 @@ void Parking::parkAtAR()
 {
   Navigator navigator(controller, targetBrightness);
 
-  navigator.moveToSpecifiedColor(Color::blue, 10);
-  navigator.move(250, 10);
-  navigator.spin(40, false);
-  navigator.moveToSpecifiedColor(Color::black, 10);
-  navigator.move(40, 10);
-  navigator.spin(45, true);
-  navigator.moveToSpecifiedColor(Color::blue, 10);
-  navigator.move(130, 10);
-  navigator.spin(90, false);
-  navigator.move(400, 10);
+  navigator.move(110, 13);                                           // 200mm直進
+  navigator.spin(60, false);                                         // 60度左回転
+  navigator.moveToSpecifiedColor(Color::black, 13);                  // 黒詠むまで走る
+  navigator.move(50, 10);                                            // 50mm前進
+  navigator.spin(60, true);                                          // 55度右回転
+  navigator.move(0.02, 10);                                          // 0.03mm進む
+  navigator.lineTraceToSpecifiedColor(Color::blue, 20, 0.35, true);  // 左ライントレースしながら青
+  navigator.move(50, 20);
+  navigator.spin(90, false);      // 90度左旋回
+  controller.setArmMotorPwm(40);  //アームを上に動かす
+  controller.resetMotorCount();
+  navigator.move(360, 25);  // 400mm前進
 
   this->stopFor3sec();
 }

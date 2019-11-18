@@ -50,8 +50,10 @@ void EtRobocon2019::start()
   // ガレージ
   Parking parking(controller, targetBrightness);
   if(isLeftCourse) {
+    controller.speakerPlayToneFS6(300);
     parking.parkAtAL();
   } else {
+    controller.speakerPlayToneFS6(300);
     parking.parkAtAR();
   }
 }
