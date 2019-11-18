@@ -162,4 +162,24 @@ namespace etrobocon2019_test {
 
   //   navigator.lineTraceToSpecifiedColor(Color::yellow);
   // }
+
+  TEST(Navigator, steerTest)
+  {
+    Controller controller;
+    int targetBrightness = 70;
+    Distance distance;
+    Navigator navigator(controller, targetBrightness);
+
+    double expected = 100.0;
+    double start
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
+    navigator.steer(expected, 10, 0.0, 0.0, 0.0, 0.0);
+    double end
+        = distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount());
+
+    double actual = end - start;
+
+    ASSERT_LE(expected, actual);
+    ASSERT_LE(actual, expected + 5.0);
+  }
 }  // namespace etrobocon2019_test
