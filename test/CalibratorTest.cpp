@@ -25,6 +25,13 @@ namespace etrobocon2019_test {
     ASSERT_EQ(calibrator.isLeftCourse(), true);
   }
 
+  TEST(Calibrator, checkMotorTest1)
+  {
+    Controller con;
+    Calibrator calibrator(con);
+    calibrator.checkMotor();
+  }
+
   TEST(Calibrator, setCameraModeTest1)
   {
     Controller con;
@@ -149,7 +156,6 @@ namespace etrobocon2019_test {
     ASSERT_EQ(con.standardBlack.r, 1);
     ASSERT_EQ(con.standardBlack.g, 1);
     ASSERT_EQ(con.standardBlack.b, 1);
-
   }
 
   TEST(Calibrator, setBrightnessTest3)
@@ -167,7 +173,6 @@ namespace etrobocon2019_test {
     ASSERT_EQ(con.standardBlack.r, 1);
     ASSERT_EQ(con.standardBlack.g, 1);
     ASSERT_EQ(con.standardBlack.b, 1);
-
   }
 
   // TEST(Calibrator, setArmTest)

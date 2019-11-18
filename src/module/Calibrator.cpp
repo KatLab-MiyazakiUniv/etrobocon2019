@@ -15,6 +15,7 @@ bool Calibrator::calibration()
   auto volt = controller.getVolt();
   auto amp = controller.getAmp();
   Display::print(1, "Calibration, mV:%d, mA:%d", volt, amp);
+  this->checkMotor();
   this->setArm();
   this->deleteDisplayedText(2, 11);
   if(!setCameraMode()) {
@@ -44,6 +45,31 @@ bool Calibrator::calibration()
   Display::print(7, "Calibration was completed!");
 
   return true;
+}
+
+void Calibrator::checkMotor()
+{
+  // モーターが回るか確認する
+  Display::print(2, "Check motors and Enter!");
+  controller.resetMotorCount();
+
+  // エンターボタンが押されるまで左右のモーターを回転させる
+  while(!controller.buttonIsPressedEnter()) {
+    controller.setLeftMotorPwm(10);
+    controller.setRightMotorPwm(10);
+    controller.tslpTsk(4);
+  }
+  controller.stopMotor();
+
+  // 左右のモーターが回転したら短い音、少なくとも一方が回転していなければ長い音を鳴らす
+  if(controller.getLeftMotorCount() > 0 && controller.getRightMotorCount() > 0) {
+    controller.speakerPlayToneFS6(100);
+  } else {
+    controller.speakerPlayToneFS6(5000);
+  }
+
+  controller.resetMotorCount();
+  deleteDisplayedText(2, 11);
 }
 
 bool Calibrator::setCameraMode()
@@ -162,22 +188,22 @@ void Calibrator::setArm()
 
   controller.stopLiftMotor();
 
-  while(!controller.touchSensor.isPressed()){
+  while(!controller.touchSensor.isPressed()) {
     controller.tslpTsk(4);
     Display::print(2, "UP    Button : Raise Arm");
     Display::print(3, "DOWN  Button : Lower Arm");
     Display::print(5, "Touch Button : Arm set finish!");
-    if(controller.buttonIsPressedUp()){
+    if(controller.buttonIsPressedUp()) {
       controller.moveArm(1);
-    }else if(controller.buttonIsPressedDown()){
-      controller.moveArm(-1);  
+    } else if(controller.buttonIsPressedDown()) {
+      controller.moveArm(-1);
     }
   }
 }
 
-void Calibrator::deleteDisplayedText(int startTarget,int endTarget)
+void Calibrator::deleteDisplayedText(int startTarget, int endTarget)
 {
-  for (int i = startTarget; i <= endTarget; i++){
+  for(int i = startTarget; i <= endTarget; i++) {
     Display::print(i, "");
   }
 }

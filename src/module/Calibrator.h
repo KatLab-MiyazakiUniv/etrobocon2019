@@ -33,6 +33,9 @@ class Calibrator {
    */
   bool isLeftCourse() const;
 
+  /** モーターを回転させる */
+  void checkMotor();
+
   /** カメラシステムを使用するかどうかを設定する
    * @return 正常終了したかどうかの真偽値(Trueなら正常終了)
    */
@@ -53,9 +56,9 @@ class Calibrator {
   void setArm();
 
   /** ディスプレイに表示されているものを消す */
-  void deleteDisplayedText(int startTarget = 1,int endTarget = 11);
+  void deleteDisplayedText(int startTarget = 1, int endTarget = 11);
 
-private:
+ private:
   Controller& controller;
   bool isCameraMode;  // カメラシステムを使用するかどうか(Trueなら使用する)
   bool isLeft;        // Leftコースであるかどうかの真偽値（TrueならLeftコース）
