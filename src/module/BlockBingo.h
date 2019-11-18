@@ -137,11 +137,6 @@ class BlockBingo {
    */
   void execStraightStraight();
   /**
-   * MOVE_TO_MIDPOINTの命令を実行する
-   * @brief 交点サークルから中点まで移動する。execPrepareToPutに類似
-   */
-  void execMoveToMidpoint();
-  /**
    * 交点サークル上に移動する
    * @brief 交点サークル上で回頭を行うときに使う
    */
@@ -252,9 +247,8 @@ class BlockBingo {
           this->execStraightStraight();
           break;
 
-        case Order::MOVE_TO_MIDPOINT:
-          this->execMoveToMidpoint();
-          break;
+        case Order::QUIT:
+          return;
 
         default:
           controller.speakerPlayToneFS6(1000);

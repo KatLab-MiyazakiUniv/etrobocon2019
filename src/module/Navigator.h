@@ -106,6 +106,17 @@ class Navigator {
 
     return count;
   }
+  /**
+   * 指定距離だけ旋回する
+   * @param goalDiatance [指定距離]
+   * @param pwm [モーターパワー]
+   * @param curvatureValue [曲率]
+   * @param pGain [曲率の値を使ったPID制御のPゲイン]
+   * @param iGain [曲率の値を使ったPID制御のIゲイン]
+   * @param dGain [曲率の値を使ったPID制御のDゲイン]
+   */
+  void steer(double goalDistance, int pwm, double curvatureValue, double pGain, double iGain,
+             double dGain);
 
  private:
   Distance distance;

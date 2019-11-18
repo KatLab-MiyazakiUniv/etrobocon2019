@@ -24,7 +24,6 @@ Instructions::Instructions()
 
   mp['o'] = Order::PREPARE_TO_PUT;
   mp['p'] = Order::STRAIGHT_STRAIGHT;
-  mp['q'] = Order::MOVE_TO_MIDPOINT;
   mp['u'] = Order::MOVE_NODE;
 
   mp['w'] = Order::ENTER_BINGO_AREA_R5;
@@ -32,6 +31,8 @@ Instructions::Instructions()
 
   mp['y'] = Order::QUICK_PUT_R;
   mp['z'] = Order::QUICK_PUT_L;
+
+  mp['#'] = Order::QUIT;
 }
 
 Order Instructions::translate(char key)

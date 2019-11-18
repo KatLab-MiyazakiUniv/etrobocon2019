@@ -51,25 +51,21 @@ void BlockBingo::execEnterBingoAreaL6()
 void BlockBingo::execEnterBingoAreaR5()
 {
   navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
-  navigator.move(10.0, straightPwm);
-  controller.setLeftMotorPwm(30);
-  controller.setRightMotorPwm(8);
-  controller.speakerPlayToneFS6(100);
-  controller.tslpTsk(500);
-  navigator.move(240.0, straightPwm);
-  navigator.spin(45, false);
+  navigator.move(40, 15);
+  navigator.steer(170 / 2 * M_PI + 38.0, 15, -1.0 / 170.0, 30.0, 0, 0);
+  controller.tslpTsk(300);
+  navigator.spin(90, false);
+
 }
 
 void BlockBingo::execEnterBingoAreaR8()
 {
   navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
-  navigator.move(10.0, straightPwm);
-  controller.setLeftMotorPwm(8);
-  controller.setRightMotorPwm(30);
-  controller.speakerPlayToneFS6(100);
-  controller.tslpTsk(500);
-  navigator.move(250.0, straightPwm);
-  navigator.spin(45);
+  navigator.move(40, 15);
+  navigator.steer(170 / 2 * M_PI + 38.0, 15, 1.0 / 170.0, 30.0, 0, 0);
+  controller.tslpTsk(300);
+  navigator.spin(93, true);
+  navigator.move(10, 15);
 }
 
 void BlockBingo::execSpinRight()
@@ -248,15 +244,7 @@ void BlockBingo::execStraightStraight()
 
 void BlockBingo::moveCrossCircle()
 {
-  Color color = controller.getColor();
-  if(!isFirstProcess && color != Color::black) {
+  if(!isFirstProcess) {
     navigator.move(90.0, straightPwm);
   }
-}
-
-void BlockBingo::execMoveToMidpoint()
-{
-  double first = 30.0;
-  navigator.move(first, straightPwm);
-  navigator.lineTrace(lengthCrossCircleMidpoint - first, straightPwm, lineTracePGain, isLeft);
 }

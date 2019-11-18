@@ -190,3 +190,21 @@ int Navigator::accelerate(int& counter, int pwm, int step)
 {
   return (counter <= step) ? static_cast<int>(pwm / step * counter) : pwm;
 }
+
+void Navigator::steer(double goalDistance, int pwm, double curvatureValue, double pGain,
+                      double iGain, double dGain)
+{
+  Distance distance;
+  LineTracer lineTracer(controller, targetBrightness, true);
+
+  controller.resetMotorCount();
+
+  while(distance.getDistance(controller.getLeftMotorCount(), controller.getRightMotorCount())
+        < goalDistance) {
+    double pidValue
+        = lineTracer.calculateTurnValue(pwm, curvatureValue, 0.0, 0.0, 0.0, pGain, iGain, dGain);
+    this->setPwmValue(pwm, pidValue);
+    controller.tslpTsk(4);
+  }
+  controller.stopMotor();
+}
