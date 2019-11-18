@@ -52,7 +52,7 @@ void BlockBingo::execEnterBingoAreaR5()
 {
   navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(40, 15);
-  navigator.steer(170/2*M_PI+38.0,15,-1.0/170.0,30.0,0,0);
+  navigator.steer(170 / 2 * M_PI + 38.0, 15, -1.0 / 170.0, 30.0, 0, 0);
   controller.tslpTsk(300);
   navigator.spin(90, false);
 
@@ -62,7 +62,7 @@ void BlockBingo::execEnterBingoAreaR8()
 {
   navigator.lineTraceToSpecifiedColor(Color::yellow, 5, 0.10);
   navigator.move(40, 15);
-  navigator.steer(170/2*M_PI+38.0,15,1.0/170.0,30.0,0,0);
+  navigator.steer(170 / 2 * M_PI + 38.0, 15, 1.0 / 170.0, 30.0, 0, 0);
   controller.tslpTsk(300);
   navigator.spin(93, true);
   navigator.move(10, 15);
