@@ -11,7 +11,8 @@ BlockBingo::BlockBingo(Controller& controller_, int targetBrightness_, bool isLe
     targetBrightness(targetBrightness_),
     isLeft(isLeft_),
     lineTracePGain(0.35),
-    straightPwm(15)
+    straightPwm(15),
+    isFirstProcess(true)
 {
 }
 
@@ -182,6 +183,7 @@ void BlockBingo::execPut()
   navigator.move(-120.0, straightPwm);
   navigator.moveToSpecifiedColor(Color::black, -straightPwm);
   navigator.move(lengthColorSensorAxis, straightPwm);
+  isFirstProcess = false;
 }
 
 void BlockBingo::execMoveNode()
@@ -247,7 +249,7 @@ void BlockBingo::execStraightStraight()
 void BlockBingo::moveCrossCircle()
 {
   Color color = controller.getColor();
-  if(color != Color::black) {
+  if(!isFirstProcess && color != Color::black) {
     navigator.move(90.0, straightPwm);
   }
 }
