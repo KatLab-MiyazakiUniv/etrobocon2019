@@ -31,7 +31,6 @@ namespace etrobocon2019_test {
 
     ASSERT_EQ(Order::PREPARE_TO_PUT, instructions.translate('o'));
     ASSERT_EQ(Order::STRAIGHT_STRAIGHT, instructions.translate('p'));
-    ASSERT_EQ(Order::MOVE_TO_MIDPOINT, instructions.translate('q'));
     ASSERT_EQ(Order::MOVE_NODE, instructions.translate('u'));
 
     ASSERT_EQ(Order::ENTER_BINGO_AREA_R5, instructions.translate('w'));
