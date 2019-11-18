@@ -30,19 +30,23 @@ void EtRobocon2019::start()
   // NormalCourseを走り出す．
   normalCourse.runNormalCourse();
 
-  // ブロックビンゴ
-  BlockBingo blockBingo(controller, targetBrightness);
-  // ここでビンゴを開始するblockBingoのメンバ関数を呼び出す
-  blockBingo.execOrder<256>(Bluetooth::commands);
-
-  //直接ガレージに移動する
-  MoveDirectGarage moveDirectGarage(controller, targetBrightness);
-  if(isLeftCourse) {
-    //ブロックビンゴを実行する処理を記述
+  // 受信コマンドがあればブロックビンゴを解く。なければ、直接ガレージに進む。
+  if(Bluetooth::commands.size() != 0) {
+    // 受信コマンドがある場合
+    // ブロックビンゴ
+    BlockBingo blockBingo(controller, targetBrightness, isLeftCourse);
+    // ここでビンゴを開始するblockBingoのメンバ関数を呼び出す
+    blockBingo.execOrder<256>(Bluetooth::commands);
   } else {
-    moveDirectGarage.moveDirectGarageR();  // Rコースの場合はビンゴを行わずにガレージ駐車を行う
+    // 受信コマンドがない場合
+    //直接ガレージに移動する
+    MoveDirectGarage moveDirectGarage(controller, targetBrightness);
+    if(isLeftCourse) {
+      moveDirectGarage.moveDirectGarageL();
+    } else {
+      moveDirectGarage.moveDirectGarageR();
+    }
   }
-
   // ガレージ
   Parking parking(controller, targetBrightness);
   if(isLeftCourse) {
