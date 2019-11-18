@@ -233,13 +233,4 @@ namespace etrobocon2019_test {
   //   blockbingo.execOrder<1>(order);
   // }
 
-  TEST(BlockBingo, execMoveToMidpointTest)
-  {
-    int targetBrightness = 70;
-    Controller controller;
-    BlockBingo blockbingo(controller, targetBrightness, true);
-
-    std::array<char, 1> order{ 'q' };
-    blockbingo.execOrder<1>(order);
-  }
 }  // namespace etrobocon2019_test

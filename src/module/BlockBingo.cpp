@@ -248,15 +248,7 @@ void BlockBingo::execStraightStraight()
 
 void BlockBingo::moveCrossCircle()
 {
-  Color color = controller.getColor();
-  if(!isFirstProcess && color != Color::black) {
+  if(!isFirstProcess) {
     navigator.move(90.0, straightPwm);
   }
-}
-
-void BlockBingo::execMoveToMidpoint()
-{
-  double first = 30.0;
-  navigator.move(first, straightPwm);
-  navigator.lineTrace(lengthCrossCircleMidpoint - first, straightPwm, lineTracePGain, isLeft);
 }
