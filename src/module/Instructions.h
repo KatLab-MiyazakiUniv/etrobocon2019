@@ -30,8 +30,7 @@ enum class Order {
   QUICK_PUT_R,
   QUICK_PUT_L,
   PREPARE_TO_PUT,
-  STRAIGHT_STRAIGHT,
-  MOVE_TO_MIDPOINT
+  STRAIGHT_STRAIGHT
 };
 
 class Instructions {
