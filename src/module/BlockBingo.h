@@ -247,6 +247,9 @@ class BlockBingo {
           this->execStraightStraight();
           break;
 
+        case Order::QUIT:
+          return;
+
         default:
           controller.speakerPlayToneFS6(1000);
       }

@@ -31,6 +31,8 @@ Instructions::Instructions()
 
   mp['y'] = Order::QUICK_PUT_R;
   mp['z'] = Order::QUICK_PUT_L;
+
+  mp['#'] = Order::QUIT;
 }
 
 Order Instructions::translate(char key)

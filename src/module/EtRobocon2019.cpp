@@ -31,7 +31,7 @@ void EtRobocon2019::start()
   normalCourse.runNormalCourse();
 
   // 受信コマンドがあればブロックビンゴを解く。なければ、直接ガレージに進む。
-  if(Bluetooth::commands.size() != 0) {
+  if(Bluetooth::commands[0] != '#') {
     // 受信コマンドがある場合
     // ブロックビンゴ
     BlockBingo blockBingo(controller, targetBrightness, isLeftCourse);
