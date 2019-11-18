@@ -12,11 +12,12 @@ Calibrator::Calibrator(Controller& controller_)
 
 bool Calibrator::calibration()
 {
+  auto volt = controller.getVolt();
+  auto amp = controller.getAmp();
+  Display::print(1, "Calibration, mV:%d, mA:%d", volt, amp);
   this->checkMotor();
   this->setArm();
-  this->deleteDisplayedText(5);
-  Display::print(2, "Calibration...");
-
+  this->deleteDisplayedText(2, 11);
   if(!setCameraMode()) {
     Display::print(2, "Error setCameraMode!");
     return false;
@@ -68,7 +69,7 @@ void Calibrator::checkMotor()
   }
 
   controller.resetMotorCount();
-  deleteDisplayedText();
+  deleteDisplayedText(2, 11);
 }
 
 bool Calibrator::setCameraMode()

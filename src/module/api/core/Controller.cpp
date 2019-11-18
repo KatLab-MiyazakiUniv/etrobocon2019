@@ -13,6 +13,14 @@ Controller::Controller()
   colorSensor.getRawColor(standardBlack);
 }
 
+int Controller::getVolt(){
+  return ev3_battery_voltage_mV();
+}
+
+int Controller::getAmp(){
+  return ev3_battery_current_mA();
+}
+
 void Controller::speakerSetVolume(int volume)
 {
   ev3_speaker_set_volume(volume);

@@ -20,8 +20,6 @@ class BlockBingo {
   static constexpr double lengthCrossCircleCenter = 175.0;
   static constexpr double lengthColorSensorAxis = 50.0;
   // FirstProcess = ブロックサークル内の黒ブロックをボーナスサークル内に設置する
-  bool isFirstProcess;
-  const double pGain;
   const int straightPwm;
 
   //ここからのprivate関数の詳細はモデルの2.2を参照
@@ -129,6 +127,19 @@ class BlockBingo {
    */
   void moveCircle6OfL();
   /**
+   * Rコースのブロックビンゴのブロックサークル6に移動する
+   * @brief Lコースのブロックビンゴ開始点からブロックサークル6の手前の
+   * 黒線の中点まで斜めに移動し、ブロックサークル6の中央まで移動する。
+   */
+  void moveCircle5OfR();
+  /**
+   * Rコースのブロックビンゴのブロックサークル8に移動する
+   * @brief Rコースのブロックビンゴ開始点からブロックサークル8の手前の
+   * 黒線の中点まで斜めに移動し、ブロックサークル8の中央まで移動する。
+   */
+  void moveCircle8OfR();
+  
+  /**
    * パソコンから受け取ったリストの通りに処理を実行する
    * @param orders [命令の情報のリスト]
    */
@@ -149,7 +160,16 @@ class BlockBingo {
           this->moveCircle6OfL();
           break;
 
+        case Order::ENTER_BINGO_AREA_R5:
+          this->moveCircle5OfR();
+          break;
+
+        case Order::ENTER_BINGO_AREA_R8:
+          this->moveCircle8OfR();
+          break;
+
         case Order::SPIN_RIGHT:
+
           this->execSpinRight();
           break;
 

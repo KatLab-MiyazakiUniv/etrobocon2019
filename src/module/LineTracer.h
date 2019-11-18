@@ -52,9 +52,13 @@ class LineTracer {
    *  @param pGain [カラーセンサーの値を用いたPID制御のPゲイン]
    *  @param iGain [カラーセンサーの値を用いたPID制御のIゲイン]
    *  @param dGain [カラーセンサーの値を用いたPID制御のDゲイン]
+   *  @param curvaturePGain [曲率の値を用いたPID制御のPゲイン]
+   *  @param curvatureIGain [曲率の値を用いたPID制御のIゲイン]
+   *  @param curvatureDGain [曲率の値を用いたPID制御のDゲイン]
    */
   int calculateTurnValue(int speedValue, double curvatureValue, double pGain, double iGain,
-                         double dGain);
+                         double dGain, double curvaturePGain = 1.2, double curvatureIGain = 1.8,
+                         double curvatureDGain = 0.0);
 
  private:
   Controller& controller;
