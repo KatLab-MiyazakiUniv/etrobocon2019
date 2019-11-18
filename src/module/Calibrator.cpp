@@ -56,7 +56,7 @@ void Calibrator::checkMotor()
   // エンターボタンが押されるまで左右のモーターを回転させる
   while(!controller.buttonIsPressedEnter()) {
     controller.setLeftMotorPwm(10);
-    controller.setRightMotorPwm(10);
+    controller.setRightMotorPwm(-10);
     controller.tslpTsk(4);
   }
   controller.stopMotor();
