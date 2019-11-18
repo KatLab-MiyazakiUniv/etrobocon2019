@@ -8,7 +8,7 @@
 #include <cmath>
 
 // 演習用のユーティリティ
-std::array<char, 256> Bluetooth::commands;
+std::array<char, 256> Bluetooth::commands = {'#'};
 bool Bluetooth::is_start = false;
 
 /**
@@ -105,10 +105,10 @@ void bt_task(intptr_t unused)
     receiveCommand = static_cast<char>(bluetooth.serialRead());
     Display::print(9, "BT: %c", receiveCommand);
 
+    command_string[i] = commands[i] = receiveCommand;
     if(receiveCommand == '#') {
       break;
     }
-    command_string[i] = commands[i] = receiveCommand;
     controller.tslpTsk(4);
   }
   Bluetooth::commands = commands;
