@@ -204,6 +204,7 @@ void Navigator::steer(double goalDistance, int pwm, double curvatureValue, doubl
     double pidValue
         = lineTracer.calculateTurnValue(pwm, curvatureValue, 0.0, 0.0, 0.0, pGain, iGain, dGain);
     this->setPwmValue(pwm, pidValue);
+    controller.tslpTsk(4);
   }
   controller.stopMotor();
 }
