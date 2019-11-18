@@ -29,7 +29,9 @@ enum class Order {
   ENTER_BINGO_AREA_R8,
   QUICK_PUT_R,
   QUICK_PUT_L,
-  PREPARE_TO_PUT
+  PREPARE_TO_PUT,
+  STRAIGHT_STRAIGHT,
+  MOVE_TO_MIDPOINT
 };
 
 class Instructions {

@@ -13,11 +13,13 @@ Controller::Controller()
   colorSensor.getRawColor(standardBlack);
 }
 
-int Controller::getVolt(){
+int Controller::getVolt()
+{
   return ev3_battery_voltage_mV();
 }
 
-int Controller::getAmp(){
+int Controller::getAmp()
+{
   return ev3_battery_current_mA();
 }
 
@@ -317,7 +319,7 @@ void Controller::resetArmMotorCount()
   liftMotor.reset();
 }
 
-void Controller::steer(int power,int turnRatio)
+void Controller::steer(int power, int turnRatio)
 {
   ev3_motor_steer(EV3_PORT_C, EV3_PORT_B, power, turnRatio);
 }

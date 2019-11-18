@@ -34,7 +34,7 @@ void EtRobocon2019::start()
   if(Bluetooth::commands.size() != 0) {
     // 受信コマンドがある場合
     // ブロックビンゴ
-    BlockBingo blockBingo(controller, targetBrightness);
+    BlockBingo blockBingo(controller, targetBrightness, isLeftCourse);
     // ここでビンゴを開始するblockBingoのメンバ関数を呼び出す
     blockBingo.execOrder<256>(Bluetooth::commands);
   } else {
